@@ -15,6 +15,8 @@
 		0722326221D43760009D1912 /* BackitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0722326121D43760009D1912 /* BackitUITests.swift */; };
 		07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC39C521D4414F00214687 /* ChangelogViewController.swift */; };
 		07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07AC39C921D44A1400214687 /* HomepageProjectCell.xib */; };
+		6EECFD5D5C99C9B4024FB051 /* Pods_BackitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2956DF6D3FFEB25F1954B3D0 /* Pods_BackitUITests.framework */; };
+		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,12 @@
 		0722326321D43760009D1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07AC39C521D4414F00214687 /* ChangelogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangelogViewController.swift; sourceTree = "<group>"; };
 		07AC39C921D44A1400214687 /* HomepageProjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageProjectCell.xib; sourceTree = "<group>"; };
+		2956DF6D3FFEB25F1954B3D0 /* Pods_BackitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.debug.xcconfig"; sourceTree = "<group>"; };
+		8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DDE6A40E61C994528485F9C6 /* Pods-BackitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DFB4946CA755B950FFED3B7B /* Pods-Backit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EECFD5D5C99C9B4024FB051 /* Pods_BackitUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +76,8 @@
 				0722324921D4375C009D1912 /* Backit */,
 				0722326021D43760009D1912 /* BackitUITests */,
 				0722324821D4375C009D1912 /* Products */,
+				558BEF62525305F3967B7867 /* Pods */,
+				B077C247AFCEC327BD412C35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +138,26 @@
 			path = Changelog;
 			sourceTree = "<group>";
 		};
+		558BEF62525305F3967B7867 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */,
+				DFB4946CA755B950FFED3B7B /* Pods-Backit.release.xcconfig */,
+				DDE6A40E61C994528485F9C6 /* Pods-BackitUITests.debug.xcconfig */,
+				8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B077C247AFCEC327BD412C35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */,
+				2956DF6D3FFEB25F1954B3D0 /* Pods_BackitUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0722326621D43760009D1912 /* Build configuration list for PBXNativeTarget "Backit" */;
 			buildPhases = (
+				6264289A1B6B5E90A05AB754 /* [CP] Check Pods Manifest.lock */,
 				0722324321D4375C009D1912 /* Sources */,
 				0722324421D4375C009D1912 /* Frameworks */,
 				0722324521D4375C009D1912 /* Resources */,
+				6A7B319BD4A0658FCA338714 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0722326921D43760009D1912 /* Build configuration list for PBXNativeTarget "BackitUITests" */;
 			buildPhases = (
+				4F4231B80DEA1DF20B5DF9D6 /* [CP] Check Pods Manifest.lock */,
 				0722325921D43760009D1912 /* Sources */,
 				0722325A21D43760009D1912 /* Frameworks */,
 				0722325B21D43760009D1912 /* Resources */,
+				C3303A931C0716DAEB47FE6B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,6 +258,105 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F4231B80DEA1DF20B5DF9D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BackitUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6264289A1B6B5E90A05AB754 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Backit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A7B319BD4A0658FCA338714 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightFutures.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3303A931C0716DAEB47FE6B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AutoEquatable/AutoEquatable.framework",
+				"${BUILT_PRODUCTS_DIR}/KIF/KIF.framework",
+				"${BUILT_PRODUCTS_DIR}/KIF-Quick/KIF_Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/Spry/Spry.framework",
+				"${BUILT_PRODUCTS_DIR}/Spry+Nimble/Spry_Nimble.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoEquatable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KIF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KIF_Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spry_Nimble.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0722324321D4375C009D1912 /* Sources */ = {
@@ -390,6 +525,7 @@
 		};
 		0722326721D43760009D1912 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -408,6 +544,7 @@
 		};
 		0722326821D43760009D1912 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFB4946CA755B950FFED3B7B /* Pods-Backit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -426,8 +563,8 @@
 		};
 		0722326A21D43760009D1912 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDE6A40E61C994528485F9C6 /* Pods-BackitUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSZ2DNDVRK;
 				INFOPLIST_FILE = BackitUITests/Info.plist;
@@ -446,8 +583,8 @@
 		};
 		0722326B21D43760009D1912 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSZ2DNDVRK;
 				INFOPLIST_FILE = BackitUITests/Info.plist;
