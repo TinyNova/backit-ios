@@ -11,7 +11,8 @@ target 'Backit' do
     pod 'SwinjectStoryboard'
 end
 
-target 'BackitUITests' do
+target 'BackitTests' do
+    pod 'BrightFutures'
     pod 'Quick'
     pod 'Nimble'
     pod 'KIF'
