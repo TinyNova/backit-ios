@@ -14,6 +14,7 @@
 		0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325521D4375F009D1912 /* LaunchScreen.storyboard */; };
 		0722326221D43760009D1912 /* BackitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0722326121D43760009D1912 /* BackitUITests.swift */; };
 		07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC39C521D4414F00214687 /* ChangelogViewController.swift */; };
+		07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07AC39C921D44A1400214687 /* HomepageProjectCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		0722326121D43760009D1912 /* BackitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitUITests.swift; sourceTree = "<group>"; };
 		0722326321D43760009D1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07AC39C521D4414F00214687 /* ChangelogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangelogViewController.swift; sourceTree = "<group>"; };
+		07AC39C921D44A1400214687 /* HomepageProjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageProjectCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				0722324C21D4375C009D1912 /* HomepageViewController.swift */,
+				07AC39C921D44A1400214687 /* HomepageProjectCell.xib */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */,
+				07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */,
 				0722325421D4375F009D1912 /* Assets.xcassets in Resources */,
 				0722325221D4375C009D1912 /* Main.storyboard in Resources */,
 			);
