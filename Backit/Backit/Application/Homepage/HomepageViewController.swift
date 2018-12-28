@@ -46,10 +46,18 @@ class HomepageViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
+            
+            tableView.register(HomepageProjectCell.self, forCellReuseIdentifier: "HomepageProjectCell")
         }
     }
     
+    private let theme = UIThemeApplier<AppTheme>()
+    
     private var projects: [HomepageProject] = []
+    
+    func inject(theme: AnyUITheme<AppTheme>) {
+        self.theme.concrete = theme
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

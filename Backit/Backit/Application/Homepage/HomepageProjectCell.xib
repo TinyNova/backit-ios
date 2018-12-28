@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UITableViewCell" customModule="Backit" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomepageProjectCell" customModule="Backit" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="381" height="306"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -93,6 +93,13 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="cardImageView" destination="Vwu-rD-9AW" id="h8K-f0-gaR"/>
+                <outlet property="fundedBackgroundView" destination="5Yi-7p-fwj" id="ZYF-yR-70X"/>
+                <outlet property="fundedForegroundView" destination="mJf-kz-eA7" id="ynk-i2-mbv"/>
+                <outlet property="fundedPercentLabel" destination="fFc-OC-1hU" id="gRc-qp-3zg"/>
+                <outlet property="imagePagerView" destination="LvN-fm-Xjq" id="wge-ZX-hGb"/>
+            </connections>
             <point key="canvasLocation" x="143.19999999999999" y="-9.8950524737631191"/>
         </view>
     </objects>
