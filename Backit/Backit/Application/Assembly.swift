@@ -16,6 +16,19 @@ class Assembly {
             return AppTheme()
         }.inObjectScope(.container)
         
+        container.register(AnyUITheme<AppTheme>.self) { resolver in
+            let theme = resolver.resolve(AppTheme.self)!
+            return AnyUITheme<AppTheme>(theme: theme)
+        }
+        
+        container.register(UIThemeApplier<AppTheme>.self) { resolver in
+            let theme = UIThemeApplier<AppTheme>()
+            theme.concrete = resolver.resolve(AnyUITheme<AppTheme>.self)!
+            return theme
+        }.inObjectScope(.container)
+        
+        // MARK: - UIViewController Registration
+        
         container.storyboardInitCompleted(UITabBarController.self) { (resolver, controller) in
             
         }
@@ -29,6 +42,5 @@ class Assembly {
         container.storyboardInitCompleted(ChangelogViewController.self) { (resolver, controller) in
             
         }
-
     }
 }

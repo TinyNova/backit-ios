@@ -16,6 +16,7 @@ class UIThemeApplier<T: UIStyle> {
     var tableViewThemes: [([T.TableViewStyle], UITableView)] = []
     var textFieldThemes: [([T.TextFieldStyle], UITextField)] = []
     var textViewThemes: [([T.TextViewStyle], UITextView)] = []
+    var viewThemes: [([T.ViewStyle], UIView)] = []
     
     var concrete: AnyUITheme<T>? {
         didSet {
@@ -47,6 +48,11 @@ class UIThemeApplier<T: UIStyle> {
                 concrete.apply(element.0, toTextView: element.1)
             }
             textViewThemes = []
+            
+            viewThemes.forEach { (element) in
+                concrete.apply(element.0, toView: element.1)
+            }
+            viewThemes = []
         }
     }
     
@@ -89,4 +95,13 @@ class UIThemeApplier<T: UIStyle> {
         }
         theme.apply(styles, toTextView: textView)
     }
+    
+    func apply(_ styles: T.ViewStyle..., toView view: UIView) {
+        guard let theme = concrete else {
+            viewThemes.append((styles, view))
+            return
+        }
+        theme.apply(styles, toView: view)
+    }
+
 }

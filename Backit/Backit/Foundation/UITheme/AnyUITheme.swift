@@ -18,6 +18,7 @@ class AnyUITheme<T: UIStyle>: UITheme {
     let _applyTableView: ([T.TableViewStyle], UITableView) -> Void
     let _applyTextField: ([T.TextFieldStyle], UITextField) -> Void
     let _applyTextView: ([T.TextViewStyle], UITextView) -> Void
+    let _applyView: ([T.ViewStyle], UIView) -> Void
     
     init<U: UITheme>(theme: U) where U.Style == T {
         _applyButton = theme.apply(_:toButton:)
@@ -25,6 +26,7 @@ class AnyUITheme<T: UIStyle>: UITheme {
         _applyTableView = theme.apply(_:toTableView:)
         _applyTextField = theme.apply(_:toTextField:)
         _applyTextView = theme.apply(_:toTextView:)
+        _applyView = theme.apply(_:toView:)
     }
     
     func apply(_ styles: [T.ButtonStyle], toButton button: UIButton) {
@@ -45,5 +47,9 @@ class AnyUITheme<T: UIStyle>: UITheme {
     
     func apply(_ styles: [T.TextViewStyle], toTextView textView: UITextView) {
         _applyTextView(styles, textView)
+    }
+    
+    func apply(_ styles: [T.ViewStyle], toView view: UIView) {
+        _applyView(styles, view)
     }
 }

@@ -13,6 +13,7 @@ protocol UIStyle {
     associatedtype TableViewStyle
     associatedtype TextFieldStyle
     associatedtype TextViewStyle
+    associatedtype ViewStyle
 }
 
 protocol UITheme {
@@ -23,4 +24,5 @@ protocol UITheme {
     func apply(_ styles: [Style.TableViewStyle], toTableView tableView: UITableView)
     func apply(_ styles: [Style.TextFieldStyle], toTextField textField: UITextField)
     func apply(_ styles: [Style.TextViewStyle], toTextView textView: UITextView)
+    func apply(_ styles: [Style.ViewStyle], toView view: UIView)
 }

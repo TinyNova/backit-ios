@@ -4,9 +4,20 @@
  */
 
 import Foundation
+import SwinjectStoryboard
 import UIKit
 
 class AppTheme: UIStyle {
+    
+    /**
+     Provides a "default" `AppTheme` when the theme can not be injected at run-time (ie for embedded views).
+     
+     Please note: Again, this should only ever be used by embedded views. View controllers should still inject the respective theme.
+     */
+    static var `default`: UIThemeApplier<AppTheme> {
+        return SwinjectStoryboard.defaultContainer.resolve(UIThemeApplier<AppTheme>.self)!
+    }
+    
     enum ButtonStyle {
         case none
     }
@@ -28,6 +39,16 @@ class AppTheme: UIStyle {
     enum TextViewStyle {
         case none
     }
+    
+    enum ViewStyle {
+        // Progress bars
+        case defaultProgress
+        case kickstarterProgressForeground
+        case kickstarterProgressBackground
+        case indiegogoProgressForeground
+        case indiegogoProgressBackground
+        
+    }
 }
 
 extension AppTheme: UITheme {
@@ -41,11 +62,17 @@ extension AppTheme: UITheme {
         for style in styles {
             switch style {
             case .projectName:
-                break
+                let font = UIFont(name: "lato-bold", size: 20.0)
+                label.font = font
+                label.textColor = UIColor.fromHex(0x404040)
             case .smallComments:
-                break
+                let font = UIFont(name: "lato-black", size: 12.0)
+                label.font = font
+                label.textColor = UIColor.fromHex(0x000000)
             case .fundedPercent:
-                break
+                let font = UIFont(name: "lato-black", size: 16.0)
+                label.font = font
+                label.textColor = UIColor.fromHex(0x000000)
             }
         }
     }
@@ -57,5 +84,22 @@ extension AppTheme: UITheme {
     }
     
     func apply(_ styles: [TableViewStyle], toTableView tableView: UITableView) {
+    }
+    
+    func apply(_ styles: [ViewStyle], toView view: UIView) {
+        for style in styles {
+            switch style {
+            case .defaultProgress:
+                view.backgroundColor = UIColor.white
+            case .kickstarterProgressForeground:
+                view.backgroundColor = UIColor.fromHex(0x39dd74)
+            case .kickstarterProgressBackground:
+                view.backgroundColor = UIColor.fromHex(0xcdffde)
+            case .indiegogoProgressForeground:
+                view.backgroundColor = UIColor.fromHex(0xe91578)
+            case .indiegogoProgressBackground:
+                view.backgroundColor = UIColor.fromHex(0xfbcae1)
+            }
+        }
     }
 }

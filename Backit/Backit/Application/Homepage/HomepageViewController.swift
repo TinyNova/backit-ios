@@ -28,7 +28,7 @@ struct HomepageProject {
     let numberOfBackers: Int
     let comment: ProjectComment
     let isEarlyBird: Bool
-    let fundedPercent: Int
+    let fundedPercent: Float
 }
 
 protocol HomepageDataSource {
@@ -47,13 +47,18 @@ class HomepageViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             
-            tableView.register(HomepageProjectCell.self, forCellReuseIdentifier: "HomepageProjectCell")
+            tableView.register(UINib(nibName: "HomepageProjectCell", bundle: nil), forCellReuseIdentifier: "HomepageProjectCell")
         }
     }
     
     private let theme = UIThemeApplier<AppTheme>()
     
-    private var projects: [HomepageProject] = []
+    // p = portrait
+    // t = thumb
+    // c = card
+    private var projects: [HomepageProject] = [
+        HomepageProject(context: 1, source: .kickstarter, assets: [.image(URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!)], name: "Building the Wall: One's Man Journey To Build the Wall", numberOfBackers: 1234, comment: .comments(500), isEarlyBird: true, fundedPercent: 0.9)
+    ]
     
     func inject(theme: AnyUITheme<AppTheme>) {
         self.theme.concrete = theme
@@ -81,14 +86,11 @@ extension HomepageViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell") else {
-            fatalError("Failed to deque ProjectCell")
+        guard let dequedCell = tableView.dequeueReusableCell(withIdentifier: "HomepageProjectCell"), let cell = dequedCell as? HomepageProjectCell else {
+            fatalError("Failed to deque HomepageProjectCell")
         }
         let project = projects[indexPath.row]
-        cell.textLabel?.text = project.name
-        if let asset = project.assets.first, case .image(let imageURL) = asset {
-            // TODO: Load image
-        }
+        cell.configure(project: project)
         return cell
     }
 }

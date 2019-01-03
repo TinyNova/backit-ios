@@ -31,6 +31,7 @@
 		07EC620421D6F0A200FE283C /* lato-regularitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EC620021D6F0A200FE283C /* lato-regularitalic.ttf */; };
 		07EC620521D6F0A200FE283C /* lato-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EC620121D6F0A200FE283C /* lato-regular.ttf */; };
 		07EC620721D6F0B100FE283C /* lato-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EC620621D6F0B100FE283C /* lato-black.ttf */; };
+		07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */; };
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
 		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		07EC620021D6F0A200FE283C /* lato-regularitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-regularitalic.ttf"; sourceTree = "<group>"; };
 		07EC620121D6F0A200FE283C /* lato-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-regular.ttf"; sourceTree = "<group>"; };
 		07EC620621D6F0B100FE283C /* lato-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-black.ttf"; sourceTree = "<group>"; };
+		07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Backit.swift"; sourceTree = "<group>"; };
 		28641EDF0177674B24965218 /* Pods-BackitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackitTests/Pods-BackitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2956DF6D3FFEB25F1954B3D0 /* Pods_BackitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F51B125C0218073ED859C4 /* Pods-BackitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitTests/Pods-BackitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,10 +162,10 @@
 				07AC39C721D4415A00214687 /* Homepage */,
 				07EC61F821D6EE1C00FE283C /* Resources */,
 				0722324A21D4375C009D1912 /* AppDelegate.swift */,
+				07EC61F621D6ED4600FE283C /* AppTheme.swift */,
 				0722325021D4375C009D1912 /* Main.storyboard */,
 				0722325521D4375F009D1912 /* LaunchScreen.storyboard */,
 				07EC61ED21D6ECD300FE283C /* Assembly.swift */,
-				07EC61F621D6ED4600FE283C /* AppTheme.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -229,6 +231,7 @@
 			children = (
 				07EC61EF21D6ECFB00FE283C /* UITheme */,
 				07EC61F921D6EF1400FE283C /* ViewIdentifiable */,
+				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
+				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
