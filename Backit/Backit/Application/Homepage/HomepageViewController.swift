@@ -57,7 +57,7 @@ class HomepageViewController: UIViewController {
     // t = thumb
     // c = card
     private var projects: [HomepageProject] = [
-        HomepageProject(context: 1, source: .kickstarter, assets: [.image(URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!)], name: "Building the Wall: One's Man Journey To Build the Wall", numberOfBackers: 1234, comment: .comments(500), isEarlyBird: true, fundedPercent: 0.9)
+        HomepageProject(context: 1, source: .kickstarter, assets: [.image(URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!), .video(URL(string: "https://vimeo.com/302100259")!)], name: "KEYTO: The Key to Burning Fat Faster", numberOfBackers: 1234, comment: .comments(500), isEarlyBird: true, fundedPercent: 0.9)
     ]
     
     func inject(theme: AnyUITheme<AppTheme>) {

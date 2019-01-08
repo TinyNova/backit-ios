@@ -22,6 +22,11 @@ class AppTheme: UIStyle {
         case none
     }
     
+    enum ImageStyle {
+        case activeAsset
+        case inactiveAsset
+    }
+
     enum LabelStyle {
         case projectName
         case smallComments
@@ -52,7 +57,7 @@ class AppTheme: UIStyle {
 }
 
 extension AppTheme: UITheme {
-    
+
     typealias Style = AppTheme
     
     func apply(_ styles: [ButtonStyle], toButton button: UIButton) {
@@ -73,6 +78,17 @@ extension AppTheme: UITheme {
                 let font = UIFont(name: "lato-black", size: 16.0)
                 label.font = font
                 label.textColor = UIColor.fromHex(0x000000)
+            }
+        }
+    }
+    
+    func apply(_ styles: [AppTheme.ImageStyle], toImage image: UIImageView) {
+        for style in styles {
+            switch style {
+            case .activeAsset:
+                image.tintColor = UIColor.fromHex(0xfd9804)
+            case .inactiveAsset:
+                image.tintColor = UIColor.fromHex(0xd2d2d2)
             }
         }
     }

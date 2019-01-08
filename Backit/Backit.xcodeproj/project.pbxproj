@@ -18,6 +18,8 @@
 		0798AA4F21D45DC6004A6261 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84D621D457B200C11799 /* UI.swift */; };
 		0798AA5021D45DEB004A6261 /* HomepageViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84D221D456D600C11799 /* HomepageViewControllerSpec.swift */; };
 		0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA5121D45F11004A6261 /* HomepageProjectCell.swift */; };
+		07A1C21421DEDF8E00E5A5DA /* ImagePagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */; };
+		07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */; };
 		07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC39C521D4414F00214687 /* ChangelogViewController.swift */; };
 		07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07AC39C921D44A1400214687 /* HomepageProjectCell.xib */; };
 		07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61ED21D6ECD300FE283C /* Assembly.swift */; };
@@ -62,6 +64,8 @@
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0798AA5121D45F11004A6261 /* HomepageProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageProjectCell.swift; sourceTree = "<group>"; };
+		07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePagerView.xib; sourceTree = "<group>"; };
+		07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
 		07AC39C521D4414F00214687 /* ChangelogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangelogViewController.swift; sourceTree = "<group>"; };
 		07AC39C921D44A1400214687 /* HomepageProjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageProjectCell.xib; sourceTree = "<group>"; };
 		07EC61ED21D6ECD300FE283C /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
@@ -184,9 +188,11 @@
 			isa = PBXGroup;
 			children = (
 				070F84D121D456C500C11799 /* Test */,
-				0722324C21D4375C009D1912 /* HomepageViewController.swift */,
-				07AC39C921D44A1400214687 /* HomepageProjectCell.xib */,
 				0798AA5121D45F11004A6261 /* HomepageProjectCell.swift */,
+				07AC39C921D44A1400214687 /* HomepageProjectCell.xib */,
+				0722324C21D4375C009D1912 /* HomepageViewController.swift */,
+				07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */,
+				07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 			files = (
 				07EC620421D6F0A200FE283C /* lato-regularitalic.ttf in Resources */,
 				0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */,
+				07A1C21421DEDF8E00E5A5DA /* ImagePagerView.xib in Resources */,
 				07EC620721D6F0B100FE283C /* lato-black.ttf in Resources */,
 				07EC620321D6F0A200FE283C /* lato-bold.ttf in Resources */,
 				07EC620521D6F0A200FE283C /* lato-regular.ttf in Resources */,
@@ -489,6 +496,7 @@
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
+				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,

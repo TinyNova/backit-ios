@@ -14,6 +14,7 @@ class AnyUITheme<T: UIStyle>: UITheme {
     typealias Style = T
     
     let _applyButton: ([T.ButtonStyle], UIButton) -> Void
+    let _applyImage: ([T.ImageStyle], UIImageView) -> Void
     let _applyLabel: ([T.LabelStyle], UILabel) -> Void
     let _applyTableView: ([T.TableViewStyle], UITableView) -> Void
     let _applyTextField: ([T.TextFieldStyle], UITextField) -> Void
@@ -22,6 +23,7 @@ class AnyUITheme<T: UIStyle>: UITheme {
     
     init<U: UITheme>(theme: U) where U.Style == T {
         _applyButton = theme.apply(_:toButton:)
+        _applyImage = theme.apply(_:toImage:)
         _applyLabel = theme.apply(_:toLabel:)
         _applyTableView = theme.apply(_:toTableView:)
         _applyTextField = theme.apply(_:toTextField:)
@@ -31,6 +33,10 @@ class AnyUITheme<T: UIStyle>: UITheme {
     
     func apply(_ styles: [T.ButtonStyle], toButton button: UIButton) {
         _applyButton(styles, button)
+    }
+    
+    func apply(_ styles: [T.ImageStyle], toImage image: UIImageView) {
+        _applyImage(styles, image)
     }
     
     func apply(_ styles: [T.LabelStyle], toLabel label: UILabel) {

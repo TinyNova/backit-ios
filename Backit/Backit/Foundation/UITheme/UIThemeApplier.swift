@@ -12,6 +12,7 @@ import UIKit
 class UIThemeApplier<T: UIStyle> {
     
     var buttonThemes: [([T.ButtonStyle], UIButton)] = []
+    var imageThemes: [([T.ImageStyle], UIImageView)] = []
     var labelThemes: [([T.LabelStyle], UILabel)] = []
     var tableViewThemes: [([T.TableViewStyle], UITableView)] = []
     var textFieldThemes: [([T.TextFieldStyle], UITextField)] = []
@@ -63,6 +64,15 @@ class UIThemeApplier<T: UIStyle> {
         }
         theme.apply(styles, toButton: button)
     }
+    
+    func apply(_ styles: T.ImageStyle..., toImage image: UIImageView) {
+        guard let theme = concrete else {
+            imageThemes.append((styles, image))
+            return
+        }
+        theme.apply(styles, toImage: image)
+    }
+
     
     func apply(_ styles: T.LabelStyle..., toLabel label: UILabel) {
         guard let theme = concrete else {
