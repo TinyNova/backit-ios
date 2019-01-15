@@ -13,15 +13,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomepageProjectCell" customModule="Backit" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="381" height="306"/>
+            <rect key="frame" x="0.0" y="0.0" width="381" height="310"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vwu-rD-9AW">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQ6-BK-Hjh" customClass="ProjectCardScrollView" customModule="Backit" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="381" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="dTz-PC-O9q"/>
+                        <constraint firstAttribute="height" constant="200" id="IkR-RQ-rms"/>
                     </constraints>
-                </imageView>
+                    <viewLayoutGuide key="safeArea" id="hrK-A4-BU7"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Yi-7p-fwj">
                     <rect key="frame" x="0.0" y="200" width="381" height="6"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,14 +65,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comments" translatesAutoresizingMaskIntoConstraints="NO" id="SGg-dv-YSi">
-                    <rect key="frame" x="234" y="280" width="20" height="16"/>
+                    <rect key="frame" x="234" y="284" width="20" height="16"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="KOc-F4-xQR"/>
                         <constraint firstAttribute="height" constant="16" id="z1r-AZ-Yc7"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="lv0-dk-d2Y">
-                    <rect key="frame" x="260" y="277" width="111" height="21"/>
+                    <rect key="frame" x="260" y="281" width="111" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -78,45 +80,45 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Vwu-rD-9AW" secondAttribute="trailing" id="2kq-3w-Bxe"/>
                 <constraint firstItem="mJf-kz-eA7" firstAttribute="height" secondItem="5Yi-7p-fwj" secondAttribute="height" id="3kZ-8F-Uqs"/>
+                <constraint firstItem="mJf-kz-eA7" firstAttribute="top" secondItem="WQ6-BK-Hjh" secondAttribute="bottom" id="AQh-tZ-feJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="lv0-dk-d2Y" secondAttribute="bottom" constant="8" id="IEe-3E-qsh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lv0-dk-d2Y" secondAttribute="trailing" constant="10" id="Jlb-GC-Lyb"/>
+                <constraint firstItem="WQ6-BK-Hjh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Kvn-T8-JcR"/>
                 <constraint firstItem="5Yi-7p-fwj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Lfj-nP-xXH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mJf-kz-eA7" secondAttribute="trailing" id="MZE-pW-8e0"/>
-                <constraint firstItem="mJf-kz-eA7" firstAttribute="top" secondItem="Vwu-rD-9AW" secondAttribute="bottom" id="XCu-ut-6Z0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="SGg-dv-YSi" secondAttribute="bottom" constant="10" id="YqM-Uf-bTX"/>
                 <constraint firstItem="fFc-OC-1hU" firstAttribute="top" secondItem="mJf-kz-eA7" secondAttribute="bottom" constant="3" id="cC5-Lm-22f"/>
                 <constraint firstItem="APS-TK-mwN" firstAttribute="top" secondItem="LvN-fm-Xjq" secondAttribute="bottom" constant="10" id="epw-YG-ZZV"/>
                 <constraint firstItem="mJf-kz-eA7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hGC-Mg-CGn"/>
                 <constraint firstItem="LvN-fm-Xjq" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="hYL-c8-6pS"/>
                 <constraint firstItem="lv0-dk-d2Y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="260" id="iOH-ZE-W5I"/>
+                <constraint firstItem="WQ6-BK-Hjh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="lc8-BB-jRG"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5Yi-7p-fwj" secondAttribute="trailing" id="lqS-s6-oAQ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="APS-TK-mwN" secondAttribute="trailing" constant="10" id="m07-6v-LWV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WQ6-BK-Hjh" secondAttribute="trailing" id="m7O-Hy-qcj"/>
                 <constraint firstItem="lv0-dk-d2Y" firstAttribute="leading" secondItem="SGg-dv-YSi" secondAttribute="trailing" constant="6" id="mcA-EE-1Eb"/>
-                <constraint firstItem="Vwu-rD-9AW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="oy1-a5-e3k"/>
                 <constraint firstItem="lv0-dk-d2Y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="APS-TK-mwN" secondAttribute="bottom" constant="10" id="q9d-L9-CF0"/>
                 <constraint firstItem="APS-TK-mwN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="qN6-oV-utK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fFc-OC-1hU" secondAttribute="trailing" constant="10" id="qn5-vD-TJz"/>
                 <constraint firstItem="LvN-fm-Xjq" firstAttribute="top" secondItem="mJf-kz-eA7" secondAttribute="bottom" constant="10" id="sLJ-sG-POf"/>
-                <constraint firstItem="Vwu-rD-9AW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="uif-Wt-ueO"/>
-                <constraint firstItem="5Yi-7p-fwj" firstAttribute="top" secondItem="Vwu-rD-9AW" secondAttribute="bottom" id="xTd-Vd-Lf9"/>
+                <constraint firstItem="5Yi-7p-fwj" firstAttribute="top" secondItem="mJf-kz-eA7" secondAttribute="top" id="zLb-k8-UFo"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="cardImageView" destination="Vwu-rD-9AW" id="h8K-f0-gaR"/>
                 <outlet property="commentsLabel" destination="lv0-dk-d2Y" id="8Oc-XX-ImR"/>
                 <outlet property="fundedBackgroundView" destination="5Yi-7p-fwj" id="ZYF-yR-70X"/>
                 <outlet property="fundedForegroundView" destination="mJf-kz-eA7" id="ynk-i2-mbv"/>
                 <outlet property="fundedPercentLabel" destination="fFc-OC-1hU" id="gRc-qp-3zg"/>
                 <outlet property="fundedTrailing" destination="MZE-pW-8e0" id="s2S-yz-YPT"/>
                 <outlet property="imagePagerView" destination="vZc-fA-Tnn" id="Tu3-wJ-bJn"/>
+                <outlet property="projectCardScrollView" destination="WQ6-BK-Hjh" id="0wf-hS-KZf"/>
                 <outlet property="projectNameLabel" destination="APS-TK-mwN" id="kes-73-YNx"/>
             </connections>
-            <point key="canvasLocation" x="143.19999999999999" y="-9.8950524737631191"/>
+            <point key="canvasLocation" x="143.19999999999999" y="-11.694152923538232"/>
         </view>
     </objects>
     <resources>

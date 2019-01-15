@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */; };
+		0717398121E7E6D700EA17DC /* ProjectCardScrollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717398021E7E6D700EA17DC /* ProjectCardScrollingView.swift */; };
+		0717398921E7E9ED00EA17DC /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0717398821E7E9ED00EA17DC /* Homepage.storyboard */; };
+		0717398D21E96E6C00EA17DC /* ProjectCardScrollingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0717398C21E96E6C00EA17DC /* ProjectCardScrollingView.xib */; };
+		0717398F21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0717398E21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib */; };
 		0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0722324A21D4375C009D1912 /* AppDelegate.swift */; };
 		0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0722324C21D4375C009D1912 /* HomepageViewController.swift */; };
 		0722325221D4375C009D1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325021D4375C009D1912 /* Main.storyboard */; };
@@ -53,6 +58,11 @@
 		070F84D621D457B200C11799 /* UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		070F84DA21D4584F00C11799 /* KIF+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Backit.swift"; sourceTree = "<group>"; };
 		070F84DC21D4598E00C11799 /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
+		0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Backit.swift"; sourceTree = "<group>"; };
+		0717398021E7E6D700EA17DC /* ProjectCardScrollingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardScrollingView.swift; sourceTree = "<group>"; };
+		0717398821E7E9ED00EA17DC /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
+		0717398C21E96E6C00EA17DC /* ProjectCardScrollingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCardScrollingView.xib; sourceTree = "<group>"; };
+		0717398E21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		0722324721D4375C009D1912 /* Backit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0722324A21D4375C009D1912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0722324C21D4375C009D1912 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +203,10 @@
 				0722324C21D4375C009D1912 /* HomepageViewController.swift */,
 				07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */,
 				07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */,
+				0717398021E7E6D700EA17DC /* ProjectCardScrollingView.swift */,
+				0717398C21E96E6C00EA17DC /* ProjectCardScrollingView.xib */,
+				0717398E21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib */,
+				0717398821E7E9ED00EA17DC /* Homepage.storyboard */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -238,6 +252,7 @@
 				07EC61EF21D6ECFB00FE283C /* UITheme */,
 				07EC61F921D6EF1400FE283C /* ViewIdentifiable */,
 				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
+				0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -366,7 +381,10 @@
 				0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */,
 				07A1C21421DEDF8E00E5A5DA /* ImagePagerView.xib in Resources */,
 				07EC620721D6F0B100FE283C /* lato-black.ttf in Resources */,
+				0717398921E7E9ED00EA17DC /* Homepage.storyboard in Resources */,
+				0717398F21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib in Resources */,
 				07EC620321D6F0A200FE283C /* lato-bold.ttf in Resources */,
+				0717398D21E96E6C00EA17DC /* ProjectCardScrollingView.xib in Resources */,
 				07EC620521D6F0A200FE283C /* lato-regular.ttf in Resources */,
 				07EC620221D6F0A200FE283C /* lato-bolditalic.ttf in Resources */,
 				07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */,
@@ -496,11 +514,13 @@
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
+				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
+				0717398121E7E6D700EA17DC /* ProjectCardScrollingView.swift in Sources */,
 				0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
 				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 class HomepageProjectCell: UITableViewCell {
     
-    @IBOutlet private weak var cardImageView: UIImageView!
+    @IBOutlet weak var projectCardScrollView: ProjectCardScrollView!
     
     @IBOutlet private weak var fundedBackgroundView: UIView! {
         didSet {
@@ -75,14 +75,7 @@ class HomepageProjectCell: UITableViewCell {
     }
     
     private func updateAssets(_ assets: [ProjectAsset]) {
-        guard let asset = assets.first, case .image(let url) = asset else {
-            return
-        }
-        
-        // TODO: Update pager
-        cardImageView?.sd_setImage(with: url, placeholderImage: nil, options: [], progress: nil) { [weak self] (image, error, cacheType, imageURL) in
-            self?.cardImageView?.image = self?.fittedImage(from: image, to: UIScreen.main.bounds.size.width)
-        }
+        projectCardScrollView.assets = assets
     }
     
     private func updateComments(_ comment: ProjectComment) {
@@ -105,25 +98,5 @@ class HomepageProjectCell: UITableViewCell {
     private func updateFundedPercentProgress(_ fundedPercent: CGFloat) {
         let widthOfDevice = UIScreen.main.bounds.size.width
         fundedTrailing.constant = widthOfDevice - (fundedPercent * widthOfDevice)
-    }
-    
-    private func fittedImage(from image: UIImage?, to width: CGFloat) -> UIImage? {
-        guard let image = image else {
-            return nil
-        }
-        
-        let oldWidth = image.size.width
-        let scaleFactor = width / oldWidth
-        
-        let newHeight = image.size.height * scaleFactor
-        let newWidth = oldWidth * scaleFactor
-        
-        let size = CGSize(width: newWidth, height: newHeight)
-        // NOTE: Make sure this is using the more efficient version of drawing images.
-        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        image.draw(in: CGRect(x:0, y:0, width: newWidth, height: newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
     }
 }

@@ -5,6 +5,24 @@ class ImagePagerView: UIView {
     
     @IBOutlet weak var stackView: UIStackView!
     
+    var selectedIndex: Int = 0 {
+        didSet {
+            for (index, view) in stackView.arrangedSubviews.enumerated() {
+                guard let imageView = view as? UIImageView else {
+                    continue
+                }
+                
+                let selected = index == selectedIndex
+                if selected {
+                    theme.apply(.activeAsset, toImage: imageView)
+                }
+                else {
+                    theme.apply(.inactiveAsset, toImage: imageView)
+                }
+            }
+        }
+    }
+    
     private var theme: UIThemeApplier<AppTheme> = AppTheme.default
     
     override func awakeAfter(using aDecoder: NSCoder) -> Any? {
@@ -25,12 +43,9 @@ class ImagePagerView: UIView {
     }
     
     func configure(assets: [ProjectAsset], selectedIndex: Int) {
-        stackView.arrangedSubviews.forEach { (view) in
-            stackView.removeArrangedSubview(view)
-            view.removeFromSuperview()
-        }
+        stackView.removeAllArrangedSubviews()
         
-        for (index, asset) in assets.enumerated() {
+        for asset in assets {
             let image: UIImage?
             switch asset {
             case .image:
@@ -39,20 +54,11 @@ class ImagePagerView: UIView {
             case .video:
                 image = UIImage(named: "carousel-play")
             }
-            let imageView = makeImageView(with: image, selected: selectedIndex == index)
+            let imageView = UIImageView(image: image?.withRenderingMode(.alwaysTemplate))
             stackView.addArrangedSubview(imageView)
             stackView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 10.0))
         }
-    }
-    
-    private func makeImageView(with image: UIImage?, selected: Bool) -> UIImageView {
-        let imageView = UIImageView(image: image?.withRenderingMode(.alwaysTemplate))
-        if selected {
-            theme.apply(.activeAsset, toImage: imageView)
-        }
-        else {
-            theme.apply(.inactiveAsset, toImage: imageView)
-        }
-        return imageView
+        
+        self.selectedIndex = selectedIndex
     }
 }
