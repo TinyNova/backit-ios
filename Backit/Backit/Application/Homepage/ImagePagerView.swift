@@ -1,3 +1,8 @@
+/**
+ *
+ * Copyright © 2018 Backit. All rights reserved.
+ */
+
 import Foundation
 import UIKit
 

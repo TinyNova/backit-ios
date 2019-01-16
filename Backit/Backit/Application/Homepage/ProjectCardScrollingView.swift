@@ -1,8 +1,10 @@
 /**
- Provides horizontal scrolling list of project card images.
- 
- Useful links:
- https://samwize.com/2015/11/30/understanding-uicollection-flow-layout/
+ * Provides horizontal scrolling list of project card images.
+ *
+ * Useful links:
+ * https://samwize.com/2015/11/30/understanding-uicollection-flow-layout/
+ *
+ * Copyright © 2018 Backit. All rights reserved.
  */
 
 import UIKit
@@ -11,10 +13,17 @@ private enum Constant {
     static var CellIdentifier = "Cell"
 }
 
+protocol ProjectCardScrollViewDelegate: class {
+    func didSelectProject(_ project: ProjectAsset)
+    func didScrollToProject(_ project: ProjectAsset, at index: Int)
+}
+
 class ProjectCardScrollView: UICollectionView {
 
-    private var indexOfCellBeforeDragging = 0
+    public weak var projectCardDelegate: ProjectCardScrollViewDelegate?
     
+    private var currentCellIndex = 0
+    private var indexOfCellBeforeDragging = 0
     private var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
     var assets: [ProjectAsset] = [] {
@@ -39,6 +48,7 @@ class ProjectCardScrollView: UICollectionView {
         collectionViewFlowLayout.scrollDirection = .horizontal
         collectionViewLayout = collectionViewFlowLayout
         
+        delegate = self
         dataSource = self
     }
     
@@ -67,6 +77,12 @@ extension ProjectCardScrollView: UICollectionViewDataSource {
     }
 }
 
+extension ProjectCardScrollView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        projectCardDelegate?.didSelectProject(assets[indexPath.row])
+    }
+}
+
 extension ProjectCardScrollView: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         indexOfCellBeforeDragging = indexOfMajorCell()
@@ -90,16 +106,26 @@ extension ProjectCardScrollView: UIScrollViewDelegate {
             let snapToIndex = indexOfCellBeforeDragging + (hasEnoughVelocityToSlideToTheNextCell ? 1 : -1)
             let toValue = collectionViewFlowLayout.itemSize.width * CGFloat(snapToIndex)
             
-            // Damping equal 1 => no oscillations => decay animation
-            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: { [weak self] in
                 scrollView.contentOffset = CGPoint(x: toValue, y: 0)
                 scrollView.layoutIfNeeded()
+                
+                self?.scrolledToIndex(snapToIndex)
             }, completion: nil)
-        } else {
-            // This is a much better way to scroll to a cell
+        }
+        else {
             let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
             collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            scrolledToIndex(indexOfMajorCell)
         }
+    }
+    
+    private func scrolledToIndex(_ index: Int) {
+        guard currentCellIndex != index else {
+            return
+        }
+        currentCellIndex = index
+        projectCardDelegate?.didScrollToProject(assets[index], at: index)
     }
 }
 

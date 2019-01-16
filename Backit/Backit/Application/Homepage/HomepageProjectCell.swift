@@ -10,7 +10,11 @@ import UIKit
 
 class HomepageProjectCell: UITableViewCell {
     
-    @IBOutlet weak var projectCardScrollView: ProjectCardScrollView!
+    @IBOutlet weak var projectCardScrollView: ProjectCardScrollView! {
+        didSet {
+            projectCardScrollView.projectCardDelegate = self
+        }
+    }
     
     @IBOutlet private weak var fundedBackgroundView: UIView! {
         didSet {
@@ -98,5 +102,14 @@ class HomepageProjectCell: UITableViewCell {
     private func updateFundedPercentProgress(_ fundedPercent: CGFloat) {
         let widthOfDevice = UIScreen.main.bounds.size.width
         fundedTrailing.constant = widthOfDevice - (fundedPercent * widthOfDevice)
+    }
+}
+
+extension HomepageProjectCell: ProjectCardScrollViewDelegate {
+    func didScrollToProject(_ project: ProjectAsset, at index: Int) {
+        imagePagerView.selectedIndex = index
+    }
+    
+    func didSelectProject(_ project: ProjectAsset) {
     }
 }
