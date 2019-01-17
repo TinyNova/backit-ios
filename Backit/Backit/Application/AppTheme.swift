@@ -25,6 +25,7 @@ class AppTheme: UIStyle {
     enum ImageStyle {
         case activeAsset
         case inactiveAsset
+        case playButtonOverlay
     }
 
     enum LabelStyle {
@@ -52,7 +53,6 @@ class AppTheme: UIStyle {
         case kickstarterProgressBackground
         case indiegogoProgressForeground
         case indiegogoProgressBackground
-        
     }
 }
 
@@ -89,6 +89,9 @@ extension AppTheme: UITheme {
                 image.tintColor = UIColor.fromHex(0xfd9804)
             case .inactiveAsset:
                 image.tintColor = UIColor.fromHex(0xd2d2d2)
+            case .playButtonOverlay:
+                image.tintColor = UIColor.fromHex(0xffffff)
+                image.layer.opacity = 0.5
             }
         }
     }

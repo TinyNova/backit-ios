@@ -17,6 +17,8 @@
 		0722325221D4375C009D1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325021D4375C009D1912 /* Main.storyboard */; };
 		0722325421D4375F009D1912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0722325321D4375F009D1912 /* Assets.xcassets */; };
 		0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325521D4375F009D1912 /* LaunchScreen.storyboard */; };
+		0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */; };
+		0754B5EC21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */; };
 		0798AA4621D45DB0004A6261 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA4521D45DB0004A6261 /* BackitTests.swift */; };
 		0798AA4D21D45DC0004A6261 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DA21D4584F00C11799 /* KIF+Backit.swift */; };
 		0798AA4E21D45DC3004A6261 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DC21D4598E00C11799 /* Methods.swift */; };
@@ -70,6 +72,8 @@
 		0722325321D4375F009D1912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0722325621D4375F009D1912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0722325821D43760009D1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Backit.swift"; sourceTree = "<group>"; };
+		0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCardCollectionViewAnimatedCell.xib; sourceTree = "<group>"; };
 		0798AA4321D45DB0004A6261 /* BackitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */,
 				07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */,
 				0717398E21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib */,
+				0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */,
 				0717398021E7E6D700EA17DC /* ProjectCardScrollingView.swift */,
 				0717398C21E96E6C00EA17DC /* ProjectCardScrollingView.xib */,
 			);
@@ -252,6 +257,7 @@
 				07EC61EF21D6ECFB00FE283C /* UITheme */,
 				07EC61F921D6EF1400FE283C /* ViewIdentifiable */,
 				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
+				0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */,
 				0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */,
 			);
 			path = Foundation;
@@ -380,6 +386,7 @@
 				07EC620421D6F0A200FE283C /* lato-regularitalic.ttf in Resources */,
 				0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */,
 				07A1C21421DEDF8E00E5A5DA /* ImagePagerView.xib in Resources */,
+				0754B5EC21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib in Resources */,
 				07EC620721D6F0B100FE283C /* lato-black.ttf in Resources */,
 				0717398921E7E9ED00EA17DC /* Homepage.storyboard in Resources */,
 				0717398F21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib in Resources */,
@@ -510,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */,
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,

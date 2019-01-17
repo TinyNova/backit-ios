@@ -8,9 +8,11 @@
  */
 
 import UIKit
+import SDWebImage
 
 private enum Constant {
     static var CellIdentifier = "Cell"
+    static var AnimatedCellIdentifier = "AnimatedCell"
 }
 
 protocol ProjectCardScrollViewDelegate: class {
@@ -39,7 +41,8 @@ class ProjectCardScrollView: UICollectionView {
     
     private func commonInit() {
         register(UINib(nibName: "ProjectCardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constant.CellIdentifier)
-        
+        register(UINib(nibName: "ProjectCardCollectionViewAnimatedCell", bundle: nil), forCellWithReuseIdentifier: Constant.AnimatedCellIdentifier)
+
         collectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionViewFlowLayout.minimumLineSpacing = 0
@@ -68,11 +71,24 @@ extension ProjectCardScrollView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.CellIdentifier, for: indexPath) as? ProjectCardCollectionViewCell else {
-            fatalError("Failed to deque cell")
+        let asset = assets[indexPath.row]
+        let cellIdentifier: String
+        let url: URL
+        switch asset {
+        case .image(let imageURL):
+            cellIdentifier = Constant.CellIdentifier
+            url = imageURL
+        case .video(let previewURL, _):
+            cellIdentifier = Constant.AnimatedCellIdentifier
+            url = previewURL
+        }
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+        
+        if let cell = cell as? ProjectCardCell {
+            cell.configure(url: url)
         }
         
-        cell.configure(asset: assets[indexPath.row])
         return cell
     }
 }
@@ -89,12 +105,9 @@ extension ProjectCardScrollView: UIScrollViewDelegate {
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        // Stop scrollView sliding
         targetContentOffset.pointee = scrollView.contentOffset
         
-        // Calculate where scrollView should snap to
         let indexOfMajorCell = self.indexOfMajorCell()
-        
         let dataSourceCount = collectionView(self, numberOfItemsInSection: 0)
         let swipeVelocityThreshold: CGFloat = 0.5
         let hasEnoughVelocityToSlideToTheNextCell = indexOfCellBeforeDragging + 1 < dataSourceCount && velocity.x > swipeVelocityThreshold
@@ -129,42 +142,56 @@ extension ProjectCardScrollView: UIScrollViewDelegate {
     }
 }
 
-class ProjectCardCollectionViewCell: UICollectionViewCell {
+// MARK: - ProjectCardCell
+
+private protocol ProjectCardCell {
+    func configure(url: URL)
+}
+
+class ProjectCardCollectionViewCell: UICollectionViewCell, ProjectCardCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    func configure(asset: ProjectAsset) {
-        let url: URL
-        switch asset {
-        case .image(let imageURL):
-            url = imageURL
-        case .video(let previewURL, _):
-            url = previewURL
+    func configure(url: URL) {
+        // FIXME: Move this into a dependency. First version should return only the image.
+        let manager = SDWebImageManager.shared()
+        manager.loadImage(with: url, options: [], progress: nil) { [weak self] (image, data, error, cacheType, finished, imageURL) in
+            guard let strongSelf = self, let image = image else {
+                self?.imageView.image = nil
+                return
+            }
+            // FIXME: Move this into a dependency.
+            let screenWidth = UIScreen.main.bounds.size.width
+            strongSelf.imageView.image = image.fittedImage(to: screenWidth)
         }
-        
-        let screenWidth = UIScreen.main.bounds.size.width
-        imageView.sd_setImage(with: url, placeholderImage: nil, options: [], progress: nil) { [weak self] (image, error, cacheType, imageURL) in
-            self?.imageView.image = self?.fittedImage(from: image, to: screenWidth)
+    }
+}
+
+class ProjectCardCollectionViewAnimatedCell: UICollectionViewCell, ProjectCardCell {
+    
+    @IBOutlet weak var playButtonImageView: UIImageView! {
+        didSet {
+            let image = UIImage(named: "carousel-play")?.withRenderingMode(.alwaysTemplate)
+            playButtonImageView.image = image
+            theme.apply(.playButtonOverlay, toImage: playButtonImageView)
         }
     }
     
-    private func fittedImage(from image: UIImage?, to width: CGFloat) -> UIImage? {
-        guard let image = image else {
-            return nil
+    @IBOutlet weak var imageView: FLAnimatedImageView!
+    
+    private var theme: UIThemeApplier<AppTheme> = AppTheme.default
+
+    func inject(theme: UIThemeApplier<AppTheme>) {
+        self.theme = theme
+    }
+
+    func configure(url: URL) {
+        // FIXME: The frames for a gif are not resized as individual images, which could cause larger than necessary memory usage.
+        imageView.sd_setImage(with: url) { [weak self] (image, error, cacheType, imageURL) in
+            guard let self = self else {
+                return
+            }
+            self.bringSubviewToFront(self.playButtonImageView)
         }
-        
-        let oldWidth = image.size.width
-        let scaleFactor = width / oldWidth
-        
-        let newHeight = image.size.height * scaleFactor
-        let newWidth = oldWidth * scaleFactor
-        
-        let size = CGSize(width: newWidth, height: newHeight)
-        // NOTE: Make sure this is using the more efficient version of drawing images.
-        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        image.draw(in: CGRect(x:0, y:0, width: newWidth, height: newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
     }
 }
