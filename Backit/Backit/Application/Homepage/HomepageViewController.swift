@@ -62,7 +62,7 @@ class HomepageViewController: UIViewController {
             source: .kickstarter,
             assets: [
                 .image(URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!),
-                .video(previewURL: URL(string: "https://gifimage.net/wp-content/uploads/2017/08/youre-awesome-gif-4.gif")!, videoURL: URL(string: "https://vimeo.com/302100259")!),
+                .video(previewURL: URL(string: "https://s3.amazonaws.com/backit.com/tempt/youre-awesome.mp4")!, videoURL: URL(string: "https://vimeo.com/302100259")!),
                 .image(URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!)
             ],
             name: "KEYTO: The Key to Burning Fat Faster",

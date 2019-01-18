@@ -7,6 +7,7 @@
  * Copyright © 2018 Backit. All rights reserved.
  */
 
+import AVKit
 import UIKit
 import SDWebImage
 
@@ -185,13 +186,33 @@ class ProjectCardCollectionViewAnimatedCell: UICollectionViewCell, ProjectCardCe
         self.theme = theme
     }
 
+    var player: AVPlayer?
+    
     func configure(url: URL) {
-        // FIXME: The frames for a gif are not resized as individual images, which could cause larger than necessary memory usage.
-        imageView.sd_setImage(with: url) { [weak self] (image, error, cacheType, imageURL) in
-            guard let self = self else {
+        let item = AVPlayerItem(url: url)
+        let player = AVPlayer(playerItem: item)
+        player.isMuted = true
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = bounds
+        playerLayer.videoGravity = .resizeAspectFill
+        layer.addSublayer(playerLayer)
+        
+        player.seek(to: .zero)
+        player.play()
+        self.player = player
+        
+        loopVideo(player)
+        
+        self.bringSubviewToFront(self.playButtonImageView)
+    }
+    
+    private func loopVideo(_ videoPlayer: AVPlayer) {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: videoPlayer.currentItem, queue: OperationQueue.main) { notification in
+            guard let playerItem = notification.object as? AVPlayerItem, videoPlayer.currentItem == playerItem else {
                 return
             }
-            self.bringSubviewToFront(self.playButtonImageView)
+            videoPlayer.seek(to: .zero)
+            videoPlayer.play()
         }
     }
 }
