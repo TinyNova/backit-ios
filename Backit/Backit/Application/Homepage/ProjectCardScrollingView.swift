@@ -178,7 +178,7 @@ class ProjectCardCollectionViewAnimatedCell: UICollectionViewCell, ProjectCardCe
         }
     }
     
-    @IBOutlet weak var imageView: FLAnimatedImageView!
+    @IBOutlet weak var imageView: UIImageView!
     
     private var theme: UIThemeApplier<AppTheme> = AppTheme.default
 

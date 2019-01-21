@@ -6,7 +6,6 @@ target 'Backit' do
     pod 'Alamofire'
     pod 'BrightFutures'
     pod 'SDWebImage'
-    pod 'SDWebImage/GIF'
     pod 'Swinject'
     pod 'SwinjectStoryboard'
 end

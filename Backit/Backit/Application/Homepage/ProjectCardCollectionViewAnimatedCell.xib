@@ -23,7 +23,7 @@
                         <constraint firstAttribute="height" constant="50" id="ahE-il-AAu"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="58t-Lz-ndI" customClass="FLAnimatedImageView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="58t-Lz-ndI">
                     <rect key="frame" x="0.0" y="0.0" width="258" height="200"/>
                 </imageView>
             </subviews>
