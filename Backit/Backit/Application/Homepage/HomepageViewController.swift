@@ -2,7 +2,9 @@
  *
  * Copyright © 2018 Backit. All rights reserved.
  */
- 
+
+import AVKit
+import MediaPlayer
 import UIKit
 
 enum ProjectComment {
@@ -62,7 +64,7 @@ class HomepageViewController: UIViewController {
             source: .kickstarter,
             assets: [
                 .image(URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!),
-                .video(previewURL: URL(string: "https://s3.amazonaws.com/backit.com/tempt/youre-awesome.mp4")!, videoURL: URL(string: "https://vimeo.com/302100259")!),
+                .video(previewURL: URL(string: "https://s3.amazonaws.com/backit.com/tempt/youre-awesome.mp4")!, videoURL: URL(string: "https://s3.amazonaws.com/backit.com/tempt/youre-awesome.mp4")!),
                 .image(URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!)
             ],
             name: "KEYTO: The Key to Burning Fat Faster",
@@ -104,6 +106,22 @@ extension HomepageViewController: UITableViewDataSource {
         }
         let project = projects[indexPath.row]
         cell.configure(project: project)
+        cell.delegate = self
         return cell
+    }
+}
+
+extension HomepageViewController: HomepageProjectCellDelegate {
+    func didTapProject(_ project: ProjectAsset) {
+        guard case .video(_, let videoURL) = project else {
+            return
+        }
+        
+        let player = AVPlayer(url: videoURL)
+        let vc = AVPlayerViewController()
+        vc.player = player
+        present(vc, animated: true) {
+            player.play()
+        }
     }
 }

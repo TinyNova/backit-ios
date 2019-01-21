@@ -8,6 +8,10 @@ import SDWebImage
 import SwinjectStoryboard
 import UIKit
 
+protocol HomepageProjectCellDelegate: class {
+    func didTapProject(_ project: ProjectAsset)
+}
+
 class HomepageProjectCell: UITableViewCell {
     
     @IBOutlet weak var projectCardScrollView: ProjectCardScrollView! {
@@ -53,6 +57,8 @@ class HomepageProjectCell: UITableViewCell {
     }
     
     @IBOutlet weak var imagePagerView: ImagePagerView!
+    
+    weak var delegate: HomepageProjectCellDelegate?
     
     var theme = AppTheme.default
 
@@ -111,5 +117,6 @@ extension HomepageProjectCell: ProjectCardScrollViewDelegate {
     }
     
     func didSelectProject(_ project: ProjectAsset) {
+        delegate?.didTapProject(project)
     }
 }
