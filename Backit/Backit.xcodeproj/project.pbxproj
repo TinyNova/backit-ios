@@ -19,6 +19,7 @@
 		0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325521D4375F009D1912 /* LaunchScreen.storyboard */; };
 		0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */; };
 		0754B5EC21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */; };
+		0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */; };
 		0798AA4621D45DB0004A6261 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA4521D45DB0004A6261 /* BackitTests.swift */; };
 		0798AA4D21D45DC0004A6261 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DA21D4584F00C11799 /* KIF+Backit.swift */; };
 		0798AA4E21D45DC3004A6261 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DC21D4598E00C11799 /* Methods.swift */; };
@@ -74,6 +75,7 @@
 		0722325821D43760009D1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Backit.swift"; sourceTree = "<group>"; };
 		0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCardCollectionViewAnimatedCell.xib; sourceTree = "<group>"; };
+		0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageOrchestrator.swift; sourceTree = "<group>"; };
 		0798AA4321D45DB0004A6261 /* BackitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				07EC61FA21D6EF2000FE283C /* Foundation */,
+				0754B5ED21F6229400E2DECD /* Service */,
 				0722326C21D44028009D1912 /* Application */,
 				0722325821D43760009D1912 /* Info.plist */,
 			);
@@ -188,6 +191,13 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		0754B5ED21F6229400E2DECD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		0798AA4421D45DB0004A6261 /* BackitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,13 +213,14 @@
 			children = (
 				070F84D121D456C500C11799 /* Test */,
 				0717398821E7E9ED00EA17DC /* Homepage.storyboard */,
+				0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */,
 				0798AA5121D45F11004A6261 /* HomepageProjectCell.swift */,
 				07AC39C921D44A1400214687 /* HomepageProjectCell.xib */,
 				0722324C21D4375C009D1912 /* HomepageViewController.swift */,
 				07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */,
 				07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */,
-				0717398E21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib */,
 				0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */,
+				0717398E21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib */,
 				0717398021E7E6D700EA17DC /* ProjectCardScrollingView.swift */,
 				0717398C21E96E6C00EA17DC /* ProjectCardScrollingView.xib */,
 			);
@@ -526,6 +537,7 @@
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
+				0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */,
 				0717398121E7E6D700EA17DC /* ProjectCardScrollingView.swift in Sources */,
 				0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,

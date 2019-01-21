@@ -21,6 +21,10 @@ class Assembly {
             return AnyUITheme<AppTheme>(theme: theme)
         }
         
+        container.register(HomepageProvider.self) { resolver in
+            return HomepageOrchestrator()
+        }
+        
         container.register(UIThemeApplier<AppTheme>.self) { resolver in
             let theme = UIThemeApplier<AppTheme>()
             theme.concrete = resolver.resolve(AnyUITheme<AppTheme>.self)!
@@ -29,14 +33,18 @@ class Assembly {
         
         // MARK: - UIViewController Registration
         
+        container.storyboardInitCompleted(UINavigationController.self) { (resolver, controller) in
+            
+        }
+
         container.storyboardInitCompleted(UITabBarController.self) { (resolver, controller) in
             
         }
 
         container.storyboardInitCompleted(HomepageViewController.self) { resolver, controller in
             let theme = resolver.resolve(AppTheme.self)!
-            
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme))
+            let provider = resolver.resolve(HomepageProvider.self)!
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider)
         }
         
         container.storyboardInitCompleted(ChangelogViewController.self) { (resolver, controller) in
