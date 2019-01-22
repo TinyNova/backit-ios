@@ -9,7 +9,9 @@ import SwinjectStoryboard
 import UIKit
 
 protocol HomepageProjectCellDelegate: class {
-    func didTapProject(_ project: ProjectAsset)
+    func didTapProject(_ project: HomepageProject)
+    func didTapAsset(_ asset: ProjectAsset)
+    func didTapComments(_ project: HomepageProject)
 }
 
 class HomepageProjectCell: UITableViewCell {
@@ -35,6 +37,9 @@ class HomepageProjectCell: UITableViewCell {
     @IBOutlet private weak var projectNameLabel: UILabel! {
         didSet {
             theme.apply(.projectName, toLabel: projectNameLabel)
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(HomepageProjectCell.didTapProjectName))
+            projectNameLabel.addGestureRecognizer(gesture)
+            projectNameLabel.isUserInteractionEnabled = true
         }
     }
     
@@ -53,6 +58,9 @@ class HomepageProjectCell: UITableViewCell {
     @IBOutlet private weak var commentsLabel: UILabel! {
         didSet {
             theme.apply(.smallComments, toLabel: commentsLabel)
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(HomepageProjectCell.didTapComments))
+            commentsLabel.addGestureRecognizer(gesture)
+            commentsLabel.isUserInteractionEnabled = true
         }
     }
     
@@ -61,15 +69,25 @@ class HomepageProjectCell: UITableViewCell {
     weak var delegate: HomepageProjectCellDelegate?
     
     var theme = AppTheme.default
+    
+    private(set) var project: HomepageProject? {
+        didSet {
+            guard let project = project else {
+                return
+            }
+            
+            projectNameLabel.text = project.name
+            imagePagerView.configure(assets: project.assets, selectedIndex: 0)
+            updateThemes(project.source)
+            updateAssets(project.assets)
+            updateComments(project.comment)
+            updateFundedPercent(project.fundedPercent)
+            updateFundedPercentProgress(CGFloat(project.fundedPercent))
+        }
+    }
 
     func configure(project: HomepageProject) {
-        projectNameLabel.text = project.name
-        imagePagerView.configure(assets: project.assets, selectedIndex: 0)
-        updateThemes(project.source)
-        updateAssets(project.assets)
-        updateComments(project.comment)
-        updateFundedPercent(project.fundedPercent)
-        updateFundedPercentProgress(CGFloat(project.fundedPercent))
+        self.project = project
     }
     
     private func updateThemes(_ source: ProjectSource) {
@@ -109,6 +127,19 @@ class HomepageProjectCell: UITableViewCell {
         let widthOfDevice = UIScreen.main.bounds.size.width
         fundedTrailing.constant = widthOfDevice - (fundedPercent * widthOfDevice)
     }
+    
+    @objc private func didTapComments() {
+        if let project = project {
+            delegate?.didTapComments(project)
+        }
+    }
+    
+    @objc private func didTapProjectName() {
+        if let project = project {
+            delegate?.didTapProject(project)
+        }
+    }
+
 }
 
 extension HomepageProjectCell: ProjectCardScrollViewDelegate {
@@ -117,6 +148,6 @@ extension HomepageProjectCell: ProjectCardScrollViewDelegate {
     }
     
     func didSelectProject(_ project: ProjectAsset) {
-        delegate?.didTapProject(project)
+        delegate?.didTapAsset(project)
     }
 }

@@ -26,7 +26,7 @@ class ProjectService: ProjectProvider {
             id: 1,
             source: .kickstarter,
             url: URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!,
-            name: "",
+            name: "A very long name for a product",
             goal: 0,
             pledged: 0,
             numBackers: 0,

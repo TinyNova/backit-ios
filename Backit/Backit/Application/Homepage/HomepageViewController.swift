@@ -51,6 +51,7 @@ class HomepageViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
+            tableView.allowsSelection = false
             
             tableView.register(UINib(nibName: "HomepageProjectCell", bundle: nil), forCellReuseIdentifier: "HomepageProjectCell")
         }
@@ -101,7 +102,15 @@ extension HomepageViewController: UITableViewDataSource {
 }
 
 extension HomepageViewController: HomepageProjectCellDelegate {
-    func didTapProject(_ project: ProjectAsset) {
+    func didTapProject(_ project: HomepageProject) {
+        print("Did tap project title")
+    }
+    
+    func didTapComments(_ project: HomepageProject) {
+        print("Did tap comments")
+    }
+    
+    func didTapAsset(_ project: ProjectAsset) {
         guard case .video(_, let videoURL) = project else {
             return
         }

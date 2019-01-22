@@ -54,7 +54,7 @@ class HomepageOrchestrator: HomepageProvider {
                 
                 return HomepageProject(
                     context: 1,
-                    source: .kickstarter,
+                    source: project.source,
                     assets: assets,
                     name: project.name,
                     numberOfBackers: project.numBackers,
