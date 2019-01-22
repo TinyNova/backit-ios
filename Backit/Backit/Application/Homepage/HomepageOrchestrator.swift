@@ -1,31 +1,70 @@
+/**
+ *
+ * Copyright © 2018 Backit. All rights reserved.
+ */
+
+import BrightFutures
 import Foundation
+
+struct Project {
+    let id: Any
+    let source: ProjectSource
+    let url: URL? // Internal Backit URL
+    let name: String
+    let goal: Int
+    let pledged: Int
+    let numBackers: Int
+    let imageURLs: [URL]
+    let videoPreviewURL: URL?
+    let videoURL: URL?
+    let hasEarlyBirdRewards: Bool
+    let funded: Bool
+}
+
+enum ProjectProviderError: Error {
+    case failedToLoadProject
+}
+
+protocol ProjectProvider {
+    func allProjects() -> Future<[Project], ProjectProviderError>
+}
 
 class HomepageOrchestrator: HomepageProvider {
     
+    let provider: ProjectProvider
+    
     weak var client: HomepageClient?
     
-    // p = portrait
-    // t = thumb
-    // c = card
-    private var projects: [HomepageProject] = [
-        HomepageProject(
-            context: 1,
-            source: .kickstarter,
-            assets: [
-                .image(URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!),
-                .video(previewURL: URL(string: "https://s3.amazonaws.com/backit.com/tempt/youre-awesome.mp4")!, videoURL: URL(string: "https://s3.amazonaws.com/backit.com/tempt/youre-awesome.mp4")!),
-                .image(URL(string: "https://cdn.collect.backit.com/pictures/2/f/c/a/e/2fcae53923676aea72f9eeb7fae822e0t.jpg")!)
-            ],
-            name: "KEYTO: The Key to Burning Fat Faster",
-            numberOfBackers: 1234,
-            comment: .comments(500),
-            isEarlyBird: true,
-            fundedPercent: 0.9
-        )
-    ]
+    init(provider: ProjectProvider) {
+        self.provider = provider
+    }
 
     func viewDidLoad() {
-        client?.didReceiveProjects(projects)
+        provider.allProjects().onSuccess { [weak client] (projects) in
+            let homepageProjects = projects.map { (project) -> HomepageProject in
+                var assets: [ProjectAsset] = []
+                assets.append(.image(project.imageURLs[0]))
+                if let previewURL = project.videoPreviewURL, let videoURL = project.videoURL {
+                    assets.append(.video(previewURL: previewURL, videoURL: videoURL))
+                }
+                
+                let fundedPercent = project.pledged > 0
+                                  ? Float(project.pledged) / Float(project.goal)
+                                  : 0
+                
+                return HomepageProject(
+                    context: 1,
+                    source: .kickstarter,
+                    assets: assets,
+                    name: project.name,
+                    numberOfBackers: project.numBackers,
+                    comment: .comment,
+                    isEarlyBird: project.hasEarlyBirdRewards,
+                    fundedPercent: fundedPercent
+                )
+            }
+            client?.didReceiveProjects(homepageProjects)
+        }
     }
     
     func didTapAsset(project: HomepageProject) {

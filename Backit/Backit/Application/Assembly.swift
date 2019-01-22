@@ -22,7 +22,8 @@ class Assembly {
         }
         
         container.register(HomepageProvider.self) { resolver in
-            return HomepageOrchestrator()
+            let provider = resolver.resolve(ProjectProvider.self)!
+            return HomepageOrchestrator(provider: provider)
         }
         
         container.register(UIThemeApplier<AppTheme>.self) { resolver in
@@ -30,6 +31,12 @@ class Assembly {
             theme.concrete = resolver.resolve(AnyUITheme<AppTheme>.self)!
             return theme
         }.inObjectScope(.container)
+        
+        // MARK: - Services
+        
+        container.register(ProjectProvider.self) { _ in
+            return ProjectService()
+        }
         
         // MARK: - UIViewController Registration
         
