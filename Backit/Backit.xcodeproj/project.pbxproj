@@ -21,6 +21,10 @@
 		0754B5EC21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */; };
 		0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */; };
 		0754B5F121F625DC00E2DECD /* ProjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F021F625DC00E2DECD /* ProjectService.swift */; };
+		0754B5F421FA589B00E2DECD /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F321FA589B00E2DECD /* Project.swift */; };
+		0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F521FA58CF00E2DECD /* ProjectSource.swift */; };
+		0754B5F821FA590600E2DECD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F721FA590600E2DECD /* Service.swift */; };
+		0754B5FA21FA60B500E2DECD /* Project+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F921FA60B500E2DECD /* Project+Backit.swift */; };
 		0798AA4621D45DB0004A6261 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA4521D45DB0004A6261 /* BackitTests.swift */; };
 		0798AA4D21D45DC0004A6261 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DA21D4584F00C11799 /* KIF+Backit.swift */; };
 		0798AA4E21D45DC3004A6261 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DC21D4598E00C11799 /* Methods.swift */; };
@@ -78,6 +82,10 @@
 		0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCardCollectionViewAnimatedCell.xib; sourceTree = "<group>"; };
 		0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageOrchestrator.swift; sourceTree = "<group>"; };
 		0754B5F021F625DC00E2DECD /* ProjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectService.swift; sourceTree = "<group>"; };
+		0754B5F321FA589B00E2DECD /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		0754B5F521FA58CF00E2DECD /* ProjectSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSource.swift; sourceTree = "<group>"; };
+		0754B5F721FA590600E2DECD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		0754B5F921FA60B500E2DECD /* Project+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+Backit.swift"; sourceTree = "<group>"; };
 		0798AA4321D45DB0004A6261 /* BackitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 		0722324921D4375C009D1912 /* Backit */ = {
 			isa = PBXGroup;
 			children = (
+				0754B5F221FA588700E2DECD /* Model */,
 				07EC61FA21D6EF2000FE283C /* Foundation */,
 				0754B5ED21F6229400E2DECD /* Service */,
 				0722326C21D44028009D1912 /* Application */,
@@ -197,8 +206,19 @@
 			isa = PBXGroup;
 			children = (
 				0754B5F021F625DC00E2DECD /* ProjectService.swift */,
+				0754B5F721FA590600E2DECD /* Service.swift */,
+				0754B5F921FA60B500E2DECD /* Project+Backit.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		0754B5F221FA588700E2DECD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0754B5F321FA589B00E2DECD /* Project.swift */,
+				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0798AA4421D45DB0004A6261 /* BackitTests */ = {
@@ -533,6 +553,7 @@
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
+				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
@@ -545,7 +566,10 @@
 				0717398121E7E6D700EA17DC /* ProjectCardScrollingView.swift in Sources */,
 				0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
+				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
 				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,
+				0754B5FA21FA60B500E2DECD /* Project+Backit.swift in Sources */,
+				0754B5F421FA589B00E2DECD /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

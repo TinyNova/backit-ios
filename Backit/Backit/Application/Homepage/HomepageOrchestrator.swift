@@ -6,27 +6,12 @@
 import BrightFutures
 import Foundation
 
-struct Project {
-    let id: Any
-    let source: ProjectSource
-    let url: URL? // Internal Backit URL
-    let name: String
-    let goal: Int
-    let pledged: Int
-    let numBackers: Int
-    let imageURLs: [URL]
-    let videoPreviewURL: URL?
-    let videoURL: URL?
-    let hasEarlyBirdRewards: Bool
-    let funded: Bool
-}
-
 enum ProjectProviderError: Error {
     case failedToLoadProject
 }
 
 protocol ProjectProvider {
-    func allProjects() -> Future<[Project], ProjectProviderError>
+    func projects(offset: Any?) -> Future<ProjectResponse, ProjectProviderError>
 }
 
 class HomepageOrchestrator: HomepageProvider {
@@ -40,8 +25,8 @@ class HomepageOrchestrator: HomepageProvider {
     }
 
     func viewDidLoad() {
-        provider.allProjects().onSuccess { [weak client] (projects) in
-            let homepageProjects = projects.map { (project) -> HomepageProject in
+        provider.projects(offset: nil).onSuccess { [weak client] (response) in
+            let homepageProjects = response.projects.map { (project) -> HomepageProject in
                 var assets: [ProjectAsset] = []
                 assets.append(.image(project.imageURLs[0]))
                 if let previewURL = project.videoPreviewURL, let videoURL = project.videoURL {

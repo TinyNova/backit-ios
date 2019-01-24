@@ -17,11 +17,6 @@ enum ProjectAsset {
     case video(previewURL: URL, videoURL: URL)
 }
 
-enum ProjectSource {
-    case kickstarter
-    case indiegogo
-}
-
 struct HomepageProject {
     let context: Any
     let source: ProjectSource
