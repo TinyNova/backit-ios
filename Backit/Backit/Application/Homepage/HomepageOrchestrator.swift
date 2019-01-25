@@ -26,27 +26,8 @@ class HomepageOrchestrator: HomepageProvider {
 
     func viewDidLoad() {
         provider.projects(offset: nil).onSuccess { [weak client] (response) in
-            let homepageProjects = response.projects.map { (project) -> HomepageProject in
-                var assets: [ProjectAsset] = []
-                assets.append(.image(project.imageURLs[0]))
-                if let previewURL = project.videoPreviewURL, let videoURL = project.videoURL {
-                    assets.append(.video(previewURL: previewURL, videoURL: videoURL))
-                }
-                
-                let fundedPercent = project.pledged > 0
-                                  ? Float(project.pledged) / Float(project.goal)
-                                  : 0
-                
-                return HomepageProject(
-                    context: 1,
-                    source: project.source,
-                    assets: assets,
-                    name: project.name,
-                    numberOfBackers: project.numBackers,
-                    comment: .comment,
-                    isEarlyBird: project.hasEarlyBirdRewards,
-                    fundedPercent: fundedPercent
-                )
+            let homepageProjects = response.projects.map { (project) -> HomepageProject in                
+                return HomepageProject(project: project)
             }
             client?.didReceiveProjects(homepageProjects)
         }
