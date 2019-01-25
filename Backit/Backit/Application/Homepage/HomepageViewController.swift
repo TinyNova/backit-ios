@@ -27,6 +27,9 @@ class HomepageViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.allowsSelection = false
+            tableView.estimatedRowHeight = 300
+            tableView.estimatedSectionHeaderHeight = 0
+            tableView.estimatedSectionFooterHeight = 0
             
             tableView.register(UINib(nibName: "HomepageProjectCell", bundle: nil), forCellReuseIdentifier: "HomepageProjectCell")
         }

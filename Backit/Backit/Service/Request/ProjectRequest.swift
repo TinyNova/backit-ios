@@ -6,6 +6,7 @@
 import Foundation
 
 struct ProjectRequest: Request {
+    
     /**
      Needed:
      - Comments (number of comments)
@@ -52,7 +53,10 @@ struct ProjectRequest: Request {
         let projects: [ProjectRequest.Project]
     }
     
-    enum Parameter {
+    enum Header {
+        
+    }
+    enum GetParameter {
         case funding(Bool)
         case backerCountMin(Int)
         case country(String)
@@ -61,11 +65,19 @@ struct ProjectRequest: Request {
         case offset(Int)
         case limit(Int)
     }
+    enum PostParameter {
+        
+    }
     
+    static var environment: Environment = .prod
+    
+    var type: RequestType = .get
     var url = "https://collect.backit.com/projects"
-    var parameters: [Parameter]
+    var headers: [Header]? = nil
+    var getParameters: [GetParameter]?
+    var postParameters: [PostParameter]? = nil
     
-    init(parameters: [Parameter]) {
-        self.parameters = parameters
+    init(getParameters: [GetParameter]) {
+        self.getParameters = getParameters
     }
 }

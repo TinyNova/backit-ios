@@ -7,12 +7,35 @@ import Alamofire
 import BrightFutures
 import Foundation
 
+enum Environment {
+    case dev
+    case qa
+    case prod
+}
+
+enum RequestType {
+    case get
+    case post
+}
+
+/**
+ Notes:
+ 1. `Request` must be an immutable type (i.e. a `struct`)
+ 2. `Header`, `GetParameter`, `PostParameter` must be enums with a single associated value for every case.
+ */
 protocol Request {
     associatedtype ResponseType: Decodable
-    associatedtype Parameter
+    associatedtype Header
+    associatedtype GetParameter
+    associatedtype PostParameter
     
+    static var environment: Environment { get set }
+    
+    var type: RequestType { get }
     var url: String { get }
-    var parameters: [Parameter] { get }
+    var headers: [Header]? { get }
+    var getParameters: [GetParameter]? { get }
+    var postParameters: [PostParameter]? { get }
 }
 
 enum ServiceError: Error {
@@ -66,7 +89,11 @@ class Service {
     }
     
     private func queryItems<T: Request>(for request: T) -> [URLQueryItem] {
-        return request.parameters.compactMap { (parameter) -> URLQueryItem? in
+        guard let params = request.getParameters else {
+            return []
+        }
+        
+        return params.compactMap { (parameter) -> URLQueryItem? in
             let string = "\(parameter)"
             guard let range = string.range(of: "(") else {
                 print("Failed to extract key/value GET parameter for \(parameter). It must be an `enum` case with a single associated value.")
