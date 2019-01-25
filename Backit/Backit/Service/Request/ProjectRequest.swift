@@ -42,7 +42,7 @@ struct ProjectRequest: Request {
         let backerCount: String
         let blurb: String
         let image: ProjectImages
-        let video: String
+        let video: String?
         let visible: Bool
         let funding: Bool
         let hasEarlyBirdRewards: Bool

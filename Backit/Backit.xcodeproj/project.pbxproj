@@ -27,6 +27,7 @@
 		0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F921FA60B500E2DECD /* ProjectResponse+Backit.swift */; };
 		0754B5FD21FA64CB00E2DECD /* ProjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5FC21FA64CB00E2DECD /* ProjectRequest.swift */; };
 		0754B60021FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5FF21FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift */; };
+		0754B60221FB691800E2DECD /* HomepageProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60121FB691800E2DECD /* HomepageProject.swift */; };
 		0798AA4621D45DB0004A6261 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA4521D45DB0004A6261 /* BackitTests.swift */; };
 		0798AA4D21D45DC0004A6261 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DA21D4584F00C11799 /* KIF+Backit.swift */; };
 		0798AA4E21D45DC3004A6261 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DC21D4598E00C11799 /* Methods.swift */; };
@@ -90,6 +91,7 @@
 		0754B5F921FA60B500E2DECD /* ProjectResponse+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectResponse+Backit.swift"; sourceTree = "<group>"; };
 		0754B5FC21FA64CB00E2DECD /* ProjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRequest.swift; sourceTree = "<group>"; };
 		0754B5FF21FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomepageProject+ProjectResponse.swift"; sourceTree = "<group>"; };
+		0754B60121FB691800E2DECD /* HomepageProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomepageProject.swift; path = ../../../../../../HomepageProject.swift; sourceTree = "<group>"; };
 		0798AA4321D45DB0004A6261 /* BackitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				0717398021E7E6D700EA17DC /* ProjectCardScrollingView.swift */,
 				0717398C21E96E6C00EA17DC /* ProjectCardScrollingView.xib */,
 				0754B5FF21FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift */,
+				0754B60121FB691800E2DECD /* HomepageProject.swift */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				0754B5FD21FA64CB00E2DECD /* ProjectRequest.swift in Sources */,
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,
+				0754B60221FB691800E2DECD /* HomepageProject.swift in Sources */,
 				0754B5F121F625DC00E2DECD /* ProjectService.swift in Sources */,
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
 				0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */,

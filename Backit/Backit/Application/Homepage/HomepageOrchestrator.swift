@@ -11,7 +11,7 @@ enum ProjectProviderError: Error {
 }
 
 protocol ProjectProvider {
-    func projects(offset: Any?) -> Future<ProjectResponse, ProjectProviderError>
+    func projects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError>
 }
 
 class HomepageOrchestrator: HomepageProvider {
@@ -20,17 +20,19 @@ class HomepageOrchestrator: HomepageProvider {
     
     weak var client: HomepageClient?
     
+    private enum QueryState {
+        case notLoaded
+        case loading
+        case loaded(offset: Any?)
+    }
+    private var queryState: QueryState = .notLoaded
+    
     init(provider: ProjectProvider) {
         self.provider = provider
     }
 
     func viewDidLoad() {
-        provider.projects(offset: nil).onSuccess { [weak client] (response) in
-            let homepageProjects = response.projects.map { (project) -> HomepageProject in                
-                return HomepageProject(project: project)
-            }
-            client?.didReceiveProjects(homepageProjects)
-        }
+        loadProjects()
     }
     
     func didTapAsset(project: HomepageProject) {
@@ -43,5 +45,34 @@ class HomepageOrchestrator: HomepageProvider {
     
     func didTapComment(project: HomepageProject) {
         
+    }
+    
+    func didReachEndOfProjectList() {
+        loadProjects()
+    }
+    
+    private func loadProjects() {
+        let offset: Any?
+        switch queryState {
+        case .notLoaded:
+            offset = nil
+        case .loading:
+            return
+        case .loaded(let _offset):
+            offset = _offset
+        }
+        
+        queryState = .loading
+        provider.projects(offset: offset, limit: 10).onSuccess { [weak self] (response) in
+            guard let self = self else {
+                return
+            }
+            
+            let homepageProjects = response.projects.map { (project) -> HomepageProject in
+                return HomepageProject(project: project)
+            }
+            self.queryState = .loaded(offset: response.offset)
+            self.client?.didReceiveProjects(homepageProjects)
+        }
     }
 }

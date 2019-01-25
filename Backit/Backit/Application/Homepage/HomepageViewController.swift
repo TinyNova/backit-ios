@@ -7,27 +7,6 @@ import AVKit
 import MediaPlayer
 import UIKit
 
-enum ProjectComment {
-    case comments(Int)
-    case comment
-}
-
-enum ProjectAsset {
-    case image(URL)
-    case video(previewURL: URL, videoURL: URL)
-}
-
-struct HomepageProject {
-    let context: Any
-    let source: ProjectSource
-    let assets: [ProjectAsset]
-    let name: String
-    let numberOfBackers: Int
-    let comment: ProjectComment
-    let isEarlyBird: Bool
-    let fundedPercent: Float
-}
-
 protocol HomepageClient: class {
     func didReceiveProjects(_ projects: [HomepageProject])
 }
@@ -39,6 +18,7 @@ protocol HomepageProvider {
     func didTapAsset(project: HomepageProject)
     func didTapBackit(project: HomepageProject)
     func didTapComment(project: HomepageProject)
+    func didReachEndOfProjectList()
 }
 
 class HomepageViewController: UIViewController {
@@ -71,7 +51,7 @@ class HomepageViewController: UIViewController {
 
 extension HomepageViewController: HomepageClient {
     func didReceiveProjects(_ projects: [HomepageProject]) {
-        self.projects = projects
+        self.projects.append(contentsOf: projects)
         tableView.reloadData()
     }
 }
@@ -89,6 +69,11 @@ extension HomepageViewController: UITableViewDataSource {
         guard let dequedCell = tableView.dequeueReusableCell(withIdentifier: "HomepageProjectCell"), let cell = dequedCell as? HomepageProjectCell else {
             fatalError("Failed to deque HomepageProjectCell")
         }
+        
+        if projects.count - indexPath.row == 1 {
+            provider.didReachEndOfProjectList()
+        }
+        
         let project = projects[indexPath.row]
         cell.configure(project: project)
         cell.delegate = self

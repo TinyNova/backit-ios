@@ -8,10 +8,10 @@ import Foundation
 
 class ProjectService: Service, ProjectProvider {
     
-    func projects(offset: Any?) -> Future<ProjectResponse, ProjectProviderError> {
+    func projects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError> {
         let nextOffset: Int
         if let offset = offset as? Int {
-            nextOffset = offset + 10
+            nextOffset = offset + limit
         }
         else {
             nextOffset = 0
@@ -24,7 +24,7 @@ class ProjectService: Service, ProjectProvider {
             .sort("backerCount"),
             .sortDirection("desc"),
             .offset(nextOffset),
-            .limit(10)
+            .limit(limit)
         ])
         return self.request(request)
             .map { response -> ProjectResponse in
