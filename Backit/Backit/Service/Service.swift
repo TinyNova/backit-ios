@@ -16,9 +16,11 @@ protocol Request {
 }
 
 enum ServiceError: Error {
-    case unknown
+    case unknown(Error?)
     case emptyResponse
     case failedToDecode
+    case noInternetConnection
+    case server(Error)
 }
 
 class Service {
@@ -31,8 +33,21 @@ class Service {
         
         let promise = Promise<T.ResponseType, ServiceError>()
         Alamofire.request(urlRequest).responseJSON { [weak decoder] (response) in
+            if let error = response.result.error as? URLError {
+                switch error.code.rawValue {
+                case -1009:
+                    promise.failure(.noInternetConnection)
+                default:
+                    promise.failure(.server(error))
+                }
+                return
+            }
+            if let error = response.result.error {
+                promise.failure(.unknown(error))
+                return
+            }
             guard let decoder = decoder else {
-                promise.failure(.unknown)
+                promise.failure(.unknown(nil))
                 return
             }
             guard let data = response.data else {

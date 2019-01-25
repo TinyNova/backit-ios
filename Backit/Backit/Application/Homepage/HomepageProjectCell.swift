@@ -99,6 +99,8 @@ class HomepageProjectCell: UITableViewCell {
         case .indiegogo:
             theme.apply(.indiegogoProgressForeground, toView: fundedForegroundView)
             theme.apply(.indiegogoProgressBackground, toView: fundedBackgroundView)
+        case .unknown:
+            break
         }
     }
     

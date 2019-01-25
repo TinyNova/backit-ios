@@ -9,20 +9,32 @@ extension ProjectResponse {
             if let thumbnailURL = URL(string: project.image.t) {
                 imageURL = thumbnailURL
             }
+            let goal = Int(project.goal) ?? 0
+            let pledged = Int(project.pledged) ?? 0
+            
+            let source: ProjectSource
+            switch project.site.lowercased() {
+            case "kickstarter":
+                source = .kickstarter
+            case "indiegogo":
+                source = .indiegogo
+            default:
+                source = .unknown
+            }
             
             return Project(
                 id: 1,
-                source: .kickstarter,
-                url: nil,
-                name: "Name",
-                goal: 0,
-                pledged: 0,
-                numBackers: 0,
+                source: source,
+                url: URL(string: project.url),
+                name: project.name,
+                goal: goal,
+                pledged: pledged,
+                numBackers: Int(project.backerCount) ?? 0,
                 imageURLs: [imageURL],
                 videoPreviewURL: nil,
-                videoURL: nil,
-                hasEarlyBirdRewards: false,
-                funded: false
+                videoURL: URL(string: project.url),
+                hasEarlyBirdRewards: project.hasEarlyBirdRewards,
+                funded: pledged > 0 && pledged >= goal
             )
         }
     }

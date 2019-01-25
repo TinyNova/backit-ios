@@ -6,6 +6,7 @@
 import Foundation
 
 enum ProjectSource {
+    case unknown
     case kickstarter
     case indiegogo
 }
