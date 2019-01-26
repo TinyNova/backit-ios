@@ -1,20 +1,19 @@
 /**
- *
- * Copyright © 2018 Backit. All rights reserved.
+ Provides ability to make requests.
+ 
+ License: MIT
+ 
+ Copyright © 2018 Upstart Illustration LLC. All rights reserved.
  */
 
 import Alamofire
 import BrightFutures
 import Foundation
 
-enum Environment {
-    case dev
-    case qa
-    case prod
-}
-
 enum ServiceError: Error {
     case unknown(Error?)
+    case noURLForEnvironment(Environment)
+    case invalidURLForEnvironment(Environment)
     case emptyResponse
     case failedToDecode
     case noInternetConnection
@@ -31,12 +30,17 @@ class Service {
     }
     
     func request<T: ServiceRequest>(_ request: T) -> Future<T.ResponseType, ServiceError> {
-        // Possibly create new request with different environment. OR, just provide a structure for a given environment with the environment as the key.
-        
-        var urlComponents = URLComponents(string: request.url)
-        urlComponents?.queryItems = queryItems(for: request)
-        let urlRequest = URLRequest(url: urlComponents!.url!) // FIXME
-        
+        let urlRequest: URLRequest
+        do {
+            urlRequest = try urlRequestFor(request: request, in: environment)
+        }
+        catch let error as ServiceError {
+            return Future(error: error)
+        }
+        catch {
+            return Future(error: .unknown(error))
+        }
+
         let promise = Promise<T.ResponseType, ServiceError>()
         Alamofire.request(urlRequest).responseJSON { [weak decoder] (response) in
             if let error = response.result.error as? URLError {
@@ -69,6 +73,23 @@ class Service {
         }
         
         return promise.future
+    }
+    
+    // MARK: - Private Methods
+    
+    private func urlRequestFor<T: ServiceRequest>(request: T, in environment: Environment) throws -> URLRequest {
+        guard let urlString = request.endpoints[environment] else {
+            throw ServiceError.noURLForEnvironment(environment)
+        }
+        
+        var urlComponents = URLComponents(string: urlString)
+        urlComponents?.queryItems = queryItems(for: request)
+        
+        guard let url = urlComponents?.url else {
+            throw ServiceError.invalidURLForEnvironment(environment)
+        }
+        
+        return URLRequest(url: url)
     }
     
     private func queryItems<T: ServiceRequest>(for request: T) -> [URLQueryItem] {

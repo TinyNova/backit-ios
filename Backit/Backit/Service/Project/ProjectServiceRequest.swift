@@ -67,7 +67,9 @@ struct ProjectServiceRequest: ServiceRequest {
     enum PostParameter { }
         
     var type: ServiceRequestType = .get
-    var url = "https://collect.backit.com/projects"
+    var endpoints: Endpoints = [
+        .prod: "https://collect.backit.com/projects"
+    ]
     var queryParameters: [QueryParameter]?
     
     init(queryParameters: [QueryParameter]) {

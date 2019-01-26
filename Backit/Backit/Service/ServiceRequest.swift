@@ -1,9 +1,19 @@
+/**
+ Provides definition of a request made to a service.
+ 
+ License: MIT
+ 
+ Copyright © 2018 Upstart Illustration LLC. All rights reserved.
+ */
+
 import Foundation
 
 enum ServiceRequestType {
     case get
     case post
 }
+
+typealias Endpoints = [Environment: String]
 
 /**
  Notes:
@@ -18,13 +28,14 @@ protocol ServiceRequest {
     associatedtype PostParameter
     
     var type: ServiceRequestType { get }
-    var url: String { get }
+    var endpoints: Endpoints { get }
     var headers: [Header]? { get }
     var pathParameters: [PathParameter]? { get }
     var queryParameters: [QueryParameter]? { get }
     var postParameters: [PostParameter]? { get }
 }
 
+/// Default implementations
 extension ServiceRequest {
     var headers: [Header]? {
         return nil
