@@ -35,7 +35,7 @@ class Assembly {
         // MARK: - Services
         
         container.register(ProjectProvider.self) { _ in
-            return ProjectService()
+            return ProjectService(environment: .prod)
         }
         
         // MARK: - UIViewController Registration

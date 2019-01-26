@@ -13,31 +13,6 @@ enum Environment {
     case prod
 }
 
-enum RequestType {
-    case get
-    case post
-}
-
-/**
- Notes:
- 1. `Request` must be an immutable type (i.e. a `struct`)
- 2. `Header`, `GetParameter`, `PostParameter` must be enums with a single associated value for every case.
- */
-protocol Request {
-    associatedtype ResponseType: Decodable
-    associatedtype Header
-    associatedtype GetParameter
-    associatedtype PostParameter
-    
-    static var environment: Environment { get set }
-    
-    var type: RequestType { get }
-    var url: String { get }
-    var headers: [Header]? { get }
-    var getParameters: [GetParameter]? { get }
-    var postParameters: [PostParameter]? { get }
-}
-
 enum ServiceError: Error {
     case unknown(Error?)
     case emptyResponse
@@ -47,9 +22,17 @@ enum ServiceError: Error {
 }
 
 class Service {
+    let environment: Environment
+    
     let decoder = JSONDecoder()
     
-    func request<T: Request>(_ request: T) -> Future<T.ResponseType, ServiceError> {
+    init(environment: Environment) {
+        self.environment = environment
+    }
+    
+    func request<T: ServiceRequest>(_ request: T) -> Future<T.ResponseType, ServiceError> {
+        // Possibly create new request with different environment. OR, just provide a structure for a given environment with the environment as the key.
+        
         var urlComponents = URLComponents(string: request.url)
         urlComponents?.queryItems = queryItems(for: request)
         let urlRequest = URLRequest(url: urlComponents!.url!) // FIXME
@@ -88,8 +71,8 @@ class Service {
         return promise.future
     }
     
-    private func queryItems<T: Request>(for request: T) -> [URLQueryItem] {
-        guard let params = request.getParameters else {
+    private func queryItems<T: ServiceRequest>(for request: T) -> [URLQueryItem] {
+        guard let params = request.queryParameters else {
             return []
         }
         

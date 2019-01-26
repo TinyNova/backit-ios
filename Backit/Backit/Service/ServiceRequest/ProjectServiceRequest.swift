@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct ProjectRequest: Request {
+struct ProjectServiceRequest: ServiceRequest {
     
     /**
      Needed:
@@ -50,13 +50,12 @@ struct ProjectRequest: Request {
     }
     
     struct ResponseType: Decodable {
-        let projects: [ProjectRequest.Project]
+        let projects: [ProjectServiceRequest.Project]
     }
     
-    enum Header {
-        
-    }
-    enum GetParameter {
+    enum Header { }
+    enum PathParameter { }
+    enum QueryParameter {
         case funding(Bool)
         case backerCountMin(Int)
         case country(String)
@@ -65,19 +64,13 @@ struct ProjectRequest: Request {
         case offset(Int)
         case limit(Int)
     }
-    enum PostParameter {
+    enum PostParameter { }
         
-    }
-    
-    static var environment: Environment = .prod
-    
-    var type: RequestType = .get
+    var type: ServiceRequestType = .get
     var url = "https://collect.backit.com/projects"
-    var headers: [Header]? = nil
-    var getParameters: [GetParameter]?
-    var postParameters: [PostParameter]? = nil
+    var queryParameters: [QueryParameter]?
     
-    init(getParameters: [GetParameter]) {
-        self.getParameters = getParameters
+    init(queryParameters: [QueryParameter]) {
+        self.queryParameters = queryParameters
     }
 }
