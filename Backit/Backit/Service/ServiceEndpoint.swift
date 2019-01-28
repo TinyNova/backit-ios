@@ -17,8 +17,7 @@ typealias Endpoints = [Environment: String]
 
 /**
  Notes:
- 1. `Request` must be an immutable type (i.e. a `struct`)
- 2. `Header`, `GetParameter`, `PostParameter` must be enums with a single associated value for every case.
+ `Header`, `PathParameter`, `GetParameter`, and `PostParameter` must be enums with a single associated value for every case.
  */
 protocol ServiceEndpoint {
     associatedtype ResponseType: Decodable
