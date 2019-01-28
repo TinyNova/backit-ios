@@ -25,12 +25,12 @@
 		0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F521FA58CF00E2DECD /* ProjectSource.swift */; };
 		0754B5F821FA590600E2DECD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F721FA590600E2DECD /* Service.swift */; };
 		0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F921FA60B500E2DECD /* ProjectResponse+Backit.swift */; };
-		0754B5FD21FA64CB00E2DECD /* ProjectServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5FC21FA64CB00E2DECD /* ProjectServiceRequest.swift */; };
+		0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5FC21FA64CB00E2DECD /* ProjectsEndpoint.swift */; };
 		0754B60021FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5FF21FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift */; };
 		0754B60221FB691800E2DECD /* HomepageProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60121FB691800E2DECD /* HomepageProject.swift */; };
-		0754B60421FBDC1900E2DECD /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60321FBDC1900E2DECD /* ServiceRequest.swift */; };
 		0754B60621FBDDC400E2DECD /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60521FBDDC400E2DECD /* Environment.swift */; };
 		0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */; };
+		0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60A21FF322700E2DECD /* ServiceEndpoint.swift */; };
 		0798AA4621D45DB0004A6261 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA4521D45DB0004A6261 /* BackitTests.swift */; };
 		0798AA4D21D45DC0004A6261 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DA21D4584F00C11799 /* KIF+Backit.swift */; };
 		0798AA4E21D45DC3004A6261 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DC21D4598E00C11799 /* Methods.swift */; };
@@ -92,12 +92,12 @@
 		0754B5F521FA58CF00E2DECD /* ProjectSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSource.swift; sourceTree = "<group>"; };
 		0754B5F721FA590600E2DECD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		0754B5F921FA60B500E2DECD /* ProjectResponse+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectResponse+Backit.swift"; sourceTree = "<group>"; };
-		0754B5FC21FA64CB00E2DECD /* ProjectServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectServiceRequest.swift; sourceTree = "<group>"; };
+		0754B5FC21FA64CB00E2DECD /* ProjectsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEndpoint.swift; sourceTree = "<group>"; };
 		0754B5FF21FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomepageProject+ProjectResponse.swift"; sourceTree = "<group>"; };
 		0754B60121FB691800E2DECD /* HomepageProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomepageProject.swift; path = ../../../../../../HomepageProject.swift; sourceTree = "<group>"; };
-		0754B60321FBDC1900E2DECD /* ServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
 		0754B60521FBDDC400E2DECD /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePlugin.swift; sourceTree = "<group>"; };
+		0754B60A21FF322700E2DECD /* ServiceEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceEndpoint.swift; sourceTree = "<group>"; };
 		0798AA4321D45DB0004A6261 /* BackitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -220,8 +220,8 @@
 				0754B60721FC0FA400E2DECD /* Project */,
 				0754B60521FBDDC400E2DECD /* Environment.swift */,
 				0754B5F721FA590600E2DECD /* Service.swift */,
+				0754B60A21FF322700E2DECD /* ServiceEndpoint.swift */,
 				0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */,
-				0754B60321FBDC1900E2DECD /* ServiceRequest.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 		0754B60721FC0FA400E2DECD /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				0754B5FC21FA64CB00E2DECD /* ProjectServiceRequest.swift */,
+				0754B5FC21FA64CB00E2DECD /* ProjectsEndpoint.swift */,
 				0754B5F921FA60B500E2DECD /* ProjectResponse+Backit.swift */,
 				0754B5F021F625DC00E2DECD /* ProjectService.swift */,
 			);
@@ -580,14 +580,14 @@
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
+				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
 				0754B60021FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
-				0754B5FD21FA64CB00E2DECD /* ProjectServiceRequest.swift in Sources */,
+				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
-				0754B60421FBDC1900E2DECD /* ServiceRequest.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,
 				0754B60221FB691800E2DECD /* HomepageProject.swift in Sources */,
 				0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */,

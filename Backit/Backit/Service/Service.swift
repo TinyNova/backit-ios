@@ -29,7 +29,7 @@ class Service {
         self.environment = environment
     }
     
-    func request<T: ServiceRequest>(_ request: T) -> Future<T.ResponseType, ServiceError> {
+    func request<T: ServiceEndpoint>(_ request: T) -> Future<T.ResponseType, ServiceError> {
         let urlRequest: URLRequest
         do {
             urlRequest = try urlRequestFor(request: request, in: environment)
@@ -77,7 +77,7 @@ class Service {
     
     // MARK: - Private Methods
     
-    private func urlRequestFor<T: ServiceRequest>(request: T, in environment: Environment) throws -> URLRequest {
+    private func urlRequestFor<T: ServiceEndpoint>(request: T, in environment: Environment) throws -> URLRequest {
         guard let urlString = request.endpoints[environment] else {
             throw ServiceError.noURLForEnvironment(environment)
         }
@@ -92,7 +92,7 @@ class Service {
         return URLRequest(url: url)
     }
     
-    private func queryItems<T: ServiceRequest>(for request: T) -> [URLQueryItem] {
+    private func queryItems<T: ServiceEndpoint>(for request: T) -> [URLQueryItem] {
         guard let params = request.queryParameters else {
             return []
         }

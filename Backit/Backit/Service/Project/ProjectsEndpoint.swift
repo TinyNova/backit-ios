@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct ProjectServiceRequest: ServiceRequest {
+struct ProjectsEndpoint: ServiceEndpoint {
     
     /**
      Needed:
@@ -50,7 +50,7 @@ struct ProjectServiceRequest: ServiceRequest {
     }
     
     struct ResponseType: Decodable {
-        let projects: [ProjectServiceRequest.Project]
+        let projects: [ProjectsEndpoint.Project]
     }
     
     enum Header { }

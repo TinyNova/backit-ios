@@ -17,7 +17,7 @@ class ProjectService: Service, ProjectProvider {
             nextOffset = 0
         }
         
-        let request = ProjectServiceRequest(queryParameters: [
+        let request = ProjectsEndpoint(queryParameters: [
             .funding(true),
             .backerCountMin(100),
             .country("United States"),

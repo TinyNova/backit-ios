@@ -20,7 +20,7 @@ typealias Endpoints = [Environment: String]
  1. `Request` must be an immutable type (i.e. a `struct`)
  2. `Header`, `GetParameter`, `PostParameter` must be enums with a single associated value for every case.
  */
-protocol ServiceRequest {
+protocol ServiceEndpoint {
     associatedtype ResponseType: Decodable
     associatedtype Header
     associatedtype PathParameter
@@ -36,7 +36,7 @@ protocol ServiceRequest {
 }
 
 /// Default implementations
-extension ServiceRequest {
+extension ServiceEndpoint {
     var headers: [Header]? {
         return nil
     }

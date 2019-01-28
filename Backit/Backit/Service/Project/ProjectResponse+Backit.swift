@@ -6,7 +6,7 @@
 import Foundation
 
 extension ProjectResponse {
-    init(from response: ProjectServiceRequest.ResponseType, offset: Int) {
+    init(from response: ProjectsEndpoint.ResponseType, offset: Int) {
         self.offset = offset
         self.projects = response.projects.map { (project) -> Project in
             // FIXME: This should be an image local to the project
