@@ -31,6 +31,7 @@
 		0754B60621FBDDC400E2DECD /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60521FBDDC400E2DECD /* Environment.swift */; };
 		0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */; };
 		0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60A21FF322700E2DECD /* ServiceEndpoint.swift */; };
+		0754B60D21FF32E900E2DECD /* URLRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60C21FF32E900E2DECD /* URLRequestFactory.swift */; };
 		0798AA4621D45DB0004A6261 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA4521D45DB0004A6261 /* BackitTests.swift */; };
 		0798AA4D21D45DC0004A6261 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DA21D4584F00C11799 /* KIF+Backit.swift */; };
 		0798AA4E21D45DC3004A6261 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DC21D4598E00C11799 /* Methods.swift */; };
@@ -98,6 +99,7 @@
 		0754B60521FBDDC400E2DECD /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePlugin.swift; sourceTree = "<group>"; };
 		0754B60A21FF322700E2DECD /* ServiceEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceEndpoint.swift; sourceTree = "<group>"; };
+		0754B60C21FF32E900E2DECD /* URLRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestFactory.swift; sourceTree = "<group>"; };
 		0798AA4321D45DB0004A6261 /* BackitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				0754B5F721FA590600E2DECD /* Service.swift */,
 				0754B60A21FF322700E2DECD /* ServiceEndpoint.swift */,
 				0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */,
+				0754B60C21FF32E900E2DECD /* URLRequestFactory.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
 				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,
 				0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */,
+				0754B60D21FF32E900E2DECD /* URLRequestFactory.swift in Sources */,
 				0754B5F421FA589B00E2DECD /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
