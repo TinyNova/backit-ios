@@ -9,5 +9,7 @@
 import Foundation
 
 protocol ServicePlugin {
-    
+    func willSendRequest(_ request: URLRequest) -> URLRequest
+    func didSendRequest(_ request: URLRequest)
+    func didReceiveResponse(_ response: ServiceResult) -> ServiceResult
 }
