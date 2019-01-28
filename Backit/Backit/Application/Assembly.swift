@@ -12,6 +12,10 @@ class Assembly {
     let container: Container = SwinjectStoryboard.defaultContainer
     
     init() {
+        container.register(ServiceRequester.self) { _ in
+            return AlamofireServiceRequester()
+        }
+        
         container.register(AppTheme.self) { _ in
             return AppTheme()
         }.inObjectScope(.container)
@@ -34,8 +38,9 @@ class Assembly {
         
         // MARK: - Services
         
-        container.register(ProjectProvider.self) { _ in
-            return ProjectService(environment: .prod)
+        container.register(ProjectProvider.self) { resolver in
+            let requester = resolver.resolve(ServiceRequester.self)!
+            return ProjectService(environment: .prod, requester: requester, plugins: [])
         }
         
         // MARK: - UIViewController Registration

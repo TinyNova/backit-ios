@@ -6,7 +6,6 @@
  Copyright © 2018 Upstart Illustration LLC. All rights reserved.
  */
 
-import Alamofire
 import BrightFutures
 import Foundation
 
@@ -25,21 +24,17 @@ struct ServiceResult {
     var error: Error?
 }
 
-extension ServiceResult {
-    static func make(from response: DataResponse<Any>) -> ServiceResult {
-        return ServiceResult(data: response.data, error: response.error)
-    }
-}
-
 class Service {
     let environment: Environment
+    let requester: ServiceRequester
     let plugins: [ServicePlugin]
     
     let urlRequestFactory = URLRequestFactory()
     let decoder = JSONDecoder()
     
-    init(environment: Environment, plugins: [ServicePlugin] = []) {
+    init(environment: Environment, requester: ServiceRequester, plugins: [ServicePlugin]) {
         self.environment = environment
+        self.requester = requester
         self.plugins = plugins
     }
     
@@ -60,13 +55,14 @@ class Service {
         })
         
         let promise = Promise<T.ResponseType, ServiceError>()
-        Alamofire.request(urlRequest).responseJSON { [weak self] (response) in
+        
+        requester.request(urlRequest) { [weak self] (result) in
             guard let self = self else {
                 promise.failure(.unknown(nil))
                 return
             }
             
-            let result = self.plugins.reduce(ServiceResult.make(from: response), { (response, plugin) -> ServiceResult in
+            let result = self.plugins.reduce(result, { (response, plugin) -> ServiceResult in
                 return plugin.didReceiveResponse(response)
             })
             
@@ -79,10 +75,15 @@ class Service {
                 }
                 return
             }
-            if let error = result.error {
+            else if let error = result.error as? ServiceError {
+                promise.failure(error)
+                return
+            }
+            else if let error = result.error {
                 promise.failure(.unknown(error))
                 return
             }
+            
             guard let data = result.data else {
                 promise.failure(.emptyResponse)
                 return
