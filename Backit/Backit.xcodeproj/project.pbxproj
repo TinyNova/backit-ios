@@ -212,9 +212,9 @@
 				07AC39C721D4415A00214687 /* Homepage */,
 				07EC61F821D6EE1C00FE283C /* Resources */,
 				0754B61521FF3D9600E2DECD /* ServiceRequesters */,
-				07EC61ED21D6ECD300FE283C /* Assembly.swift */,
 				0722324A21D4375C009D1912 /* AppDelegate.swift */,
 				07EC61F621D6ED4600FE283C /* AppTheme.swift */,
+				07EC61ED21D6ECD300FE283C /* Assembly.swift */,
 				0722325021D4375C009D1912 /* Main.storyboard */,
 				0722325521D4375F009D1912 /* LaunchScreen.storyboard */,
 			);
