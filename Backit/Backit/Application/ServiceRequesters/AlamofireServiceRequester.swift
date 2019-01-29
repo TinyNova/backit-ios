@@ -1,6 +1,9 @@
 /**
- *
- * Copyright © 2018 Backit. All rights reserved.
+ Provides definition of a request made to a service.
+ 
+ License: MIT
+ 
+ Copyright © 2018 Upstart Illustration LLC. All rights reserved.
  */
 
 import Alamofire
