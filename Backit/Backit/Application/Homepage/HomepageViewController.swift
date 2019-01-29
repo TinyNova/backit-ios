@@ -1,6 +1,6 @@
 /**
  *
- * Copyright © 2018 Backit. All rights reserved.
+ * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
 import AVKit
