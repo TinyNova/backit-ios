@@ -9,12 +9,12 @@ import Foundation
 class ProjectService: Service, ProjectProvider {
     
     func projects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError> {
-        let nextOffset: Int
+        let nextCursor: Int
         if let offset = offset as? Int {
-            nextOffset = offset + limit
+            nextCursor = offset + limit
         }
         else {
-            nextOffset = 0
+            nextCursor = 0
         }
         
         let request = ProjectsEndpoint(queryParameters: [
@@ -23,12 +23,12 @@ class ProjectService: Service, ProjectProvider {
             .country("United States"),
             .sort("backerCount"),
             .sortDirection("desc"),
-            .offset(nextOffset),
+            .offset(nextCursor),
             .limit(limit)
         ])
         return self.request(request)
             .map { response -> ProjectResponse in
-                return ProjectResponse(from: response, offset: nextOffset)
+                return ProjectResponse(from: response, cursor: nextCursor)
             }
             .mapError { error -> ProjectProviderError in
                 return .failedToLoadProject

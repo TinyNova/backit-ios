@@ -6,8 +6,8 @@
 import Foundation
 
 extension ProjectResponse {
-    init(from response: ProjectsEndpoint.ResponseType, offset: Int) {
-        self.offset = offset
+    init(from response: ProjectsEndpoint.ResponseType, cursor: Int) {
+        self.cursor = cursor
         self.projects = response.projects.map { (project) -> Project in
             // FIXME: This should be an image local to the project
             var imageURL: URL = URL(string: "http://placekitten.com/200/300")!

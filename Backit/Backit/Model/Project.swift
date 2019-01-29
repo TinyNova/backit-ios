@@ -6,7 +6,7 @@
 import Foundation
 
 struct ProjectResponse {
-    let offset: Any?
+    let cursor: Any?
     let projects: [Project]
 }
 

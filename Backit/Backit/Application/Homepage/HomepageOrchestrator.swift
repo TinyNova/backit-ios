@@ -23,7 +23,7 @@ class HomepageOrchestrator: HomepageProvider {
     private enum QueryState {
         case notLoaded
         case loading
-        case loaded(offset: Any?)
+        case loaded(cursor: Any?)
     }
     private var queryState: QueryState = .notLoaded
     
@@ -71,7 +71,7 @@ class HomepageOrchestrator: HomepageProvider {
             let homepageProjects = response.projects.map { (project) -> HomepageProject in
                 return HomepageProject(project: project)
             }
-            self.queryState = .loaded(offset: response.offset)
+            self.queryState = .loaded(cursor: response.cursor)
             self.client?.didReceiveProjects(homepageProjects)
         }
     }
