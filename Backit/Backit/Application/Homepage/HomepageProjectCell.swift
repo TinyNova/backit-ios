@@ -69,6 +69,7 @@ class HomepageProjectCell: UITableViewCell {
     weak var delegate: HomepageProjectCellDelegate?
     
     var theme = AppTheme.default
+    var i18n = Localization<Appl10n>()
     
     private(set) var project: HomepageProject? {
         didSet {
@@ -113,16 +114,16 @@ class HomepageProjectCell: UITableViewCell {
         // TODO: Use i18n (or move to view state)
         switch comment {
         case .comment:
-            commentsLabel.text = "Comment"
+            commentsLabel.text = i18n.t(.comment)
         case .comments(let amount):
-            commentsLabel.text = "\(amount) comments"
+            commentsLabel.text = i18n.t(.comments(amount: amount))
         }
     }
     
     private func updateFundedPercent(_ fundedPercent: Float) {
         let fundedPercent = Int(fundedPercent * 100)
         // TODO: Use i18n (or move to view state)
-        fundedPercentLabel.text = "\(fundedPercent)% funded"
+        fundedPercentLabel.text = i18n.t(.funded(amount: fundedPercent))
     }
     
     private func updateFundedPercentProgress(_ fundedPercent: CGFloat) {

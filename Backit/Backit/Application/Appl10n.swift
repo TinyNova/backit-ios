@@ -5,17 +5,20 @@
 import Foundation
 
 enum Appl10n {
-    case hello
-    case salutation(name: String, age: Int)
+    case comment
+    case comments(amount: Int)
+    case funded(amount: Int)
 }
 
 extension Appl10n: LocalizationType {
     func localize() -> String {
         switch self {
-        case .hello:
-            return l(key: "hello")
-        case .salutation(let name, let age):
-            return l(key: "salutation(name,age)", arguments: name, number(age))
+        case .comment:
+            return l(key: "comment")
+        case .comments(let amount):
+            return l(key: "comments(amount)", arguments: number(amount))
+        case .funded(let amount):
+            return l(key: "funded", arguments: number(amount))
         }
     }
 }

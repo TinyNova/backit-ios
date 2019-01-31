@@ -4,5 +4,6 @@
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
-"hello" = "Hola";
-"salutation(name, Age)" = "Hello, %@. Your age is %@.";
+"comment" = "Comentario";
+"comments(amount)" = "%@ comentarios";
+"funded" =  "%@%% fundado";
