@@ -154,6 +154,8 @@ class ProjectCardCollectionViewCell: UICollectionViewCell, ProjectCardCell {
     @IBOutlet weak var imageView: UIImageView!
     
     func configure(url: URL) {
+        imageView.image = nil
+        
         // FIXME: Move this into a dependency. First version should return only the image.
         let manager = SDWebImageManager.shared()
         manager.loadImage(with: url, options: [], progress: nil) { [weak self] (image, data, error, cacheType, finished, imageURL) in
@@ -189,6 +191,8 @@ class ProjectCardCollectionViewAnimatedCell: UICollectionViewCell, ProjectCardCe
     var player: AVPlayer?
     
     func configure(url: URL) {
+        imageView.image = nil
+        
         let item = AVPlayerItem(url: url)
         let player = AVPlayer(playerItem: item)
         player.isMuted = true

@@ -142,7 +142,6 @@ class HomepageProjectCell: UITableViewCell {
             delegate?.didTapProject(project)
         }
     }
-
 }
 
 extension HomepageProjectCell: ProjectCardScrollViewDelegate {
