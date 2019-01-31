@@ -46,6 +46,8 @@ class HomepageViewController: UIViewController {
         self.provider.client = self
     }
     
+    private let i18n = Localization<Appl10n>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         provider.viewDidLoad()

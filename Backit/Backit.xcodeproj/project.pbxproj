@@ -35,6 +35,10 @@
 		0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60E21FF39A100E2DECD /* ServiceRequester.swift */; };
 		0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B61321FF3A1000E2DECD /* AlamofireServiceRequester.swift */; };
 		0754B6682200CAD600E2DECD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0754B66A2200CAD600E2DECD /* Localizable.strings */; };
+		0754B66D2200E9BF00E2DECD /* with.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B66C2200E9BF00E2DECD /* with.swift */; };
+		0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B66E2200EBA000E2DECD /* Appl10n.swift */; };
+		0754B67222027B5A00E2DECD /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B67122027B5A00E2DECD /* Localization.swift */; };
+		0754B67422027BA600E2DECD /* LocalizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B67322027BA600E2DECD /* LocalizationType.swift */; };
 		0798AA4621D45DB0004A6261 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA4521D45DB0004A6261 /* BackitTests.swift */; };
 		0798AA4D21D45DC0004A6261 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DA21D4584F00C11799 /* KIF+Backit.swift */; };
 		0798AA4E21D45DC3004A6261 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DC21D4598E00C11799 /* Methods.swift */; };
@@ -107,6 +111,10 @@
 		0754B61321FF3A1000E2DECD /* AlamofireServiceRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServiceRequester.swift; sourceTree = "<group>"; };
 		0754B6692200CAD600E2DECD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0754B66B2200CB1F00E2DECD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0754B66C2200E9BF00E2DECD /* with.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = with.swift; sourceTree = "<group>"; };
+		0754B66E2200EBA000E2DECD /* Appl10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appl10n.swift; sourceTree = "<group>"; };
+		0754B67122027B5A00E2DECD /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		0754B67322027BA600E2DECD /* LocalizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationType.swift; sourceTree = "<group>"; };
 		0798AA4321D45DB0004A6261 /* BackitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -216,6 +224,7 @@
 				07EC61F821D6EE1C00FE283C /* Resources */,
 				0754B61521FF3D9600E2DECD /* ServiceRequesters */,
 				0722324A21D4375C009D1912 /* AppDelegate.swift */,
+				0754B66E2200EBA000E2DECD /* Appl10n.swift */,
 				07EC61F621D6ED4600FE283C /* AppTheme.swift */,
 				07EC61ED21D6ECD300FE283C /* Assembly.swift */,
 				0722325021D4375C009D1912 /* Main.storyboard */,
@@ -271,6 +280,15 @@
 				0754B66A2200CAD600E2DECD /* Localizable.strings */,
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		0754B67022027B3300E2DECD /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				0754B67122027B5A00E2DECD /* Localization.swift */,
+				0754B67322027BA600E2DECD /* LocalizationType.swift */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		0798AA4421D45DB0004A6261 /* BackitTests */ = {
@@ -343,11 +361,13 @@
 		07EC61FA21D6EF2000FE283C /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				0754B67022027B3300E2DECD /* Localization */,
 				07EC61EF21D6ECFB00FE283C /* UITheme */,
 				07EC61F921D6EF1400FE283C /* ViewIdentifiable */,
 				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
 				0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */,
 				0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */,
+				0754B66C2200E9BF00E2DECD /* with.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -606,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0754B67422027BA600E2DECD /* LocalizationType.swift in Sources */,
 				0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */,
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
@@ -613,7 +634,9 @@
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
+				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
+				0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */,
 				0754B60021FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift in Sources */,
 				0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
@@ -627,6 +650,7 @@
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
 				0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */,
 				0717398121E7E6D700EA17DC /* ProjectCardScrollingView.swift in Sources */,
+				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
 				0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
