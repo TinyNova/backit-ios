@@ -8,6 +8,8 @@ enum Appl10n {
     case comment
     case comments(amount: Int)
     case funded(amount: Int)
+    case loadingProjects
+    case youreUpToDate
 }
 
 extension Appl10n: LocalizationType {
@@ -19,6 +21,10 @@ extension Appl10n: LocalizationType {
             return l(key: "comments(amount)", arguments: number(amount))
         case .funded(let amount):
             return l(key: "funded", arguments: number(amount))
+        case .loadingProjects:
+            return l(key: "loadingProjects")
+        case .youreUpToDate:
+            return l(key: "youreUpToDate")
         }
     }
 }

@@ -24,6 +24,7 @@ class HomepageOrchestrator: HomepageProvider {
         case notLoaded
         case loading
         case loaded(cursor: Any?)
+        case noMoreResults
     }
     private var queryState: QueryState = .notLoaded
     
@@ -60,11 +61,19 @@ class HomepageOrchestrator: HomepageProvider {
             return
         case .loaded(let _offset):
             offset = _offset
+        case .noMoreResults:
+            return
         }
         
         queryState = .loading
         provider.projects(offset: offset, limit: 10).onSuccess { [weak self] (response) in
             guard let self = self else {
+                return
+            }
+            
+            guard response.projects.count > 0 else {
+                self.queryState = .noMoreResults
+                self.client?.didReachEndOfProjects()
                 return
             }
             

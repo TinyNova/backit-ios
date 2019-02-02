@@ -9,6 +9,8 @@ import UIKit
 
 protocol HomepageClient: class {
     func didReceiveProjects(_ projects: [HomepageProject])
+    func didReachEndOfProjects()
+    func didReceiveError(_ error: Error)
 }
 
 protocol HomepageProvider {
@@ -30,8 +32,10 @@ class HomepageViewController: UIViewController {
             tableView.estimatedRowHeight = 300
             tableView.estimatedSectionHeaderHeight = 0
             tableView.estimatedSectionFooterHeight = 0
+            tableView.separatorStyle = .none
             
             tableView.register(UINib(nibName: "HomepageProjectCell", bundle: nil), forCellReuseIdentifier: "HomepageProjectCell")
+            tableView.register(UINib(nibName: "LoadingResultsCell", bundle: nil), forCellReuseIdentifier: "LoadingResultsCell")
         }
     }
     
@@ -39,6 +43,7 @@ class HomepageViewController: UIViewController {
     private var provider: HomepageProvider!
     
     private var projects: [HomepageProject] = []
+    private var loadingState: LoadingResultsCellState = .loading
     
     func inject(theme: AnyUITheme<AppTheme>, provider: HomepageProvider) {
         self.theme.concrete = theme
@@ -52,12 +57,26 @@ class HomepageViewController: UIViewController {
         super.viewDidLoad()
         provider.viewDidLoad()
     }
+    
+    var totalRows: Int {
+        return projects.count + 1 /* Status Cell */
+    }
 }
 
 extension HomepageViewController: HomepageClient {
     func didReceiveProjects(_ projects: [HomepageProject]) {
         self.projects.append(contentsOf: projects)
         tableView.reloadData()
+    }
+    
+    func didReachEndOfProjects() {
+        // TODO: Tapping cell could send a signal to reload the results from the beginning
+        loadingState = .noResults
+        tableView.reloadRows(at: [[0, totalRows-1]], with: .bottom)
+    }
+    
+    func didReceiveError(_ error: Error) {
+        
     }
 }
 
@@ -67,21 +86,38 @@ extension HomepageViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projects.count
+        return totalRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if totalRows - indexPath.row == 1 {
+            let cell = loadingResultsCell(tableView)
+            cell.state = loadingState
+            if loadingState == .loading {
+                provider.didReachEndOfProjectList()
+            }
+            return cell
+        }
+        else {
+            let cell = homepageProjectCell(tableView)
+            let project = projects[indexPath.row]
+            cell.configure(project: project)
+            cell.delegate = self
+            return cell
+        }
+    }
+    
+    private func loadingResultsCell(_ tableView: UITableView) -> LoadingResultsCell {
+        guard let dequedCell = tableView.dequeueReusableCell(withIdentifier: "LoadingResultsCell"), let cell = dequedCell as? LoadingResultsCell else {
+            fatalError("Failed to deque HomepageProjectCell")
+        }
+        return cell
+    }
+    
+    private func homepageProjectCell(_ tableView: UITableView) -> HomepageProjectCell {
         guard let dequedCell = tableView.dequeueReusableCell(withIdentifier: "HomepageProjectCell"), let cell = dequedCell as? HomepageProjectCell else {
             fatalError("Failed to deque HomepageProjectCell")
         }
-        
-        if projects.count - indexPath.row == 1 {
-            provider.didReachEndOfProjectList()
-        }
-        
-        let project = projects[indexPath.row]
-        cell.configure(project: project)
-        cell.delegate = self
         return cell
     }
 }

@@ -7,3 +7,5 @@
 "comment" = "Comentario";
 "comments(amount)" = "%@ comentarios";
 "funded" =  "%@%% fundado";
+"loadingProjects" = "Loading projects, please wait...";
+"youreUpToDate" = "You're up to date!";
