@@ -4,6 +4,7 @@
  */
 
 import Foundation
+import Mixpanel
 import Swinject
 import SwinjectStoryboard
 
@@ -12,6 +13,11 @@ class Assembly {
     let container: Container = SwinjectStoryboard.defaultContainer
     
     init() {
+        container.register(AnalyticsService.self) { resolver in
+            let listeners = resolver.resolve([AnalyticsListener].self)!
+            return AnalyticsService(listeners: listeners)
+        }
+        
         container.register(ServiceRequester.self) { _ in
             return AlamofireServiceRequester()
         }
@@ -35,6 +41,22 @@ class Assembly {
             theme.concrete = resolver.resolve(AnyUITheme<AppTheme>.self)!
             return theme
         }.inObjectScope(.container)
+        
+        // MARK: - Analytics
+        
+        /// The reason AnalyticsListeners are not part of the `AnalyticsService` register as it allows that registration to happen in a different module assembly.
+        container.register([AnalyticsListener].self) { resolver in
+            var listeners = [AnalyticsListener]()
+            
+            // Mixpanel
+            if let mixpanel = Mixpanel.sharedInstance() {
+                print("ERROR: Mixpanel has no shared instance")
+                let listener = MixpanelAnalyticsListener(mixpanel: mixpanel)
+                listeners.append(listener)
+            }
+            
+            return listeners
+        }
         
         // MARK: - Services
         
