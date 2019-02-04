@@ -5,6 +5,7 @@ use_frameworks!
 target 'Backit' do
     pod 'Alamofire'
     pod 'BrightFutures'
+    pod 'Mixpanel'
     pod 'SDWebImage'
     pod 'Swinject'
     pod 'SwinjectStoryboard'

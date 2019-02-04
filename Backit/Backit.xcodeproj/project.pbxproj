@@ -17,6 +17,14 @@
 		0722325221D4375C009D1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325021D4375C009D1912 /* Main.storyboard */; };
 		0722325421D4375F009D1912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0722325321D4375F009D1912 /* Assets.xcassets */; };
 		0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325521D4375F009D1912 /* LaunchScreen.storyboard */; };
+		0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391A22089B3E0034291C /* AnalyticsService.swift */; };
+		0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */; };
+		0732392022089CD80034291C /* AppAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391F22089CD80034291C /* AppAnalyticsEvent.swift */; };
+		0732392222089D640034291C /* DeveloperAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392122089D640034291C /* DeveloperAnalyticsEvent.swift */; };
+		073239242208A0250034291C /* AnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239232208A0250034291C /* AnalyticsListener.swift */; };
+		073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239252208A0480034291C /* AnalyticsPublisher.swift */; };
+		073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239272208A06E0034291C /* AnalyticsEvent.swift */; };
+		0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239292208A1360034291C /* Encodable+Backit.swift */; };
 		0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */; };
 		0754B5EC21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */; };
 		0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */; };
@@ -94,6 +102,14 @@
 		0722325321D4375F009D1912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0722325621D4375F009D1912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0722325821D43760009D1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0732391A22089B3E0034291C /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelAnalyticsListener.swift; sourceTree = "<group>"; };
+		0732391F22089CD80034291C /* AppAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAnalyticsEvent.swift; sourceTree = "<group>"; };
+		0732392122089D640034291C /* DeveloperAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperAnalyticsEvent.swift; sourceTree = "<group>"; };
+		073239232208A0250034291C /* AnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsListener.swift; sourceTree = "<group>"; };
+		073239252208A0480034291C /* AnalyticsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPublisher.swift; sourceTree = "<group>"; };
+		073239272208A06E0034291C /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
+		073239292208A1360034291C /* Encodable+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Backit.swift"; sourceTree = "<group>"; };
 		0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Backit.swift"; sourceTree = "<group>"; };
 		0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCardCollectionViewAnimatedCell.xib; sourceTree = "<group>"; };
 		0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageOrchestrator.swift; sourceTree = "<group>"; };
@@ -223,6 +239,7 @@
 		0722326C21D44028009D1912 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				0732391C22089B4F0034291C /* Analytics */,
 				07AC39C821D4416000214687 /* Changelog */,
 				07AC39C721D4415A00214687 /* Homepage */,
 				07EC61F821D6EE1C00FE283C /* Resources */,
@@ -235,6 +252,27 @@
 				0722325521D4375F009D1912 /* LaunchScreen.storyboard */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		0732391922089AE30034291C /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				073239272208A06E0034291C /* AnalyticsEvent.swift */,
+				073239232208A0250034291C /* AnalyticsListener.swift */,
+				073239252208A0480034291C /* AnalyticsPublisher.swift */,
+				0732391A22089B3E0034291C /* AnalyticsService.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		0732391C22089B4F0034291C /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				0732391F22089CD80034291C /* AppAnalyticsEvent.swift */,
+				0732392122089D640034291C /* DeveloperAnalyticsEvent.swift */,
+				0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		0754B5ED21F6229400E2DECD /* Service */ = {
@@ -367,6 +405,7 @@
 		07EC61FA21D6EF2000FE283C /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				0732391922089AE30034291C /* Analytics */,
 				0754B67022027B3300E2DECD /* Localization */,
 				07EC61EF21D6ECFB00FE283C /* UITheme */,
 				07EC61F921D6EF1400FE283C /* ViewIdentifiable */,
@@ -374,6 +413,7 @@
 				0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */,
 				0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */,
 				0754B66C2200E9BF00E2DECD /* with.swift */,
+				073239292208A1360034291C /* Encodable+Backit.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -555,6 +595,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
@@ -564,6 +605,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightFutures.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
@@ -633,11 +675,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073239242208A0250034291C /* AnalyticsListener.swift in Sources */,
 				0754B67422027BA600E2DECD /* LocalizationType.swift in Sources */,
 				0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */,
+				0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */,
+				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
 				0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */,
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
+				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
+				0732392022089CD80034291C /* AppAnalyticsEvent.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
@@ -652,8 +699,10 @@
 				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,
+				0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */,
 				0754B60221FB691800E2DECD /* HomepageProject.swift in Sources */,
 				0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */,
+				0732392222089D640034291C /* DeveloperAnalyticsEvent.swift in Sources */,
 				0754B5F121F625DC00E2DECD /* ProjectService.swift in Sources */,
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
 				0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */,
@@ -666,6 +715,7 @@
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
 				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,
 				0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */,
+				073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */,
 				0754B60D21FF32E900E2DECD /* URLRequestFactory.swift in Sources */,
 				0754B5F421FA589B00E2DECD /* Project.swift in Sources */,
 			);
