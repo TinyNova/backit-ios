@@ -17,6 +17,8 @@ protocol ProjectProvider {
 class HomepageOrchestrator: HomepageProvider {
     
     let provider: ProjectProvider
+    let biPublisher: AnalyticsPublisher<AppAnalyticsEvent>
+    let devPublisher: AnalyticsPublisher<DeveloperAnalyticsEvent>
     
     weak var client: HomepageClient?
     
@@ -28,13 +30,17 @@ class HomepageOrchestrator: HomepageProvider {
     }
     private var queryState: QueryState = .notLoaded
     
-    init(provider: ProjectProvider) {
+    init(provider: ProjectProvider, biPublisher: AnalyticsPublisher<AppAnalyticsEvent>, devPublisher: AnalyticsPublisher<DeveloperAnalyticsEvent>) {
         self.provider = provider
+        self.biPublisher = biPublisher
+        self.devPublisher = devPublisher
     }
 
     func viewDidLoad() {
         loadProjects()
     }
+    
+    // MARK: - HomepageProvider
     
     func didTapAsset(project: HomepageProject) {
         
@@ -52,6 +58,14 @@ class HomepageOrchestrator: HomepageProvider {
         loadProjects()
     }
     
+    // MARK: - Private
+    
+    private var pageNumber: Int = 0
+    private func pageRequested() {
+        pageNumber += 1
+        devPublisher.send(.homepageProjectListLoad(pageNumber: 1))
+    }
+
     private func loadProjects() {
         let offset: Any?
         switch queryState {
@@ -64,6 +78,8 @@ class HomepageOrchestrator: HomepageProvider {
         case .noMoreResults:
             return
         }
+        
+        pageRequested()
         
         queryState = .loading
         provider.projects(offset: offset, limit: 10).onSuccess { [weak self] (response) in

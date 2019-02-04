@@ -13,11 +13,6 @@ class Assembly {
     let container: Container = SwinjectStoryboard.defaultContainer
     
     init() {
-        container.register(AnalyticsService.self) { resolver in
-            let listeners = resolver.resolve([AnalyticsListener].self)!
-            return AnalyticsService(listeners: listeners)
-        }
-        
         container.register(ServiceRequester.self) { _ in
             return AlamofireServiceRequester()
         }
@@ -32,8 +27,12 @@ class Assembly {
         }
         
         container.register(HomepageProvider.self) { resolver in
+            let service = resolver.resolve(AnalyticsService.self)!
+            let biPublisher: AnalyticsPublisher<AppAnalyticsEvent> = service.publisher()
+            let devPublisher: AnalyticsPublisher<DeveloperAnalyticsEvent> = service.publisher()
+            
             let provider = resolver.resolve(ProjectProvider.self)!
-            return HomepageOrchestrator(provider: provider)
+            return HomepageOrchestrator(provider: provider, biPublisher: biPublisher, devPublisher: devPublisher)
         }
         
         container.register(UIThemeApplier<AppTheme>.self) { resolver in
@@ -44,18 +43,19 @@ class Assembly {
         
         // MARK: - Analytics
         
-        /// The reason AnalyticsListeners are not part of the `AnalyticsService` register as it allows that registration to happen in a different module assembly.
-        container.register([AnalyticsListener].self) { resolver in
-            var listeners = [AnalyticsListener]()
-            
-            // Mixpanel
-            if let mixpanel = Mixpanel.sharedInstance() {
-                print("ERROR: Mixpanel has no shared instance")
-                let listener = MixpanelAnalyticsListener(mixpanel: mixpanel)
-                listeners.append(listener)
-            }
-            
-            return listeners
+        // This must be a singleton to ensure that transactions can be tracked between dependencies. (i.e. start/cancel/stop)
+        container.register(AnalyticsService.self) { resolver in
+            let mixpanelListener = resolver.resolve(MixpanelAnalyticsListener.self)!
+            return AnalyticsService(listeners: [mixpanelListener])
+        }.inObjectScope(.container)
+
+        container.register(Mixpanel.self) { resolver in
+            return Mixpanel.sharedInstance(withToken: "020cda1e8529c09118ff8b03d5d79072")
+        }.inObjectScope(.container)
+
+        container.register(MixpanelAnalyticsListener.self) { resolver in
+            let mixpanel = resolver.resolve(Mixpanel.self)!
+            return MixpanelAnalyticsListener(mixpanel: mixpanel)
         }
         
         // MARK: - Services

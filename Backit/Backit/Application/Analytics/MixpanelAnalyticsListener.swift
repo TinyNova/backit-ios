@@ -20,7 +20,7 @@ protocol MixpanelEventTransformer {
     func transform() -> MixpanelEvent
 }
 
-class MixpanelAnalyticsListener: AnalyticsListener {
+class MixpanelAnalyticsListener: AnalyticsListener {    
     
     private let mixpanel: Mixpanel
     

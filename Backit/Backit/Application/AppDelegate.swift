@@ -3,6 +3,7 @@
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
+import Mixpanel
 import UIKit
 
 @UIApplicationMain
@@ -12,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var assembly = Assembly()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        _ = assembly.container.resolve(Mixpanel.self)!
         return true
     }
 

@@ -16,4 +16,16 @@ class AnalyticsPublisher<T: AnalyticsEvent> {
     func send(_ type: T) {
         service.send(type)
     }
+    
+    func start(_ type: T) {
+        service.start(type)
+    }
+    
+    func cancel(_ type: T) {
+        service.cancel(type)
+    }
+    
+    func stop(_ type: T) {
+        service.stop(type)
+    }
 }
