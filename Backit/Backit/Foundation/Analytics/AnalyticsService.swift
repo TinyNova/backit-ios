@@ -28,7 +28,15 @@ class AnalyticsService {
             print("WARN: Attempting to start a transaction which has already been started")
             return
         }
-        transactions[id] = DispatchTime.now()
+        let startTime = DispatchTime.now()
+        transactions[id] = startTime
+        
+        listeners.forEach { (listener) in
+            let context: AnalyticsTransaction = .start(AnalyticsStartedTransaction(
+                startTime: Double(startTime.uptimeNanoseconds) / 1_000_000_000
+            ))
+            listener.transaction(event, context)
+        }
     }
     
     func cancel( _ event: AnalyticsEvent) {
@@ -43,23 +51,30 @@ class AnalyticsService {
         return AnalyticsPublisher<T>(service: self)
     }
     
+    // MARK: - Private methods
+    
     private func eventId(for event: AnalyticsEvent) -> String {
         return String(describing: event)
     }
     
-    private func finishTransaction(_ event: AnalyticsEvent, status: AnalyticsTransactionContext.Status) {
+    private func finishTransaction(_ event: AnalyticsEvent, status: AnalyticsTransaction.Status) {
         guard let startTime = transactions[eventId(for: event)] else {
-//            print("WARN: Must start a transaction before it can be \(status)")
             return
         }
         
-        let endTime = DispatchTime.now()
+        let stopTime = DispatchTime.now()
         
-        let nanoTime = endTime.uptimeNanoseconds - startTime.uptimeNanoseconds
+        let nanoTime = stopTime.uptimeNanoseconds - startTime.uptimeNanoseconds
         let totalTime = Double(nanoTime) / 1_000_000_000
         
         listeners.forEach { (listener) in
-            listener.transaction(event, AnalyticsTransactionContext(status: status, startTime: startTime, endTime: endTime, totalTime: totalTime))
+            let context: AnalyticsTransaction = .finish(AnalyticsFinishedTransaction(
+                status: status,
+                startTime: Double(startTime.uptimeNanoseconds) / 1_000_000_000,
+                stopTime: Double(stopTime.uptimeNanoseconds) / 1_000_000_000,
+                totalTime: totalTime
+            ))
+            listener.transaction(event, context)
         }
     }
 }

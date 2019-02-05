@@ -12,6 +12,11 @@ extension Encodable {
     }
     
     var asDictionary: [String: Any]? {
+        // Already a dictionary
+        if let dict = self as? [String: Any] {
+            return dict
+        }
+        // Self is an object
         return (try? JSONSerialization.jsonObject(with: asJson)) as? [String: Any]
     }
 }

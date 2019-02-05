@@ -7,5 +7,5 @@ import Foundation
 
 protocol AnalyticsListener {
     func receive(_ event: AnalyticsEvent)
-    func transaction(_ event: AnalyticsEvent, _ context: AnalyticsTransactionContext)
+    func transaction(_ event: AnalyticsEvent, _ context: AnalyticsTransaction)
 }

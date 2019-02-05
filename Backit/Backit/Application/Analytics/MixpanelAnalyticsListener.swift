@@ -42,16 +42,23 @@ class MixpanelAnalyticsListener: AnalyticsListener {
         }
     }
     
-    func transaction(_ event: AnalyticsEvent, _ context: AnalyticsTransactionContext) {
+    func transaction(_ event: AnalyticsEvent, _ context: AnalyticsTransaction) {
         guard let transformer = event as? MixpanelEventTransformer else {
             return
         }
 
         let event = transformer.transform()
         var properties = event.properties ?? [String: Any]()
-        properties["startTime"] = context.startTime
-        properties["endTime"] = context.endTime
-        properties["totalTime"] = context.totalTime
+        switch context {
+        case .start(let context):
+            properties["status"] = context.status.asString
+            properties["startTime"] = context.startTime
+        case .finish(let context):
+            properties["status"] = context.status.asString
+            properties["startTime"] = context.startTime
+            properties["stopTime"] = context.stopTime
+            properties["totalTime"] = context.totalTime
+        }
         mixpanel.track(event.name, properties: properties)
     }
 }
@@ -64,6 +71,14 @@ extension AppAnalyticsEvent: MixpanelEventTransformer {
         switch self {
         case .homepage(let pageNumber):
             return MixpanelEvent(name: "homepage", properties: ["pageNumber": pageNumber])
+        case .pageLoad(let pageName, let context):
+            var properties: [String: Any] = [
+                "pageName": pageName
+            ]
+            if let dictionary = context?.asDictionary {
+                properties.merge(dictionary) { (key, _) -> Any in return key }
+            }
+            return MixpanelEvent(name: "pageLoad", properties: properties)
         }
     }
 }
@@ -72,12 +87,21 @@ extension DeveloperAnalyticsEvent: MixpanelEventTransformer {
     
     func transform() -> MixpanelEvent {
         switch self {
-        case .pageLoad(let name, let context):
-            var properties: [String: Any] = context?.asDictionary ?? [String: Any]()
-            properties["page_name"] = name
-            return MixpanelEvent(name: "page_load", properties: properties)
-        case .homepageProjectListLoad(let pageNumber):
-            return MixpanelEvent(name: "homepage_project_list_load", properties: ["pageNumber": pageNumber])
+        case .appColdLaunch:
+            return MixpanelEvent(name: "app_cold_launch")
+        }
+    }
+}
+
+private extension AnalyticsTransaction.Status {
+    var asString: String {
+        switch self {
+        case .started:
+            return "started"
+        case .cancelled:
+            return "cancelled"
+        case .stopped:
+            return "stopped"
         }
     }
 }

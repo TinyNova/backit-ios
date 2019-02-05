@@ -9,6 +9,5 @@
 import Foundation
 
 enum DeveloperAnalyticsEvent: AnalyticsEvent {
-    case pageLoad(name: String, context: Encodable?)
-    case homepageProjectListLoad(pageNumber: Int)
+    case appColdLaunch
 }
