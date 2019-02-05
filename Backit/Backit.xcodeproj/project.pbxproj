@@ -25,6 +25,7 @@
 		073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239252208A0480034291C /* AnalyticsPublisher.swift */; };
 		073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239272208A06E0034291C /* AnalyticsEvent.swift */; };
 		0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239292208A1360034291C /* Encodable+Backit.swift */; };
+		0732392C220912960034291C /* AnalyticsTransactionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392B220912960034291C /* AnalyticsTransactionContext.swift */; };
 		0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */; };
 		0754B5EC21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */; };
 		0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */; };
@@ -110,6 +111,7 @@
 		073239252208A0480034291C /* AnalyticsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPublisher.swift; sourceTree = "<group>"; };
 		073239272208A06E0034291C /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		073239292208A1360034291C /* Encodable+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Backit.swift"; sourceTree = "<group>"; };
+		0732392B220912960034291C /* AnalyticsTransactionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransactionContext.swift; sourceTree = "<group>"; };
 		0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Backit.swift"; sourceTree = "<group>"; };
 		0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCardCollectionViewAnimatedCell.xib; sourceTree = "<group>"; };
 		0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageOrchestrator.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				073239232208A0250034291C /* AnalyticsListener.swift */,
 				073239252208A0480034291C /* AnalyticsPublisher.swift */,
 				0732391A22089B3E0034291C /* AnalyticsService.swift */,
+				0732392B220912960034291C /* AnalyticsTransactionContext.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */,
 				0754B60D21FF32E900E2DECD /* URLRequestFactory.swift in Sources */,
 				0754B5F421FA589B00E2DECD /* Project.swift in Sources */,
+				0732392C220912960034291C /* AnalyticsTransactionContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

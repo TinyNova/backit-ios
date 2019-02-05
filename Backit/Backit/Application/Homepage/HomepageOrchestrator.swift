@@ -37,6 +37,7 @@ class HomepageOrchestrator: HomepageProvider {
     }
 
     func viewDidLoad() {
+        startPageLoadTransaction()
         loadProjects()
     }
     
@@ -64,6 +65,10 @@ class HomepageOrchestrator: HomepageProvider {
     private func pageRequested() {
         pageNumber += 1
         devPublisher.send(.homepageProjectListLoad(pageNumber: 1))
+    }
+    
+    private func startPageLoadTransaction() {
+        biPublisher.start(.appFirstLaunch)
     }
 
     private func loadProjects() {
@@ -98,6 +103,7 @@ class HomepageOrchestrator: HomepageProvider {
             }
             self.queryState = .loaded(cursor: response.cursor)
             self.client?.didReceiveProjects(homepageProjects)
+            self.biPublisher.stop(.appFirstLaunch)
         }
     }
 }

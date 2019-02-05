@@ -29,27 +29,30 @@ class MixpanelAnalyticsListener: AnalyticsListener {
     }
     
     func receive(_ event: AnalyticsEvent) {
-        if let transformer = event as? MixpanelEventTransformer {
-            let event = transformer.transform()
-            if let properties = event.properties {
-                mixpanel.track(event.name, properties: properties)
-            }
-            else {
-                mixpanel.track(event.name)
-            }
+        guard let transformer = event as? MixpanelEventTransformer else {
+            return
+        }
+        
+        let event = transformer.transform()
+        if let properties = event.properties {
+            mixpanel.track(event.name, properties: properties)
+        }
+        else {
+            mixpanel.track(event.name)
         }
     }
     
-    func start(_ event: AnalyticsEvent) {
-        
-    }
-    
-    func cancel(_ event: AnalyticsEvent) {
-        
-    }
-    
-    func stop(_ event: AnalyticsEvent) {
-        
+    func transaction(_ event: AnalyticsEvent, _ context: AnalyticsTransactionContext) {
+        guard let transformer = event as? MixpanelEventTransformer else {
+            return
+        }
+
+        let event = transformer.transform()
+        var properties = event.properties ?? [String: Any]()
+        properties["startTime"] = context.startTime
+        properties["endTime"] = context.endTime
+        properties["totalTime"] = context.totalTime
+        mixpanel.track(event.name, properties: properties)
     }
 }
 

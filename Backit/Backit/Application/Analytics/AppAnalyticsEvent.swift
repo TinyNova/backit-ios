@@ -7,5 +7,6 @@
 import Foundation
 
 enum AppAnalyticsEvent: AnalyticsEvent {
+    case appFirstLaunch
     case homepage(pageNumber: Int)
 }
