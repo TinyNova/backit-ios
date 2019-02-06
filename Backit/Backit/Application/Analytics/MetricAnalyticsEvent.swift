@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum DeveloperAnalyticsEvent: AnalyticsEvent {
+enum MetricAnalyticsEvent: AnalyticsEvent {
     case appColdLaunch
 }

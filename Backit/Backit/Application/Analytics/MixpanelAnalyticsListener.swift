@@ -65,7 +65,7 @@ class MixpanelAnalyticsListener: AnalyticsListener {
 
 // MARK: - NewRelic event transformers (could be in another file)
 
-extension AppAnalyticsEvent: MixpanelEventTransformer {
+extension BIAnalyticsEvent: MixpanelEventTransformer {
     
     func transform() -> MixpanelEvent {
         switch self {
@@ -83,7 +83,7 @@ extension AppAnalyticsEvent: MixpanelEventTransformer {
     }
 }
 
-extension DeveloperAnalyticsEvent: MixpanelEventTransformer {
+extension MetricAnalyticsEvent: MixpanelEventTransformer {
     
     func transform() -> MixpanelEvent {
         switch self {

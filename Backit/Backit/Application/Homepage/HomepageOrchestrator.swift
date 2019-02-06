@@ -17,8 +17,8 @@ protocol ProjectProvider {
 class HomepageOrchestrator: HomepageProvider {
     
     let provider: ProjectProvider
-    let biPublisher: AnalyticsPublisher<AppAnalyticsEvent>
-    let devPublisher: AnalyticsPublisher<DeveloperAnalyticsEvent>
+    let biPublisher: AnalyticsPublisher<BIAnalyticsEvent>
+    let devPublisher: AnalyticsPublisher<MetricAnalyticsEvent>
     
     weak var client: HomepageClient?
     
@@ -30,7 +30,7 @@ class HomepageOrchestrator: HomepageProvider {
     }
     private var queryState: QueryState = .notLoaded
     
-    init(provider: ProjectProvider, biPublisher: AnalyticsPublisher<AppAnalyticsEvent>, devPublisher: AnalyticsPublisher<DeveloperAnalyticsEvent>) {
+    init(provider: ProjectProvider, biPublisher: AnalyticsPublisher<BIAnalyticsEvent>, devPublisher: AnalyticsPublisher<MetricAnalyticsEvent>) {
         self.provider = provider
         self.biPublisher = biPublisher
         self.devPublisher = devPublisher

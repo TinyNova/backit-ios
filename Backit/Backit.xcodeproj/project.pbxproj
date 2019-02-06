@@ -19,8 +19,8 @@
 		0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325521D4375F009D1912 /* LaunchScreen.storyboard */; };
 		0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391A22089B3E0034291C /* AnalyticsService.swift */; };
 		0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */; };
-		0732392022089CD80034291C /* AppAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391F22089CD80034291C /* AppAnalyticsEvent.swift */; };
-		0732392222089D640034291C /* DeveloperAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392122089D640034291C /* DeveloperAnalyticsEvent.swift */; };
+		0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391F22089CD80034291C /* BIAnalyticsEvent.swift */; };
+		0732392222089D640034291C /* MetricAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392122089D640034291C /* MetricAnalyticsEvent.swift */; };
 		073239242208A0250034291C /* AnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239232208A0250034291C /* AnalyticsListener.swift */; };
 		073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239252208A0480034291C /* AnalyticsPublisher.swift */; };
 		073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239272208A06E0034291C /* AnalyticsEvent.swift */; };
@@ -105,8 +105,8 @@
 		0722325821D43760009D1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0732391A22089B3E0034291C /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelAnalyticsListener.swift; sourceTree = "<group>"; };
-		0732391F22089CD80034291C /* AppAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAnalyticsEvent.swift; sourceTree = "<group>"; };
-		0732392122089D640034291C /* DeveloperAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperAnalyticsEvent.swift; sourceTree = "<group>"; };
+		0732391F22089CD80034291C /* BIAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIAnalyticsEvent.swift; sourceTree = "<group>"; };
+		0732392122089D640034291C /* MetricAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricAnalyticsEvent.swift; sourceTree = "<group>"; };
 		073239232208A0250034291C /* AnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsListener.swift; sourceTree = "<group>"; };
 		073239252208A0480034291C /* AnalyticsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPublisher.swift; sourceTree = "<group>"; };
 		073239272208A06E0034291C /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
@@ -271,8 +271,8 @@
 		0732391C22089B4F0034291C /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				0732391F22089CD80034291C /* AppAnalyticsEvent.swift */,
-				0732392122089D640034291C /* DeveloperAnalyticsEvent.swift */,
+				0732391F22089CD80034291C /* BIAnalyticsEvent.swift */,
+				0732392122089D640034291C /* MetricAnalyticsEvent.swift */,
 				0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */,
 			);
 			path = Analytics;
@@ -687,7 +687,7 @@
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
-				0732392022089CD80034291C /* AppAnalyticsEvent.swift in Sources */,
+				0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
@@ -705,7 +705,7 @@
 				0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */,
 				0754B60221FB691800E2DECD /* HomepageProject.swift in Sources */,
 				0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */,
-				0732392222089D640034291C /* DeveloperAnalyticsEvent.swift in Sources */,
+				0732392222089D640034291C /* MetricAnalyticsEvent.swift in Sources */,
 				0754B5F121F625DC00E2DECD /* ProjectService.swift in Sources */,
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
 				0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */,

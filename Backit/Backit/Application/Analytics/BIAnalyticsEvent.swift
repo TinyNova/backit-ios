@@ -6,7 +6,7 @@
 
 import Foundation
 
-enum AppAnalyticsEvent: AnalyticsEvent {
+enum BIAnalyticsEvent: AnalyticsEvent {
     case homepage(pageNumber: Int)
     case pageLoad(name: String, context: Encodable?)
 }

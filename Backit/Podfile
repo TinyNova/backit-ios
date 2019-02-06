@@ -6,6 +6,7 @@ target 'Backit' do
     pod 'Alamofire'
     pod 'BrightFutures'
     pod 'Mixpanel'
+    pod 'NewRelicAgent'
     pod 'SDWebImage'
     pod 'Swinject'
     pod 'SwinjectStoryboard'
