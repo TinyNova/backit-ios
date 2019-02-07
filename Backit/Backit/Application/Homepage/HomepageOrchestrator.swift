@@ -17,8 +17,7 @@ protocol ProjectProvider {
 class HomepageOrchestrator: HomepageProvider {
     
     let provider: ProjectProvider
-    let biPublisher: AnalyticsPublisher<BIAnalyticsEvent>
-    let devPublisher: AnalyticsPublisher<MetricAnalyticsEvent>
+    let metrics: AnalyticsPublisher<MetricAnalyticsEvent>
     
     weak var client: HomepageClient?
     
@@ -30,10 +29,9 @@ class HomepageOrchestrator: HomepageProvider {
     }
     private var queryState: QueryState = .notLoaded
     
-    init(provider: ProjectProvider, biPublisher: AnalyticsPublisher<BIAnalyticsEvent>, devPublisher: AnalyticsPublisher<MetricAnalyticsEvent>) {
+    init(provider: ProjectProvider, metrics: AnalyticsPublisher<MetricAnalyticsEvent>) {
         self.provider = provider
-        self.biPublisher = biPublisher
-        self.devPublisher = devPublisher
+        self.metrics = metrics
     }
 
     func viewDidLoad() {
@@ -64,11 +62,11 @@ class HomepageOrchestrator: HomepageProvider {
     private var pageNumber: Int = 0
     private func pageRequested() {
         pageNumber += 1
-        biPublisher.send(.homepage(pageNumber: 1))
+        metrics.send(.homepage(pageNumber: 1))
     }
     
     private func startPageLoadTransaction() {
-        devPublisher.start(.appColdLaunch)
+        metrics.start(.appColdLaunch)
     }
 
     private func loadProjects() {
@@ -103,7 +101,7 @@ class HomepageOrchestrator: HomepageProvider {
             }
             self.queryState = .loaded(cursor: response.cursor)
             self.client?.didReceiveProjects(homepageProjects)
-            self.devPublisher.stop(.appColdLaunch)
+            self.metrics.stop(.appColdLaunch)
         }
     }
 }

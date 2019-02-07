@@ -10,4 +10,6 @@ import Foundation
 
 enum MetricAnalyticsEvent: AnalyticsEvent {
     case appColdLaunch
+    case homepage(pageNumber: Int)
+    case pageLoad(name: String, context: Encodable?)
 }

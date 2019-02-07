@@ -32,11 +32,10 @@ class Assembly {
         
         container.register(HomepageProvider.self) { resolver in
             let service = resolver.resolve(AnalyticsService.self)!
-            let biPublisher: AnalyticsPublisher<BIAnalyticsEvent> = service.publisher()
-            let devPublisher: AnalyticsPublisher<MetricAnalyticsEvent> = service.publisher()
+            let metrics: AnalyticsPublisher<MetricAnalyticsEvent> = service.publisher()
             
             let provider = resolver.resolve(ProjectProvider.self)!
-            return HomepageOrchestrator(provider: provider, biPublisher: biPublisher, devPublisher: devPublisher)
+            return HomepageOrchestrator(provider: provider, metrics: metrics)
         }
         
         container.register(UIThemeApplier<AppTheme>.self) { resolver in
