@@ -17,6 +17,10 @@ class Assembly {
             return AlamofireServiceRequester()
         }
         
+        container.register(ServicePluginProvider.self) { _ in
+            return ServicePluginProvider()
+        }.inObjectScope(.container)
+        
         container.register(AppTheme.self) { _ in
             return AppTheme()
         }.inObjectScope(.container)
@@ -62,7 +66,8 @@ class Assembly {
         
         container.register(ProjectProvider.self) { resolver in
             let requester = resolver.resolve(ServiceRequester.self)!
-            return ProjectService(environment: .prod, requester: requester, plugins: [])
+            let pluginProvider = resolver.resolve(ServicePluginProvider.self)!
+            return ProjectService(environment: .prod, requester: requester, pluginProvider: pluginProvider)
         }
         
         // MARK: - UIViewController Registration

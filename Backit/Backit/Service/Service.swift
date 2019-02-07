@@ -17,6 +17,7 @@ enum ServiceError: Error {
     case failedToDecode
     case noInternetConnection
     case server(Error)
+    case requiredPluginsNotFound([ServicePluginKey])
 }
 
 struct ServiceResult {
@@ -25,23 +26,24 @@ struct ServiceResult {
 }
 
 class Service {
+    
     let environment: Environment
     let requester: ServiceRequester
-    let plugins: [ServicePlugin]
+    let pluginProvider: ServicePluginProvider
     
     let urlRequestFactory = URLRequestFactory()
     let decoder = JSONDecoder()
     
-    init(environment: Environment, requester: ServiceRequester, plugins: [ServicePlugin]) {
+    init(environment: Environment, requester: ServiceRequester, pluginProvider: ServicePluginProvider) {
         self.environment = environment
         self.requester = requester
-        self.plugins = plugins
+        self.pluginProvider = pluginProvider
     }
     
-    func request<T: ServiceEndpoint>(_ request: T) -> Future<T.ResponseType, ServiceError> {
+    func request<T: ServiceEndpoint>(_ endpoint: T) -> Future<T.ResponseType, ServiceError> {
         var urlRequest: URLRequest
         do {
-            urlRequest = try urlRequestFactory.make(from: request, in: environment)
+            urlRequest = try urlRequestFactory.make(from: endpoint, in: environment)
         }
         catch let error as ServiceError {
             return Future(error: error)
@@ -49,20 +51,30 @@ class Service {
         catch {
             return Future(error: .unknown(error))
         }
-
+        
+        let plugins: [ServicePlugin]
+        do {
+            plugins = try pluginProvider.pluginsFor(endpoint)
+        }
+        catch let error as ServiceError {
+            return Future(error: error)
+        }
+        catch {
+            return Future(error: .unknown(error))
+        }
+        
         urlRequest = plugins.reduce(urlRequest, { (urlRequest, plugin) -> URLRequest in
             return plugin.willSendRequest(urlRequest)
         })
         
         let promise = Promise<T.ResponseType, ServiceError>()
-        
         requester.request(urlRequest) { [weak self] (result) in
             guard let self = self else {
                 promise.failure(.unknown(nil))
                 return
             }
             
-            let result = self.plugins.reduce(result, { (response, plugin) -> ServiceResult in
+            let result = plugins.reduce(result, { (response, plugin) -> ServiceResult in
                 return plugin.didReceiveResponse(response)
             })
             

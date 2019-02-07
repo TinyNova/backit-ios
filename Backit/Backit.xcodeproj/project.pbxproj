@@ -50,6 +50,9 @@
 		0754B67422027BA600E2DECD /* LocalizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B67322027BA600E2DECD /* LocalizationType.swift */; };
 		0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B6752203CB1F00E2DECD /* LoadingResultsCell.swift */; };
 		0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0754B6772203CB3000E2DECD /* LoadingResultsCell.xib */; };
+		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
+		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
+		07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */; };
 		0798AA4621D45DB0004A6261 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA4521D45DB0004A6261 /* BackitTests.swift */; };
 		0798AA4D21D45DC0004A6261 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DA21D4584F00C11799 /* KIF+Backit.swift */; };
 		0798AA4E21D45DC3004A6261 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DC21D4598E00C11799 /* Methods.swift */; };
@@ -137,6 +140,10 @@
 		0754B67322027BA600E2DECD /* LocalizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationType.swift; sourceTree = "<group>"; };
 		0754B6752203CB1F00E2DECD /* LoadingResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResultsCell.swift; sourceTree = "<group>"; };
 		0754B6772203CB3000E2DECD /* LoadingResultsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingResultsCell.xib; sourceTree = "<group>"; };
+		07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
+		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
+		07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginKey.swift; sourceTree = "<group>"; };
+		07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginProvider.swift; sourceTree = "<group>"; };
 		0798AA4321D45DB0004A6261 /* BackitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -214,6 +221,7 @@
 				0722324821D4375C009D1912 /* Products */,
 				558BEF62525305F3967B7867 /* Pods */,
 				B077C247AFCEC327BD412C35 /* Frameworks */,
+				07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,6 +282,7 @@
 				0732391F22089CD80034291C /* BIAnalyticsEvent.swift */,
 				0732392122089D640034291C /* MetricAnalyticsEvent.swift */,
 				0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */,
+				07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -288,6 +297,8 @@
 				0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */,
 				0754B60E21FF39A100E2DECD /* ServiceRequester.swift */,
 				0754B60C21FF32E900E2DECD /* URLRequestFactory.swift */,
+				07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */,
+				07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -510,6 +521,7 @@
 				TargetAttributes = {
 					0722324621D4375C009D1912 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					0798AA4221D45DB0004A6261 = {
 						CreatedOnToolsVersion = 10.1;
@@ -688,6 +700,7 @@
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */,
+				07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
@@ -713,8 +726,10 @@
 				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
 				0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
+				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
+				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
 				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,
 				0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */,
@@ -899,6 +914,7 @@
 			baseConfigurationReference = 891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSZ2DNDVRK;
 				INFOPLIST_FILE = Backit/Info.plist;
@@ -908,6 +924,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.backit.Backit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Backit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -918,6 +936,7 @@
 			baseConfigurationReference = DFB4946CA755B950FFED3B7B /* Pods-Backit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSZ2DNDVRK;
 				INFOPLIST_FILE = Backit/Info.plist;
@@ -927,6 +946,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.backit.Backit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Backit-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
