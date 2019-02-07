@@ -6,7 +6,39 @@
 
 import Foundation
 
-typealias NewRelicEvent = (name: String, attributes: [AnyHashable: Any]?)
+private enum Constant {
+    static let event = "MobileEvent"
+    static let transaction = "MobileTransaction"
+}
+
+struct NewRelicEvent {
+    let name: String
+    let attributes: [AnyHashable: Any]?
+    
+    init(name: String, attributes: [AnyHashable: Any]? = nil) {
+        self.name = name
+        self.attributes = attributes
+    }
+    
+    func allAttributes(with other: [AnyHashable: Any]? = nil) -> [AnyHashable: Any] {
+        var attributes = self.attributes ?? [AnyHashable: Any]()
+        
+        // Add `event_type`
+        attributes = attributes.merging(["event_type": name]) { (key, _) -> Any in
+            return key
+        }
+        
+        guard let other = other else {
+            return attributes
+        }
+        
+        // Add any additional attributes
+        attributes = attributes.merging(other) { (key, _) -> Any in
+            return key
+        }
+        return attributes
+    }
+}
 
 protocol NewRelicEventTransformer {
     func transform() -> NewRelicEvent
@@ -20,7 +52,7 @@ class NewRelicAnalyticsListener: AnalyticsListener {
         }
 
         let event = transformer.transform()
-        NewRelic.recordCustomEvent(event.name, attributes: event.attributes)
+        NewRelic.recordCustomEvent(Constant.event, attributes: event.allAttributes())
     }
     
     func transaction(_ event: AnalyticsEvent, _ context: AnalyticsTransaction) {
@@ -28,8 +60,7 @@ class NewRelicAnalyticsListener: AnalyticsListener {
             return
         }
         
-        let event = transformer.transform()
-        var attributes = event.attributes ?? [AnyHashable: Any]()
+        var attributes = [AnyHashable: Any]()
         switch context {
         case .start(let context):
             attributes["status"] = context.status.asString
@@ -40,7 +71,9 @@ class NewRelicAnalyticsListener: AnalyticsListener {
             attributes["stopTime"] = context.stopTime
             attributes["totalTime"] = context.totalTime
         }
-        NewRelic.recordCustomEvent(event.name, attributes: attributes)
+        
+        let event = transformer.transform()
+        NewRelic.recordCustomEvent(Constant.transaction, attributes: event.allAttributes(with: attributes))
     }
 }
 
@@ -51,9 +84,9 @@ extension MetricAnalyticsEvent: NewRelicEventTransformer {
     func transform() -> NewRelicEvent {
         switch self {
         case .appColdLaunch:
-            return (name: "app_cold_launch", attributes: nil)
+            return NewRelicEvent(name: "app_cold_launch")
         case .homepage(let pageNumber):
-            return (name: "homepage", attributes: ["pageNumber": pageNumber])
+            return NewRelicEvent(name: "homepage", attributes: ["pageNumber": pageNumber])
         case .pageLoad(let pageName, let context):
             var attributes: [AnyHashable: Any] = [
                 "pageName": pageName
@@ -61,7 +94,7 @@ extension MetricAnalyticsEvent: NewRelicEventTransformer {
             if let dictionary = context?.asDictionary {
                 attributes.merge(dictionary) { (key, _) -> Any in return key }
             }
-            return (name: "pageLoad", attributes: attributes)
+            return NewRelicEvent(name: "pageLoad", attributes: attributes)
         }
     }
 }
