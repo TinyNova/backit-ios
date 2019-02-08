@@ -49,7 +49,8 @@ class Assembly {
         // This must be a singleton to ensure that transactions can be tracked between dependencies. (i.e. start/cancel/stop)
         container.register(AnalyticsService.self) { resolver in
             let mixpanelListener = resolver.resolve(MixpanelAnalyticsListener.self)!
-            return AnalyticsService(listeners: [mixpanelListener])
+            let newRelicListener = resolver.resolve(NewRelicAnalyticsListener.self)!
+            return AnalyticsService(listeners: [mixpanelListener, newRelicListener])
         }.inObjectScope(.container)
 
         container.register(Mixpanel.self) { resolver in
@@ -60,6 +61,11 @@ class Assembly {
             let mixpanel = resolver.resolve(Mixpanel.self)!
             return MixpanelAnalyticsListener(mixpanel: mixpanel)
         }
+        
+        container.register(NewRelicAnalyticsListener.self) { resolver in
+            return NewRelicAnalyticsListener()
+        }
+
         
         // MARK: - Services
         

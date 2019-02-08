@@ -52,7 +52,7 @@ class NewRelicAnalyticsListener: AnalyticsListener {
         }
 
         let event = transformer.transform()
-        NewRelic.recordCustomEvent(Constant.event, attributes: event.allAttributes())
+        NewRelic.recordCustomEvent(Constant.event, name: event.name, attributes: event.attributes)
     }
     
     func transaction(_ event: AnalyticsEvent, _ context: AnalyticsTransaction) {
@@ -60,7 +60,8 @@ class NewRelicAnalyticsListener: AnalyticsListener {
             return
         }
         
-        var attributes = [AnyHashable: Any]()
+        let event = transformer.transform()
+        var attributes = event.attributes ?? [AnyHashable: Any]()
         switch context {
         case .start(let context):
             attributes["status"] = context.status.asString
@@ -72,8 +73,7 @@ class NewRelicAnalyticsListener: AnalyticsListener {
             attributes["totalTime"] = context.totalTime
         }
         
-        let event = transformer.transform()
-        NewRelic.recordCustomEvent(Constant.transaction, attributes: event.allAttributes(with: attributes))
+        NewRelic.recordCustomEvent(Constant.transaction, name: event.name, attributes: attributes)
     }
 }
 

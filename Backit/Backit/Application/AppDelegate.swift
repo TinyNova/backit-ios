@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .NRFeatureFlag_RequestErrorEvents,
             .NRFeatureFlag_NSURLSessionInstrumentation,
             .NRFeatureFlag_NetworkRequestEvents
-            ])
+        ])
         NewRelic.disableFeatures([
             .NRFeatureFlag_CrashReporting,
             .NRFeatureFlag_DefaultInteractions,
@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .NRFeatureFlag_HandledExceptionEvents,
             .NRFeatureFlag_SwiftInteractionTracing,
             .NRFeatureFlag_WebViewInstrumentation
-            ])
+        ])
         NewRelic.start(withApplicationToken: "AA9d4dc7b3da71620e9db3f083b055f33fbd30e104")
         
         // Set user ID which data can be correlated to
