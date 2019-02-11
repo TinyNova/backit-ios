@@ -1,7 +1,7 @@
 /**
- Provides definition of a request made to a service.
+ Supported environments for this app.
  
- This file aims to be represent most app environments. However, it may need to be updated to reflect your respective system environments.
+ This file aims to be represent most app environments. However, it may need to be updated to reflect your respective system environments. It may also need to include `test` or `preview` environments.
  
  License: MIT
  
