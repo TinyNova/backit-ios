@@ -50,6 +50,10 @@
 		0754B67422027BA600E2DECD /* LocalizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B67322027BA600E2DECD /* LocalizationType.swift */; };
 		0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B6752203CB1F00E2DECD /* LoadingResultsCell.swift */; };
 		0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0754B6772203CB3000E2DECD /* LoadingResultsCell.xib */; };
+		075D4D302211CB6F006EFF37 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2C2211CB6F006EFF37 /* Flags.swift */; };
+		075D4D312211CB6F006EFF37 /* FlagValueMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */; };
+		075D4D322211CB6F006EFF37 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2E2211CB6F006EFF37 /* Flag.swift */; };
+		075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2F2211CB6F006EFF37 /* FlagID.swift */; };
 		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
 		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
 		07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */; };
@@ -140,6 +144,10 @@
 		0754B67322027BA600E2DECD /* LocalizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationType.swift; sourceTree = "<group>"; };
 		0754B6752203CB1F00E2DECD /* LoadingResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResultsCell.swift; sourceTree = "<group>"; };
 		0754B6772203CB3000E2DECD /* LoadingResultsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingResultsCell.xib; sourceTree = "<group>"; };
+		075D4D2C2211CB6F006EFF37 /* Flags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
+		075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagValueMaker.swift; sourceTree = "<group>"; };
+		075D4D2E2211CB6F006EFF37 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
+		075D4D2F2211CB6F006EFF37 /* FlagID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagID.swift; sourceTree = "<group>"; };
 		07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
 		07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginKey.swift; sourceTree = "<group>"; };
@@ -291,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				0754B60721FC0FA400E2DECD /* Project */,
-				0754B60521FBDDC400E2DECD /* Environment.swift */,
 				0754B5F721FA590600E2DECD /* Service.swift */,
 				0754B60A21FF322700E2DECD /* ServiceEndpoint.swift */,
 				0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */,
@@ -345,6 +352,17 @@
 				0754B67322027BA600E2DECD /* LocalizationType.swift */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		075D4D2B2211CB0D006EFF37 /* Flags */ = {
+			isa = PBXGroup;
+			children = (
+				075D4D2E2211CB6F006EFF37 /* Flag.swift */,
+				075D4D2F2211CB6F006EFF37 /* FlagID.swift */,
+				075D4D2C2211CB6F006EFF37 /* Flags.swift */,
+				075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */,
+			);
+			path = Flags;
 			sourceTree = "<group>";
 		};
 		0798AA4421D45DB0004A6261 /* BackitTests */ = {
@@ -420,9 +438,11 @@
 			isa = PBXGroup;
 			children = (
 				0732391922089AE30034291C /* Analytics */,
+				075D4D2B2211CB0D006EFF37 /* Flags */,
 				0754B67022027B3300E2DECD /* Localization */,
 				07EC61EF21D6ECFB00FE283C /* UITheme */,
 				07EC61F921D6EF1400FE283C /* ViewIdentifiable */,
+				0754B60521FBDDC400E2DECD /* Environment.swift */,
 				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
 				0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */,
 				0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */,
@@ -693,8 +713,11 @@
 				073239242208A0250034291C /* AnalyticsListener.swift in Sources */,
 				0754B67422027BA600E2DECD /* LocalizationType.swift in Sources */,
 				0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */,
+				075D4D312211CB6F006EFF37 /* FlagValueMaker.swift in Sources */,
+				075D4D302211CB6F006EFF37 /* Flags.swift in Sources */,
 				0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
+				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
 				0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */,
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
@@ -730,6 +753,7 @@
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
 				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
+				075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */,
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
 				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,
 				0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */,
