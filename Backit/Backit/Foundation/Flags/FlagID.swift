@@ -11,6 +11,5 @@
 import Foundation
 
 enum FlagID: Equatable {
-    case buttonColor
-    case enableFlyoutMenu
+    case none
 }

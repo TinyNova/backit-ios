@@ -10,8 +10,22 @@
 
 import Foundation
 
-enum Environment {
-    case dev
-    case qa
-    case prod
+struct Environment: OptionSet, Hashable {
+    let rawValue: Int
+    
+    var hashValue: Int {
+        return self.rawValue
+    }
+    
+    static let dev = Environment(rawValue: 1 << 0)
+    static let qa = Environment(rawValue: 1 << 1)
+    static let prod = Environment(rawValue: 1 << 2)
+    
+    static let all: Environment = [.dev, .qa, .prod]
+    
+    static func ==(lhs: Environment, rhs: Environment) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
 }
+
+
