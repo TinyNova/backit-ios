@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07101BA62230B14000094716 /* HomepageErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07101BA52230B14000094716 /* HomepageErrorView.xib */; };
+		07101BA82230B1FF00094716 /* HomepageErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07101BA72230B1FF00094716 /* HomepageErrorView.swift */; };
 		0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */; };
 		0717398121E7E6D700EA17DC /* ProjectCardScrollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717398021E7E6D700EA17DC /* ProjectCardScrollingView.swift */; };
 		0717398921E7E9ED00EA17DC /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0717398821E7E9ED00EA17DC /* Homepage.storyboard */; };
@@ -67,6 +69,7 @@
 		07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */; };
 		07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC39C521D4414F00214687 /* ChangelogViewController.swift */; };
 		07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07AC39C921D44A1400214687 /* HomepageProjectCell.xib */; };
+		07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3B40E223175CC00959808 /* UIView+Backit.swift */; };
 		07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61ED21D6ECD300FE283C /* Assembly.swift */; };
 		07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61F021D6ED3800FE283C /* AnyUITheme.swift */; };
 		07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61F121D6ED3800FE283C /* UITheme.swift */; };
@@ -98,6 +101,8 @@
 		070F84D621D457B200C11799 /* UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		070F84DA21D4584F00C11799 /* KIF+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Backit.swift"; sourceTree = "<group>"; };
 		070F84DC21D4598E00C11799 /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
+		07101BA52230B14000094716 /* HomepageErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageErrorView.xib; sourceTree = "<group>"; };
+		07101BA72230B1FF00094716 /* HomepageErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageErrorView.swift; sourceTree = "<group>"; };
 		0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Backit.swift"; sourceTree = "<group>"; };
 		0717398021E7E6D700EA17DC /* ProjectCardScrollingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardScrollingView.swift; sourceTree = "<group>"; };
 		0717398821E7E9ED00EA17DC /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
@@ -160,6 +165,7 @@
 		07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
 		07AC39C521D4414F00214687 /* ChangelogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangelogViewController.swift; sourceTree = "<group>"; };
 		07AC39C921D44A1400214687 /* HomepageProjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageProjectCell.xib; sourceTree = "<group>"; };
+		07E3B40E223175CC00959808 /* UIView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Backit.swift"; sourceTree = "<group>"; };
 		07EC61ED21D6ECD300FE283C /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		07EC61F021D6ED3800FE283C /* AnyUITheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyUITheme.swift; sourceTree = "<group>"; };
 		07EC61F121D6ED3800FE283C /* UITheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 		0722326C21D44028009D1912 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				07E3B40D223175BD00959808 /* Extensions */,
 				0732391C22089B4F0034291C /* Analytics */,
 				07AC39C821D4416000214687 /* Changelog */,
 				07AC39C721D4415A00214687 /* Homepage */,
@@ -380,20 +387,22 @@
 			children = (
 				070F84D121D456C500C11799 /* Test */,
 				0717398821E7E9ED00EA17DC /* Homepage.storyboard */,
+				07101BA72230B1FF00094716 /* HomepageErrorView.swift */,
+				07101BA52230B14000094716 /* HomepageErrorView.xib */,
 				0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */,
+				0754B60121FB691800E2DECD /* HomepageProject.swift */,
+				0754B5FF21FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift */,
 				0798AA5121D45F11004A6261 /* HomepageProjectCell.swift */,
 				07AC39C921D44A1400214687 /* HomepageProjectCell.xib */,
 				0722324C21D4375C009D1912 /* HomepageViewController.swift */,
 				07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */,
 				07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */,
+				0754B6752203CB1F00E2DECD /* LoadingResultsCell.swift */,
+				0754B6772203CB3000E2DECD /* LoadingResultsCell.xib */,
 				0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */,
 				0717398E21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib */,
 				0717398021E7E6D700EA17DC /* ProjectCardScrollingView.swift */,
 				0717398C21E96E6C00EA17DC /* ProjectCardScrollingView.xib */,
-				0754B5FF21FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift */,
-				0754B60121FB691800E2DECD /* HomepageProject.swift */,
-				0754B6752203CB1F00E2DECD /* LoadingResultsCell.swift */,
-				0754B6772203CB3000E2DECD /* LoadingResultsCell.xib */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -404,6 +413,14 @@
 				07AC39C521D4414F00214687 /* ChangelogViewController.swift */,
 			);
 			path = Changelog;
+			sourceTree = "<group>";
+		};
+		07E3B40D223175BD00959808 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07E3B40E223175CC00959808 /* UIView+Backit.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		07EC61EF21D6ECFB00FE283C /* UITheme */ = {
@@ -583,6 +600,7 @@
 				0717398F21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib in Resources */,
 				0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */,
 				07EC620321D6F0A200FE283C /* lato-bold.ttf in Resources */,
+				07101BA62230B14000094716 /* HomepageErrorView.xib in Resources */,
 				0717398D21E96E6C00EA17DC /* ProjectCardScrollingView.xib in Resources */,
 				07EC620521D6F0A200FE283C /* lato-regular.ttf in Resources */,
 				07EC620221D6F0A200FE283C /* lato-bolditalic.ttf in Resources */,
@@ -715,6 +733,7 @@
 				0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */,
 				075D4D312211CB6F006EFF37 /* FlagValueMaker.swift in Sources */,
 				075D4D302211CB6F006EFF37 /* Flags.swift in Sources */,
+				07101BA82230B1FF00094716 /* HomepageErrorView.swift in Sources */,
 				0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
@@ -745,6 +764,7 @@
 				0754B5F121F625DC00E2DECD /* ProjectService.swift in Sources */,
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
 				0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */,
+				07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */,
 				0717398121E7E6D700EA17DC /* ProjectCardScrollingView.swift in Sources */,
 				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
 				0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */,

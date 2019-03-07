@@ -25,6 +25,13 @@ protocol HomepageProvider {
 
 class HomepageViewController: UIViewController {
 
+    
+    @IBOutlet weak var errorView: HomepageErrorView! {
+        didSet {
+            errorView.isHidden = true
+        }
+    }
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -76,7 +83,8 @@ extension HomepageViewController: HomepageClient {
     }
     
     func didReceiveError(_ error: Error) {
-        
+        errorView.isHidden = false
+        view.bringSubviewToFront(errorView)
     }
 }
 

@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JTm-lA-Acr" customClass="HomepageErrorView" customModule="Backit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="95K-U7-CmU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -26,7 +30,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="95K-U7-CmU" firstAttribute="leading" secondItem="Z90-95-atU" secondAttribute="leading" id="3Sg-AY-uOu"/>
+                            <constraint firstItem="Z90-95-atU" firstAttribute="bottom" secondItem="JTm-lA-Acr" secondAttribute="bottom" id="7p4-Ei-S1w"/>
+                            <constraint firstItem="Z90-95-atU" firstAttribute="trailing" secondItem="JTm-lA-Acr" secondAttribute="trailing" id="9JJ-QX-wcn"/>
                             <constraint firstItem="95K-U7-CmU" firstAttribute="bottom" secondItem="Z90-95-atU" secondAttribute="bottom" id="IPw-CD-hYg"/>
+                            <constraint firstItem="JTm-lA-Acr" firstAttribute="top" secondItem="Z90-95-atU" secondAttribute="top" id="dqc-6Y-fTK"/>
+                            <constraint firstItem="JTm-lA-Acr" firstAttribute="leading" secondItem="Z90-95-atU" secondAttribute="leading" id="hKK-EX-81Y"/>
                             <constraint firstItem="95K-U7-CmU" firstAttribute="top" secondItem="Z90-95-atU" secondAttribute="top" id="n4q-63-bLl"/>
                             <constraint firstItem="Z90-95-atU" firstAttribute="trailing" secondItem="95K-U7-CmU" secondAttribute="trailing" id="wDq-48-YdW"/>
                         </constraints>
@@ -36,6 +44,7 @@
                     <tabBarItem key="tabBarItem" title="Homepage" image="backit-logo" selectedImage="backit-logo" id="n1v-Nl-WG3"/>
                     <navigationItem key="navigationItem" id="D6E-WF-n4M"/>
                     <connections>
+                        <outlet property="errorView" destination="JTm-lA-Acr" id="h2A-mY-Ls1"/>
                         <outlet property="tableView" destination="95K-U7-CmU" id="awb-nf-QaZ"/>
                     </connections>
                 </viewController>
