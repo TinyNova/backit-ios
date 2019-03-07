@@ -50,6 +50,11 @@ class ImagePagerView: UIView {
     func configure(assets: [ProjectAsset], selectedIndex: Int) {
         stackView.removeAllArrangedSubviews()
         
+        guard assets.count > 1 else {
+            self.selectedIndex = 0
+            return
+        }
+        
         for asset in assets {
             let image: UIImage?
             switch asset {
