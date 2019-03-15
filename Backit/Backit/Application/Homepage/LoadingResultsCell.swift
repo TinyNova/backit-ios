@@ -8,8 +8,9 @@ import Foundation
 import UIKit
 
 enum LoadingResultsCellState {
-    case loading
+    case ready
     case noResults
+    case error
 }
 
 class LoadingResultsCell: UITableViewCell {
@@ -21,10 +22,12 @@ class LoadingResultsCell: UITableViewCell {
     var state: LoadingResultsCellState = .noResults {
         didSet {
             switch state {
-            case .loading:
+            case .ready:
                 stateLabel.text = i18n.t(.loadingProjects)
             case .noResults:
                 stateLabel.text = i18n.t(.youreUpToDate)
+            case .error:
+                stateLabel.text = i18n.t(.errorLoadingProjects)
             }
         }
     }

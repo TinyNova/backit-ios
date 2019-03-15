@@ -1,7 +1,7 @@
 /**
  Provides a way to track analytics.
  
- @copyright 2018 Upstart Illustration, LLC. All rights reserved.
+ @copyright 2019 Upstart Illustration, LLC. All rights reserved.
  */
 
 import Foundation
@@ -25,7 +25,7 @@ class AnalyticsService {
     func start( _ event: AnalyticsEvent) {
         let id = eventId(for: event)
         guard transactions[id] == nil else {
-            print("WARN: Attempting to start a transaction which has already been started")
+            print("WARN: Attempting to start a transaction event for \(event) which has already been started")
             return
         }
         let startTime = DispatchTime.now()
@@ -58,9 +58,11 @@ class AnalyticsService {
     }
     
     private func finishTransaction(_ event: AnalyticsEvent, status: AnalyticsTransaction.Status) {
-        guard let startTime = transactions[eventId(for: event)] else {
+        let id = eventId(for: event)
+        guard let startTime = transactions[id] else {
             return
         }
+        transactions.removeValue(forKey: id)
         
         let stopTime = DispatchTime.now()
         

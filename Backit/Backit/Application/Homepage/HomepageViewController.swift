@@ -16,7 +16,7 @@ protocol HomepageClient: class {
 protocol HomepageProvider {
     var client: HomepageClient? { get set }
     
-    func viewDidLoad()
+    func loadProjects()
     func didTapAsset(project: HomepageProject)
     func didTapBackit(project: HomepageProject)
     func didTapComment(project: HomepageProject)
@@ -29,13 +29,14 @@ class HomepageViewController: UIViewController {
     @IBOutlet weak var errorView: HomepageErrorView! {
         didSet {
             errorView.isHidden = true
+            errorView.delegate = self
         }
     }
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
-            tableView.allowsSelection = false
+            tableView.delegate = self
             tableView.estimatedRowHeight = 300
             tableView.estimatedSectionHeaderHeight = 0
             tableView.estimatedSectionFooterHeight = 0
@@ -50,7 +51,7 @@ class HomepageViewController: UIViewController {
     private var provider: HomepageProvider!
     
     private var projects: [HomepageProject] = []
-    private var loadingState: LoadingResultsCellState = .loading
+    private var loadingState: LoadingResultsCellState = .ready
     
     func inject(theme: AnyUITheme<AppTheme>, provider: HomepageProvider) {
         self.theme.concrete = theme
@@ -62,16 +63,29 @@ class HomepageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        provider.viewDidLoad()
+        provider.loadProjects()
     }
     
     var totalRows: Int {
         return projects.count + 1 /* Status Cell */
     }
+    
+    func reloadLastRowInTable() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.tableView.beginUpdates()
+            self.tableView.reloadRows(at: [[0, self.totalRows-1]], with: .bottom)
+            self.tableView.endUpdates()
+        }
+    }
 }
 
 extension HomepageViewController: HomepageClient {
     func didReceiveProjects(_ projects: [HomepageProject]) {
+        errorView.isHidden = true
+        view.bringSubviewToFront(tableView)
         self.projects.append(contentsOf: projects)
         tableView.reloadData()
     }
@@ -79,12 +93,18 @@ extension HomepageViewController: HomepageClient {
     func didReachEndOfProjects() {
         // TODO: Tapping cell could send a signal to reload the results from the beginning
         loadingState = .noResults
-        tableView.reloadRows(at: [[0, totalRows-1]], with: .bottom)
+        reloadLastRowInTable()
     }
     
     func didReceiveError(_ error: Error) {
-        errorView.isHidden = false
-        view.bringSubviewToFront(errorView)
+        if totalRows < 2 {
+            errorView.isHidden = false
+            view.bringSubviewToFront(errorView)
+        }
+        else {
+            loadingState = .error
+            reloadLastRowInTable()
+        }
     }
 }
 
@@ -97,11 +117,16 @@ extension HomepageViewController: UITableViewDataSource {
         return totalRows
     }
     
+    private var canLoadNextPageOfResults: Bool {
+        return totalRows > 1 /* Must have had loaded at least one project in the table view */
+            && loadingState == .ready /* Must be in a nominal state */
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if totalRows - indexPath.row == 1 {
             let cell = loadingResultsCell(tableView)
             cell.state = loadingState
-            if loadingState == .loading {
+            if canLoadNextPageOfResults {
                 provider.didReachEndOfProjectList()
             }
             return cell
@@ -119,6 +144,7 @@ extension HomepageViewController: UITableViewDataSource {
         guard let dequedCell = tableView.dequeueReusableCell(withIdentifier: "LoadingResultsCell"), let cell = dequedCell as? LoadingResultsCell else {
             fatalError("Failed to deque HomepageProjectCell")
         }
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -126,7 +152,16 @@ extension HomepageViewController: UITableViewDataSource {
         guard let dequedCell = tableView.dequeueReusableCell(withIdentifier: "HomepageProjectCell"), let cell = dequedCell as? HomepageProjectCell else {
             fatalError("Failed to deque HomepageProjectCell")
         }
+        cell.selectionStyle = .none
         return cell
+    }
+}
+
+extension HomepageViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if case .error = loadingState, indexPath.row == totalRows - 1 {
+            provider.loadProjects()
+        }
     }
 }
 
@@ -150,5 +185,11 @@ extension HomepageViewController: HomepageProjectCellDelegate {
         present(vc, animated: true) {
             player.play()
         }
+    }
+}
+
+extension HomepageViewController: HomepageErrorViewDelegate {
+    func didRequestToReloadData() {
+        provider.loadProjects()
     }
 }

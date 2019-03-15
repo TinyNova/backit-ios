@@ -1,6 +1,6 @@
 /**
  
- @copyright 2018 Upstart Illustration, LLC. All rights reserved.
+ @copyright 2019 Upstart Illustration, LLC. All rights reserved.
  */
 
 import Foundation

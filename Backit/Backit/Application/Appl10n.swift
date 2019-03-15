@@ -10,6 +10,7 @@ enum Appl10n {
     case funded(amount: Int)
     case loadingProjects
     case youreUpToDate
+    case errorLoadingProjects
 }
 
 extension Appl10n: LocalizationType {
@@ -25,6 +26,8 @@ extension Appl10n: LocalizationType {
             return l(key: "loadingProjects")
         case .youreUpToDate:
             return l(key: "youreUpToDate")
+        case .errorLoadingProjects:
+            return l(key: "errorLoadingProjects")
         }
     }
 }

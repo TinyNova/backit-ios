@@ -86,7 +86,7 @@ class HomepageProjectCell: UITableViewCell {
             updateFundedPercentProgress(CGFloat(project.fundedPercent))
         }
     }
-
+    
     func configure(project: HomepageProject) {
         self.project = project
     }
