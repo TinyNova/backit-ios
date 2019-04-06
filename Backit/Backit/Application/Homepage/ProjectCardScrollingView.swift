@@ -157,7 +157,7 @@ class ProjectCardCollectionViewCell: UICollectionViewCell, ProjectCardCell {
         imageView.image = nil
         
         // FIXME: Move this into a dependency. First version should return only the image.
-        let manager = SDWebImageManager.shared()
+        let manager = SDWebImageManager.shared
         manager.loadImage(with: url, options: [], progress: nil) { [weak self] (image, data, error, cacheType, finished, imageURL) in
             guard let strongSelf = self, let image = image else {
                 self?.imageView.image = nil

@@ -667,7 +667,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
 				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
@@ -688,7 +688,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ABA0F4AD4317C18034721A5E /* [CP] Embed Pods Frameworks */ = {
@@ -697,7 +697,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BackitTests/Pods-BackitTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BackitTests/Pods-BackitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/AutoEquatable/AutoEquatable.framework",
@@ -722,7 +722,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BackitTests/Pods-BackitTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BackitTests/Pods-BackitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC597BD93B208149431B4829 /* [CP] Check Pods Manifest.lock */ = {

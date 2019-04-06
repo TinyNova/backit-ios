@@ -91,6 +91,12 @@ class Assembly {
             controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider)
         }
         
+        container.storyboardInitCompleted(ProjectFeedViewController.self) { resolver, controller in
+            let theme = resolver.resolve(AppTheme.self)!
+            let provider = resolver.resolve(HomepageProvider.self)!
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider)
+        }
+        
         container.storyboardInitCompleted(ChangelogViewController.self) { (resolver, controller) in
             
         }
