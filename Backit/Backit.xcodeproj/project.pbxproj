@@ -59,6 +59,10 @@
 		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
 		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
 		07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */; };
+		078BCA952253B032003A03CA /* ProjectFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078BCA942253B032003A03CA /* ProjectFeed.storyboard */; };
+		078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078BCA962253B047003A03CA /* ProjectFeedViewController.swift */; };
+		078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 078BCA982256D980003A03CA /* ProjectTableViewCell.xib */; };
+		078BCA9B2256D99A003A03CA /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078BCA9A2256D99A003A03CA /* ProjectTableViewCell.swift */; };
 		0798AA4621D45DB0004A6261 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798AA4521D45DB0004A6261 /* BackitTests.swift */; };
 		0798AA4D21D45DC0004A6261 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DA21D4584F00C11799 /* KIF+Backit.swift */; };
 		0798AA4E21D45DC3004A6261 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84DC21D4598E00C11799 /* Methods.swift */; };
@@ -157,6 +161,10 @@
 		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
 		07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginKey.swift; sourceTree = "<group>"; };
 		07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginProvider.swift; sourceTree = "<group>"; };
+		078BCA942253B032003A03CA /* ProjectFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectFeed.storyboard; sourceTree = "<group>"; };
+		078BCA962253B047003A03CA /* ProjectFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedViewController.swift; sourceTree = "<group>"; };
+		078BCA982256D980003A03CA /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
+		078BCA9A2256D99A003A03CA /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		0798AA4321D45DB0004A6261 /* BackitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798AA4521D45DB0004A6261 /* BackitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackitTests.swift; sourceTree = "<group>"; };
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -263,6 +271,7 @@
 		0722326C21D44028009D1912 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				078BCA932253B01D003A03CA /* ProjectFeed */,
 				07E3B40D223175BD00959808 /* Extensions */,
 				0732391C22089B4F0034291C /* Analytics */,
 				07AC39C821D4416000214687 /* Changelog */,
@@ -370,6 +379,17 @@
 				075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */,
 			);
 			path = Flags;
+			sourceTree = "<group>";
+		};
+		078BCA932253B01D003A03CA /* ProjectFeed */ = {
+			isa = PBXGroup;
+			children = (
+				078BCA942253B032003A03CA /* ProjectFeed.storyboard */,
+				078BCA962253B047003A03CA /* ProjectFeedViewController.swift */,
+				078BCA982256D980003A03CA /* ProjectTableViewCell.xib */,
+				078BCA9A2256D99A003A03CA /* ProjectTableViewCell.swift */,
+			);
+			path = ProjectFeed;
 			sourceTree = "<group>";
 		};
 		0798AA4421D45DB0004A6261 /* BackitTests */ = {
@@ -601,8 +621,10 @@
 				0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */,
 				07EC620321D6F0A200FE283C /* lato-bold.ttf in Resources */,
 				07101BA62230B14000094716 /* HomepageErrorView.xib in Resources */,
+				078BCA952253B032003A03CA /* ProjectFeed.storyboard in Resources */,
 				0717398D21E96E6C00EA17DC /* ProjectCardScrollingView.xib in Resources */,
 				07EC620521D6F0A200FE283C /* lato-regular.ttf in Resources */,
+				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
 				07EC620221D6F0A200FE283C /* lato-bolditalic.ttf in Resources */,
 				07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */,
 				0722325421D4375F009D1912 /* Assets.xcassets in Resources */,
@@ -736,6 +758,7 @@
 				07101BA82230B1FF00094716 /* HomepageErrorView.swift in Sources */,
 				0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
+				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
 				0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */,
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
@@ -757,6 +780,7 @@
 				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,
+				078BCA9B2256D99A003A03CA /* ProjectTableViewCell.swift in Sources */,
 				0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */,
 				0754B60221FB691800E2DECD /* HomepageProject.swift in Sources */,
 				0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */,

@@ -1,47 +1,23 @@
 /**
+ * Project Feed (Homepage)
  *
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
-import AVKit
-import MediaPlayer
+import Foundation
 import UIKit
 
-protocol HomepageClient: class {
-    func didReceiveProjects(_ projects: [HomepageProject])
-    func didReachEndOfProjects()
-    func didReceiveError(_ error: Error)
-}
-
-protocol HomepageProvider {
-    var client: HomepageClient? { get set }
-    
-    func loadProjects()
-    func didTapAsset(project: HomepageProject)
-    func didTapBackit(project: HomepageProject)
-    func didTapComment(project: HomepageProject)
-    func didReachEndOfProjectList()
-}
-
-class HomepageViewController: UIViewController {
-    
-    @IBOutlet weak var errorView: HomepageErrorView! {
-        didSet {
-            errorView.isHidden = true
-            errorView.delegate = self
-        }
-    }
-    
+class ProjectFeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
-            tableView.delegate = self
+//            tableView.delegate = self
             tableView.estimatedRowHeight = 300
             tableView.estimatedSectionHeaderHeight = 0
             tableView.estimatedSectionFooterHeight = 0
             tableView.separatorStyle = .none
             
-            tableView.register(UINib(nibName: "HomepageProjectCell", bundle: nil), forCellReuseIdentifier: "HomepageProjectCell")
+            tableView.register(UINib(nibName: "ProjectTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectTableViewCell")
             tableView.register(UINib(nibName: "LoadingResultsCell", bundle: nil), forCellReuseIdentifier: "LoadingResultsCell")
         }
     }
@@ -81,9 +57,9 @@ class HomepageViewController: UIViewController {
     }
 }
 
-extension HomepageViewController: HomepageClient {
+extension ProjectFeedViewController: HomepageClient {
     func didReceiveProjects(_ projects: [HomepageProject]) {
-        errorView.isHidden = true
+//        errorView.isHidden = true
         view.bringSubviewToFront(tableView)
         self.projects.append(contentsOf: projects)
         tableView.reloadData()
@@ -97,8 +73,8 @@ extension HomepageViewController: HomepageClient {
     
     func didReceiveError(_ error: Error) {
         if totalRows < 2 {
-            errorView.isHidden = false
-            view.bringSubviewToFront(errorView)
+//            errorView.isHidden = false
+//            view.bringSubviewToFront(errorView)
         }
         else {
             loadingState = .error
@@ -107,7 +83,7 @@ extension HomepageViewController: HomepageClient {
     }
 }
 
-extension HomepageViewController: UITableViewDataSource {
+extension ProjectFeedViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -120,7 +96,7 @@ extension HomepageViewController: UITableViewDataSource {
         return totalRows > 1 /* Must have had loaded at least one project in the table view */
             && loadingState == .ready /* Must be in a nominal state */
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if totalRows - indexPath.row == 1 {
             let cell = loadingResultsCell(tableView)
@@ -131,10 +107,10 @@ extension HomepageViewController: UITableViewDataSource {
             return cell
         }
         else {
-            let cell = homepageProjectCell(tableView)
-            let project = projects[indexPath.row]
-            cell.configure(project: project)
-            cell.delegate = self
+            let cell = feedCell(tableView)
+//            let project = projects[indexPath.row]
+//            cell.configure(project: project)
+//            cell.delegate = self
             return cell
         }
     }
@@ -147,48 +123,11 @@ extension HomepageViewController: UITableViewDataSource {
         return cell
     }
     
-    private func homepageProjectCell(_ tableView: UITableView) -> HomepageProjectCell {
-        guard let dequedCell = tableView.dequeueReusableCell(withIdentifier: "HomepageProjectCell"), let cell = dequedCell as? HomepageProjectCell else {
-            fatalError("Failed to deque HomepageProjectCell")
+    private func feedCell(_ tableView: UITableView) -> ProjectTableViewCell {
+        guard let dequedCell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell"), let cell = dequedCell as? ProjectTableViewCell else {
+            fatalError("Failed to deque ProjectTableViewCell")
         }
         cell.selectionStyle = .none
         return cell
-    }
-}
-
-extension HomepageViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if case .error = loadingState, indexPath.row == totalRows - 1 {
-            provider.loadProjects()
-        }
-    }
-}
-
-extension HomepageViewController: HomepageProjectCellDelegate {
-    func didTapProject(_ project: HomepageProject) {
-        print("Did tap project title")
-    }
-    
-    func didTapComments(_ project: HomepageProject) {
-        print("Did tap comments")
-    }
-    
-    func didTapAsset(_ project: ProjectAsset) {
-        guard case .video(_, let videoURL) = project else {
-            return
-        }
-        
-        let player = AVPlayer(url: videoURL)
-        let vc = AVPlayerViewController()
-        vc.player = player
-        present(vc, animated: true) {
-            player.play()
-        }
-    }
-}
-
-extension HomepageViewController: HomepageErrorViewDelegate {
-    func didRequestToReloadData() {
-        provider.loadProjects()
     }
 }
