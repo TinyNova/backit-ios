@@ -28,6 +28,8 @@
 		073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239272208A06E0034291C /* AnalyticsEvent.swift */; };
 		0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239292208A1360034291C /* Encodable+Backit.swift */; };
 		0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392B220912960034291C /* AnalyticsTransaction.swift */; };
+		0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0747A42A226560D6006BE39A /* SignIn.storyboard */; };
+		0747A42D226560F8006BE39A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0747A42C226560F8006BE39A /* SignInViewController.swift */; };
 		0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */; };
 		0754B5EC21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */; };
 		0754B5EF21F622FA00E2DECD /* HomepageOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */; };
@@ -128,6 +130,8 @@
 		073239272208A06E0034291C /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		073239292208A1360034291C /* Encodable+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Backit.swift"; sourceTree = "<group>"; };
 		0732392B220912960034291C /* AnalyticsTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransaction.swift; sourceTree = "<group>"; };
+		0747A42A226560D6006BE39A /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		0747A42C226560F8006BE39A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Backit.swift"; sourceTree = "<group>"; };
 		0754B5EB21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCardCollectionViewAnimatedCell.xib; sourceTree = "<group>"; };
 		0754B5EE21F622FA00E2DECD /* HomepageOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageOrchestrator.swift; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 		0722326C21D44028009D1912 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				07E9DD722264D314005DA147 /* Account */,
 				078BCA932253B01D003A03CA /* ProjectFeed */,
 				07E3B40D223175BD00959808 /* Extensions */,
 				0732391C22089B4F0034291C /* Analytics */,
@@ -441,6 +446,15 @@
 				07E3B40E223175CC00959808 /* UIView+Backit.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		07E9DD722264D314005DA147 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				0747A42A226560D6006BE39A /* SignIn.storyboard */,
+				0747A42C226560F8006BE39A /* SignInViewController.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		07EC61EF21D6ECFB00FE283C /* UITheme */ = {
@@ -627,6 +641,7 @@
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
 				07EC620221D6F0A200FE283C /* lato-bolditalic.ttf in Resources */,
 				07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */,
+				0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */,
 				0722325421D4375F009D1912 /* Assets.xcassets in Resources */,
 				0754B6682200CAD600E2DECD /* Localizable.strings in Resources */,
 				0722325221D4375C009D1912 /* Main.storyboard in Resources */,
@@ -778,6 +793,7 @@
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
 				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,
+				0747A42D226560F8006BE39A /* SignInViewController.swift in Sources */,
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,
 				078BCA9B2256D99A003A03CA /* ProjectTableViewCell.swift in Sources */,
