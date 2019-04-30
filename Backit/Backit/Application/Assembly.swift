@@ -69,10 +69,15 @@ class Assembly {
         
         // MARK: - Services
         
-        container.register(ProjectProvider.self) { resolver in
+        container.register(Service.self) { resolver in
             let requester = resolver.resolve(ServiceRequester.self)!
             let pluginProvider = resolver.resolve(ServicePluginProvider.self)!
-            return ProjectService(environment: .prod, requester: requester, pluginProvider: pluginProvider)
+            return Service(environment: .prod, requester: requester, pluginProvider: pluginProvider)
+        }
+        
+        container.register(ProjectProvider.self) { resolver in
+            let service = resolver.resolve(Service.self)!
+            return ProjectService(service: service)
         }
         
         // MARK: - UIViewController Registration

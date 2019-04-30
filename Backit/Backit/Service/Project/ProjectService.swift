@@ -6,7 +6,13 @@
 import BrightFutures
 import Foundation
 
-class ProjectService: Service, ProjectProvider {
+class ProjectService: ProjectProvider {
+    
+    let service: Service
+    
+    init(service: Service) {
+        self.service = service
+    }
     
     func projects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError> {
         let nextCursor: Int
@@ -26,7 +32,7 @@ class ProjectService: Service, ProjectProvider {
             .offset(nextCursor),
             .limit(limit)
         ])
-        return self.request(request)
+        return service.request(request)
             .map { response -> ProjectResponse in
                 return ProjectResponse(from: response, cursor: nextCursor)
             }
