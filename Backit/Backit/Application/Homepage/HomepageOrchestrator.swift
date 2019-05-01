@@ -6,14 +6,6 @@
 import BrightFutures
 import Foundation
 
-enum ProjectProviderError: Error {
-    case failedToLoadProject
-}
-
-protocol ProjectProvider {
-    func projects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError>
-}
-
 class HomepageOrchestrator: HomepageProvider {
     
     let provider: ProjectProvider

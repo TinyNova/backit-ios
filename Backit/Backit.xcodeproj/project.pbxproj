@@ -14,6 +14,9 @@
 		0717398921E7E9ED00EA17DC /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0717398821E7E9ED00EA17DC /* Homepage.storyboard */; };
 		0717398D21E96E6C00EA17DC /* ProjectCardScrollingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0717398C21E96E6C00EA17DC /* ProjectCardScrollingView.xib */; };
 		0717398F21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0717398E21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib */; };
+		071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317422794EE600DB1561 /* ProjectProvider.swift */; };
+		071B317722794F0B00DB1561 /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317622794F0B00DB1561 /* AccountProvider.swift */; };
+		071B317922794F3300DB1561 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317822794F3300DB1561 /* User.swift */; };
 		0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0722324A21D4375C009D1912 /* AppDelegate.swift */; };
 		0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0722324C21D4375C009D1912 /* HomepageViewController.swift */; };
 		0722325221D4375C009D1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325021D4375C009D1912 /* Main.storyboard */; };
@@ -115,6 +118,9 @@
 		0717398821E7E9ED00EA17DC /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
 		0717398C21E96E6C00EA17DC /* ProjectCardScrollingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCardScrollingView.xib; sourceTree = "<group>"; };
 		0717398E21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		071B317422794EE600DB1561 /* ProjectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectProvider.swift; sourceTree = "<group>"; };
+		071B317622794F0B00DB1561 /* AccountProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProvider.swift; sourceTree = "<group>"; };
+		071B317822794F3300DB1561 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0722324721D4375C009D1912 /* Backit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0722324A21D4375C009D1912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0722324C21D4375C009D1912 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
@@ -337,8 +343,11 @@
 		0754B5F221FA588700E2DECD /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				071B317622794F0B00DB1561 /* AccountProvider.swift */,
 				0754B5F321FA589B00E2DECD /* Project.swift */,
+				071B317422794EE600DB1561 /* ProjectProvider.swift */,
 				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
+				071B317822794F3300DB1561 /* User.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -781,6 +790,7 @@
 				07101BA82230B1FF00094716 /* HomepageErrorView.swift in Sources */,
 				0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
+				071B317922794F3300DB1561 /* User.swift in Sources */,
 				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
 				0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */,
@@ -825,7 +835,9 @@
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
 				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,
 				0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */,
+				071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */,
 				073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */,
+				071B317722794F0B00DB1561 /* AccountProvider.swift in Sources */,
 				0754B60D21FF32E900E2DECD /* URLRequestFactory.swift in Sources */,
 				07C9BD552276B02100E41F1D /* HomepageProject.swift in Sources */,
 				0754B5F421FA589B00E2DECD /* Project.swift in Sources */,
