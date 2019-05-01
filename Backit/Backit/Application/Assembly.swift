@@ -65,7 +65,6 @@ class Assembly {
         container.register(NewRelicAnalyticsListener.self) { resolver in
             return NewRelicAnalyticsListener()
         }
-
         
         // MARK: - Services
         
