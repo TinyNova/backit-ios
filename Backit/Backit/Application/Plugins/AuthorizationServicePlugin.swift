@@ -15,26 +15,7 @@
  */
 
 import Foundation
-
 import BrightFutures
-
-struct GenericError: Error {
-    
-}
-
-struct Session {
-    let accountId: String
-    let csrfToken: String
-    let token: String
-}
-
-enum LoginProviderError: Error {
-    case none
-}
-
-protocol LoginProvider {
-    func displayLogin() -> Future<Session, LoginProviderError>
-}
 
 class AuthorizationServicePlugin: ServicePlugin {
     
