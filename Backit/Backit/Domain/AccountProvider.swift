@@ -12,6 +12,6 @@ enum AccountProviderError: Error {
 }
 
 protocol AccountProvider {
-    func login(username: String, password: String) -> Future<User, AccountProviderError>
-    func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String, lastName: String, location: CLLocation, subscribe: Bool) -> Future<User, AccountProviderError>
+    func login(email: String, password: String) -> Future<User, AccountProviderError>
+    func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String, lastName: String, subscribe: Bool) -> Future<User, AccountProviderError>
 }

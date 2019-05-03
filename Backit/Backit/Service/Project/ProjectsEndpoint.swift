@@ -68,7 +68,7 @@ struct ProjectsEndpoint: ServiceEndpoint {
         
     var type: ServiceRequestType = .get
     var endpoints: Endpoints = [
-        .prod: "https://collect.backit.com/projects"
+        .qa: "https://collect.backit.com/projects"
     ]
     var queryParameters: [QueryParameter]?
     

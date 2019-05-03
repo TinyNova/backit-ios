@@ -68,8 +68,8 @@ class Service {
         })
         
         let promise = Promise<T.ResponseType, ServiceError>()
-        requester.request(urlRequest) { [weak self] (result) in
-            guard let self = self else {
+        requester.request(urlRequest) { [weak decoder] (result) in
+            guard let decoder = decoder else {
                 promise.failure(.unknown(nil))
                 return
             }
@@ -100,7 +100,7 @@ class Service {
                 promise.failure(.emptyResponse)
                 return
             }
-            guard let decodedResponse = try? self.decoder.decode(T.ResponseType.self, from: data) else {
+            guard let decodedResponse = try? decoder.decode(T.ResponseType.self, from: data) else {
                 promise.failure(.failedToDecode)
                 return
             }
@@ -114,4 +114,15 @@ class Service {
         
         return promise.future
     }
+}
+
+func prettyPrint(_ data: Data) {
+    guard let object = try? JSONSerialization.jsonObject(with: data, options: []),
+          let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
+          let prettyPrintedString = String(data: data, encoding: .utf8) else {
+        print("Failed to pretty print Data!")
+        return
+    }
+    
+    print(prettyPrintedString)
 }

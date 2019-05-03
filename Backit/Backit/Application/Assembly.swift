@@ -71,7 +71,12 @@ class Assembly {
         container.register(Service.self) { resolver in
             let requester = resolver.resolve(ServiceRequester.self)!
             let pluginProvider = resolver.resolve(ServicePluginProvider.self)!
-            return Service(environment: .prod, requester: requester, pluginProvider: pluginProvider)
+            return Service(environment: .qa, requester: requester, pluginProvider: pluginProvider)
+        }
+        
+        container.register(AccountProvider.self) { resolver in
+            let service = resolver.resolve(Service.self)!
+            return AccountService(service: service)
         }
         
         container.register(ProjectProvider.self) { resolver in

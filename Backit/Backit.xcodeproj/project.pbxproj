@@ -17,6 +17,8 @@
 		071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317422794EE600DB1561 /* ProjectProvider.swift */; };
 		071B317722794F0B00DB1561 /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317622794F0B00DB1561 /* AccountProvider.swift */; };
 		071B317922794F3300DB1561 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317822794F3300DB1561 /* User.swift */; };
+		071B317B22794FAB00DB1561 /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317A22794FAB00DB1561 /* LoginEndpoint.swift */; };
+		071B317D227953D700DB1561 /* CreateAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */; };
 		0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0722324A21D4375C009D1912 /* AppDelegate.swift */; };
 		0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0722324C21D4375C009D1912 /* HomepageViewController.swift */; };
 		0722325221D4375C009D1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325021D4375C009D1912 /* Main.storyboard */; };
@@ -60,6 +62,7 @@
 		075D4D312211CB6F006EFF37 /* FlagValueMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */; };
 		075D4D322211CB6F006EFF37 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2E2211CB6F006EFF37 /* Flag.swift */; };
 		075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2F2211CB6F006EFF37 /* FlagID.swift */; };
+		077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */; };
 		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
 		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
 		07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */; };
@@ -80,6 +83,7 @@
 		07C9BD552276B02100E41F1D /* HomepageProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9BD542276B02100E41F1D /* HomepageProject.swift */; };
 		07C9BD58227897A800E41F1D /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9BD57227897A800E41F1D /* AccountService.swift */; };
 		07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3B40E223175CC00959808 /* UIView+Backit.swift */; };
+		07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */; };
 		07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61ED21D6ECD300FE283C /* Assembly.swift */; };
 		07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61F021D6ED3800FE283C /* AnyUITheme.swift */; };
 		07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61F121D6ED3800FE283C /* UITheme.swift */; };
@@ -121,6 +125,8 @@
 		071B317422794EE600DB1561 /* ProjectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectProvider.swift; sourceTree = "<group>"; };
 		071B317622794F0B00DB1561 /* AccountProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProvider.swift; sourceTree = "<group>"; };
 		071B317822794F3300DB1561 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		071B317A22794FAB00DB1561 /* LoginEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpoint.swift; sourceTree = "<group>"; };
+		071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountEndpoint.swift; sourceTree = "<group>"; };
 		0722324721D4375C009D1912 /* Backit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0722324A21D4375C009D1912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0722324C21D4375C009D1912 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 		075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagValueMaker.swift; sourceTree = "<group>"; };
 		075D4D2E2211CB6F006EFF37 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		075D4D2F2211CB6F006EFF37 /* FlagID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagID.swift; sourceTree = "<group>"; };
+		077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServicePlugin.swift; sourceTree = "<group>"; };
 		07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
 		07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginKey.swift; sourceTree = "<group>"; };
@@ -186,6 +193,7 @@
 		07C9BD542276B02100E41F1D /* HomepageProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageProject.swift; sourceTree = "<group>"; };
 		07C9BD57227897A800E41F1D /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		07E3B40E223175CC00959808 /* UIView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Backit.swift"; sourceTree = "<group>"; };
+		07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountEndpoint.swift; sourceTree = "<group>"; };
 		07EC61ED21D6ECD300FE283C /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		07EC61F021D6ED3800FE283C /* AnyUITheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyUITheme.swift; sourceTree = "<group>"; };
 		07EC61F121D6ED3800FE283C /* UITheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
@@ -283,6 +291,7 @@
 		0722326C21D44028009D1912 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				07EC5A78227BFC1E00B67C05 /* Plugins */,
 				07E9DD722264D314005DA147 /* Account */,
 				078BCA932253B01D003A03CA /* ProjectFeed */,
 				07E3B40D223175BD00959808 /* Extensions */,
@@ -456,6 +465,9 @@
 			isa = PBXGroup;
 			children = (
 				07C9BD57227897A800E41F1D /* AccountService.swift */,
+				071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */,
+				071B317A22794FAB00DB1561 /* LoginEndpoint.swift */,
+				07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -475,6 +487,14 @@
 				0747A42C226560F8006BE39A /* SignInViewController.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		07EC5A78227BFC1E00B67C05 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */,
+			);
+			path = Plugins;
 			sourceTree = "<group>";
 		};
 		07EC61EF21D6ECFB00FE283C /* UITheme */ = {
@@ -806,7 +826,9 @@
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
 				0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */,
+				077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */,
 				0754B60021FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift in Sources */,
+				07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */,
 				0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
@@ -825,6 +847,7 @@
 				0717398121E7E6D700EA17DC /* ProjectCardScrollingView.swift in Sources */,
 				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
 				0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */,
+				071B317B22794FAB00DB1561 /* LoginEndpoint.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
 				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
@@ -835,6 +858,7 @@
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
 				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,
 				0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */,
+				071B317D227953D700DB1561 /* CreateAccountEndpoint.swift in Sources */,
 				071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */,
 				073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */,
 				071B317722794F0B00DB1561 /* AccountProvider.swift in Sources */,

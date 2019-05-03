@@ -11,5 +11,6 @@
 import Foundation
 
 enum ServicePluginKey: Equatable {
-    case `default`
+    /// Adds `Authorization: bearer [session token]` into request.
+    case authorization
 }

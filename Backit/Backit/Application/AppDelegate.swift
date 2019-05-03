@@ -16,9 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var assembly = Assembly()
 
+    private var accountProvider: AccountProvider!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        _ = assembly.container.resolve(Mixpanel.self)!
+        // FIXME: Make sure that no requests are made before NewRelic has a chance to start.
         startNewRelic()
+        _ = assembly.container.resolve(Mixpanel.self)!
+        accountProvider = assembly.container.resolve(AccountProvider.self)!
+//        accountProvider.createAccount(email: "eric.chamberlain@backit.com", username: "PeqNP", password: "Password1!", repeatPassword: "Password1!", firstName: "Eric", lastName: "Chamberlain", subscribe: true)
+//            .onSuccess { (user) in
+//                print(user)
+//            }
+        accountProvider.login(email: "eric.chamberlain@backit.com", password: "Password1!").onSuccess { (user) in
+            print(user)
+        }
         return true
     }
 
