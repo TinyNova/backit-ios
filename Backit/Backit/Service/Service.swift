@@ -10,6 +10,7 @@ import BrightFutures
 import Foundation
 
 enum ServiceError: Error {
+    case strongSelf
     case unknown(Error?)
     case noURLForEnvironment(Environment)
     case invalidURLForEnvironment(Environment)
@@ -62,56 +63,64 @@ class Service {
         catch {
             return Future(error: .unknown(error))
         }
-        
-        urlRequest = plugins.reduce(urlRequest, { (urlRequest, plugin) -> URLRequest in
-            return plugin.willSendRequest(urlRequest)
-        })
-        
+
         let promise = Promise<T.ResponseType, ServiceError>()
-        requester.request(urlRequest) { [weak decoder] (result) in
-            guard let decoder = decoder else {
-                promise.failure(.unknown(nil))
-                return
+        Future.reduce(urlRequest, plugins) { (urlRequest, plugin) in
+            return plugin.willSendRequest(urlRequest)
+        }
+        .mapError { (error) -> ServiceError in
+            // TODO: Depending on the `PluginError` provided by the `Plugin` do something.
+            return .unknown(error)
+        }
+        .onSuccess { [weak self] (urlRequest) in
+            guard let requester = self?.requester else {
+                return promise.failure(.strongSelf)
             }
             
-            let result = plugins.reduce(result, { (response, plugin) -> ServiceResult in
-                return plugin.didReceiveResponse(response)
-            })
-            
-            if let error = result.error as? URLError {
-                switch error.code.rawValue {
-                case -1009:
-                    promise.failure(.noInternetConnection)
-                default:
-                    promise.failure(.server(error))
+            requester.request(urlRequest) { [weak self] (result) in
+                guard let decoder = self?.decoder else {
+                    return promise.failure(.strongSelf)
                 }
-                return
-            }
-            else if let error = result.error as? ServiceError {
-                promise.failure(error)
-                return
-            }
-            else if let error = result.error {
-                promise.failure(.unknown(error))
-                return
+                
+                let result = plugins.reduce(result) { (response, plugin) -> ServiceResult in
+                    return plugin.didReceiveResponse(response)
+                }
+                
+                // TODO: Allow `Plugin` to manage errors OR provide capability to retry login if 403.
+                if let error = result.error as? URLError {
+                    switch error.code.rawValue {
+                    case -1009:
+                        promise.failure(.noInternetConnection)
+                    default:
+                        promise.failure(.server(error))
+                    }
+                    return
+                }
+                else if let error = result.error as? ServiceError {
+                    promise.failure(error)
+                    return
+                }
+                else if let error = result.error {
+                    promise.failure(.unknown(error))
+                    return
+                }
+                
+                guard let data = result.data else {
+                    promise.failure(.emptyResponse)
+                    return
+                }
+                guard let decodedResponse = try? decoder.decode(T.ResponseType.self, from: data) else {
+                    promise.failure(.failedToDecode)
+                    return
+                }
+                
+                promise.success(decodedResponse)
             }
             
-            guard let data = result.data else {
-                promise.failure(.emptyResponse)
-                return
+            plugins.forEach { (plugin) in
+                plugin.didSendRequest(urlRequest)
             }
-            guard let decodedResponse = try? decoder.decode(T.ResponseType.self, from: data) else {
-                promise.failure(.failedToDecode)
-                return
-            }
-            
-            promise.success(decodedResponse)
         }
-        
-        plugins.forEach { (plugin) in
-            plugin.didSendRequest(urlRequest)
-        }
-        
         return promise.future
     }
 }

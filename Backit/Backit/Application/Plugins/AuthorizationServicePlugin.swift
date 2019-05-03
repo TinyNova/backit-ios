@@ -1,29 +1,64 @@
 /**
  * Adds the `Authorization: Bearer [token]` header to a `URLRequest`
  *
- * If the user is not logged in, then present the auth challenge. The prior request will attempt to be made after successfully logging in.
+ * User Login Flow
+ *
+ * Attempt to auth via modal:
+ * - If success, continue request
+ * - If cancel, display error saying they must login to see feature
+ *
+ * If possible, attempt to silent reauthorize:
+ * - If success, continue request
+ * - If failed, display login modal
  *
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
 import Foundation
 
+import BrightFutures
+
+struct GenericError: Error {
+    
+}
+
+struct Session {
+    let accountId: String
+    let csrfToken: String
+    let token: String
+}
+
+enum LoginProviderError: Error {
+    case none
+}
+
+protocol LoginProvider {
+    func displayLogin() -> Future<Session, LoginProviderError>
+}
+
 class AuthorizationServicePlugin: ServicePlugin {
     
     var key: ServicePluginKey = .authorization
     var token: String?
     
-    func willSendRequest(_ request: URLRequest) -> URLRequest {
+    let loginProvider: LoginProvider
+    
+    init(loginProvider: LoginProvider) {
+        self.loginProvider = loginProvider
+    }
+    
+    func willSendRequest(_ request: URLRequest) -> Future<URLRequest, Error> {
         // TODO: Stop the request from being made and require the user to login.
+        // Return Future
         guard let token = token else {
-            return request
+            return Future(error: GenericError())
         }
         
         var headerFields = request.allHTTPHeaderFields ?? [String: String]()
         headerFields["Authorization"] = "Bearer: \(token)"
         var newRequest = request
         newRequest.allHTTPHeaderFields = headerFields
-        return newRequest
+        return Future(value: newRequest)
     }
     
     func didSendRequest(_ request: URLRequest) {

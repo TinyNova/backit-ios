@@ -7,11 +7,12 @@
  */
 
 import Foundation
+import BrightFutures
 
 protocol ServicePlugin {
     var key: ServicePluginKey { get }
     
-    func willSendRequest(_ request: URLRequest) -> URLRequest
+    func willSendRequest(_ request: URLRequest) -> Future<URLRequest, Error>
     func didSendRequest(_ request: URLRequest)
     func didReceiveResponse(_ response: ServiceResult) -> ServiceResult
 }

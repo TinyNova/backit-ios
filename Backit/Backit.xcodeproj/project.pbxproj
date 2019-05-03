@@ -63,6 +63,7 @@
 		075D4D322211CB6F006EFF37 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2E2211CB6F006EFF37 /* Flag.swift */; };
 		075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2F2211CB6F006EFF37 /* FlagID.swift */; };
 		077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */; };
+		077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */; };
 		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
 		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
 		07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */; };
@@ -174,6 +175,7 @@
 		075D4D2E2211CB6F006EFF37 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		075D4D2F2211CB6F006EFF37 /* FlagID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagID.swift; sourceTree = "<group>"; };
 		077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServicePlugin.swift; sourceTree = "<group>"; };
+		077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrightFutures+Upstart.swift"; sourceTree = "<group>"; };
 		07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
 		07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginKey.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 			children = (
 				07C9BD562278979200E41F1D /* Account */,
 				0754B60721FC0FA400E2DECD /* Project */,
+				077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */,
 				0754B5F721FA590600E2DECD /* Service.swift */,
 				0754B60A21FF322700E2DECD /* ServiceEndpoint.swift */,
 				0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */,
@@ -833,6 +836,7 @@
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
 				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,
+				077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */,
 				0747A42D226560F8006BE39A /* SignInViewController.swift in Sources */,
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,
