@@ -18,7 +18,9 @@ class Assembly {
         }
         
         container.register(ServicePluginProvider.self) { _ in
-            return ServicePluginProvider()
+            let pluginProvider = ServicePluginProvider()
+            // TODO: Register plugins
+            return pluginProvider
         }.inObjectScope(.container)
         
         container.register(AppTheme.self) { _ in

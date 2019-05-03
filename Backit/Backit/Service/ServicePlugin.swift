@@ -9,10 +9,14 @@
 import Foundation
 import BrightFutures
 
+enum ServicePluginError: Error {
+    case none
+}
+
 protocol ServicePlugin {
     var key: ServicePluginKey { get }
     
-    func willSendRequest(_ request: URLRequest) -> Future<URLRequest, Error>
+    func willSendRequest(_ request: URLRequest) -> Future<URLRequest, ServicePluginError>
     func didSendRequest(_ request: URLRequest)
     func didReceiveResponse(_ response: ServiceResult) -> ServiceResult
 }

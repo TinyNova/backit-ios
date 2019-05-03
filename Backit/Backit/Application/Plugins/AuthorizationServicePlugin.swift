@@ -47,11 +47,11 @@ class AuthorizationServicePlugin: ServicePlugin {
         self.loginProvider = loginProvider
     }
     
-    func willSendRequest(_ request: URLRequest) -> Future<URLRequest, Error> {
+    func willSendRequest(_ request: URLRequest) -> Future<URLRequest, ServicePluginError> {
         // TODO: Stop the request from being made and require the user to login.
         // Return Future
         guard let token = token else {
-            return Future(error: GenericError())
+            return Future(error: .none)
         }
         
         var headerFields = request.allHTTPHeaderFields ?? [String: String]()
