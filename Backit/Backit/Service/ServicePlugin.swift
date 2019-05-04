@@ -10,7 +10,9 @@ import Foundation
 import BrightFutures
 
 enum ServicePluginError: Error {
-    case none
+    case failedToLogin
+    case retryRequest
+    case strongSelf
 }
 
 protocol ServicePlugin {
@@ -18,5 +20,5 @@ protocol ServicePlugin {
     
     func willSendRequest(_ request: URLRequest) -> Future<URLRequest, ServicePluginError>
     func didSendRequest(_ request: URLRequest)
-    func didReceiveResponse(_ response: ServiceResult) -> ServiceResult
+    func didReceiveResponse(_ response: ServiceResult) -> Future<ServiceResult, ServicePluginError>
 }

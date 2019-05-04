@@ -11,5 +11,5 @@ enum LoginProviderError: Error {
 }
 
 protocol LoginProvider {
-    func displayLogin() -> Future<UserSession, LoginProviderError>
+    func login() -> Future<UserSession, LoginProviderError>
 }

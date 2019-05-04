@@ -82,9 +82,20 @@ class Service {
                     return promise.failure(.strongSelf)
                 }
                 
-                let result = plugins.reduce(result) { (response, plugin) -> ServiceResult in
-                    return plugin.didReceiveResponse(response)
+                Future.reduce(result, plugins) { (result, plugin) in
+                    return plugin.didReceiveResponse(result)
                 }
+                .onFailure { (error) in
+                    if error == .retryRequest {
+                        // TODO: Create inline functions to capture `ServiceEndpoint` and other state (possibly including retry count) and clean this up to reduce levels.
+                        self?.request(endpoint)
+                        return
+                    }
+                }
+
+//                let result = plugins.reduce(result) { (response, plugin) -> ServiceResult in
+//                    return plugin.didReceiveResponse(response)
+//                }
                 
                 // TODO: Allow `Plugin` to manage errors OR provide capability to retry login if 403.
                 if let error = result.error as? URLError {

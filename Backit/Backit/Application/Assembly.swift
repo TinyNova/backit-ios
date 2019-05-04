@@ -17,6 +17,20 @@ class Assembly {
             return AlamofireServiceRequester()
         }
         
+        container.register(SessionProvider.self) { resolver in
+            return SessionService()
+        }
+        
+        container.register(LoginProvider.self) { _ in
+            return AppLoginProvider()
+        }
+        
+        container.register(AuthorizationServicePlugin.self) { resolver in
+            let loginProvider = resolver.resolve(LoginProvider.self)!
+            let sessionProvider = resolver.resolve(SessionProvider.self)!
+            return AuthorizationServicePlugin(loginProvider: loginProvider, sessionProvider: sessionProvider)
+        }
+        
         container.register(ServicePluginProvider.self) { _ in
             let pluginProvider = ServicePluginProvider()
             // TODO: Register plugins
