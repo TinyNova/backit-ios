@@ -27,8 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            .onSuccess { (user) in
 //                print(user)
 //            }
-        accountProvider.login(email: "eric.chamberlain@backit.com", password: "Password1!").onSuccess { (user) in
-            print(user)
+        accountProvider.login(email: "eric.chamberlain@backit.com", password: "Password1!").onSuccess { [weak self] (user) in
+            self?.accountProvider.user().onSuccess { (user) in
+                print(user)
+            }
         }
         return true
     }

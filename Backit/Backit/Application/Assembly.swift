@@ -21,8 +21,9 @@ class Assembly {
             return SessionService()
         }
         
-        container.register(LoginProvider.self) { _ in
-            return AppLoginProvider()
+        container.register(LoginProvider.self) { resolver in
+            let accountProvider = resolver.resolve(AccountProvider.self)!
+            return AppLoginProvider(accountProvider: accountProvider)
         }
         
         container.register(AuthorizationServicePlugin.self) { resolver in

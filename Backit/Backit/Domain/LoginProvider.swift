@@ -7,7 +7,7 @@ import BrightFutures
 import Foundation
 
 enum LoginProviderError: Error {
-    case none
+    case userCanceledLogin
 }
 
 protocol LoginProvider {
