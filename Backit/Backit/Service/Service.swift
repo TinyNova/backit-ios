@@ -19,6 +19,7 @@ enum ServiceError: Error {
     case noInternetConnection
     case server(Error)
     case requiredPluginsNotFound([ServicePluginKey])
+    case pluginError(ServicePluginError)
 }
 
 struct ServiceResult {
@@ -65,73 +66,68 @@ class Service {
         }
 
         let promise = Promise<T.ResponseType, ServiceError>()
-        Future.reduce(urlRequest, plugins) { (urlRequest, plugin) in
-            return plugin.willSendRequest(urlRequest)
-        }
-        .mapError { (error) -> ServiceError in
-            // TODO: Depending on the `PluginError` provided by the `Plugin` do something.
-            return .unknown(error)
-        }
-        .onSuccess { [weak self] (urlRequest) in
-            guard let requester = self?.requester else {
-                return promise.failure(.strongSelf)
+        
+        func handleRequest() {
+            Future.reduce(urlRequest, plugins) { (urlRequest, plugin) in
+                return plugin.willSendRequest(urlRequest)
             }
-            
-            requester.request(urlRequest) { [weak self] (result) in
-                guard let decoder = self?.decoder else {
+            .mapError { (error) -> ServiceError in
+                return .pluginError(error)
+            }
+            .onSuccess { [weak self] (urlRequest) in
+                guard let requester = self?.requester else {
                     return promise.failure(.strongSelf)
                 }
                 
-                Future.reduce(result, plugins) { (result, plugin) in
-                    return plugin.didReceiveResponse(result)
-                }
-                .onFailure { (error) in
-                    if error == .retryRequest {
-                        // TODO: Create inline functions to capture `ServiceEndpoint` and other state (possibly including retry count) and clean this up to reduce levels.
-                        self?.request(endpoint)
-                        return
+                requester.request(urlRequest) { [weak self] (result) in
+                    Future.reduce(result, plugins) { (result, plugin) in
+                        return plugin.didReceiveResponse(result)
                     }
-                }
+                    .onFailure { (error) in
+                        guard error == .retryRequest else {
+                            return promise.failure(.pluginError(error))
+                        }
+                        handleRequest()
+                    }
+                    .onSuccess { [weak self] (result) in
+                        guard let decoder = self?.decoder else {
+                            return promise.failure(.strongSelf)
+                        }
 
-//                let result = plugins.reduce(result) { (response, plugin) -> ServiceResult in
-//                    return plugin.didReceiveResponse(response)
-//                }
-                
-                // TODO: Allow `Plugin` to manage errors OR provide capability to retry login if 403.
-                if let error = result.error as? URLError {
-                    switch error.code.rawValue {
-                    case -1009:
-                        promise.failure(.noInternetConnection)
-                    default:
-                        promise.failure(.server(error))
+                        if let error = result.error as? URLError {
+                            switch error.code.rawValue {
+                            case -1009:
+                                promise.failure(.noInternetConnection)
+                            default:
+                                promise.failure(.server(error))
+                            }
+                            return
+                        }
+                        else if let error = result.error as? ServiceError {
+                            return promise.failure(error)
+                        }
+                        else if let error = result.error {
+                            return promise.failure(.unknown(error))
+                        }
+                        
+                        guard let data = result.data else {
+                            return promise.failure(.emptyResponse)
+                        }
+                        guard let decodedResponse = try? decoder.decode(T.ResponseType.self, from: data) else {
+                            return promise.failure(.failedToDecode)
+                        }
+                        
+                        promise.success(decodedResponse)
                     }
-                    return
-                }
-                else if let error = result.error as? ServiceError {
-                    promise.failure(error)
-                    return
-                }
-                else if let error = result.error {
-                    promise.failure(.unknown(error))
-                    return
                 }
                 
-                guard let data = result.data else {
-                    promise.failure(.emptyResponse)
-                    return
+                plugins.forEach { (plugin) in
+                    plugin.didSendRequest(urlRequest)
                 }
-                guard let decodedResponse = try? decoder.decode(T.ResponseType.self, from: data) else {
-                    promise.failure(.failedToDecode)
-                    return
-                }
-                
-                promise.success(decodedResponse)
-            }
-            
-            plugins.forEach { (plugin) in
-                plugin.didSendRequest(urlRequest)
             }
         }
+        handleRequest()
+        
         return promise.future
     }
 }
