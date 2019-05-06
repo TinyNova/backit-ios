@@ -8,7 +8,7 @@ import Foundation
 
 class ProjectService: ProjectProvider {
     
-    let service: Service
+    private let service: Service
     
     init(service: Service) {
         self.service = service
