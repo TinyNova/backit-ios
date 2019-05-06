@@ -57,6 +57,7 @@ class AuthorizationServicePlugin: ServicePlugin {
     }
     
     func didReceiveResponse(_ response: ServiceResult) -> Future<ServiceResult, ServicePluginError> {
+        // NOTE: The response is a 401 with a `SUCCESS` and a `message` that says "Invalid token"
         guard let error = response.error as? URLError else {
             return Future(value: response)
         }
