@@ -61,32 +61,29 @@ class Service {
             plugins = try pluginProvider?.pluginsFor(endpoint) ?? [ServicePlugin]()
         }
         catch let error as ServiceError {
-            print("ONE \(error)")
             return Future(error: error)
         }
         catch {
-            print("TWO: \(error)")
             return Future(error: .unknown(error))
         }
 
         let promise = Promise<T.ResponseType, ServiceError>()
+        var sendPromise: Promise<URLRequest, ServicePluginError>?
+        var resultPromise: Promise<ServiceResult, ServicePluginError>?
         
-        // TODO: This is releasing the value of `Future.reduce`...
         func handleRequest() {
-            Future.reduce(urlRequest, plugins) { (urlRequest, plugin) in
+            sendPromise = Promise<URLRequest, ServicePluginError>()
+            sendPromise?.reduce(urlRequest, plugins) { (urlRequest, plugin) -> Future<URLRequest, ServicePluginError> in
                 return plugin.willSendRequest(urlRequest)
             }
-            .onFailure { (error) in
-                return promise.failure(.pluginError(error))
-            }
             .onSuccess { [weak self] (urlRequest) in
-                print("Endpoint: \(String(describing: endpoint))")
                 guard let requester = self?.requester else {
                     return promise.failure(.strongSelf)
                 }
                 
                 requester.request(urlRequest) { [weak self] (result) in
-                    Future.reduce(result, plugins) { (result, plugin) in
+                    resultPromise = Promise<ServiceResult, ServicePluginError>()
+                    resultPromise?.reduce(result, plugins) { (result, plugin) in
                         return plugin.didReceiveResponse(result)
                     }
                     .onFailure { (error) in
@@ -134,7 +131,7 @@ class Service {
                 plugins.forEach { (plugin) in
                     plugin.didSendRequest(urlRequest)
                 }
-            }
+            }            
         }
         handleRequest()
         

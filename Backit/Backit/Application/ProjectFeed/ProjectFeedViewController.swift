@@ -38,7 +38,7 @@ class ProjectFeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        provider.loadProjects()
+//        provider.loadProjects()
     }
     
     var totalRows: Int {
