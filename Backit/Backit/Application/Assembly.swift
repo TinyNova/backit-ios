@@ -20,6 +20,7 @@ class Assembly {
         container.register(SessionProvider.self) { resolver in
             return SessionService()
         }
+        .inObjectScope(.container)
         
         container.register(LoginProvider.self) { resolver in
             let accountProvider = resolver.resolve(AccountProvider.self)!
@@ -29,12 +30,15 @@ class Assembly {
         container.register(AuthorizationServicePlugin.self) { resolver in
             let loginProvider = resolver.resolve(LoginProvider.self)!
             let sessionProvider = resolver.resolve(SessionProvider.self)!
-            return AuthorizationServicePlugin(loginProvider: loginProvider, sessionProvider: sessionProvider)
+            let accountProvider = resolver.resolve(AccountProvider.self)!
+            return AuthorizationServicePlugin(loginProvider: loginProvider, sessionProvider: sessionProvider, accountProvider: accountProvider)
         }
         
-        container.register(ServicePluginProvider.self) { _ in
+        container.register(ServicePluginProvider.self) { resolver in
+            let authorizationPlugin = resolver.resolve(AuthorizationServicePlugin.self)!
+            
             let pluginProvider = ServicePluginProvider()
-            // TODO: Register plugins
+            pluginProvider.registerPlugin(authorizationPlugin)
             return pluginProvider
         }.inObjectScope(.container)
         
@@ -87,13 +91,17 @@ class Assembly {
         
         container.register(Service.self) { resolver in
             let requester = resolver.resolve(ServiceRequester.self)!
+            return Service(environment: .qa, requester: requester)
+        }
+        .initCompleted { (resolver, service) in
             let pluginProvider = resolver.resolve(ServicePluginProvider.self)!
-            return Service(environment: .qa, requester: requester, pluginProvider: pluginProvider)
+            service.pluginProvider = pluginProvider
         }
         
         container.register(AccountProvider.self) { resolver in
             let service = resolver.resolve(Service.self)!
-            return AccountService(service: service)
+            let sessionProvider = resolver.resolve(SessionProvider.self)!
+            return AccountService(service: service, sessionProvider: sessionProvider)
         }
         
         container.register(ProjectProvider.self) { resolver in

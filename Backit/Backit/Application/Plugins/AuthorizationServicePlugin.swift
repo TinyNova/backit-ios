@@ -20,25 +20,24 @@ import BrightFutures
 class AuthorizationServicePlugin: ServicePlugin {
     
     var key: ServicePluginKey = .authorization
-    var token: String?
     
-    let loginProvider: LoginProvider
-    let sessionProvider: SessionProvider
+    private var token: String?
     
-    init(loginProvider: LoginProvider, sessionProvider: SessionProvider) {
+    private let loginProvider: LoginProvider
+    private let sessionProvider: SessionProvider
+    private let accountProvider: AccountProvider
+    
+    init(loginProvider: LoginProvider, sessionProvider: SessionProvider, accountProvider: AccountProvider) {
         self.loginProvider = loginProvider
         self.sessionProvider = sessionProvider
-        
-        sessionProvider.listen { [weak self] (userSession) in
-            self?.token = userSession.token
-        }
+        self.accountProvider = accountProvider
     }
     
     func willSendRequest(_ request: URLRequest) -> Future<URLRequest, ServicePluginError> {
         let promise = Promise<URLRequest, ServicePluginError>()
 
         // Login, if the user has not yet logged in.
-        guard let token = token else {
+        guard let token = sessionProvider.token else {
             loginProvider.login()
                 .onSuccess { [weak self] (userSession) in
                     self?.token = userSession.token
@@ -68,7 +67,7 @@ class AuthorizationServicePlugin: ServicePlugin {
         let promise = Promise<ServiceResult, ServicePluginError>()
         
         // The user failed to login because the session expired. Attempt to silently re-auth.
-        sessionProvider.silentlyReauthenticate()
+        accountProvider.silentlyReauthenticate()
             .onSuccess { [weak self] (userSession) in
                 guard let sself = self else {
                     return promise.failure(.strongSelf)
@@ -108,5 +107,11 @@ class AuthorizationServicePlugin: ServicePlugin {
         var newRequest = request
         newRequest.allHTTPHeaderFields = headerFields
         promise.success(newRequest)
+    }
+}
+
+extension AuthorizationServicePlugin: UserSessionListener {
+    func didChangeUserSession(_ userSession: UserSession) {
+        token = userSession.token
     }
 }

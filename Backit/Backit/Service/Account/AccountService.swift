@@ -9,10 +9,12 @@ import Foundation
 
 class AccountService: AccountProvider {
     
-    let service: Service
+    private let service: Service
+    private let sessionProvider: SessionProvider
     
-    init(service: Service) {
+    init(service: Service, sessionProvider: SessionProvider) {
         self.service = service
+        self.sessionProvider = sessionProvider
     }
     
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError> {
@@ -33,6 +35,9 @@ class AccountService: AccountProvider {
                     return Future(error: .validation([:]))
                 }
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token))
+            }
+            .onSuccess { [weak self] (userSession) in
+                self?.sessionProvider.emit(userSession: userSession)
             }
     }
     
@@ -58,11 +63,9 @@ class AccountService: AccountProvider {
                 }
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token))
             }
-            // NOTE: This is for future reference
-//          .flatMap { [weak self] (response) -> Future<User, AccountProviderError> in
-//              guard let sself = self else { return Future(error: .none) }
-//              return sself.user()
-//          }
+            .onSuccess { [weak self] (userSession) in
+                self?.sessionProvider.emit(userSession: userSession)
+            }
     }
     
     func user() -> Future<User, AccountProviderError> {
@@ -77,5 +80,10 @@ class AccountService: AccountProvider {
             .mapError { error -> AccountProviderError in
                 return .unknown(error)
             }
+    }
+    
+    func silentlyReauthenticate() -> Future<UserSession, AccountProviderError> {
+        // TODO: Emit signal on SessionProvider
+        return Future(error: .unknown(NotImplementedError()))
     }
 }

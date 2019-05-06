@@ -7,11 +7,20 @@ import BrightFutures
 import Foundation
 
 class SessionService: SessionProvider {
-    func listen(_ callback: @escaping SessionProviderCallback) {
-        
+    
+    var token: String? {
+        return userSession?.token
     }
     
-    func silentlyReauthenticate() -> Future<UserSession, SessionProviderError> {
-        return Future(error: .unknown(GenericError()))
+    private var userSession: UserSession?
+//    private var listeners: [UserSessionListener] = []
+    
+    func listen(_ listener: UserSessionListener) {
+        // TODO: Not implemented
+    }
+    
+    func emit(userSession: UserSession) {
+        self.userSession = userSession
+        // TODO: Not implemented
     }
 }

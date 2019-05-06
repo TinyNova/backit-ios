@@ -12,9 +12,15 @@ enum SessionProviderError: Error {
     case unknown(Error)
 }
 
+protocol UserSessionListener: class {
+    func didChangeUserSession(_ userSession: UserSession)
+}
+
 /// TODO: Rename to `UserSessionStream`
 /// TODO: Create another protocol `UserStream`
 protocol SessionProvider {
-    func listen(_ callback: @escaping SessionProviderCallback)
-    func silentlyReauthenticate() -> Future<UserSession, SessionProviderError>
+    var token: String? { get }
+    
+    func listen(_ listener: UserSessionListener)
+    func emit(userSession: UserSession)
 }

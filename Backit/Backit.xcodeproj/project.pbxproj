@@ -66,7 +66,7 @@
 		077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */; };
 		077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172D227CE3B1003D5B17 /* UserSession.swift */; };
 		077B1730227CE3EB003D5B17 /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172F227CE3EB003D5B17 /* LoginProvider.swift */; };
-		077B1732227CE40E003D5B17 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1731227CE40E003D5B17 /* GenericError.swift */; };
+		077B1732227CE40E003D5B17 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1731227CE40E003D5B17 /* Errors.swift */; };
 		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
 		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
 		07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */; };
@@ -102,9 +102,9 @@
 		07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */; };
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
 		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
-		B902E61B227DD39B00D26C38 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B902E61A227DD39B00D26C38 /* SessionService.swift */; };
-		B902E61D227DD47700D26C38 /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B902E61C227DD47700D26C38 /* SessionProvider.swift */; };
 		B9FB4214227D4F3D009F9900 /* AppLoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB4213227D4F3D009F9900 /* AppLoginProvider.swift */; };
+		B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5983227FF94D00A03BDC /* SessionProvider.swift */; };
+		B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5985227FF97100A03BDC /* SessionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,7 +184,7 @@
 		077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrightFutures+Upstart.swift"; sourceTree = "<group>"; };
 		077B172D227CE3B1003D5B17 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		077B172F227CE3EB003D5B17 /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
-		077B1731227CE40E003D5B17 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
+		077B1731227CE40E003D5B17 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
 		07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginKey.swift; sourceTree = "<group>"; };
@@ -223,9 +223,9 @@
 		7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B902E61A227DD39B00D26C38 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
-		B902E61C227DD47700D26C38 /* SessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
 		B9FB4213227D4F3D009F9900 /* AppLoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoginProvider.swift; sourceTree = "<group>"; };
+		B9FB5983227FF94D00A03BDC /* SessionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
+		B9FB5985227FF97100A03BDC /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		DDE6A40E61C994528485F9C6 /* Pods-BackitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DFB4946CA755B950FFED3B7B /* Pods-Backit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.release.xcconfig"; sourceTree = "<group>"; };
 		F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -374,7 +374,7 @@
 				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
 				071B317822794F3300DB1561 /* User.swift */,
 				077B172D227CE3B1003D5B17 /* UserSession.swift */,
-				B902E61C227DD47700D26C38 /* SessionProvider.swift */,
+				B9FB5983227FF94D00A03BDC /* SessionProvider.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -486,7 +486,7 @@
 				071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */,
 				071B317A22794FAB00DB1561 /* LoginEndpoint.swift */,
 				07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */,
-				B902E61A227DD39B00D26C38 /* SessionService.swift */,
+				B9FB5985227FF97100A03BDC /* SessionService.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -555,7 +555,7 @@
 				07EC61F921D6EF1400FE283C /* ViewIdentifiable */,
 				073239292208A1360034291C /* Encodable+Backit.swift */,
 				0754B60521FBDDC400E2DECD /* Environment.swift */,
-				077B1731227CE40E003D5B17 /* GenericError.swift */,
+				077B1731227CE40E003D5B17 /* Errors.swift */,
 				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
 				0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */,
 				0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */,
@@ -830,9 +830,8 @@
 				075D4D302211CB6F006EFF37 /* Flags.swift in Sources */,
 				07101BA82230B1FF00094716 /* HomepageErrorView.swift in Sources */,
 				0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */,
-				B902E61D227DD47700D26C38 /* SessionProvider.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
-				077B1732227CE40E003D5B17 /* GenericError.swift in Sources */,
+				077B1732227CE40E003D5B17 /* Errors.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
 				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
@@ -840,7 +839,7 @@
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
-				B902E61B227DD39B00D26C38 /* SessionService.swift in Sources */,
+				B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */,
 				0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */,
 				077B1730227CE3EB003D5B17 /* LoginProvider.swift in Sources */,
 				07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */,
@@ -879,6 +878,7 @@
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
 				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
+				B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
 				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
 				075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */,

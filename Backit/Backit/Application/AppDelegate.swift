@@ -3,6 +3,7 @@
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
+import BrightFutures
 import Mixpanel
 import UIKit
 
@@ -27,11 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            .onSuccess { (user) in
 //                print(user)
 //            }
-        accountProvider.login(email: "eric.chamberlain@backit.com", password: "Password1!").onSuccess { [weak self] (user) in
-            self?.accountProvider.user().onSuccess { (user) in
+        accountProvider.login(email: "eric.chamberlain@backit.com", password: "Password1!")
+            .flatMap { [weak self] (userSession) -> Future<User, AccountProviderError> in
+                guard let sself = self else { return Future(error: .unknown(GenericError())) }
+                return sself.accountProvider.user()
+            }
+            .onSuccess { (user) in
                 print(user)
             }
-        }
+            .onFailure { (error) in
+                print(error)
+            }
+        
         return true
     }
 

@@ -8,3 +8,7 @@ import Foundation
 struct GenericError: Error {
     
 }
+
+struct NotImplementedError: Error {
+    
+}

@@ -7,8 +7,7 @@ import Foundation
 
 struct UserAccountEndpoint: ServiceEndpoint {
     
-    struct ResponseType: Decodable {
-    }
+    typealias ResponseType = Data
     
     enum Header { }
     enum PathParameter { }

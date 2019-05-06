@@ -29,17 +29,19 @@ struct ServiceResult {
 
 class Service {
     
-    let environment: Environment
-    let requester: ServiceRequester
-    let pluginProvider: ServicePluginProvider
+    // Must use `var` for now to remove circular dependency.
+    var pluginProvider: ServicePluginProvider?
     
-    let urlRequestFactory = URLRequestFactory()
-    let decoder = JSONDecoder()
+    private let environment: Environment
+    private let requester: ServiceRequester
     
-    init(environment: Environment, requester: ServiceRequester, pluginProvider: ServicePluginProvider) {
+    private let urlRequestFactory = URLRequestFactory()
+    private let decoder = JSONDecoder()
+    
+    init(environment: Environment, requester: ServiceRequester/*, pluginProvider: ServicePluginProvider*/) {
         self.environment = environment
         self.requester = requester
-        self.pluginProvider = pluginProvider
+//        self.pluginProvider = pluginProvider
     }
     
     func request<T: ServiceEndpoint>(_ endpoint: T) -> Future<T.ResponseType, ServiceError> {
@@ -56,25 +58,29 @@ class Service {
         
         let plugins: [ServicePlugin]
         do {
-            plugins = try pluginProvider.pluginsFor(endpoint)
+            plugins = try pluginProvider?.pluginsFor(endpoint) ?? [ServicePlugin]()
         }
         catch let error as ServiceError {
+            print("ONE \(error)")
             return Future(error: error)
         }
         catch {
+            print("TWO: \(error)")
             return Future(error: .unknown(error))
         }
 
         let promise = Promise<T.ResponseType, ServiceError>()
         
+        // TODO: This is releasing the value of `Future.reduce`...
         func handleRequest() {
             Future.reduce(urlRequest, plugins) { (urlRequest, plugin) in
                 return plugin.willSendRequest(urlRequest)
             }
-            .mapError { (error) -> ServiceError in
-                return .pluginError(error)
+            .onFailure { (error) in
+                return promise.failure(.pluginError(error))
             }
             .onSuccess { [weak self] (urlRequest) in
+                print("Endpoint: \(String(describing: endpoint))")
                 guard let requester = self?.requester else {
                     return promise.failure(.strongSelf)
                 }
@@ -112,6 +118,10 @@ class Service {
                         
                         guard let data = result.data else {
                             return promise.failure(.emptyResponse)
+                        }
+                        // Return the raw data of the response. This is usually used during testing.
+                        if let data = data as? T.ResponseType, data is Data {
+                            return promise.success(data)
                         }
                         guard let decodedResponse = try? decoder.decode(T.ResponseType.self, from: data) else {
                             return promise.failure(.failedToDecode)

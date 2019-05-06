@@ -19,11 +19,14 @@ extension Promise {
         let value = collection.removeFirst()
         reducer(initial, value)
             .onSuccess { [weak self] (value) in
-                self?.reduce(value, collection, reducer: reducer)
+                guard let sself = self else {
+                    return
+                }
+                sself.reduce(value, collection, reducer: reducer)
             }
             .onFailure { [weak self] (error) in
                 self?.failure(error)
-        }
+            }
     }
 }
 
