@@ -7,7 +7,29 @@ import Foundation
 
 struct UserAccountEndpoint: ServiceEndpoint {
     
-    typealias ResponseType = Data
+//    enum AccountType: String, Decodable {
+//        case USER
+//    }
+
+    // NOTE: To see the raw response data, set the `ResponseType` to `Data`
+//    typealias ResponseType = Data
+    struct ResponseType: Decodable {
+        // NOTE: Provided when an error occurs
+        let message: String?
+        
+        // Success response
+//        let location: String?
+        let accountId: String
+        let userName: String
+        let firstName: String?
+        let lastName: String?
+        let avatar: URL?
+        let active: Bool
+//        let accountType: AccountType?
+//        let updatedAt: Date?
+//        let createdAt: Date? // Ex: 2019-05-01T18:39:49.744Z
+        let subscribe: Bool
+    }
     
     enum Header { }
     enum PathParameter { }

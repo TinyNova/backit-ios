@@ -74,11 +74,14 @@ class AccountService: AccountProvider {
         // TODO: Find a way to easily get at the response data without having to go into the service.
         // TODO: Map the server response to `User` model.
         return service.request(endpoint)
-            .map { response -> User in
-                return User(avatarUrl: URL(string: "http:www.example.com")!, username: "PeqNP")
-            }
             .mapError { error -> AccountProviderError in
                 return .unknown(error)
+            }
+            .flatMap { (response) -> Future<User, AccountProviderError> in
+                guard response.message == nil else {
+                    return Future(error: .notLoggedIn)
+                }
+                return Future(value: User(avatarUrl: response.avatar, username: response.userName))
             }
     }
     

@@ -57,17 +57,13 @@ class AuthorizationServicePlugin: ServicePlugin {
     }
     
     func didReceiveResponse(_ response: ServiceResult) -> Future<ServiceResult, ServicePluginError> {
-        // NOTE: The response is a 401 with a `SUCCESS` and a `message` that says "Invalid token"
-        guard let error = response.error as? URLError else {
-            return Future(value: response)
-        }
-        guard error.code.rawValue == 403 else {
+        guard let statusCode = response.statusCode, statusCode == 401 else {
             return Future(value: response)
         }
         
         let promise = Promise<ServiceResult, ServicePluginError>()
         
-        // The user failed to login because the session expired. Attempt to silently re-auth.
+        // The user's session has expired. Attempt to silently re-auth.
         accountProvider.silentlyReauthenticate()
             .onSuccess { [weak self] (userSession) in
                 guard let sself = self else {
@@ -104,7 +100,7 @@ class AuthorizationServicePlugin: ServicePlugin {
     
     private func updateRequest(_ request: URLRequest, with token: String, on promise: Promise<URLRequest, ServicePluginError>) {
         var headerFields = request.allHTTPHeaderFields ?? [String: String]()
-        headerFields["Authorization"] = "Bearer: \(token)"
+        headerFields["Authorization"] = "Bearer \(token)"
         var newRequest = request
         newRequest.allHTTPHeaderFields = headerFields
         promise.success(newRequest)

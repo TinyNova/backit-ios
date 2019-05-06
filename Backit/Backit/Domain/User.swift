@@ -6,6 +6,6 @@
 import Foundation
 
 struct User {
-    let avatarUrl: URL
+    let avatarUrl: URL?
     let username: String
 }

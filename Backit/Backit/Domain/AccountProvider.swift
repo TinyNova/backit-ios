@@ -19,6 +19,7 @@ typealias AccountValidationMessage = String
 
 enum AccountProviderError: Error {
     case unknown(Error)
+    case notLoggedIn
     case validation([AccountValidationField: [AccountValidationMessage]])
 }
 

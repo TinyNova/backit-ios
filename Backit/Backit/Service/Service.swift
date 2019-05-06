@@ -23,6 +23,7 @@ enum ServiceError: Error {
 }
 
 struct ServiceResult {
+    var statusCode: Int?
     var data: Data?
     var error: Error?
 }
