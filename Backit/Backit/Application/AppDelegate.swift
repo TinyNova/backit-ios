@@ -20,25 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var accountProvider: AccountProvider!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // FIXME: Make sure that no requests are made before NewRelic has a chance to start.
+        // FIXME: Make sure that no requests are made before NewRelic has a chance to start. This may require requests being deferred until NewRelic starts.
         startNewRelic()
         _ = assembly.container.resolve(Mixpanel.self)!
-        accountProvider = assembly.container.resolve(AccountProvider.self)!
-//        accountProvider.createAccount(email: "eric.chamberlain@backit.com", username: "PeqNP", password: "Password1!", repeatPassword: "Password1!", firstName: "Eric", lastName: "Chamberlain", subscribe: true)
-//            .onSuccess { (user) in
-//                print(user)
-//            }
-        accountProvider.login(email: "eric.chamberlain@backit.com", password: "Password1!")
-            .flatMap { [weak self] (userSession) -> Future<User, AccountProviderError> in
-                guard let sself = self else { return Future(error: .unknown(GenericError())) }
-                return sself.accountProvider.user()
-            }
-            .onSuccess { (user) in
-                print(user)
-            }
-            .onFailure { (error) in
-                print(error)
-            }
         
         return true
     }
