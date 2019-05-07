@@ -357,9 +357,9 @@
 				0754B60A21FF322700E2DECD /* ServiceEndpoint.swift */,
 				0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */,
 				0754B60E21FF39A100E2DECD /* ServiceRequester.swift */,
-				0754B60C21FF32E900E2DECD /* URLRequestFactory.swift */,
 				07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */,
 				07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */,
+				0754B60C21FF32E900E2DECD /* URLRequestFactory.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
