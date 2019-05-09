@@ -24,7 +24,13 @@ class Assembly {
         
         container.register(SignInProvider.self) { resolver in
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            return AppSignInProvider(accountProvider: accountProvider)
+            let presenterProvider = resolver.resolve(PresenterProvider.self)!
+            return AppSignInProvider(accountProvider: accountProvider, presenterProvider: presenterProvider)
+        }
+        .inObjectScope(.container)
+        
+        container.register(PresenterProvider.self) { resolver in
+            return AppPresenterProvider()
         }
         
         container.register(AuthorizationServicePlugin.self) { resolver in
@@ -133,6 +139,11 @@ class Assembly {
         
         container.storyboardInitCompleted(ChangelogViewController.self) { (resolver, controller) in
             
+        }
+        
+        container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
+            let accountProvider = resolver.resolve(AccountProvider.self)!
+            controller.inject(accountProvider: accountProvider)
         }
     }
 }

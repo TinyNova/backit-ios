@@ -8,6 +8,7 @@ import Foundation
 
 enum SignInProviderError: Error {
     case userCanceledLogin
+    case unknown(Error)
 }
 
 protocol SignInProvider {

@@ -24,6 +24,8 @@
 		0722325221D4375C009D1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325021D4375C009D1912 /* Main.storyboard */; };
 		0722325421D4375F009D1912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0722325321D4375F009D1912 /* Assets.xcassets */; };
 		0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325521D4375F009D1912 /* LaunchScreen.storyboard */; };
+		072510CF2283B0C300C02645 /* AppPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072510CE2283B0C300C02645 /* AppPresenterProvider.swift */; };
+		072510D22283B12100C02645 /* PresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072510D12283B12100C02645 /* PresenterProvider.swift */; };
 		0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391A22089B3E0034291C /* AnalyticsService.swift */; };
 		0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */; };
 		0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391F22089CD80034291C /* BIAnalyticsEvent.swift */; };
@@ -102,7 +104,7 @@
 		07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */; };
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
 		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
-		B9FB4214227D4F3D009F9900 /* AppLoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB4213227D4F3D009F9900 /* AppLoginProvider.swift */; };
+		B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */; };
 		B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5983227FF94D00A03BDC /* SessionProvider.swift */; };
 		B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5985227FF97100A03BDC /* SessionService.swift */; };
 /* End PBXBuildFile section */
@@ -141,6 +143,8 @@
 		0722325321D4375F009D1912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0722325621D4375F009D1912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0722325821D43760009D1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		072510CE2283B0C300C02645 /* AppPresenterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresenterProvider.swift; sourceTree = "<group>"; };
+		072510D12283B12100C02645 /* PresenterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProvider.swift; sourceTree = "<group>"; };
 		0732391A22089B3E0034291C /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelAnalyticsListener.swift; sourceTree = "<group>"; };
 		0732391F22089CD80034291C /* BIAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIAnalyticsEvent.swift; sourceTree = "<group>"; };
@@ -223,7 +227,7 @@
 		7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B9FB4213227D4F3D009F9900 /* AppLoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoginProvider.swift; sourceTree = "<group>"; };
+		B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignInProvider.swift; sourceTree = "<group>"; };
 		B9FB5983227FF94D00A03BDC /* SessionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
 		B9FB5985227FF97100A03BDC /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		DDE6A40E61C994528485F9C6 /* Pods-BackitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 				0754B5F221FA588700E2DECD /* Domain */,
 				07EC61FA21D6EF2000FE283C /* Foundation */,
 				0754B5ED21F6229400E2DECD /* Service */,
+				072510D02283B10B00C02645 /* UI */,
 				0722326C21D44028009D1912 /* Application */,
 				0722325821D43760009D1912 /* Info.plist */,
 			);
@@ -316,12 +321,22 @@
 				0754B61521FF3D9600E2DECD /* ServiceRequesters */,
 				0722324A21D4375C009D1912 /* AppDelegate.swift */,
 				0754B66E2200EBA000E2DECD /* Appl10n.swift */,
+				072510CE2283B0C300C02645 /* AppPresenterProvider.swift */,
+				B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */,
 				07EC61F621D6ED4600FE283C /* AppTheme.swift */,
 				07EC61ED21D6ECD300FE283C /* Assembly.swift */,
 				0722325021D4375C009D1912 /* Main.storyboard */,
 				0722325521D4375F009D1912 /* LaunchScreen.storyboard */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		072510D02283B10B00C02645 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				072510D12283B12100C02645 /* PresenterProvider.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		0732391922089AE30034291C /* Analytics */ = {
@@ -502,7 +517,6 @@
 		07E9DD722264D314005DA147 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				B9FB4213227D4F3D009F9900 /* AppLoginProvider.swift */,
 				0747A42A226560D6006BE39A /* SignIn.storyboard */,
 				0747A42C226560F8006BE39A /* SignInViewController.swift */,
 			);
@@ -840,15 +854,17 @@
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */,
+				072510CF2283B0C300C02645 /* AppPresenterProvider.swift in Sources */,
 				0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */,
 				077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */,
 				07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
+				072510D22283B12100C02645 /* PresenterProvider.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
-				B9FB4214227D4F3D009F9900 /* AppLoginProvider.swift in Sources */,
+				B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
 				0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */,
 				077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */,
