@@ -22,16 +22,16 @@ class Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(LoginProvider.self) { resolver in
+        container.register(SignInProvider.self) { resolver in
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            return AppLoginProvider(accountProvider: accountProvider)
+            return AppSignInProvider(accountProvider: accountProvider)
         }
         
         container.register(AuthorizationServicePlugin.self) { resolver in
-            let loginProvider = resolver.resolve(LoginProvider.self)!
+            let signInProvider = resolver.resolve(SignInProvider.self)!
             let sessionProvider = resolver.resolve(SessionProvider.self)!
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            return AuthorizationServicePlugin(loginProvider: loginProvider, sessionProvider: sessionProvider, accountProvider: accountProvider)
+            return AuthorizationServicePlugin(signInProvider: signInProvider, sessionProvider: sessionProvider, accountProvider: accountProvider)
         }
         
         container.register(ServicePluginProvider.self) { resolver in

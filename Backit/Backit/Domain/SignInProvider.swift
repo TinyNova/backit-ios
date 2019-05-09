@@ -6,10 +6,10 @@
 import BrightFutures
 import Foundation
 
-enum LoginProviderError: Error {
+enum SignInProviderError: Error {
     case userCanceledLogin
 }
 
-protocol LoginProvider {
-    func login() -> Future<UserSession, LoginProviderError>
+protocol SignInProvider {
+    func login() -> Future<UserSession, SignInProviderError>
 }

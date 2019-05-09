@@ -6,7 +6,7 @@
 import BrightFutures
 import Foundation
 
-class AppLoginProvider: LoginProvider {
+class AppSignInProvider: SignInProvider {
     
     let accountProvider: AccountProvider
     
@@ -14,12 +14,12 @@ class AppLoginProvider: LoginProvider {
         self.accountProvider = accountProvider
     }
     
-    func login() -> Future<UserSession, LoginProviderError> {
+    func login() -> Future<UserSession, SignInProviderError> {
         // TODO: Display screen which gets username/password
         // TODO: Login with credentials
         // TODO: This screen only goes away when the user cancels or logging in is successful
         return accountProvider.login(email: "eric.chamberlain@backit.com", password: "Password1!")
-            .mapError { (error) -> LoginProviderError in
+            .mapError { (error) -> SignInProviderError in
                 return .userCanceledLogin
             }
     }
