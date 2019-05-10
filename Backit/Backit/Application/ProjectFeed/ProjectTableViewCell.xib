@@ -36,12 +36,12 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S8I-sC-4dO">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="486"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v63-4Z-UjY">
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGE-zO-j4d">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="330" id="V6v-EL-wWN"/>
+                                        <constraint firstAttribute="height" constant="330" id="P6a-UE-0JV"/>
                                     </constraints>
-                                </imageView>
+                                </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIU-MS-1mk">
                                     <rect key="frame" x="0.0" y="330" width="393" height="42"/>
                                     <constraints>
@@ -196,8 +196,8 @@
                     <constraints>
                         <constraint firstItem="S8I-sC-4dO" firstAttribute="top" secondItem="eSc-Wp-xdF" secondAttribute="top" id="IMp-Gf-c6c"/>
                         <constraint firstAttribute="trailing" secondItem="S8I-sC-4dO" secondAttribute="trailing" id="Jwe-js-jz6"/>
-                        <constraint firstItem="VyN-h9-hsj" firstAttribute="top" secondItem="v63-4Z-UjY" secondAttribute="bottom" constant="-20" id="ZIb-ON-yAr"/>
                         <constraint firstItem="S8I-sC-4dO" firstAttribute="leading" secondItem="eSc-Wp-xdF" secondAttribute="leading" id="byY-Rh-hdL"/>
+                        <constraint firstItem="VyN-h9-hsj" firstAttribute="top" secondItem="sGE-zO-j4d" secondAttribute="bottom" constant="-20" id="laB-jY-Q7T"/>
                         <constraint firstItem="pXv-Xm-efG" firstAttribute="top" secondItem="eSc-Wp-xdF" secondAttribute="top" constant="20" id="pMs-d5-FPi"/>
                         <constraint firstAttribute="trailing" secondItem="pXv-Xm-efG" secondAttribute="trailing" constant="20" id="pvn-YN-fIN"/>
                         <constraint firstAttribute="bottom" secondItem="S8I-sC-4dO" secondAttribute="bottom" id="szb-7h-pmx"/>
@@ -216,6 +216,21 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="bottomSpacerView" destination="5WB-3s-ydu" id="bhm-Io-TkN"/>
+                <outlet property="daysLeftLabel" destination="kFa-42-EgD" id="00Q-fb-8jx"/>
+                <outlet property="earlyBirdLabel" destination="9gy-kX-J6f" id="v27-95-Fjk"/>
+                <outlet property="favoriteImageView" destination="pXv-Xm-efG" id="0fv-e7-h4H"/>
+                <outlet property="fundedPercentProgressView" destination="KN3-yc-hS3" id="uWl-TP-sch"/>
+                <outlet property="imageCarousel" destination="sGE-zO-j4d" id="VRh-fU-D6k"/>
+                <outlet property="imagePageIndicator" destination="VyN-h9-hsj" id="god-21-oi5"/>
+                <outlet property="percentFundedLabel" destination="5kS-li-Ktw" id="24r-S9-Axx"/>
+                <outlet property="projectNameLabel" destination="KIU-MS-1mk" id="zYQ-Bz-1tJ"/>
+                <outlet property="separatorView" destination="AOg-67-m3R" id="vOd-00-DgV"/>
+                <outlet property="shareView" destination="56I-XJ-3Yx" id="pcB-kR-v63"/>
+                <outlet property="totalCommentsLabel" destination="LxJ-x0-LwY" id="MCg-vU-aAz"/>
+                <outlet property="totalVotesLabel" destination="Q3Y-Ev-vFs" id="0J5-Kt-RKl"/>
+            </connections>
             <point key="canvasLocation" x="136.95652173913044" y="33.482142857142854"/>
         </view>
     </objects>
