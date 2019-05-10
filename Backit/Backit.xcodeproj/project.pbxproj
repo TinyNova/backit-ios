@@ -104,6 +104,10 @@
 		07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */; };
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
 		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
+		B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */; };
+		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
+		B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C52285B72000C06087 /* ProjectImageCell.xib */; };
+		B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */; };
 		B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */; };
 		B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5983227FF94D00A03BDC /* SessionProvider.swift */; };
 		B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5985227FF97100A03BDC /* SessionService.swift */; };
@@ -227,6 +231,10 @@
 		7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCollectionView.xib; sourceTree = "<group>"; };
+		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
+		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
+		B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageAnimatedCell.xib; sourceTree = "<group>"; };
 		B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignInProvider.swift; sourceTree = "<group>"; };
 		B9FB5983227FF94D00A03BDC /* SessionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
 		B9FB5985227FF97100A03BDC /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
@@ -443,10 +451,11 @@
 		078BCA932253B01D003A03CA /* ProjectFeed */ = {
 			isa = PBXGroup;
 			children = (
+				B90054C92285B7E800C06087 /* ImageCarousel */,
 				078BCA942253B032003A03CA /* ProjectFeed.storyboard */,
 				078BCA962253B047003A03CA /* ProjectFeedViewController.swift */,
-				078BCA982256D980003A03CA /* ProjectTableViewCell.xib */,
 				078BCA9A2256D99A003A03CA /* ProjectTableViewCell.swift */,
+				078BCA982256D980003A03CA /* ProjectTableViewCell.xib */,
 			);
 			path = ProjectFeed;
 			sourceTree = "<group>";
@@ -613,6 +622,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B90054C92285B7E800C06087 /* ImageCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */,
+				B90054C52285B72000C06087 /* ProjectImageCell.xib */,
+				B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */,
+				B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */,
+			);
+			path = ImageCarousel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -704,8 +724,11 @@
 				07EC620421D6F0A200FE283C /* lato-regularitalic.ttf in Resources */,
 				0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */,
 				07A1C21421DEDF8E00E5A5DA /* ImagePagerView.xib in Resources */,
+				B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */,
+				B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */,
 				0754B5EC21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib in Resources */,
 				07EC620721D6F0B100FE283C /* lato-black.ttf in Resources */,
+				B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */,
 				0717398921E7E9ED00EA17DC /* Homepage.storyboard in Resources */,
 				0717398F21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib in Resources */,
 				0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */,
@@ -851,6 +874,7 @@
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
 				0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */,
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
+				B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */,
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */,

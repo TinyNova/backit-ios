@@ -71,8 +71,6 @@ class AccountService: AccountProvider {
     func user() -> Future<User, AccountProviderError> {
         let endpoint = UserAccountEndpoint()
         
-        // TODO: Find a way to easily get at the response data without having to go into the service.
-        // TODO: Map the server response to `User` model.
         return service.request(endpoint)
             .mapError { error -> AccountProviderError in
                 return .unknown(error)
