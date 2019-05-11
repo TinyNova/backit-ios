@@ -11,7 +11,6 @@ private enum Constant {
     static let appIdKey = "ApplicationUniqueIdentifier"
 }
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

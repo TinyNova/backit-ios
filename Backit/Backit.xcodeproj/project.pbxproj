@@ -64,6 +64,10 @@
 		075D4D322211CB6F006EFF37 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2E2211CB6F006EFF37 /* Flag.swift */; };
 		075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2F2211CB6F006EFF37 /* FlagID.swift */; };
 		076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C492286498A0075B56C /* Encodable+Backit.swift */; };
+		076A8C4D22864BA80075B56C /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C4C22864BA80075B56C /* TestAppDelegate.swift */; };
+		076A8C4F22864BB10075B56C /* TestApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C4E22864BB10075B56C /* TestApplication.swift */; };
+		076A8C5122864BE50075B56C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C5022864BE50075B56C /* Application.swift */; };
+		076A8C5322864C070075B56C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C5222864C070075B56C /* main.swift */; };
 		077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */; };
 		077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */; };
 		077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172D227CE3B1003D5B17 /* UserSession.swift */; };
@@ -188,6 +192,10 @@
 		075D4D2E2211CB6F006EFF37 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		075D4D2F2211CB6F006EFF37 /* FlagID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagID.swift; sourceTree = "<group>"; };
 		076A8C492286498A0075B56C /* Encodable+Backit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Backit.swift"; sourceTree = "<group>"; };
+		076A8C4C22864BA80075B56C /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
+		076A8C4E22864BB10075B56C /* TestApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApplication.swift; sourceTree = "<group>"; };
+		076A8C5022864BE50075B56C /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		076A8C5222864C070075B56C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServicePlugin.swift; sourceTree = "<group>"; };
 		077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrightFutures+Upstart.swift"; sourceTree = "<group>"; };
 		077B172D227CE3B1003D5B17 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -311,6 +319,7 @@
 				072510D02283B10B00C02645 /* UI */,
 				0722326C21D44028009D1912 /* Application */,
 				0722325821D43760009D1912 /* Info.plist */,
+				076A8C5222864C070075B56C /* main.swift */,
 			);
 			path = Backit;
 			sourceTree = "<group>";
@@ -318,15 +327,17 @@
 		0722326C21D44028009D1912 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				07EC5A78227BFC1E00B67C05 /* Plugins */,
 				07E9DD722264D314005DA147 /* Account */,
-				078BCA932253B01D003A03CA /* ProjectFeed */,
-				07E3B40D223175BD00959808 /* Extensions */,
 				0732391C22089B4F0034291C /* Analytics */,
 				07AC39C821D4416000214687 /* Changelog */,
+				07E3B40D223175BD00959808 /* Extensions */,
 				07AC39C721D4415A00214687 /* Homepage */,
+				07EC5A78227BFC1E00B67C05 /* Plugins */,
+				078BCA932253B01D003A03CA /* ProjectFeed */,
 				07EC61F821D6EE1C00FE283C /* Resources */,
 				0754B61521FF3D9600E2DECD /* ServiceRequesters */,
+				076A8C4B22864B6C0075B56C /* Test */,
+				076A8C5022864BE50075B56C /* Application.swift */,
 				0722324A21D4375C009D1912 /* AppDelegate.swift */,
 				0754B66E2200EBA000E2DECD /* Appl10n.swift */,
 				072510CE2283B0C300C02645 /* AppPresenterProvider.swift */,
@@ -446,6 +457,15 @@
 				075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */,
 			);
 			path = Flags;
+			sourceTree = "<group>";
+		};
+		076A8C4B22864B6C0075B56C /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				076A8C4E22864BB10075B56C /* TestApplication.swift */,
+				076A8C4C22864BA80075B56C /* TestAppDelegate.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		078BCA932253B01D003A03CA /* ProjectFeed */ = {
@@ -874,6 +894,7 @@
 				0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */,
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
 				B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */,
+				076A8C5322864C070075B56C /* main.swift in Sources */,
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */,
@@ -886,6 +907,7 @@
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
 				072510D22283B12100C02645 /* PresenterProvider.swift in Sources */,
 				076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */,
+				076A8C4D22864BA80075B56C /* TestAppDelegate.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
 				B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */,
@@ -903,6 +925,7 @@
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				0798AA5221D45F11004A6261 /* HomepageProjectCell.swift in Sources */,
 				078BCA9B2256D99A003A03CA /* ProjectTableViewCell.swift in Sources */,
+				076A8C4F22864BB10075B56C /* TestApplication.swift in Sources */,
 				0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */,
 				0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */,
 				0732392222089D640034291C /* MetricAnalyticsEvent.swift in Sources */,
@@ -915,6 +938,7 @@
 				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
 				0722324D21D4375C009D1912 /* HomepageViewController.swift in Sources */,
 				071B317B22794FAB00DB1561 /* LoginEndpoint.swift in Sources */,
+				076A8C5122864BE50075B56C /* Application.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
 				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
