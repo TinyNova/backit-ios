@@ -7,8 +7,11 @@ import Foundation
 
 extension Encodable {
     
-    var asJson: Data {
-        return try! JSONEncoder().encode(self)
+    var asJson: Data? {
+        if self is [String: Any] || self is [[String: Any]] {
+            return try? JSONSerialization.data(withJSONObject: self, options: [])
+        }
+        return try? JSONEncoder().encode(self)
     }
     
     var asDictionary: [String: Any]? {
@@ -16,7 +19,10 @@ extension Encodable {
         if let dict = self as? [String: Any] {
             return dict
         }
+        guard let json = asJson else {
+            return nil
+        }
         // Self is an object
-        return (try? JSONSerialization.jsonObject(with: asJson)) as? [String: Any]
+        return (try? JSONSerialization.jsonObject(with: json)) as? [String: Any]
     }
 }

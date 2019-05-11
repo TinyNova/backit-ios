@@ -7,5 +7,5 @@ import Foundation
 import UIKit
 
 protocol PresenterProvider {
-    func present(_ viewController: UIViewController)
+    func present(_ viewController: UIViewController, completion: (() -> Void)?)
 }

@@ -33,7 +33,6 @@
 		073239242208A0250034291C /* AnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239232208A0250034291C /* AnalyticsListener.swift */; };
 		073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239252208A0480034291C /* AnalyticsPublisher.swift */; };
 		073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239272208A06E0034291C /* AnalyticsEvent.swift */; };
-		0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239292208A1360034291C /* Encodable+Backit.swift */; };
 		0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392B220912960034291C /* AnalyticsTransaction.swift */; };
 		0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0747A42A226560D6006BE39A /* SignIn.storyboard */; };
 		0747A42D226560F8006BE39A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0747A42C226560F8006BE39A /* SignInViewController.swift */; };
@@ -64,6 +63,7 @@
 		075D4D312211CB6F006EFF37 /* FlagValueMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */; };
 		075D4D322211CB6F006EFF37 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2E2211CB6F006EFF37 /* Flag.swift */; };
 		075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2F2211CB6F006EFF37 /* FlagID.swift */; };
+		076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C492286498A0075B56C /* Encodable+Backit.swift */; };
 		077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */; };
 		077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */; };
 		077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172D227CE3B1003D5B17 /* UserSession.swift */; };
@@ -156,7 +156,6 @@
 		073239232208A0250034291C /* AnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsListener.swift; sourceTree = "<group>"; };
 		073239252208A0480034291C /* AnalyticsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPublisher.swift; sourceTree = "<group>"; };
 		073239272208A06E0034291C /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
-		073239292208A1360034291C /* Encodable+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Backit.swift"; sourceTree = "<group>"; };
 		0732392B220912960034291C /* AnalyticsTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransaction.swift; sourceTree = "<group>"; };
 		0747A42A226560D6006BE39A /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		0747A42C226560F8006BE39A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +187,7 @@
 		075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagValueMaker.swift; sourceTree = "<group>"; };
 		075D4D2E2211CB6F006EFF37 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		075D4D2F2211CB6F006EFF37 /* FlagID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagID.swift; sourceTree = "<group>"; };
+		076A8C492286498A0075B56C /* Encodable+Backit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Backit.swift"; sourceTree = "<group>"; };
 		077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServicePlugin.swift; sourceTree = "<group>"; };
 		077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrightFutures+Upstart.swift"; sourceTree = "<group>"; };
 		077B172D227CE3B1003D5B17 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -576,7 +576,7 @@
 				0754B67022027B3300E2DECD /* Localization */,
 				07EC61EF21D6ECFB00FE283C /* UITheme */,
 				07EC61F921D6EF1400FE283C /* ViewIdentifiable */,
-				073239292208A1360034291C /* Encodable+Backit.swift */,
+				076A8C492286498A0075B56C /* Encodable+Backit.swift */,
 				0754B60521FBDDC400E2DECD /* Environment.swift */,
 				077B1731227CE40E003D5B17 /* Errors.swift */,
 				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
@@ -866,7 +866,6 @@
 				075D4D312211CB6F006EFF37 /* FlagValueMaker.swift in Sources */,
 				075D4D302211CB6F006EFF37 /* Flags.swift in Sources */,
 				07101BA82230B1FF00094716 /* HomepageErrorView.swift in Sources */,
-				0732392A2208A1360034291C /* Encodable+Backit.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
 				077B1732227CE40E003D5B17 /* Errors.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
@@ -886,6 +885,7 @@
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
 				072510D22283B12100C02645 /* PresenterProvider.swift in Sources */,
+				076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
 				B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */,

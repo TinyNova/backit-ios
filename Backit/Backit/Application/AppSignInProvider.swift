@@ -38,7 +38,7 @@ class AppSignInProvider: SignInProvider {
         
         viewController = vc
         vc.delegate = self
-        presenterProvider.present(vc)
+        presenterProvider.present(vc, completion: nil)
         return promise.future
     }
 }
