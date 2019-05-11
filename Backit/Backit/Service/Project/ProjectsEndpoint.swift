@@ -64,7 +64,7 @@ struct ProjectsEndpoint: ServiceEndpoint {
         case offset(Int)
         case limit(Int)
     }
-    enum PostParameter { }
+    enum PostBody { }
         
     var type: ServiceRequestType = .get
     var endpoints: Endpoints = [

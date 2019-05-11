@@ -24,9 +24,9 @@ struct LoginEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    enum PostParameter {
-        case email(String)
-        case password(String)
+    struct PostBody: Encodable {
+        let email: String
+        let password: String
     }
     
     var type: ServiceRequestType = .post
@@ -34,9 +34,9 @@ struct LoginEndpoint: ServiceEndpoint {
     var endpoints: Endpoints = [
         .qa: "https://api.qabackit.com/account/login"
     ]
-    var postParameters: [PostParameter]?
+    var postBody: PostBody?
     
-    init(postParameters: [PostParameter]) {
-        self.postParameters = postParameters
+    init(postBody: PostBody) {
+        self.postBody = postBody
     }
 }

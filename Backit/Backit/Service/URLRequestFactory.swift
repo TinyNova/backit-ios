@@ -65,7 +65,7 @@ class URLRequestFactory {
         guard let headers = request.headers else {
             return nil
         }
-
+        
         var headerFields = [String: String]()
         for header in headers {
             guard let param = nameValue(for: "\(header)") else {
@@ -104,7 +104,28 @@ class URLRequestFactory {
     }
     
     private func httpBody<T: ServiceEndpoint>(for request: T) -> Data? {
-        guard let parameters = request.postParameters else {
+        // The post body is `Data`
+        if request.httpBodyEncodingStrategy == .data {
+            // WARN: if `postBody` is `nil`
+            return request.postBody as? Data
+        }
+        
+        if let encodable = request.postBody as? Encodable {
+            switch request.httpBodyEncodingStrategy {
+            case .json:
+                return encodable.asJson
+            case .keyValue:
+                // WARN: Not supported
+                return nil
+            case .data:
+                return nil
+            }
+        }
+        
+        // Attempt to encode similar to `PathParameter` and `QueryParameter`.
+        // `Any` in this case must be an `enum`.
+        guard let parameters = request.postBody as? [Any] else {
+            // WARN: Invalid type provide
             return nil
         }
         
@@ -124,16 +145,23 @@ class URLRequestFactory {
             return dict.asJson
         case .keyValue:
             return dict.asKeyValuePairs
+        case .data:
+            return nil
         }
     }
 }
 
-private extension Dictionary where Key == String {
-    var asJson: Data? {
-        // TODO: Does this need to be URL encoded?
-        return try? JSONSerialization.data(withJSONObject: self, options: [])
-    }
-    
+/// Already implemented in `Encodable+Backit.swift`
+//extension Encodable {
+//    var asJson: Data? {
+//        if self is [String: Any] || self is [[String: Any]] {
+//            return try? JSONSerialization.data(withJSONObject: self, options: [])
+//        }
+//        return try? JSONEncoder().encode(self)
+//    }
+//}
+
+extension Dictionary where Key == String {
     var asKeyValuePairs: Data? {
         let kv: [String] = self.map { (arg) -> String in
             let (key, value) = arg

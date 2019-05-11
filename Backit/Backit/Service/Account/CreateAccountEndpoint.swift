@@ -24,14 +24,14 @@ struct CreateAccountEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    enum PostParameter {
-        case email(String)
-        case userName(String)
-        case firstName(String) // Optional
-        case lastName(String) // Optional
-        case password(String)
-        case repeatPassword(String)
-        case subscribe(Bool)
+    struct PostBody: Encodable {
+        let email: String
+        let userName: String
+        let firstName: String?
+        let lastName: String?
+        let password: String
+        let repeatPassword: String
+        let subscribe: Bool
     }
     
     var type: ServiceRequestType = .post
@@ -40,9 +40,9 @@ struct CreateAccountEndpoint: ServiceEndpoint {
         .qa: "https://api.qabackit.com/account/accounts"
     ]
     
-    var postParameters: [CreateAccountEndpoint.PostParameter]?
+    var postBody: PostBody?
     
-    init(postParameters: [PostParameter]) {
-        self.postParameters = postParameters
+    init(postBody: PostBody) {
+        self.postBody = postBody
     }
 }

@@ -34,7 +34,7 @@ struct UserAccountEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    enum PostParameter { }
+    enum PostBody { }
     
     var type: ServiceRequestType = .get
     var endpoints: Endpoints = [
