@@ -13,9 +13,10 @@ class SessionService: SessionProvider {
     }
     
     private var userSession: UserSession?
-//    private var listeners: [UserSessionListener] = []
+    // This must be `weak`
+    private var listeners: [SessionProviderListener] = []
     
-    func listen(_ listener: UserSessionListener) {
+    func listen(_ listener: SessionProviderListener) {
         // TODO: Not implemented
     }
     

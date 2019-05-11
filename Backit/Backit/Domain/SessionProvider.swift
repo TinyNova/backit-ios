@@ -12,7 +12,7 @@ enum SessionProviderError: Error {
     case unknown(Error)
 }
 
-protocol UserSessionListener: class {
+protocol SessionProviderListener: class {
     func didChangeUserSession(_ userSession: UserSession)
 }
 
@@ -21,6 +21,6 @@ protocol UserSessionListener: class {
 protocol SessionProvider {
     var token: String? { get }
     
-    func listen(_ listener: UserSessionListener)
+    func listen(_ listener: SessionProviderListener)
     func emit(userSession: UserSession)
 }
