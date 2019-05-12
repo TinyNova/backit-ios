@@ -112,6 +112,9 @@
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
 		B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C52285B72000C06087 /* ProjectImageCell.xib */; };
 		B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */; };
+		B9F827A12287D30D009D6220 /* ProjectFeedProviderServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A02287D30D009D6220 /* ProjectFeedProviderServer.swift */; };
+		B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */; };
+		B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */; };
 		B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */; };
 		B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5983227FF94D00A03BDC /* SessionProvider.swift */; };
 		B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5985227FF97100A03BDC /* SessionService.swift */; };
@@ -243,6 +246,9 @@
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
 		B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageAnimatedCell.xib; sourceTree = "<group>"; };
+		B9F827A02287D30D009D6220 /* ProjectFeedProviderServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedProviderServer.swift; sourceTree = "<group>"; };
+		B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectFeedErrorView.xib; sourceTree = "<group>"; };
+		B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFeedErrorView.swift; sourceTree = "<group>"; };
 		B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignInProvider.swift; sourceTree = "<group>"; };
 		B9FB5983227FF94D00A03BDC /* SessionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
 		B9FB5985227FF97100A03BDC /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
@@ -471,11 +477,13 @@
 		078BCA932253B01D003A03CA /* ProjectFeed */ = {
 			isa = PBXGroup;
 			children = (
+				B9F827A22287D55D009D6220 /* ErrorView */,
 				B90054C92285B7E800C06087 /* ImageCarousel */,
 				078BCA942253B032003A03CA /* ProjectFeed.storyboard */,
 				078BCA962253B047003A03CA /* ProjectFeedViewController.swift */,
 				078BCA9A2256D99A003A03CA /* ProjectTableViewCell.swift */,
 				078BCA982256D980003A03CA /* ProjectTableViewCell.xib */,
+				B9F827A02287D30D009D6220 /* ProjectFeedProviderServer.swift */,
 			);
 			path = ProjectFeed;
 			sourceTree = "<group>";
@@ -653,6 +661,15 @@
 			path = ImageCarousel;
 			sourceTree = "<group>";
 		};
+		B9F827A22287D55D009D6220 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */,
+				B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -758,6 +775,7 @@
 				0717398D21E96E6C00EA17DC /* ProjectCardScrollingView.xib in Resources */,
 				07EC620521D6F0A200FE283C /* lato-regular.ttf in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
+				B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */,
 				07EC620221D6F0A200FE283C /* lato-bolditalic.ttf in Resources */,
 				07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */,
 				0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */,
@@ -917,6 +935,7 @@
 				0754B60021FB67EE00E2DECD /* HomepageProject+ProjectResponse.swift in Sources */,
 				07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */,
 				0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */,
+				B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
 				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,
@@ -941,6 +960,7 @@
 				076A8C5122864BE50075B56C /* Application.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
 				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
+				B9F827A12287D30D009D6220 /* ProjectFeedProviderServer.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
 				B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,

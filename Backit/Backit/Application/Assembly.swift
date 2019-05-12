@@ -57,6 +57,14 @@ class Assembly {
             return AnyUITheme<AppTheme>(theme: theme)
         }
         
+        container.register(ProjectFeedProvider.self) { resolver in
+            let service = resolver.resolve(AnalyticsService.self)!
+            let metrics: AnalyticsPublisher<MetricAnalyticsEvent> = service.publisher()
+            
+            let provider = resolver.resolve(ProjectProvider.self)!
+            return ProjectFeedProviderServer(provider: provider, metrics: metrics)
+        }
+        
         container.register(HomepageProvider.self) { resolver in
             let service = resolver.resolve(AnalyticsService.self)!
             let metrics: AnalyticsPublisher<MetricAnalyticsEvent> = service.publisher()
@@ -133,7 +141,7 @@ class Assembly {
         
         container.storyboardInitCompleted(ProjectFeedViewController.self) { resolver, controller in
             let theme = resolver.resolve(AppTheme.self)!
-            let provider = resolver.resolve(HomepageProvider.self)!
+            let provider = resolver.resolve(ProjectFeedProvider.self)!
             controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider)
         }
         

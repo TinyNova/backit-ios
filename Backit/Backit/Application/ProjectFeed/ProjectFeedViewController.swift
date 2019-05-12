@@ -4,15 +4,75 @@
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
+import AVKit
 import Foundation
+import MediaPlayer
 import UIKit
 
+struct FeedProject {
+    let context: Any
+    let source: ProjectSource
+    let assets: [ProjectAsset]
+    let name: String
+    let numberOfBackers: Int
+    let comment: ProjectComment
+    let isEarlyBird: Bool
+    let fundedPercent: Float
+    
+    static func make(from project: Project) -> FeedProject {
+        var assets: [ProjectAsset] = []
+        assets.append(.image(project.imageURLs[0]))
+        if let previewURL = project.videoPreviewURL, let videoURL = project.videoURL {
+            assets.append(.video(previewURL: previewURL, videoURL: videoURL))
+        }
+        
+        let fundedPercent = project.pledged > 0
+            ? Float(project.pledged) / Float(project.goal)
+            : 0
+        
+        return FeedProject(
+            context: 1,
+            source: project.source,
+            assets: assets,
+            name: project.name,
+            numberOfBackers: project.numBackers,
+            comment: .comment,
+            isEarlyBird: project.hasEarlyBirdRewards,
+            fundedPercent: fundedPercent
+        )
+    }
+}
+
+protocol ProjectFeedClient: class {
+    func didReceiveProjects(_ projects: [FeedProject])
+    func didReachEndOfProjects()
+    func didReceiveError(_ error: Error)
+}
+
+protocol ProjectFeedProvider {
+    var client: ProjectFeedClient? { get set }
+    
+    func loadProjects()
+    func didTapAsset(project: FeedProject)
+    func didTapBackit(project: FeedProject)
+    func didTapComment(project: FeedProject)
+    func didReachEndOfProjectList()
+}
+
 class ProjectFeedViewController: UIViewController {
+    
+    @IBOutlet weak var errorView: ProjectFeedErrorView! {
+        didSet {
+            errorView.isHidden = true
+            errorView.delegate = self
+        }
+    }
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
 //            tableView.delegate = self
-            tableView.estimatedRowHeight = 300
+            tableView.estimatedRowHeight = 582
             tableView.estimatedSectionHeaderHeight = 0
             tableView.estimatedSectionFooterHeight = 0
             tableView.separatorStyle = .none
@@ -22,14 +82,12 @@ class ProjectFeedViewController: UIViewController {
         }
     }
     
-    private let theme = UIThemeApplier<AppTheme>()
-    private var provider: HomepageProvider!
+    private var provider: ProjectFeedProvider!
     
-    private var projects: [HomepageProject] = []
+    private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
     
-    func inject(theme: AnyUITheme<AppTheme>, provider: HomepageProvider) {
-        self.theme.concrete = theme
+    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider) {
         self.provider = provider
         self.provider.client = self
     }
@@ -57,9 +115,9 @@ class ProjectFeedViewController: UIViewController {
     }
 }
 
-extension ProjectFeedViewController: HomepageClient {
-    func didReceiveProjects(_ projects: [HomepageProject]) {
-//        errorView.isHidden = true
+extension ProjectFeedViewController: ProjectFeedClient {
+    func didReceiveProjects(_ projects: [FeedProject]) {
+        errorView.isHidden = true
         view.bringSubviewToFront(tableView)
         self.projects.append(contentsOf: projects)
         tableView.reloadData()
@@ -73,8 +131,8 @@ extension ProjectFeedViewController: HomepageClient {
     
     func didReceiveError(_ error: Error) {
         if totalRows < 2 {
-//            errorView.isHidden = false
-//            view.bringSubviewToFront(errorView)
+            errorView.isHidden = false
+            view.bringSubviewToFront(errorView)
         }
         else {
             loadingState = .error
@@ -108,16 +166,16 @@ extension ProjectFeedViewController: UITableViewDataSource {
         }
         else {
             let cell = feedCell(tableView)
-//            let project = projects[indexPath.row]
-//            cell.configure(project: project)
-//            cell.delegate = self
+            let project = projects[indexPath.row]
+            cell.configure(with: project)
+            cell.delegate = self
             return cell
         }
     }
     
     private func loadingResultsCell(_ tableView: UITableView) -> LoadingResultsCell {
         guard let dequedCell = tableView.dequeueReusableCell(withIdentifier: "LoadingResultsCell"), let cell = dequedCell as? LoadingResultsCell else {
-            fatalError("Failed to deque HomepageProjectCell")
+            fatalError("Failed to deque LoadingResultsCell")
         }
         cell.selectionStyle = .none
         return cell
@@ -129,5 +187,34 @@ extension ProjectFeedViewController: UITableViewDataSource {
         }
         cell.selectionStyle = .none
         return cell
+    }
+}
+
+extension ProjectFeedViewController: ProjectTableViewCellDelegate {
+    func didTapProject(_ project: FeedProject) {
+        print("Did tap project title")
+    }
+    
+    func didTapComments(_ project: FeedProject) {
+        print("Did tap comments")
+    }
+    
+    func didTapAsset(_ project: ProjectAsset) {
+        guard case .video(_, let videoURL) = project else {
+            return
+        }
+        
+        let player = AVPlayer(url: videoURL)
+        let vc = AVPlayerViewController()
+        vc.player = player
+        present(vc, animated: true) {
+            player.play()
+        }
+    }
+}
+
+extension ProjectFeedViewController: ProjectFeedErrorViewDelegate {
+    func didRequestToReloadData() {
+        provider.loadProjects()
     }
 }
