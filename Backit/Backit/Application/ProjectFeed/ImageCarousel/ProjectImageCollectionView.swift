@@ -41,14 +41,14 @@ class ProjectImageCollectionView: UICollectionView {
     }
     
     private func commonInit() {
-        register(UINib(nibName: "ProjectCardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constant.CellIdentifier)
-        register(UINib(nibName: "ProjectCardCollectionViewAnimatedCell", bundle: nil), forCellWithReuseIdentifier: Constant.AnimatedCellIdentifier)
+        register(UINib(nibName: "ProjectImageCell", bundle: nil), forCellWithReuseIdentifier: Constant.CellIdentifier)
+        register(UINib(nibName: "ProjectImageAnimatedCell", bundle: nil), forCellWithReuseIdentifier: Constant.AnimatedCellIdentifier)
 
         collectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionViewFlowLayout.minimumLineSpacing = 0
         let screenWidth = UIScreen.main.bounds.size.width
-        collectionViewFlowLayout.itemSize = CGSize(width: screenWidth, height: 200.0)
+        collectionViewFlowLayout.itemSize = CGSize(width: screenWidth, height: 330.0)
         collectionViewFlowLayout.scrollDirection = .horizontal
         collectionViewLayout = collectionViewFlowLayout
         

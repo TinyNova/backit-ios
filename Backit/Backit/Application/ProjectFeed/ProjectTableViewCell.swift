@@ -15,31 +15,59 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var projectImageCollectionView: ProjectImageCollectionView!
     
-    @IBOutlet weak var projectNameLabel: UILabel!
-    
-    @IBOutlet weak var fundedPercentProgressView: UIProgressView!
-    
-    @IBOutlet weak var percentFundedLabel: UILabel!
-    
-    @IBOutlet weak var earlyBirdLabel: UILabel!
-    
-    @IBOutlet weak var daysLeftLabel: UILabel!
-    
-    @IBOutlet weak var separatorView: UIView! {
+    @IBOutlet weak var projectNameLabel: UILabel! {
         didSet {
-            // TODO: BG color
+            projectNameLabel.textColor = UIColor.fromHex(0x201c3b)
         }
     }
     
-    @IBOutlet weak var totalVotesLabel: UILabel!
+    @IBOutlet weak var fundedPercentProgressView: UIProgressView!
     
-    @IBOutlet weak var totalCommentsLabel: UILabel!
+    @IBOutlet weak var percentFundedLabel: UILabel! {
+        didSet {
+            percentFundedLabel.textColor = UIColor.fromHex(0x6b6c7e)
+        }
+    }
     
-    @IBOutlet weak var shareView: UIView!
+    @IBOutlet weak var earlyBirdLabel: UILabel! {
+        didSet {
+            earlyBirdLabel.textColor = UIColor.fromHex(0x6b6c7e)
+        }
+    }
+    
+    @IBOutlet weak var daysLeftLabel: UILabel! {
+        didSet {
+            daysLeftLabel.textColor = UIColor.fromHex(0x6b6c7e)
+        }
+    }
+    
+    @IBOutlet weak var separatorView: UIView! {
+        didSet {
+            separatorView.backgroundColor = UIColor.fromHex(0xcdced9)
+        }
+    }
+    
+    @IBOutlet weak var totalVotesLabel: UILabel! {
+        didSet {
+            totalVotesLabel.textColor = UIColor.fromHex(0x6b6c7e)
+        }
+    }
+    
+    @IBOutlet weak var totalCommentsLabel: UILabel! {
+        didSet {
+            totalCommentsLabel.textColor = UIColor.fromHex(0x6b6c7e)
+        }
+    }
+    
+    @IBOutlet weak var shareLabel: UILabel! {
+        didSet {
+            shareLabel.textColor = UIColor.fromHex(0x6b6c7e)
+        }
+    }
     
     @IBOutlet weak var bottomSpacerView: UIView! {
         didSet {
-            // TODO: BG color
+            bottomSpacerView.backgroundColor = UIColor.fromHex(0xf5f8fa)
         }
     }
     
@@ -53,11 +81,25 @@ class ProjectTableViewCell: UITableViewCell {
                 return
             }
             
+            projectImageCollectionView.assets = project.assets
+            imagePagerView.configure(assets: project.assets, selectedIndex: 0)
+            
             projectNameLabel.text = project.name
+            
             fundedPercentProgressView.progress = project.fundedPercent
+            
             let fundedPercent = Int(project.fundedPercent * 100)
             percentFundedLabel.text = i18n.t(.funded(amount: fundedPercent))
-
+            earlyBirdLabel.text = "todo"
+            daysLeftLabel.text = "todo"
+            
+            totalVotesLabel.text = "todo"
+            switch project.comment {
+            case .comment:
+                totalCommentsLabel.text = i18n.t(.comment)
+            case .comments(let amount):
+                totalCommentsLabel.text = i18n.t(.comments(amount: amount))
+            }
         }
     }
     

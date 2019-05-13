@@ -234,7 +234,7 @@
                 <outlet property="projectImageCollectionView" destination="HOB-da-USm" id="PW9-dW-dc1"/>
                 <outlet property="projectNameLabel" destination="KIU-MS-1mk" id="zYQ-Bz-1tJ"/>
                 <outlet property="separatorView" destination="AOg-67-m3R" id="vOd-00-DgV"/>
-                <outlet property="shareView" destination="56I-XJ-3Yx" id="pcB-kR-v63"/>
+                <outlet property="shareLabel" destination="KeZ-I7-SCX" id="Rsz-v7-r1C"/>
                 <outlet property="totalCommentsLabel" destination="LxJ-x0-LwY" id="MCg-vU-aAz"/>
                 <outlet property="totalVotesLabel" destination="Q3Y-Ev-vFs" id="0J5-Kt-RKl"/>
             </connections>
