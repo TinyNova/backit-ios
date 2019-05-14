@@ -129,7 +129,7 @@ class Assembly {
             
         }
 
-        container.storyboardInitCompleted(UITabBarController.self) { (resolver, controller) in
+        container.storyboardInitCompleted(TabBarController.self) { (resolver, controller) in
             
         }
 

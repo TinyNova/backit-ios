@@ -12,7 +12,7 @@ enum SessionProviderError: Error {
     case unknown(Error)
 }
 
-protocol SessionProviderListener: class {
+protocol SessionProviderListener: AnyObject {
     func didChangeUserSession(_ userSession: UserSession)
 }
 

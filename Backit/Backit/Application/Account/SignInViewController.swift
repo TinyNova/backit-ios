@@ -11,6 +11,12 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var errorLabel: UILabel! {
+        didSet {
+            errorLabel.isHidden = true
+        }
+    }
+    
     var accountProvider: AccountProvider?
     
     weak var delegate: SignInViewControllerDelegate?
@@ -28,12 +34,19 @@ class SignInViewController: UIViewController {
     @IBAction func didTapLogin(_ sender: Any) {
         guard let email = emailTextField.text,
             let password = passwordTextField.text else {
-            return print("Please enter your username and password")
+            errorLabel.isHidden = false
+            errorLabel.text = "Please enter your email and password."
+            return
         }
         
-        accountProvider?.login(email: email, password: password).onSuccess { [weak delegate] (userSession) in
-            delegate?.didLogin(userSession: userSession)
-        }
+        accountProvider?.login(email: email, password: password)
+            .onSuccess { [weak delegate] (userSession) in
+                delegate?.didLogin(userSession: userSession)
+            }
+            .onFailure { [weak errorLabel] error in
+                errorLabel?.isHidden = false
+                errorLabel?.text = "\(error)"
+            }
     }
     
     @objc private func cancelLogin(_ sender: Any) {
