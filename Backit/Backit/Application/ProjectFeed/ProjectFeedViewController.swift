@@ -98,7 +98,7 @@ class ProjectFeedViewController: UIViewController {
         super.viewDidLoad()
         
         tabBarItem = UITabBarItem.tabBarItem(using: "home")
-//        provider.loadProjects()
+        provider.loadProjects()
     }
     
     var totalRows: Int {

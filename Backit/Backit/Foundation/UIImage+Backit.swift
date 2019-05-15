@@ -80,11 +80,11 @@ extension UIImage {
         let scale = self.scale
         let destWidth = Int(size.width)
         let destHeight = Int(size.height)
-        let bytesPerPixel = self.cgImage!.bitsPerPixel/8
+        let bytesPerPixel = self.cgImage!.bitsPerPixel / 8
         let destBytesPerRow = destWidth * bytesPerPixel
         let destData = UnsafeMutablePointer<UInt8>.allocate(capacity: destHeight * destBytesPerRow)
-        defer {
-            destData.deallocate()
+        defer { // This crashes
+//            destData.deallocate()
         }
         
         var destBuffer = vImage_Buffer(data: destData, height: vImagePixelCount(destHeight), width: vImagePixelCount(destWidth), rowBytes: destBytesPerRow)

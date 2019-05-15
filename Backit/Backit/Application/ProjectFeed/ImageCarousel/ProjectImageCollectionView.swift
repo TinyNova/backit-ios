@@ -48,7 +48,7 @@ class ProjectImageCollectionView: UICollectionView {
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionViewFlowLayout.minimumLineSpacing = 0
         let screenWidth = UIScreen.main.bounds.size.width
-        collectionViewFlowLayout.itemSize = CGSize(width: screenWidth, height: 330.0)
+        collectionViewFlowLayout.itemSize = CGSize(width: screenWidth, height: 240.0)
         collectionViewFlowLayout.scrollDirection = .horizontal
         collectionViewLayout = collectionViewFlowLayout
         
@@ -165,7 +165,8 @@ class ProjectImageCell: UICollectionViewCell, ProjectCardCell {
             }
             // FIXME: Move this into a dependency.
             let screenWidth = UIScreen.main.bounds.size.width
-            strongSelf.imageView.image = image.fittedImage(to: screenWidth)
+            let imageSize = image.proportionalScaledSize(using: screenWidth)
+            strongSelf.imageView.image = image.resizedImage(using: imageSize)
         }
     }
 }
