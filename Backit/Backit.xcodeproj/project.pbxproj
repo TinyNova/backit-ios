@@ -100,11 +100,6 @@
 		07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61F221D6ED3800FE283C /* UIThemeApplier.swift */; };
 		07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61F621D6ED4600FE283C /* AppTheme.swift */; };
 		07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61FB21D6EF4800FE283C /* ViewIdentifiable.swift */; };
-		07EC620221D6F0A200FE283C /* lato-bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EC61FE21D6F0A100FE283C /* lato-bolditalic.ttf */; };
-		07EC620321D6F0A200FE283C /* lato-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EC61FF21D6F0A200FE283C /* lato-bold.ttf */; };
-		07EC620421D6F0A200FE283C /* lato-regularitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EC620021D6F0A200FE283C /* lato-regularitalic.ttf */; };
-		07EC620521D6F0A200FE283C /* lato-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EC620121D6F0A200FE283C /* lato-regular.ttf */; };
-		07EC620721D6F0B100FE283C /* lato-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EC620621D6F0B100FE283C /* lato-black.ttf */; };
 		07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */; };
 		07FBAD35228A39D2009E5189 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD34228A39D2009E5189 /* TabBarController.swift */; };
 		07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */; };
@@ -114,6 +109,10 @@
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
 		B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C52285B72000C06087 /* ProjectImageCell.xib */; };
 		B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */; };
+		B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */; };
+		B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */; };
+		B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */; };
+		B9A8E66A228BD520003CF94B /* UIFont+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8E669228BD520003CF94B /* UIFont+Backit.swift */; };
 		B9F827A12287D30D009D6220 /* ProjectFeedProviderServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A02287D30D009D6220 /* ProjectFeedProviderServer.swift */; };
 		B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */; };
 		B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */; };
@@ -232,11 +231,6 @@
 		07EC61F221D6ED3800FE283C /* UIThemeApplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIThemeApplier.swift; sourceTree = "<group>"; };
 		07EC61F621D6ED4600FE283C /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		07EC61FB21D6EF4800FE283C /* ViewIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIdentifiable.swift; sourceTree = "<group>"; };
-		07EC61FE21D6F0A100FE283C /* lato-bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-bolditalic.ttf"; sourceTree = "<group>"; };
-		07EC61FF21D6F0A200FE283C /* lato-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-bold.ttf"; sourceTree = "<group>"; };
-		07EC620021D6F0A200FE283C /* lato-regularitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-regularitalic.ttf"; sourceTree = "<group>"; };
-		07EC620121D6F0A200FE283C /* lato-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-regular.ttf"; sourceTree = "<group>"; };
-		07EC620621D6F0B100FE283C /* lato-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-black.ttf"; sourceTree = "<group>"; };
 		07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Backit.swift"; sourceTree = "<group>"; };
 		07FBAD34228A39D2009E5189 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+Backit.swift"; sourceTree = "<group>"; };
@@ -250,6 +244,10 @@
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
 		B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageAnimatedCell.xib; sourceTree = "<group>"; };
+		B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Regular.otf"; sourceTree = "<group>"; };
+		B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
+		B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
+		B9A8E669228BD520003CF94B /* UIFont+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Backit.swift"; sourceTree = "<group>"; };
 		B9F827A02287D30D009D6220 /* ProjectFeedProviderServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedProviderServer.swift; sourceTree = "<group>"; };
 		B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectFeedErrorView.xib; sourceTree = "<group>"; };
 		B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFeedErrorView.swift; sourceTree = "<group>"; };
@@ -614,6 +612,7 @@
 				0754B60521FBDDC400E2DECD /* Environment.swift */,
 				077B1731227CE40E003D5B17 /* Errors.swift */,
 				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
+				B9A8E669228BD520003CF94B /* UIFont+Backit.swift */,
 				0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */,
 				0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */,
 				0754B66C2200E9BF00E2DECD /* with.swift */,
@@ -624,11 +623,9 @@
 		07EC61FD21D6EFAB00FE283C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				07EC620621D6F0B100FE283C /* lato-black.ttf */,
-				07EC61FF21D6F0A200FE283C /* lato-bold.ttf */,
-				07EC61FE21D6F0A100FE283C /* lato-bolditalic.ttf */,
-				07EC620121D6F0A200FE283C /* lato-regular.ttf */,
-				07EC620021D6F0A200FE283C /* lato-regularitalic.ttf */,
+				B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */,
+				B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */,
+				B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -764,25 +761,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07EC620421D6F0A200FE283C /* lato-regularitalic.ttf in Resources */,
 				0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */,
 				07A1C21421DEDF8E00E5A5DA /* ImagePagerView.xib in Resources */,
 				B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */,
+				B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */,
 				B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */,
 				0754B5EC21F0E69000E2DECD /* ProjectCardCollectionViewAnimatedCell.xib in Resources */,
-				07EC620721D6F0B100FE283C /* lato-black.ttf in Resources */,
 				B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */,
 				0717398921E7E9ED00EA17DC /* Homepage.storyboard in Resources */,
+				B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */,
 				0717398F21E96EB000EA17DC /* ProjectCardCollectionViewCell.xib in Resources */,
 				0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */,
-				07EC620321D6F0A200FE283C /* lato-bold.ttf in Resources */,
 				07101BA62230B14000094716 /* HomepageErrorView.xib in Resources */,
 				078BCA952253B032003A03CA /* ProjectFeed.storyboard in Resources */,
 				0717398D21E96E6C00EA17DC /* ProjectCardScrollingView.xib in Resources */,
-				07EC620521D6F0A200FE283C /* lato-regular.ttf in Resources */,
+				B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
 				B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */,
-				07EC620221D6F0A200FE283C /* lato-bolditalic.ttf in Resources */,
 				07AC39CA21D44A1400214687 /* HomepageProjectCell.xib in Resources */,
 				0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */,
 				0722325421D4375F009D1912 /* Assets.xcassets in Resources */,
@@ -933,6 +928,7 @@
 				076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */,
 				076A8C4D22864BA80075B56C /* TestAppDelegate.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
+				B9A8E66A228BD520003CF94B /* UIFont+Backit.swift in Sources */,
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
 				B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,

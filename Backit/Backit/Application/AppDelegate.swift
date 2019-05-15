@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // FIXME: Make sure that no requests are made before NewRelic has a chance to start. This may require requests being deferred until NewRelic starts.
         startNewRelic()
         _ = assembly.container.resolve(Mixpanel.self)!
-        
+
+        UIFont.displayAllAvailableFonts()
+
         return true
     }
 
