@@ -17,7 +17,7 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var projectNameLabel: UILabel! {
         didSet {
-            projectNameLabel.textColor = UIColor.fromHex(0x201c3b)
+            theme.apply(.feedProjectName, toLabel: projectNameLabel)
         }
     }
     
@@ -73,8 +73,9 @@ class ProjectTableViewCell: UITableViewCell {
     
     weak var delegate: ProjectTableViewCellDelegate?
     
-    var i18n = Localization<Appl10n>()
-
+    let theme: UIThemeApplier<AppTheme> = AppTheme.default
+    let i18n = Localization<Appl10n>()
+    
     private(set) var project: FeedProject? {
         didSet {
             guard let project = project else {

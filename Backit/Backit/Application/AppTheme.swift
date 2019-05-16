@@ -1,5 +1,10 @@
 /**
  *
+ * Font names:
+ *  - AcuminPro-Regular
+ *  - AcuminPro-Bold
+ *  - AcuminPro-Semibold
+ *
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
@@ -29,9 +34,7 @@ class AppTheme: UIStyle {
     }
 
     enum LabelStyle {
-        case projectName
-        case smallComments
-        case fundedPercent
+        case feedProjectName
     }
     
     enum TableViewStyle {
@@ -49,10 +52,6 @@ class AppTheme: UIStyle {
     enum ViewStyle {
         // Progress bars
         case defaultProgress
-        case kickstarterProgressForeground
-        case kickstarterProgressBackground
-        case indiegogoProgressForeground
-        case indiegogoProgressBackground
     }
 }
 
@@ -66,18 +65,10 @@ extension AppTheme: UITheme {
     func apply(_ styles: [LabelStyle], toLabel label: UILabel) {
         for style in styles {
             switch style {
-            case .projectName:
-                let font = UIFont(name: "lato-bold", size: 20.0)
+            case .feedProjectName:
+                let font = UIFont(name: "AcuminPro-Semibold", size: 22.0)
                 label.font = font
-                label.textColor = UIColor.fromHex(0x404040)
-            case .smallComments:
-                let font = UIFont(name: "lato-black", size: 12.0)
-                label.font = font
-                label.textColor = UIColor.fromHex(0x000000)
-            case .fundedPercent:
-                let font = UIFont(name: "lato-black", size: 16.0)
-                label.font = font
-                label.textColor = UIColor.fromHex(0x000000)
+                label.textColor = UIColor.fromHex(0x201c3b)
             }
         }
     }
@@ -106,19 +97,5 @@ extension AppTheme: UITheme {
     }
     
     func apply(_ styles: [ViewStyle], toView view: UIView) {
-        for style in styles {
-            switch style {
-            case .defaultProgress:
-                view.backgroundColor = UIColor.white
-            case .kickstarterProgressForeground:
-                view.backgroundColor = UIColor.fromHex(0x39dd74)
-            case .kickstarterProgressBackground:
-                view.backgroundColor = UIColor.fromHex(0xcdffde)
-            case .indiegogoProgressForeground:
-                view.backgroundColor = UIColor.fromHex(0xe91578)
-            case .indiegogoProgressBackground:
-                view.backgroundColor = UIColor.fromHex(0xfbcae1)
-            }
-        }
     }
 }

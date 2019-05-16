@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         startNewRelic()
         _ = assembly.container.resolve(Mixpanel.self)!
 
-        UIFont.displayAllAvailableFonts()
+//        UIFont.displayAllAvailableFonts()
 
         return true
     }

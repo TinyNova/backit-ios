@@ -65,14 +65,6 @@ class Assembly {
             return ProjectFeedProviderServer(provider: provider, metrics: metrics)
         }
         
-        container.register(HomepageProvider.self) { resolver in
-            let service = resolver.resolve(AnalyticsService.self)!
-            let metrics: AnalyticsPublisher<MetricAnalyticsEvent> = service.publisher()
-            
-            let provider = resolver.resolve(ProjectProvider.self)!
-            return HomepageOrchestrator(provider: provider, metrics: metrics)
-        }
-        
         container.register(UIThemeApplier<AppTheme>.self) { resolver in
             let theme = UIThemeApplier<AppTheme>()
             theme.concrete = resolver.resolve(AnyUITheme<AppTheme>.self)!
@@ -131,12 +123,6 @@ class Assembly {
 
         container.storyboardInitCompleted(TabBarController.self) { (resolver, controller) in
             
-        }
-
-        container.storyboardInitCompleted(HomepageViewController.self) { resolver, controller in
-            let theme = resolver.resolve(AppTheme.self)!
-            let provider = resolver.resolve(HomepageProvider.self)!
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider)
         }
         
         container.storyboardInitCompleted(ProjectFeedViewController.self) { resolver, controller in
