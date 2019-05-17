@@ -21,7 +21,15 @@ class ProjectTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var fundedPercentProgressView: UIProgressView!
+    @IBOutlet weak var fundedPercentProgressView: UIProgressView! {
+        didSet {
+            fundedPercentProgressView.tintColor = UIColor.fromHex(0x00ce76)
+            let transform = CATransform3DScale(fundedPercentProgressView.layer.transform, 1.0, 2.0, 1.0);
+            fundedPercentProgressView.layer.transform = transform
+            fundedPercentProgressView.layer.cornerRadius = 2.0
+            fundedPercentProgressView.layer.masksToBounds = true
+        }
+    }
     
     @IBOutlet weak var percentFundedLabel: UILabel! {
         didSet {
@@ -108,3 +116,9 @@ class ProjectTableViewCell: UITableViewCell {
         self.project = project
     }
 }
+
+//extension UIProgressView {
+//    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+//        return CGSize(width: size.width, height: 9.0)
+//    }
+//}
