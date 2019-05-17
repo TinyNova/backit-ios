@@ -100,15 +100,15 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDY-VN-L8n">
                                             <rect key="frame" x="0.0" y="0.0" width="124.5" height="40"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXN-6k-dJG">
-                                                    <rect key="frame" x="0.0" y="9" width="22" height="22"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upvote" translatesAutoresizingMaskIntoConstraints="NO" id="mXN-6k-dJG">
+                                                    <rect key="frame" x="0.0" y="10" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="eqo-FL-T4x"/>
-                                                        <constraint firstAttribute="width" constant="22" id="kgh-du-f0B"/>
+                                                        <constraint firstAttribute="height" constant="20" id="eqo-FL-T4x"/>
+                                                        <constraint firstAttribute="width" constant="20" id="kgh-du-f0B"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXX.XXk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3Y-Ev-vFs">
-                                                    <rect key="frame" x="32" y="10" width="69.5" height="20.5"/>
+                                                    <rect key="frame" x="25" y="10" width="69.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -118,7 +118,7 @@
                                             <constraints>
                                                 <constraint firstItem="mXN-6k-dJG" firstAttribute="centerY" secondItem="qDY-VN-L8n" secondAttribute="centerY" id="27W-Y3-a5H"/>
                                                 <constraint firstItem="mXN-6k-dJG" firstAttribute="leading" secondItem="qDY-VN-L8n" secondAttribute="leading" id="9Nr-Oh-yzb"/>
-                                                <constraint firstItem="Q3Y-Ev-vFs" firstAttribute="leading" secondItem="mXN-6k-dJG" secondAttribute="trailing" constant="10" id="Vch-Bd-WIE"/>
+                                                <constraint firstItem="Q3Y-Ev-vFs" firstAttribute="leading" secondItem="mXN-6k-dJG" secondAttribute="trailing" constant="5" id="Vch-Bd-WIE"/>
                                                 <constraint firstItem="Q3Y-Ev-vFs" firstAttribute="centerY" secondItem="qDY-VN-L8n" secondAttribute="centerY" id="g9X-5t-dER"/>
                                             </constraints>
                                         </view>
@@ -128,15 +128,15 @@
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Qw-1W-dfI">
                                                     <rect key="frame" x="27" y="9" width="70" height="22"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-bO-p0h">
-                                                            <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-bO-p0h">
+                                                            <rect key="frame" x="0.0" y="1" width="20" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="22" id="Q18-GD-BdP"/>
-                                                                <constraint firstAttribute="width" constant="22" id="hc5-Eq-6cN"/>
+                                                                <constraint firstAttribute="height" constant="20" id="Q18-GD-BdP"/>
+                                                                <constraint firstAttribute="width" constant="20" id="hc5-Eq-6cN"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.6k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxJ-x0-LwY">
-                                                            <rect key="frame" x="32" y="1" width="33" height="20.5"/>
+                                                            <rect key="frame" x="25" y="1" width="33" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -147,7 +147,7 @@
                                                         <constraint firstAttribute="width" constant="70" id="1xy-ez-yiF"/>
                                                         <constraint firstAttribute="height" constant="22" id="Gim-cb-p9K"/>
                                                         <constraint firstItem="LxJ-x0-LwY" firstAttribute="centerY" secondItem="0Qw-1W-dfI" secondAttribute="centerY" id="Qhr-yt-KRb"/>
-                                                        <constraint firstItem="LxJ-x0-LwY" firstAttribute="leading" secondItem="1Xd-bO-p0h" secondAttribute="trailing" constant="10" id="Qmm-4x-BsB"/>
+                                                        <constraint firstItem="LxJ-x0-LwY" firstAttribute="leading" secondItem="1Xd-bO-p0h" secondAttribute="trailing" constant="5" id="Qmm-4x-BsB"/>
                                                         <constraint firstItem="1Xd-bO-p0h" firstAttribute="leading" secondItem="0Qw-1W-dfI" secondAttribute="leading" id="oha-fA-YE9"/>
                                                         <constraint firstItem="1Xd-bO-p0h" firstAttribute="centerY" secondItem="0Qw-1W-dfI" secondAttribute="centerY" id="pP0-Mn-17B"/>
                                                     </constraints>
@@ -162,11 +162,11 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56I-XJ-3Yx">
                                             <rect key="frame" x="248.5" y="0.0" width="124.5" height="40"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q9T-Xg-ydu">
-                                                    <rect key="frame" x="48" y="9" width="22" height="22"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="Q9T-Xg-ydu">
+                                                    <rect key="frame" x="55" y="10" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="22" id="Xqb-Ks-82Z"/>
-                                                        <constraint firstAttribute="height" constant="22" id="yQO-Lf-SNR"/>
+                                                        <constraint firstAttribute="width" constant="20" id="Xqb-Ks-82Z"/>
+                                                        <constraint firstAttribute="height" constant="20" id="yQO-Lf-SNR"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeZ-I7-SCX">
@@ -180,7 +180,7 @@
                                             <constraints>
                                                 <constraint firstItem="KeZ-I7-SCX" firstAttribute="centerY" secondItem="56I-XJ-3Yx" secondAttribute="centerY" id="btU-QD-VRe"/>
                                                 <constraint firstAttribute="trailing" secondItem="KeZ-I7-SCX" secondAttribute="trailing" id="gSz-dW-1aE"/>
-                                                <constraint firstItem="KeZ-I7-SCX" firstAttribute="leading" secondItem="Q9T-Xg-ydu" secondAttribute="trailing" constant="10" id="m9j-N9-hu5"/>
+                                                <constraint firstItem="KeZ-I7-SCX" firstAttribute="leading" secondItem="Q9T-Xg-ydu" secondAttribute="trailing" constant="5" id="m9j-N9-hu5"/>
                                                 <constraint firstItem="Q9T-Xg-ydu" firstAttribute="centerY" secondItem="56I-XJ-3Yx" secondAttribute="centerY" id="yzQ-sF-qFB"/>
                                             </constraints>
                                         </view>
@@ -240,11 +240,19 @@
                 <outlet property="projectImageCollectionView" destination="M8D-SH-QVt" id="nDc-GQ-z15"/>
                 <outlet property="projectNameLabel" destination="KIU-MS-1mk" id="zYQ-Bz-1tJ"/>
                 <outlet property="separatorView" destination="AOg-67-m3R" id="vOd-00-DgV"/>
+                <outlet property="shareImage" destination="Q9T-Xg-ydu" id="3R1-ST-EiQ"/>
                 <outlet property="shareLabel" destination="KeZ-I7-SCX" id="Rsz-v7-r1C"/>
+                <outlet property="totalCommentsImage" destination="1Xd-bO-p0h" id="YSq-SH-CeA"/>
                 <outlet property="totalCommentsLabel" destination="LxJ-x0-LwY" id="MCg-vU-aAz"/>
+                <outlet property="totalVotesImage" destination="mXN-6k-dJG" id="FRY-T2-r0q"/>
                 <outlet property="totalVotesLabel" destination="Q3Y-Ev-vFs" id="0J5-Kt-RKl"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="17.075892857142858"/>
         </view>
     </objects>
+    <resources>
+        <image name="chat" width="18" height="18"/>
+        <image name="share" width="18" height="18"/>
+        <image name="upvote" width="18" height="18"/>
+    </resources>
 </document>

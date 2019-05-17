@@ -68,7 +68,7 @@ private class FontCache {
     }()
 
     lazy var regular12: UIFont = {
-        return UIFont(name: "AcuminPro-Bold", size: 12.0)!
+        return UIFont(name: "AcuminPro-Regular", size: 12.0)!
     }()
 }
 

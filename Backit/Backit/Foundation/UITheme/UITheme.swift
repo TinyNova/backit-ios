@@ -1,6 +1,10 @@
 /**
  Provides interface to apply styles.
  
+ TODO:
+   - Simplify this even more by creating a `Style` with only one `associatedvalue`.
+   - This way the app doesn't need to implement a style for every UI type. This should make it easy to support any UI type.
+ 
  Copyright © 2018 Upstart Illustration LLC. All rights reserved.
  */
 

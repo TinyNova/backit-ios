@@ -51,18 +51,33 @@ class ProjectTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var totalVotesImage: UIImageView! {
+        didSet {
+            totalVotesImage.tintColor = UIColor.fromHex(0x657786)
+        }
+    }
     @IBOutlet weak var totalVotesLabel: UILabel! {
         didSet {
             theme.apply(.smallInfoLabel, toLabel: totalVotesLabel)
         }
     }
     
+    @IBOutlet weak var totalCommentsImage: UIImageView! {
+        didSet {
+            totalCommentsImage.tintColor = UIColor.fromHex(0x657786)
+        }
+    }
     @IBOutlet weak var totalCommentsLabel: UILabel! {
         didSet {
             theme.apply(.smallInfoLabel, toLabel: totalCommentsLabel)
         }
     }
     
+    @IBOutlet weak var shareImage: UIImageView! {
+        didSet {
+            shareImage.tintColor = UIColor.fromHex(0x657786)
+        }
+    }
     @IBOutlet weak var shareLabel: UILabel! {
         didSet {
             theme.apply(.smallInfoLabel, toLabel: shareLabel)
