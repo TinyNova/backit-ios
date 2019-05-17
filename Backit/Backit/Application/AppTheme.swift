@@ -35,6 +35,7 @@ class AppTheme: UIStyle {
 
     enum LabelStyle {
         case feedProjectName
+        case smallInfoLabel
     }
     
     enum TableViewStyle {
@@ -50,9 +51,21 @@ class AppTheme: UIStyle {
     }
     
     enum ViewStyle {
-        // Progress bars
-        case defaultProgress
+        case lineSeparator
+        case gutter
     }
+}
+
+private class FontCache {
+    static let `default` = FontCache()
+
+    lazy var semibold22: UIFont = {
+        return UIFont(name: "AcuminPro-Semibold", size: 22.0)!
+    }()
+
+    lazy var regular12: UIFont = {
+        return UIFont(name: "AcuminPro-Bold", size: 12.0)!
+    }()
 }
 
 extension AppTheme: UITheme {
@@ -66,9 +79,11 @@ extension AppTheme: UITheme {
         for style in styles {
             switch style {
             case .feedProjectName:
-                let font = UIFont(name: "AcuminPro-Semibold", size: 22.0)
-                label.font = font
+                label.font = FontCache.default.semibold22
                 label.textColor = UIColor.fromHex(0x201c3b)
+            case .smallInfoLabel:
+                label.font = FontCache.default.regular12
+                label.textColor = UIColor.fromHex(0x6b6c7e)
             }
         }
     }

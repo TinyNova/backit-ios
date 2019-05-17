@@ -24,6 +24,7 @@ class ProjectTableViewCell: UITableViewCell {
     @IBOutlet weak var fundedPercentProgressView: UIProgressView! {
         didSet {
             fundedPercentProgressView.tintColor = UIColor.fromHex(0x00ce76)
+            fundedPercentProgressView.trackTintColor = UIColor.fromHex(0xccd6dd)
             let transform = CATransform3DScale(fundedPercentProgressView.layer.transform, 1.0, 2.0, 1.0);
             fundedPercentProgressView.layer.transform = transform
             fundedPercentProgressView.layer.cornerRadius = 2.0
@@ -33,19 +34,19 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var percentFundedLabel: UILabel! {
         didSet {
-            percentFundedLabel.textColor = UIColor.fromHex(0x6b6c7e)
+            theme.apply(.smallInfoLabel, toLabel: percentFundedLabel)
         }
     }
     
     @IBOutlet weak var earlyBirdLabel: UILabel! {
         didSet {
-            earlyBirdLabel.textColor = UIColor.fromHex(0x6b6c7e)
+            theme.apply(.smallInfoLabel, toLabel: earlyBirdLabel)
         }
     }
     
     @IBOutlet weak var daysLeftLabel: UILabel! {
         didSet {
-            daysLeftLabel.textColor = UIColor.fromHex(0x6b6c7e)
+            theme.apply(.smallInfoLabel, toLabel: daysLeftLabel)
         }
     }
     
@@ -57,19 +58,19 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var totalVotesLabel: UILabel! {
         didSet {
-            totalVotesLabel.textColor = UIColor.fromHex(0x6b6c7e)
+            theme.apply(.smallInfoLabel, toLabel: totalVotesLabel)
         }
     }
     
     @IBOutlet weak var totalCommentsLabel: UILabel! {
         didSet {
-            totalCommentsLabel.textColor = UIColor.fromHex(0x6b6c7e)
+            theme.apply(.smallInfoLabel, toLabel: totalCommentsLabel)
         }
     }
     
     @IBOutlet weak var shareLabel: UILabel! {
         didSet {
-            shareLabel.textColor = UIColor.fromHex(0x6b6c7e)
+            theme.apply(.smallInfoLabel, toLabel: shareLabel)
         }
     }
     
