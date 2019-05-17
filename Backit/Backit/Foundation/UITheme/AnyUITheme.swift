@@ -20,6 +20,7 @@ class AnyUITheme<T: UIStyle>: UITheme {
     let _applyTextField: ([T.TextFieldStyle], UITextField) -> Void
     let _applyTextView: ([T.TextViewStyle], UITextView) -> Void
     let _applyView: ([T.ViewStyle], UIView) -> Void
+    let _applyProgressView: ([T.ProgressViewStyle], UIProgressView) -> Void
     
     init<U: UITheme>(theme: U) where U.Style == T {
         _applyButton = theme.apply(_:toButton:)
@@ -29,6 +30,7 @@ class AnyUITheme<T: UIStyle>: UITheme {
         _applyTextField = theme.apply(_:toTextField:)
         _applyTextView = theme.apply(_:toTextView:)
         _applyView = theme.apply(_:toView:)
+        _applyProgressView = theme.apply(_:toProgressView:)
     }
     
     func apply(_ styles: [T.ButtonStyle], toButton button: UIButton) {
@@ -57,5 +59,9 @@ class AnyUITheme<T: UIStyle>: UITheme {
     
     func apply(_ styles: [T.ViewStyle], toView view: UIView) {
         _applyView(styles, view)
+    }
+    
+    func apply(_ styles: [T.ProgressViewStyle], toProgressView progressView: UIProgressView) {
+        _applyProgressView(styles, progressView)
     }
 }

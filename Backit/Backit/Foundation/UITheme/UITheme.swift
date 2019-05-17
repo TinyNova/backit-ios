@@ -15,6 +15,7 @@ protocol UIStyle {
     associatedtype TextFieldStyle
     associatedtype TextViewStyle
     associatedtype ViewStyle
+    associatedtype ProgressViewStyle
 }
 
 protocol UITheme {
@@ -27,4 +28,5 @@ protocol UITheme {
     func apply(_ styles: [Style.TextFieldStyle], toTextField textField: UITextField)
     func apply(_ styles: [Style.TextViewStyle], toTextView textView: UITextView)
     func apply(_ styles: [Style.ViewStyle], toView view: UIView)
+    func apply(_ styles: [Style.ProgressViewStyle], toProgressView progressView: UIProgressView)
 }

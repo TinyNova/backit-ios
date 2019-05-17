@@ -18,7 +18,8 @@ class UIThemeApplier<T: UIStyle> {
     var textFieldThemes: [([T.TextFieldStyle], UITextField)] = []
     var textViewThemes: [([T.TextViewStyle], UITextView)] = []
     var viewThemes: [([T.ViewStyle], UIView)] = []
-    
+    var progressViewThemes: [([T.ProgressViewStyle], UIProgressView)] = []
+
     var concrete: AnyUITheme<T>? {
         didSet {
             guard let concrete = concrete else {
@@ -54,6 +55,11 @@ class UIThemeApplier<T: UIStyle> {
                 concrete.apply(element.0, toView: element.1)
             }
             viewThemes = []
+            
+            progressViewThemes.forEach { (element) in
+                concrete.apply(element.0, toProgressView: element.1)
+            }
+            progressViewThemes = []
         }
     }
     
@@ -114,4 +120,11 @@ class UIThemeApplier<T: UIStyle> {
         theme.apply(styles, toView: view)
     }
 
+    func apply(_ styles: T.ProgressViewStyle..., toProgressView progressView: UIProgressView) {
+        guard let theme = concrete else {
+            progressViewThemes.append((styles, progressView))
+            return
+        }
+        theme.apply(styles, toProgressView: progressView)
+    }
 }

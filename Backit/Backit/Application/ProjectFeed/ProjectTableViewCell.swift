@@ -23,12 +23,7 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var fundedPercentProgressView: UIProgressView! {
         didSet {
-            fundedPercentProgressView.tintColor = UIColor.fromHex(0x00ce76)
-            fundedPercentProgressView.trackTintColor = UIColor.fromHex(0xccd6dd)
-            let transform = CATransform3DScale(fundedPercentProgressView.layer.transform, 1.0, 2.0, 1.0);
-            fundedPercentProgressView.layer.transform = transform
-            fundedPercentProgressView.layer.cornerRadius = 2.0
-            fundedPercentProgressView.layer.masksToBounds = true
+            theme.apply(.fundedPercent, toProgressView: fundedPercentProgressView)
         }
     }
     
@@ -52,7 +47,7 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var separatorView: UIView! {
         didSet {
-            separatorView.backgroundColor = UIColor.fromHex(0xcdced9)
+            theme.apply(.lineSeparator, toView: separatorView)
         }
     }
     
@@ -76,7 +71,7 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var bottomSpacerView: UIView! {
         didSet {
-            bottomSpacerView.backgroundColor = UIColor.fromHex(0xf5f8fa)
+            theme.apply(.gutter, toView: bottomSpacerView)
         }
     }
     

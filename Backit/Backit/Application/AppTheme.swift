@@ -54,6 +54,10 @@ class AppTheme: UIStyle {
         case lineSeparator
         case gutter
     }
+    
+    enum ProgressViewStyle {
+        case fundedPercent
+    }
 }
 
 private class FontCache {
@@ -69,7 +73,7 @@ private class FontCache {
 }
 
 extension AppTheme: UITheme {
-
+    
     typealias Style = AppTheme
     
     func apply(_ styles: [ButtonStyle], toButton button: UIButton) {
@@ -112,5 +116,27 @@ extension AppTheme: UITheme {
     }
     
     func apply(_ styles: [ViewStyle], toView view: UIView) {
+        for style in styles {
+            switch style {
+            case .lineSeparator:
+                view.backgroundColor = UIColor.fromHex(0xcdced9)
+            case .gutter:
+                view.backgroundColor = UIColor.fromHex(0xf5f8fa)
+            }
+        }
+    }
+    
+    func apply(_ styles: [ProgressViewStyle], toProgressView progressView: UIProgressView) {
+        for style in styles {
+            switch style {
+            case .fundedPercent:
+                progressView.tintColor = UIColor.fromHex(0x00ce76)
+                progressView.trackTintColor = UIColor.fromHex(0xccd6dd)
+                let transform = CATransform3DScale(progressView.layer.transform, 1.0, 2.0, 1.0);
+                progressView.layer.transform = transform
+                progressView.layer.cornerRadius = 2.0
+                progressView.layer.masksToBounds = true
+            }
+        }
     }
 }
