@@ -29,7 +29,7 @@ class ProjectFeedErrorView: UIView {
     }
     
     private func configure() {
-//        fromNib()
+        fromNib()
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapView))
         addGestureRecognizer(gesture)
     }
