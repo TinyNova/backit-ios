@@ -101,7 +101,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="124.5" height="40"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upvote" translatesAutoresizingMaskIntoConstraints="NO" id="mXN-6k-dJG">
-                                                    <rect key="frame" x="0.0" y="10" width="20" height="20"/>
+                                                    <rect key="frame" x="0.0" y="8" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="eqo-FL-T4x"/>
                                                         <constraint firstAttribute="width" constant="20" id="kgh-du-f0B"/>
@@ -116,7 +116,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="mXN-6k-dJG" firstAttribute="centerY" secondItem="qDY-VN-L8n" secondAttribute="centerY" id="27W-Y3-a5H"/>
+                                                <constraint firstItem="mXN-6k-dJG" firstAttribute="centerY" secondItem="qDY-VN-L8n" secondAttribute="centerY" constant="-2" id="27W-Y3-a5H"/>
                                                 <constraint firstItem="mXN-6k-dJG" firstAttribute="leading" secondItem="qDY-VN-L8n" secondAttribute="leading" id="9Nr-Oh-yzb"/>
                                                 <constraint firstItem="Q3Y-Ev-vFs" firstAttribute="leading" secondItem="mXN-6k-dJG" secondAttribute="trailing" constant="5" id="Vch-Bd-WIE"/>
                                                 <constraint firstItem="Q3Y-Ev-vFs" firstAttribute="centerY" secondItem="qDY-VN-L8n" secondAttribute="centerY" id="g9X-5t-dER"/>
@@ -129,7 +129,7 @@
                                                     <rect key="frame" x="27" y="9" width="70" height="22"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-bO-p0h">
-                                                            <rect key="frame" x="0.0" y="1" width="20" height="20"/>
+                                                            <rect key="frame" x="0.0" y="-1" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Q18-GD-BdP"/>
                                                                 <constraint firstAttribute="width" constant="20" id="hc5-Eq-6cN"/>
@@ -149,7 +149,7 @@
                                                         <constraint firstItem="LxJ-x0-LwY" firstAttribute="centerY" secondItem="0Qw-1W-dfI" secondAttribute="centerY" id="Qhr-yt-KRb"/>
                                                         <constraint firstItem="LxJ-x0-LwY" firstAttribute="leading" secondItem="1Xd-bO-p0h" secondAttribute="trailing" constant="5" id="Qmm-4x-BsB"/>
                                                         <constraint firstItem="1Xd-bO-p0h" firstAttribute="leading" secondItem="0Qw-1W-dfI" secondAttribute="leading" id="oha-fA-YE9"/>
-                                                        <constraint firstItem="1Xd-bO-p0h" firstAttribute="centerY" secondItem="0Qw-1W-dfI" secondAttribute="centerY" id="pP0-Mn-17B"/>
+                                                        <constraint firstItem="1Xd-bO-p0h" firstAttribute="centerY" secondItem="0Qw-1W-dfI" secondAttribute="centerY" constant="-2" id="pP0-Mn-17B"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -163,7 +163,7 @@
                                             <rect key="frame" x="248.5" y="0.0" width="124.5" height="40"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="Q9T-Xg-ydu">
-                                                    <rect key="frame" x="55" y="10" width="20" height="20"/>
+                                                    <rect key="frame" x="55" y="8" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="Xqb-Ks-82Z"/>
                                                         <constraint firstAttribute="height" constant="20" id="yQO-Lf-SNR"/>
@@ -181,7 +181,7 @@
                                                 <constraint firstItem="KeZ-I7-SCX" firstAttribute="centerY" secondItem="56I-XJ-3Yx" secondAttribute="centerY" id="btU-QD-VRe"/>
                                                 <constraint firstAttribute="trailing" secondItem="KeZ-I7-SCX" secondAttribute="trailing" id="gSz-dW-1aE"/>
                                                 <constraint firstItem="KeZ-I7-SCX" firstAttribute="leading" secondItem="Q9T-Xg-ydu" secondAttribute="trailing" constant="5" id="m9j-N9-hu5"/>
-                                                <constraint firstItem="Q9T-Xg-ydu" firstAttribute="centerY" secondItem="56I-XJ-3Yx" secondAttribute="centerY" id="yzQ-sF-qFB"/>
+                                                <constraint firstItem="Q9T-Xg-ydu" firstAttribute="centerY" secondItem="56I-XJ-3Yx" secondAttribute="centerY" constant="-2" id="yzQ-sF-qFB"/>
                                             </constraints>
                                         </view>
                                     </subviews>
