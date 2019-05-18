@@ -127,9 +127,3 @@ class ProjectTableViewCell: UITableViewCell {
         self.project = project
     }
 }
-
-//extension UIProgressView {
-//    open override func sizeThatFits(_ size: CGSize) -> CGSize {
-//        return CGSize(width: size.width, height: 9.0)
-//    }
-//}

@@ -7,10 +7,17 @@ protocol ProjectFeedErrorViewDelegate: class {
 
 class ProjectFeedErrorView: UIView {
     
-    @IBOutlet weak var errorMessageLabel: UILabel!
+    @IBOutlet weak var errorMessageLabel: UILabel! {
+        didSet {
+            theme.apply(.error, toLabel: errorMessageLabel)
+        }
+    }
     
     weak var delegate: ProjectFeedErrorViewDelegate?
     
+    let theme: UIThemeApplier<AppTheme> = AppTheme.default
+    let i18n = Localization<Appl10n>()
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configure()

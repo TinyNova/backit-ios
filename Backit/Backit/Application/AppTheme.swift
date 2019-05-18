@@ -34,6 +34,7 @@ class AppTheme: UIStyle {
     }
 
     enum LabelStyle {
+        case error
         case feedProjectName
         case smallInfoLabel
     }
@@ -70,6 +71,10 @@ private class FontCache {
     lazy var regular12: UIFont = {
         return UIFont(name: "AcuminPro-Regular", size: 12.0)!
     }()
+    
+    lazy var regular22: UIFont = {
+        return UIFont(name: "AcuminPro-Regular", size: 22.0)!
+    }()
 }
 
 extension AppTheme: UITheme {
@@ -82,6 +87,9 @@ extension AppTheme: UITheme {
     func apply(_ styles: [LabelStyle], toLabel label: UILabel) {
         for style in styles {
             switch style {
+            case .error:
+                label.font = FontCache.default.regular22
+                label.textColor = UIColor.fromHex(0x130a33)
             case .feedProjectName:
                 label.font = FontCache.default.semibold22
                 label.textColor = UIColor.fromHex(0x201c3b)
