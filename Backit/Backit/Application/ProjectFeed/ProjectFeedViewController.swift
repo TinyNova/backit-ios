@@ -52,6 +52,7 @@ class ProjectFeedViewController: UIViewController {
     
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
+    private weak var avatarImageView: UIImageView?
     
     func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider) {
         self.provider = provider
@@ -63,18 +64,37 @@ class ProjectFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Tab Bar Button
         tabBarItem = UITabBarItem.tabBarItem(using: "home")
-
         
-
+        // Right Navigation Buttons
+        let searchButton = makeSearchButton()
+        // TODO: Update the avatar when the user logs in
+        let avatarButton = makeAvatarButton()
+        navigationItem.rightBarButtonItems = [avatarButton, searchButton]
+        
+        // TODO: Left Navigation Buttons
+        
         provider.loadProjects()
     }
     
-    var totalRows: Int {
+    // MARK: Actions
+    
+    @objc private func didTapSearch(_ sender: Any) {
+        print("did tap search")
+    }
+    
+    @objc private func didTapAvatar(_ sender: Any) {
+        print("did tap avatar")
+    }
+    
+    // MARK: Private functions
+    
+    private var totalRows: Int {
         return projects.count + 1 /* Status Cell */
     }
     
-    func reloadLastRowInTable() {
+    private func reloadLastRowInTable() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else {
                 return
@@ -83,6 +103,26 @@ class ProjectFeedViewController: UIViewController {
             self.tableView.reloadRows(at: [[0, self.totalRows-1]], with: .bottom)
             self.tableView.endUpdates()
         }
+    }
+    
+    private func makeSearchButton() -> UIBarButtonItem {
+        let searchImage = UIImage(named: "search")?.sd_tintedImage(with: UIColor.fromHex(0x5f637b))?.fittedImage(to: 24.0)
+        let searchButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(didTapSearch))
+        searchButton.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
+        return searchButton
+    }
+    
+    private func makeAvatarButton() -> UIBarButtonItem {
+        let avatarImage = UIImage(named: "empty-profile")?.sd_tintedImage(with: UIColor.white)?.fittedImage(to: 30.0)
+        
+        let avatarImageView = UIImageView(image: avatarImage)
+        avatarImageView.layer.cornerRadius = 4.0
+        avatarImageView.clipsToBounds = true
+        avatarImageView.sd_setImage(with: URL(string: "https://s3.amazonaws.com/backit.com/img/test/eric-250.jpg")!, completed: nil)
+        avatarImageView.gestureRecognizers = [UITapGestureRecognizer(target: self, action: #selector(didTapAvatar))]
+        self.avatarImageView = avatarImageView
+        
+        return UIBarButtonItem(customView: avatarImageView)
     }
 }
 

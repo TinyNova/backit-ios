@@ -96,8 +96,6 @@
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
 		B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C52285B72000C06087 /* ProjectImageCell.xib */; };
 		B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */; };
-		B9080DA7229115FA00CC88BA /* AvatarButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9080DA6229115FA00CC88BA /* AvatarButton.xib */; };
-		B9080DA92291160900CC88BA /* AvatarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9080DA82291160900CC88BA /* AvatarButton.swift */; };
 		B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */; };
 		B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */; };
 		B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */; };
@@ -220,8 +218,6 @@
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
 		B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageAnimatedCell.xib; sourceTree = "<group>"; };
-		B9080DA6229115FA00CC88BA /* AvatarButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarButton.xib; sourceTree = "<group>"; };
-		B9080DA82291160900CC88BA /* AvatarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarButton.swift; sourceTree = "<group>"; };
 		B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Regular.otf"; sourceTree = "<group>"; };
 		B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
 		B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
@@ -454,8 +450,6 @@
 				07B25B00228E08EC002476D4 /* ImagePager */,
 				07B25AFF228E08C1002476D4 /* LoadingResults */,
 				B90054C92285B7E800C06087 /* ImageCarousel */,
-				B9080DA82291160900CC88BA /* AvatarButton.swift */,
-				B9080DA6229115FA00CC88BA /* AvatarButton.xib */,
 				078BCA942253B032003A03CA /* ProjectFeed.storyboard */,
 				078BCA962253B047003A03CA /* ProjectFeedViewController.swift */,
 				078BCA9A2256D99A003A03CA /* ProjectTableViewCell.swift */,
@@ -737,7 +731,6 @@
 				B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */,
 				0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */,
 				078BCA952253B032003A03CA /* ProjectFeed.storyboard in Resources */,
-				B9080DA7229115FA00CC88BA /* AvatarButton.xib in Resources */,
 				B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
 				B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */,
@@ -919,7 +912,6 @@
 				071B317B22794FAB00DB1561 /* LoginEndpoint.swift in Sources */,
 				076A8C5122864BE50075B56C /* Application.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
-				B9080DA92291160900CC88BA /* AvatarButton.swift in Sources */,
 				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
 				B9F827A12287D30D009D6220 /* ProjectFeedProviderServer.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
