@@ -19,13 +19,11 @@ typealias AccountValidationMessage = String
 
 enum AccountProviderError: Error {
     case unknown(Error)
-    case notLoggedIn
     case validation([AccountValidationField: [AccountValidationMessage]])
 }
 
 protocol AccountProvider {
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError>
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String, lastName: String, subscribe: Bool) -> Future<UserSession, AccountProviderError>
-    func user() -> Future<User, AccountProviderError>
     func silentlyReauthenticate() -> Future<UserSession, AccountProviderError>
 }

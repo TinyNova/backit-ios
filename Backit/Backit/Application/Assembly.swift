@@ -18,7 +18,14 @@ class Assembly {
         }
         
         container.register(SessionProvider.self) { resolver in
-            return SessionService()
+            let userProvider = resolver.resolve(UserProvider.self)!
+            let userStreamer = resolver.resolve(UserStreamer.self)!
+            return SessionService(userProvider: userProvider, userStreamer: userStreamer)
+        }
+        .inObjectScope(.container)
+        
+        container.register(UserStreamer.self) { resolver in
+            return UserStream()
         }
         .inObjectScope(.container)
         
@@ -110,6 +117,11 @@ class Assembly {
             return AccountService(service: service, sessionProvider: sessionProvider)
         }
         
+        container.register(UserProvider.self) { resolver in
+            let service = resolver.resolve(Service.self)!
+            return UserService(service: service)
+        }
+        
         container.register(ProjectProvider.self) { resolver in
             let service = resolver.resolve(Service.self)!
             return ProjectService(service: service)
@@ -128,7 +140,8 @@ class Assembly {
         container.storyboardInitCompleted(ProjectFeedViewController.self) { resolver, controller in
             let theme = resolver.resolve(AppTheme.self)!
             let provider = resolver.resolve(ProjectFeedProvider.self)!
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider)
+            let userStreamer = resolver.resolve(UserStreamer.self)!
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer)
         }
         
         container.storyboardInitCompleted(ChangelogViewController.self) { (resolver, controller) in

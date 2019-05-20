@@ -21,14 +21,17 @@ class SessionService: SessionProvider {
         return userSession?.token
     }
     
+    private let userProvider: UserProvider
+    private let userStreamer: UserStreamer
+    
     private var userSession: UserSession?
     private var listeners: [AnySessionProviderListener] = []
     
-    /**
-     Listen to changes made to the `UserSession`.
-     
-     This will send the current `UserSession`, if there is one.
-     */
+    init(userProvider: UserProvider, userStreamer: UserStreamer) {
+        self.userProvider = userProvider
+        self.userStreamer = userStreamer
+    }
+    
     func listen(_ listener: SessionProviderListener) {
         listeners.append(AnySessionProviderListener(listener))
         
@@ -37,9 +40,6 @@ class SessionService: SessionProvider {
         }
     }
     
-    /**
-     Emit a new `UserSession` to all listeners.
-     */
     func emit(userSession: UserSession) {
         self.userSession = userSession
         
@@ -48,5 +48,11 @@ class SessionService: SessionProvider {
                 listener.didChangeUserSession(userSession)
             }
         }
+        
+        userProvider.user().onSuccess { [weak self] (user) in
+            self?.userStreamer.emit(user: user)
+        }
     }
+    
+    // TODO: Clean `nil` listeners
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0700752F22936ED4005B9F28 /* UserStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700752E22936ED4005B9F28 /* UserStream.swift */; };
+		0700753122937312005B9F28 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700753022937312005B9F28 /* UserProvider.swift */; };
+		0700753322937377005B9F28 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700753222937377005B9F28 /* UserService.swift */; };
 		0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */; };
 		071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317422794EE600DB1561 /* ProjectProvider.swift */; };
 		071B317722794F0B00DB1561 /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317622794F0B00DB1561 /* AccountProvider.swift */; };
@@ -63,6 +66,7 @@
 		077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172D227CE3B1003D5B17 /* UserSession.swift */; };
 		077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172F227CE3EB003D5B17 /* SignInProvider.swift */; };
 		077B1732227CE40E003D5B17 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1731227CE40E003D5B17 /* Errors.swift */; };
+		0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785F02022936CCC006AD593 /* UserStreamer.swift */; };
 		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
 		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
 		07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */; };
@@ -119,6 +123,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0700752E22936ED4005B9F28 /* UserStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStream.swift; sourceTree = "<group>"; };
+		0700753022937312005B9F28 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
+		0700753222937377005B9F28 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		070F84D621D457B200C11799 /* UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		070F84DA21D4584F00C11799 /* KIF+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Backit.swift"; sourceTree = "<group>"; };
 		070F84DC21D4598E00C11799 /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
@@ -181,6 +188,7 @@
 		077B172D227CE3B1003D5B17 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		077B172F227CE3EB003D5B17 /* SignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProvider.swift; sourceTree = "<group>"; };
 		077B1731227CE40E003D5B17 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		0785F02022936CCC006AD593 /* UserStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStreamer.swift; sourceTree = "<group>"; };
 		07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
 		07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginKey.swift; sourceTree = "<group>"; };
@@ -384,6 +392,8 @@
 				077B172D227CE3B1003D5B17 /* UserSession.swift */,
 				B9FB5983227FF94D00A03BDC /* SessionProvider.swift */,
 				077B172F227CE3EB003D5B17 /* SignInProvider.swift */,
+				0700753022937312005B9F28 /* UserProvider.swift */,
+				0785F02022936CCC006AD593 /* UserStreamer.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -504,6 +514,8 @@
 				071B317A22794FAB00DB1561 /* LoginEndpoint.swift */,
 				07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */,
 				B9FB5985227FF97100A03BDC /* SessionService.swift */,
+				0700752E22936ED4005B9F28 /* UserStream.swift */,
+				0700753222937377005B9F28 /* UserService.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -873,6 +885,7 @@
 				B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */,
 				072510CF2283B0C300C02645 /* AppPresenterProvider.swift in Sources */,
 				0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */,
+				0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */,
 				077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */,
 				07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
@@ -881,6 +894,8 @@
 				072510D22283B12100C02645 /* PresenterProvider.swift in Sources */,
 				076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */,
 				076A8C4D22864BA80075B56C /* TestAppDelegate.swift in Sources */,
+				0700752F22936ED4005B9F28 /* UserStream.swift in Sources */,
+				0700753322937377005B9F28 /* UserService.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				B9A8E66A228BD520003CF94B /* UIFont+Backit.swift in Sources */,
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
@@ -891,6 +906,7 @@
 				07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */,
 				0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */,
 				B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */,
+				0700753122937312005B9F28 /* UserProvider.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
 				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,

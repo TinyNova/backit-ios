@@ -69,22 +69,7 @@ class AccountService: AccountProvider {
                 self?.sessionProvider.emit(userSession: userSession)
             }
     }
-    
-    func user() -> Future<User, AccountProviderError> {
-        let endpoint = UserAccountEndpoint()
         
-        return service.request(endpoint)
-            .mapError { error -> AccountProviderError in
-                return .unknown(error)
-            }
-            .flatMap { (response) -> Future<User, AccountProviderError> in
-                guard response.message == nil else {
-                    return Future(error: .notLoggedIn)
-                }
-                return Future(value: User(avatarUrl: response.avatar, username: response.userName))
-            }
-    }
-    
     func silentlyReauthenticate() -> Future<UserSession, AccountProviderError> {
         // TODO: Emit signal on SessionProvider
         return Future(error: .unknown(NotImplementedError()))

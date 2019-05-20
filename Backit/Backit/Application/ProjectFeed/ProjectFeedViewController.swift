@@ -54,9 +54,10 @@ class ProjectFeedViewController: UIViewController {
     private var loadingState: LoadingResultsCellState = .ready
     private weak var avatarImageView: UIImageView?
     
-    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider) {
+    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider, userStreamer: UserStreamer) {
         self.provider = provider
         self.provider.client = self
+        userStreamer.listen(self)
     }
     
     private let i18n = Localization<Appl10n>()
@@ -130,11 +131,20 @@ class ProjectFeedViewController: UIViewController {
         let avatarImageView = UIImageView(image: avatarImage)
         avatarImageView.layer.cornerRadius = 4.0
         avatarImageView.clipsToBounds = true
-        avatarImageView.sd_setImage(with: URL(string: "https://s3.amazonaws.com/backit.com/img/test/eric-250.jpg")!, completed: nil)
         avatarImageView.gestureRecognizers = [UITapGestureRecognizer(target: self, action: #selector(didTapAvatar))]
         self.avatarImageView = avatarImageView
+        setAnonymousUserImage()
         
         return UIBarButtonItem(customView: avatarImageView)
+    }
+    
+    private func setAnonymousUserImage() {
+//        let URL(string: "https://s3.amazonaws.com/backit.com/img/test/eric-250.jpg")!
+        let image = UIImage(named: "empty-profile")?
+            .fittedImage(to: 35.0)?
+            .sd_tintedImage(with: UIColor.fromHex(0xffffff))
+        
+        avatarImageView?.image = image
     }
     
     private func makeBackitLogoButton() -> UIBarButtonItem {
@@ -246,5 +256,15 @@ extension ProjectFeedViewController: ProjectTableViewCellDelegate {
 extension ProjectFeedViewController: ProjectFeedErrorViewDelegate {
     func didRequestToReloadData() {
         provider.loadProjects()
+    }
+}
+
+extension ProjectFeedViewController: UserStreamListener {
+    func didChangeUser(_ user: User) {
+        guard let avatarUrl = user.avatarUrl else {
+            setAnonymousUserImage()
+            return
+        }
+        avatarImageView?.sd_setImage(with: avatarUrl, completed: nil)
     }
 }
