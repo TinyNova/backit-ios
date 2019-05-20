@@ -64,6 +64,9 @@ class ProjectFeedViewController: UIViewController {
         super.viewDidLoad()
         
         tabBarItem = UITabBarItem.tabBarItem(using: "home")
+
+        
+
         provider.loadProjects()
     }
     

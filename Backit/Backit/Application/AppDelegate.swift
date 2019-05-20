@@ -23,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         startNewRelic()
         _ = assembly.container.resolve(Mixpanel.self)!
 
+        // TODO: Display semi-transparent navigation bar
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barStyle = .black
+        UINavigationBar.appearance().tintColor = UIColor.fromHex(0xffffff)
+        UINavigationBar.appearance().barTintColor = UIColor.fromHex(0x130a33)
+
 //        UIFont.displayAllAvailableFonts()
 
         return true
