@@ -242,10 +242,13 @@
                 <outlet property="separatorView" destination="AOg-67-m3R" id="vOd-00-DgV"/>
                 <outlet property="shareImage" destination="Q9T-Xg-ydu" id="3R1-ST-EiQ"/>
                 <outlet property="shareLabel" destination="KeZ-I7-SCX" id="Rsz-v7-r1C"/>
+                <outlet property="shareView" destination="56I-XJ-3Yx" id="IXq-uT-plF"/>
                 <outlet property="totalCommentsImage" destination="1Xd-bO-p0h" id="YSq-SH-CeA"/>
-                <outlet property="totalCommentsLabel" destination="LxJ-x0-LwY" id="MCg-vU-aAz"/>
+                <outlet property="totalCommentsLabel" destination="LxJ-x0-LwY" id="1yy-nl-3JG"/>
+                <outlet property="totalCommentsView" destination="gmC-j3-8WY" id="5cl-Ne-ly8"/>
                 <outlet property="totalVotesImage" destination="mXN-6k-dJG" id="FRY-T2-r0q"/>
                 <outlet property="totalVotesLabel" destination="Q3Y-Ev-vFs" id="0J5-Kt-RKl"/>
+                <outlet property="totalVotesView" destination="qDY-VN-L8n" id="fxu-7E-dpC"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="17.075892857142858"/>
         </view>

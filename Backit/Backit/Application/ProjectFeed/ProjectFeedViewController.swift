@@ -64,16 +64,19 @@ class ProjectFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Tab Bar Button
+        // Tab bar button
         tabBarItem = UITabBarItem.tabBarItem(using: "home")
+        tabBarItem.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         
-        // Right Navigation Buttons
+        // Right navigation buttons
         let searchButton = makeSearchButton()
         // TODO: Update the avatar when the user logs in
         let avatarButton = makeAvatarButton()
         navigationItem.rightBarButtonItems = [avatarButton, searchButton]
         
-        // TODO: Left Navigation Buttons
+        // Left navigation buttons
+        let backitButton = makeBackitLogoButton()
+        navigationItem.leftBarButtonItems = [backitButton]
         
         provider.loadProjects()
     }
@@ -86,6 +89,10 @@ class ProjectFeedViewController: UIViewController {
     
     @objc private func didTapAvatar(_ sender: Any) {
         print("did tap avatar")
+    }
+    
+    @objc private func didTapLogo(_ sender: Any) {
+        print("did tap logo")
     }
     
     // MARK: Private functions
@@ -106,14 +113,19 @@ class ProjectFeedViewController: UIViewController {
     }
     
     private func makeSearchButton() -> UIBarButtonItem {
-        let searchImage = UIImage(named: "search")?.sd_tintedImage(with: UIColor.fromHex(0x5f637b))?.fittedImage(to: 24.0)
+        let searchImage = UIImage(named: "search")?
+            .fittedImage(to: 24.0)?
+            .sd_tintedImage(with: UIColor.fromHex(0x5f637b))
+        
         let searchButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(didTapSearch))
         searchButton.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
         return searchButton
     }
     
     private func makeAvatarButton() -> UIBarButtonItem {
-        let avatarImage = UIImage(named: "empty-profile")?.sd_tintedImage(with: UIColor.white)?.fittedImage(to: 30.0)
+        let avatarImage = UIImage(named: "empty-profile")?
+            .fittedImage(to: 30.0)?
+            .sd_tintedImage(with: UIColor.white)
         
         let avatarImageView = UIImageView(image: avatarImage)
         avatarImageView.layer.cornerRadius = 4.0
@@ -123,6 +135,13 @@ class ProjectFeedViewController: UIViewController {
         self.avatarImageView = avatarImageView
         
         return UIBarButtonItem(customView: avatarImageView)
+    }
+    
+    private func makeBackitLogoButton() -> UIBarButtonItem {
+        let image = UIImage(named: "backit-logo")?
+            .fittedImage(to: 40.0)?
+            .sd_tintedImage(with: UIColor.white)
+        return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didTapLogo))
     }
 }
 

@@ -9,82 +9,100 @@ protocol ProjectTableViewCellDelegate: class {
 
 class ProjectTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var favoriteImageView: UIImageView!
+    @IBOutlet private weak var favoriteImageView: UIImageView!
     
-    @IBOutlet weak var imagePagerView: ImagePagerView!
+    @IBOutlet private weak var imagePagerView: ImagePagerView!
     
-    @IBOutlet weak var projectImageCollectionView: ProjectImageCollectionView!
+    @IBOutlet private weak var projectImageCollectionView: ProjectImageCollectionView!
     
-    @IBOutlet weak var projectNameLabel: UILabel! {
+    @IBOutlet private weak var projectNameLabel: UILabel! {
         didSet {
             theme.apply(.feedProjectName, toLabel: projectNameLabel)
         }
     }
     
-    @IBOutlet weak var fundedPercentProgressView: UIProgressView! {
+    @IBOutlet private weak var fundedPercentProgressView: UIProgressView! {
         didSet {
             theme.apply(.fundedPercent, toProgressView: fundedPercentProgressView)
         }
     }
     
-    @IBOutlet weak var percentFundedLabel: UILabel! {
+    @IBOutlet private weak var percentFundedLabel: UILabel! {
         didSet {
             theme.apply(.smallInfoLabel, toLabel: percentFundedLabel)
         }
     }
     
-    @IBOutlet weak var earlyBirdLabel: UILabel! {
+    @IBOutlet private weak var earlyBirdLabel: UILabel! {
         didSet {
             theme.apply(.smallInfoLabel, toLabel: earlyBirdLabel)
         }
     }
     
-    @IBOutlet weak var daysLeftLabel: UILabel! {
+    @IBOutlet private weak var daysLeftLabel: UILabel! {
         didSet {
             theme.apply(.smallInfoLabel, toLabel: daysLeftLabel)
         }
     }
     
-    @IBOutlet weak var separatorView: UIView! {
+    @IBOutlet private weak var separatorView: UIView! {
         didSet {
             theme.apply(.lineSeparator, toView: separatorView)
         }
     }
     
-    @IBOutlet weak var totalVotesImage: UIImageView! {
+    @IBOutlet private weak var totalVotesView: UIView! {
+        didSet {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapUpVote(gesture:)))
+            totalVotesView.addGestureRecognizer(tapGesture)
+        }
+    }
+    @IBOutlet private weak var totalVotesImage: UIImageView! {
         didSet {
             totalVotesImage.tintColor = UIColor.fromHex(0x657786)
         }
     }
-    @IBOutlet weak var totalVotesLabel: UILabel! {
+    @IBOutlet private weak var totalVotesLabel: UILabel! {
         didSet {
             theme.apply(.smallInfoLabel, toLabel: totalVotesLabel)
         }
     }
     
-    @IBOutlet weak var totalCommentsImage: UIImageView! {
+    @IBOutlet private weak var totalCommentsView: UIView! {
+        didSet {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapComments(gesture:)))
+            totalCommentsView.addGestureRecognizer(tapGesture)
+        }
+    }
+    @IBOutlet private weak var totalCommentsImage: UIImageView! {
         didSet {
             totalCommentsImage.tintColor = UIColor.fromHex(0x657786)
         }
     }
-    @IBOutlet weak var totalCommentsLabel: UILabel! {
+    @IBOutlet private weak var totalCommentsLabel: UILabel! {
         didSet {
             theme.apply(.smallInfoLabel, toLabel: totalCommentsLabel)
         }
     }
     
-    @IBOutlet weak var shareImage: UIImageView! {
+    @IBOutlet private weak var shareView: UIView! {
+        didSet {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapShare(gesture:)))
+            shareView.addGestureRecognizer(tapGesture)
+        }
+    }
+    @IBOutlet private weak var shareImage: UIImageView! {
         didSet {
             shareImage.tintColor = UIColor.fromHex(0x657786)
         }
     }
-    @IBOutlet weak var shareLabel: UILabel! {
+    @IBOutlet private weak var shareLabel: UILabel! {
         didSet {
             theme.apply(.smallInfoLabel, toLabel: shareLabel)
         }
     }
     
-    @IBOutlet weak var bottomSpacerView: UIView! {
+    @IBOutlet private weak var bottomSpacerView: UIView! {
         didSet {
             theme.apply(.gutter, toView: bottomSpacerView)
         }
@@ -125,5 +143,19 @@ class ProjectTableViewCell: UITableViewCell {
     
     func configure(with project: FeedProject) {
         self.project = project
+    }
+    
+    // MARK: Private functions
+    
+    @objc private func didTapShare(gesture: UITapGestureRecognizer) {
+        print("did tap share")
+    }
+    
+    @objc private func didTapComments(gesture: UITapGestureRecognizer) {
+        print("did tap comment")
+    }
+    
+    @objc private func didTapUpVote(gesture: UITapGestureRecognizer) {
+        print("did tap up vote")
     }
 }
