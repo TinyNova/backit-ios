@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().tintColor = UIColor.fromHex(0xffffff)
         UINavigationBar.appearance().barTintColor = UIColor.fromHex(0x130a33)
+        UINavigationBar.appearance().shadowImage = UIImage()
 
 //        UIFont.displayAllAvailableFonts()
 
