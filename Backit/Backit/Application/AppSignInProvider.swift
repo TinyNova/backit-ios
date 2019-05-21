@@ -30,14 +30,18 @@ class AppSignInProvider: SignInProvider {
         let promise = Promise<UserSession, SignInProviderError>()
         self.promise = promise
         
-        let storyboard = UIStoryboard(name: "SignInViewController", bundle: Bundle(for: AppSignInProvider.self))
-        guard let vc = storyboard.instantiateInitialViewController() as? SignInViewController else {
+        let storyboard = UIStoryboard(name: "SignIn", bundle: Bundle(for: AppSignInProvider.self))
+        guard let vc = storyboard.instantiateInitialViewController() as? UINavigationController else {
+            promise.failure(.unknown(GenericError()))
+            return promise.future
+        }
+        guard let rootViewController = vc.topViewController as? SignInViewController else {
             promise.failure(.unknown(GenericError()))
             return promise.future
         }
         
-        viewController = vc
-        vc.delegate = self
+        viewController = rootViewController
+        rootViewController.delegate = self
         presenterProvider.present(vc, completion: nil)
         return promise.future
     }
@@ -52,9 +56,9 @@ extension AppSignInProvider: SignInViewControllerDelegate {
     }
     
     func userCancelled() {
-        viewController?.dismiss(animated: true, completion: { [weak self] in
+        viewController?.dismiss(animated: true) { [weak self] in
             self?.promise?.failure(.userCanceledLogin)
             self?.promise = nil
-        })
+        }
     }
 }

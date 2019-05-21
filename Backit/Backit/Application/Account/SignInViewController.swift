@@ -8,14 +8,20 @@ protocol SignInViewControllerDelegate: class {
 
 class SignInViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBOutlet weak var errorLabel: UILabel! {
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var errorLabel: UILabel! {
         didSet {
             errorLabel.isHidden = true
         }
     }
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var forgotPasswordButton: UIButton!
+    @IBOutlet private weak var separatorView: UIView!
+    @IBOutlet private weak var loginWithFacebookButton: UIButton!
+    @IBOutlet private weak var loginWithGoogleButton: UIButton!
+    @IBOutlet private weak var createAccountButton: UIButton!
     
     var accountProvider: AccountProvider?
     
@@ -28,7 +34,9 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelLogin))
+        view.backgroundColor = UIColor.fromHex(0x130a33)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelLogin))
     }
     
     @IBAction func didTapLogin(_ sender: Any) {

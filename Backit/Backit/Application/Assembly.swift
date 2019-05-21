@@ -141,7 +141,8 @@ class Assembly {
             let theme = resolver.resolve(AppTheme.self)!
             let provider = resolver.resolve(ProjectFeedProvider.self)!
             let userStreamer = resolver.resolve(UserStreamer.self)!
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer)
+            let signInProvider = resolver.resolve(SignInProvider.self)!
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer, signInProvider: signInProvider)
         }
         
         container.storyboardInitCompleted(ChangelogViewController.self) { (resolver, controller) in

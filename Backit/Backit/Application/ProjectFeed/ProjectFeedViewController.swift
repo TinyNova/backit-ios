@@ -49,15 +49,17 @@ class ProjectFeedViewController: UIViewController {
     }
     
     private var provider: ProjectFeedProvider!
+    private var signInProvider: SignInProvider!
     
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
     private weak var avatarImageView: UIImageView?
     
-    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider, userStreamer: UserStreamer) {
+    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider) {
         self.provider = provider
         self.provider.client = self
         userStreamer.listen(self)
+        self.signInProvider = signInProvider
     }
     
     private let i18n = Localization<Appl10n>()
@@ -79,7 +81,7 @@ class ProjectFeedViewController: UIViewController {
         let backitButton = makeBackitLogoButton()
         navigationItem.leftBarButtonItems = [backitButton]
         
-        provider.loadProjects()
+//        provider.loadProjects()
     }
     
     // MARK: Actions
@@ -89,7 +91,13 @@ class ProjectFeedViewController: UIViewController {
     }
     
     @objc private func didTapAvatar(_ sender: Any) {
-        print("did tap avatar")
+        signInProvider.login()
+            .onSuccess { (userSession) in
+                // TODO: Do something
+            }
+            .onFailure { (error) in
+                // TODO: Do something?
+            }
     }
     
     @objc private func didTapLogo(_ sender: Any) {
