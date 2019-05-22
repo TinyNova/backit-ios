@@ -15,8 +15,8 @@ class ProjectFeedErrorView: UIView {
     
     weak var delegate: ProjectFeedErrorViewDelegate?
     
-    let theme: UIThemeApplier<AppTheme> = AppTheme.default
     let i18n = Localization<Appl10n>()
+    let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

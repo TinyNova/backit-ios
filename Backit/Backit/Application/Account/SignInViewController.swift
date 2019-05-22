@@ -9,8 +9,16 @@ protocol SignInViewControllerDelegate: class {
 class SignInViewController: UIViewController {
     
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var emailTextField: UITextField!
-    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var emailTextField: TextEntryField! {
+        didSet {
+            emailTextField.configure(title: "Username", isSecure: false)
+        }
+    }
+    @IBOutlet private weak var passwordTextField: TextEntryField! {
+        didSet {
+            passwordTextField.configure(title: "Password", isSecure: true)
+        }
+    }
     @IBOutlet private weak var errorLabel: UILabel! {
         didSet {
             errorLabel.isHidden = true

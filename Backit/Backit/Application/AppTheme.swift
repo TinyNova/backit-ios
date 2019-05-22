@@ -37,6 +37,7 @@ class AppTheme: UIStyle {
         case error
         case feedProjectName
         case smallInfoLabel
+        case title
     }
     
     enum TableViewStyle {
@@ -44,7 +45,9 @@ class AppTheme: UIStyle {
     }
     
     enum TextFieldStyle {
-        case none
+        // Module: UI
+        case normal
+        case password
     }
     
     enum TextViewStyle {
@@ -68,6 +71,10 @@ private class FontCache {
         return UIFont(name: "AcuminPro-Semibold", size: 22.0)!
     }()
 
+    lazy var bold22: UIFont = {
+        return UIFont(name: "AcuminPro-Bold", size: 22.0)!
+    }()
+    
     lazy var regular12: UIFont = {
         return UIFont(name: "AcuminPro-Regular", size: 12.0)!
     }()
@@ -96,6 +103,9 @@ extension AppTheme: UITheme {
             case .smallInfoLabel:
                 label.font = FontCache.default.regular12
                 label.textColor = UIColor.fromHex(0x6b6c7e)
+            case .title:
+                label.font = FontCache.default.bold22
+                label.textColor = UIColor.fromHex(0xffffff)
             }
         }
     }
@@ -115,6 +125,22 @@ extension AppTheme: UITheme {
     }
     
     func apply(_ styles: [TextFieldStyle], toTextField textField: UITextField) {
+        styles.forEach { (style) in
+            switch style {
+            case .normal:
+                textField.textColor = UIColor.fromHex(0xffffff)
+                textField.font = FontCache.default.regular22
+                textField.backgroundColor = UIColor.fromHex(0x241a50)
+                textField.borderStyle = .none
+            case .password:
+                textField.textColor = UIColor.fromHex(0xffffff)
+                textField.font = FontCache.default.regular22
+                textField.backgroundColor = UIColor.fromHex(0x241a50)
+                textField.borderStyle = .none
+                textField.isSecureTextEntry = true
+                // Add `eye` icon?
+            }
+        }
     }
     
     func apply(_ styles: [TextViewStyle], toTextView textView: UITextView) {

@@ -22,6 +22,8 @@
 		0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325521D4375F009D1912 /* LaunchScreen.storyboard */; };
 		072510CF2283B0C300C02645 /* AppPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072510CE2283B0C300C02645 /* AppPresenterProvider.swift */; };
 		072510D22283B12100C02645 /* PresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072510D12283B12100C02645 /* PresenterProvider.swift */; };
+		072BB8762294BCC800265854 /* TextEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072BB8752294BCC800265854 /* TextEntryField.swift */; };
+		072BB8782294BCEC00265854 /* TextEntryField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072BB8772294BCEC00265854 /* TextEntryField.xib */; };
 		0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391A22089B3E0034291C /* AnalyticsService.swift */; };
 		0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */; };
 		0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391F22089CD80034291C /* BIAnalyticsEvent.swift */; };
@@ -143,6 +145,8 @@
 		0722325821D43760009D1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		072510CE2283B0C300C02645 /* AppPresenterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresenterProvider.swift; sourceTree = "<group>"; };
 		072510D12283B12100C02645 /* PresenterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProvider.swift; sourceTree = "<group>"; };
+		072BB8752294BCC800265854 /* TextEntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryField.swift; sourceTree = "<group>"; };
+		072BB8772294BCEC00265854 /* TextEntryField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEntryField.xib; sourceTree = "<group>"; };
 		0732391A22089B3E0034291C /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelAnalyticsListener.swift; sourceTree = "<group>"; };
 		0732391F22089CD80034291C /* BIAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIAnalyticsEvent.swift; sourceTree = "<group>"; };
@@ -336,9 +340,19 @@
 		072510D02283B10B00C02645 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				072BB8742294BCB400265854 /* TextEntryField */,
 				072510D12283B12100C02645 /* PresenterProvider.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		072BB8742294BCB400265854 /* TextEntryField */ = {
+			isa = PBXGroup;
+			children = (
+				072BB8752294BCC800265854 /* TextEntryField.swift */,
+				072BB8772294BCEC00265854 /* TextEntryField.xib */,
+			);
+			path = TextEntryField;
 			sourceTree = "<group>";
 		};
 		0732391922089AE30034291C /* Analytics */ = {
@@ -746,6 +760,7 @@
 				B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
 				B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */,
+				072BB8782294BCEC00265854 /* TextEntryField.xib in Resources */,
 				0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */,
 				0722325421D4375F009D1912 /* Assets.xcassets in Resources */,
 				0754B6682200CAD600E2DECD /* Localizable.strings in Resources */,
@@ -902,6 +917,7 @@
 				B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
 				0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */,
+				072BB8762294BCC800265854 /* TextEntryField.swift in Sources */,
 				077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */,
 				07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */,
 				0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */,
