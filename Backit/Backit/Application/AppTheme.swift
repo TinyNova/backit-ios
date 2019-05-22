@@ -47,7 +47,6 @@ class AppTheme: UIStyle {
     enum TextFieldStyle {
         // Module: UI
         case normal
-        case password
     }
     
     enum TextViewStyle {
@@ -132,13 +131,6 @@ extension AppTheme: UITheme {
                 textField.font = FontCache.default.regular22
                 textField.backgroundColor = UIColor.fromHex(0x241a50)
                 textField.borderStyle = .none
-            case .password:
-                textField.textColor = UIColor.fromHex(0xffffff)
-                textField.font = FontCache.default.regular22
-                textField.backgroundColor = UIColor.fromHex(0x241a50)
-                textField.borderStyle = .none
-                textField.isSecureTextEntry = true
-                // Add `eye` icon?
             }
         }
     }

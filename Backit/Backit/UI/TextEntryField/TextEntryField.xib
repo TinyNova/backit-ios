@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5n-gP-lPM">
-                    <rect key="frame" x="20" y="29" width="374" height="30"/>
+                    <rect key="frame" x="20" y="37" width="374" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -37,7 +37,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="CnT-zx-bgf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="33.5" id="7kC-Lj-PPW"/>
-                <constraint firstItem="U5n-gP-lPM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CP4-Lu-6qo"/>
+                <constraint firstItem="U5n-gP-lPM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="8" id="CP4-Lu-6qo"/>
                 <constraint firstItem="U5n-gP-lPM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="OYO-Rx-xkJ"/>
                 <constraint firstItem="CnT-zx-bgf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="bm4-ay-p8K"/>
                 <constraint firstAttribute="trailing" secondItem="U5n-gP-lPM" secondAttribute="trailing" constant="20" id="byg-uR-hWk"/>

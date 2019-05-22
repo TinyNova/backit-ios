@@ -2,7 +2,9 @@
  * Provides a common way to retrieve customer user input.
  *
  * Required view configuration in xib:
- *  - Set `Clips to Bounds` to `true`
+ * - Set background to `Default` (?)
+ *
+ * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
 import Foundation
@@ -11,6 +13,7 @@ import UIKit
 class TextEntryField: UIView {
     
     @IBOutlet weak var titleLabelTopConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             theme.apply(.title, toLabel: titleLabel)
@@ -32,7 +35,7 @@ class TextEntryField: UIView {
     let i18n = Localization<Appl10n>()
     let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
-    private var height: CGFloat = 50.0
+    private var labelIsSmall = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -60,37 +63,51 @@ class TextEntryField: UIView {
         
         // FIXME: This constraint may need to be set in layout pass when we know the height of the view.
 //        height = view.frame.size.height
-        titleLabelTopConstraint.constant = ceil(height / CGFloat(2.0))
+        titleLabelTopConstraint.constant = ceil(50.0 / CGFloat(2.0))
     }
 }
 
 extension TextEntryField: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard !labelIsSmall else {
+            return true
+        }
+
+        labelIsSmall = true
         layoutIfNeeded()
         
-        let scaleTransform = titleLabel.transform.scaledBy(x: 0.5, y: 0.50)
-        let frame = titleLabel.frame
-        var scaleFrame = frame
-        scaleFrame.size.width *= 0.5
-        scaleFrame.size.height *= 0.5
-        scaleFrame.origin.x = frame.size.width * 0.5 * 0.5
-        scaleFrame.origin.y = frame.size.height * 0.5 * 0.5
-        
-        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+        var scaleTransform = titleLabel.transform.scaledBy(x: 0.5, y: 0.5)
+        scaleTransform = scaleTransform.translatedBy(x: -50.0, y: -8.0)
+
+        UIView.animate(withDuration: 0.2) { [weak self] in
             guard let sself = self else {
                 return
             }
 
-            sself.titleLabel.transform = scaleTransform
-            sself.titleLabel.frame = scaleFrame
-//            finalFrame = sself.titleLabel.frame
-            
-            sself.titleLabelTopConstraint.constant = ceil(sself.height * CGFloat(0.1))
+            sself.titleLabel.transform = scaleTransform            
+            sself.titleLabelTopConstraint.constant = ceil(50.0 * CGFloat(0.1))
             sself.layoutIfNeeded()
-        }) { [weak self] _ in
-            self?.titleLabel.frame = scaleFrame
         }
         
         return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard labelIsSmall && textField.text?.count == 0 else {
+            return
+        }
+
+        labelIsSmall = false
+        layoutIfNeeded()
+
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            guard let sself = self else {
+                return
+            }
+
+            sself.titleLabel.transform = CGAffineTransform.identity
+            sself.titleLabelTopConstraint.constant = ceil(50.0 / CGFloat(2.0))
+            sself.layoutIfNeeded()
+        }
     }
 }
