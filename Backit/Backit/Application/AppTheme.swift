@@ -24,7 +24,7 @@ class AppTheme: UIStyle {
     }
     
     enum ButtonStyle {
-        case none
+        case text
     }
     
     enum ImageStyle {

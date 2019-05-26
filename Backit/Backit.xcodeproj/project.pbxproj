@@ -104,6 +104,8 @@
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
 		B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C52285B72000C06087 /* ProjectImageCell.xib */; };
 		B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */; };
+		B905785F229A574600AD09C6 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905785E229A574600AD09C6 /* TextButton.swift */; };
+		B9057861229A575400AD09C6 /* TextButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9057860229A575400AD09C6 /* TextButton.xib */; };
 		B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */; };
 		B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */; };
 		B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */; };
@@ -234,6 +236,8 @@
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
 		B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageAnimatedCell.xib; sourceTree = "<group>"; };
+		B905785E229A574600AD09C6 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
+		B9057860229A575400AD09C6 /* TextButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextButton.xib; sourceTree = "<group>"; };
 		B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Regular.otf"; sourceTree = "<group>"; };
 		B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
 		B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
@@ -344,7 +348,10 @@
 		072510D02283B10B00C02645 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B905785C229A56EB00AD09C6 /* FooterButton */,
 				07F666BF2298C12500FBE6F7 /* PrimaryButton */,
+				B905785B229A56D400AD09C6 /* SecondaryButton */,
+				B905785D229A572100AD09C6 /* TextButton */,
 				072BB8742294BCB400265854 /* TextEntryField */,
 				072510D12283B12100C02645 /* PresenterProvider.swift */,
 			);
@@ -665,6 +672,29 @@
 			path = ImageCarousel;
 			sourceTree = "<group>";
 		};
+		B905785B229A56D400AD09C6 /* SecondaryButton */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SecondaryButton;
+			sourceTree = "<group>";
+		};
+		B905785C229A56EB00AD09C6 /* FooterButton */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FooterButton;
+			sourceTree = "<group>";
+		};
+		B905785D229A572100AD09C6 /* TextButton */ = {
+			isa = PBXGroup;
+			children = (
+				B905785E229A574600AD09C6 /* TextButton.swift */,
+				B9057860229A575400AD09C6 /* TextButton.xib */,
+			);
+			path = TextButton;
+			sourceTree = "<group>";
+		};
 		B9F827A22287D55D009D6220 /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,6 +802,7 @@
 				0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */,
 				078BCA952253B032003A03CA /* ProjectFeed.storyboard in Resources */,
 				B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */,
+				B9057861229A575400AD09C6 /* TextButton.xib in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
 				B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */,
 				072BB8782294BCEC00265854 /* TextEntryField.xib in Resources */,
@@ -968,6 +999,7 @@
 				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
 				07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */,
 				075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */,
+				B905785F229A574600AD09C6 /* TextButton.swift in Sources */,
 				07C9BD58227897A800E41F1D /* AccountService.swift in Sources */,
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
 				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,

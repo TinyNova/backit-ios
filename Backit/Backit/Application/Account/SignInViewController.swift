@@ -29,15 +29,18 @@ class SignInViewController: UIViewController {
             errorLabel.isHidden = true
         }
     }
-    
-    
+
     @IBOutlet weak var loginButton: PrimaryButton! {
         didSet {
             loginButton.title = i18n.t(.continue).uppercased()
         }
     }
     
-    @IBOutlet private weak var forgotPasswordButton: UIButton!
+    @IBOutlet private weak var forgotPasswordButton: TextButton! {
+        didSet {
+            forgotPasswordButton.title = i18n.t(.forgotYourPassword)
+        }
+    }
     @IBOutlet private weak var separatorView: UIView!
     @IBOutlet private weak var loginWithFacebookButton: UIButton!
     @IBOutlet private weak var loginWithGoogleButton: UIButton!
@@ -61,14 +64,18 @@ class SignInViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelLogin))
     }
     
+    @objc private func cancelLogin(_ sender: Any) {
+        delegate?.userCancelled()
+    }
+
     @IBAction func didTapLogin(_ sender: Any) {
         guard let email = emailTextField.text,
             let password = passwordTextField.text else {
-            errorLabel.isHidden = false
-            errorLabel.text = "Please enter your email and password."
-            return
+                errorLabel.isHidden = false
+                errorLabel.text = "Please enter your email and password."
+                return
         }
-        
+
         accountProvider?.login(email: email, password: password)
             .onSuccess { [weak delegate] (userSession) in
                 delegate?.didLogin(userSession: userSession)
@@ -76,10 +83,10 @@ class SignInViewController: UIViewController {
             .onFailure { [weak errorLabel] error in
                 errorLabel?.isHidden = false
                 errorLabel?.text = "\(error)"
-            }
+        }
     }
-    
-    @objc private func cancelLogin(_ sender: Any) {
-        delegate?.userCancelled()
+
+    @IBAction func didTapForgotPassword(_ sender: Any) {
+        print("did tap forgot password")
     }
 }

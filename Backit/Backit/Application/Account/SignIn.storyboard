@@ -84,10 +84,16 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="keu-rL-tW9"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="didTapLogin:" destination="Y2U-vV-I7j" eventType="touchUpInside" id="3Nk-i7-OGi"/>
+                                        </connections>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBq-dN-8fY">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBq-dN-8fY" customClass="TextButton" customModule="Backit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="424" width="374" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="didTapForgotPassword:" destination="Y2U-vV-I7j" eventType="touchUpInside" id="dZO-D6-hz2"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAY-pi-olG">
                                         <rect key="frame" x="0.0" y="482" width="374" height="1"/>
@@ -129,7 +135,7 @@
                         <outlet property="createAccountButton" destination="age-hV-rCl" id="mdg-7t-mEj"/>
                         <outlet property="emailTextField" destination="iuk-kM-3Oi" id="JSY-aT-6Kb"/>
                         <outlet property="errorLabel" destination="EYs-bt-eml" id="Xol-Kg-UcD"/>
-                        <outlet property="forgotPasswordButton" destination="EBq-dN-8fY" id="dk4-PM-bFL"/>
+                        <outlet property="forgotPasswordButton" destination="EBq-dN-8fY" id="OAu-MN-BzZ"/>
                         <outlet property="loginButton" destination="3Wz-4d-N6e" id="vsp-Gc-kRp"/>
                         <outlet property="loginWithFacebookButton" destination="el9-vy-RN1" id="tUp-j1-Xtq"/>
                         <outlet property="loginWithGoogleButton" destination="1TL-mt-RLd" id="1of-JX-XAj"/>
