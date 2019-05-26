@@ -66,6 +66,8 @@
 		07792B95229B09B80023D56C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07792B94229B09B80023D56C /* CustomButton.swift */; };
 		07792B97229B0C9F0023D56C /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07792B96229B0C9E0023D56C /* SecondaryButton.swift */; };
 		07792B99229B0CA80023D56C /* SecondaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07792B98229B0CA80023D56C /* SecondaryButton.xib */; };
+		07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07792B9A229B3A7B0023D56C /* UnderlineButton.swift */; };
+		07792B9D229B3AA10023D56C /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07792B9C229B3AA10023D56C /* UnderlineButton.xib */; };
 		077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */; };
 		077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */; };
 		077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172D227CE3B1003D5B17 /* UserSession.swift */; };
@@ -197,6 +199,8 @@
 		07792B94229B09B80023D56C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		07792B96229B0C9E0023D56C /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondaryButton.swift; path = Backit/UI/SecondaryButton.swift; sourceTree = SOURCE_ROOT; };
 		07792B98229B0CA80023D56C /* SecondaryButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SecondaryButton.xib; path = Backit/UI/SecondaryButton.xib; sourceTree = SOURCE_ROOT; };
+		07792B9A229B3A7B0023D56C /* UnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlineButton.swift; path = Backit/UI/UnderlineButton.swift; sourceTree = SOURCE_ROOT; };
+		07792B9C229B3AA10023D56C /* UnderlineButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UnderlineButton.xib; path = Backit/UI/UnderlineButton.xib; sourceTree = SOURCE_ROOT; };
 		077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServicePlugin.swift; sourceTree = "<group>"; };
 		077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrightFutures+Upstart.swift"; sourceTree = "<group>"; };
 		077B172D227CE3B1003D5B17 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -354,7 +358,7 @@
 		072510D02283B10B00C02645 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B905785C229A56EB00AD09C6 /* FooterButton */,
+				B905785C229A56EB00AD09C6 /* UnderlineButton */,
 				07F666BF2298C12500FBE6F7 /* PrimaryButton */,
 				B905785B229A56D400AD09C6 /* SecondaryButton */,
 				B905785D229A572100AD09C6 /* TextButton */,
@@ -688,11 +692,13 @@
 			path = SecondaryButton;
 			sourceTree = "<group>";
 		};
-		B905785C229A56EB00AD09C6 /* FooterButton */ = {
+		B905785C229A56EB00AD09C6 /* UnderlineButton */ = {
 			isa = PBXGroup;
 			children = (
+				07792B9A229B3A7B0023D56C /* UnderlineButton.swift */,
+				07792B9C229B3AA10023D56C /* UnderlineButton.xib */,
 			);
-			path = FooterButton;
+			path = UnderlineButton;
 			sourceTree = "<group>";
 		};
 		B905785D229A572100AD09C6 /* TextButton */ = {
@@ -814,6 +820,7 @@
 				B9057861229A575400AD09C6 /* TextButton.xib in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
 				07792B99229B0CA80023D56C /* SecondaryButton.xib in Resources */,
+				07792B9D229B3AA10023D56C /* UnderlineButton.xib in Resources */,
 				B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */,
 				072BB8782294BCEC00265854 /* TextEntryField.xib in Resources */,
 				0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */,
@@ -1008,6 +1015,7 @@
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
 				B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
+				07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */,
 				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
 				07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */,
 				075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */,

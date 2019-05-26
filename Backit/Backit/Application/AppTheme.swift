@@ -41,6 +41,9 @@ class AppTheme: UIStyle {
         case primaryButton
         case secondaryButton
         case textButton
+        case underlineButton
+        case underline
+        case loginHeader
     }
     
     enum TableViewStyle {
@@ -120,6 +123,20 @@ extension AppTheme: UITheme {
                 label.textColor = UIColor.fromHex(0xffffff)
             case .textButton:
                 label.font = FontCache.default.bold16
+                label.textColor = UIColor.fromHex(0xffffff)
+            case .underline:
+                guard let text = label.text else {
+                    return
+                }
+                let range = NSMakeRange(0, text.count)
+                let attrText = NSMutableAttributedString(string: text)
+                attrText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+                label.attributedText = attrText
+            case .underlineButton:
+                label.font = FontCache.default.bold16
+                label.textColor = UIColor.fromHex(0xffffff)
+            case .loginHeader:
+                label.font = FontCache.default.bold22
                 label.textColor = UIColor.fromHex(0xffffff)
             }
         }

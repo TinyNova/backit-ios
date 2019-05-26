@@ -9,12 +9,14 @@ enum Appl10n {
     case comments(amount: Int)
     case funded(amount: Int)
     case loadingProjects
+    case loginToBackit
     case youreUpToDate
     case errorLoadingProjects
     case `continue`
     case forgotYourPassword
     case loginWithFacebook
     case loginWithGoogle
+    case signUpForAccount
 }
 
 extension Appl10n: LocalizationType {
@@ -28,6 +30,8 @@ extension Appl10n: LocalizationType {
             return l(key: "funded", arguments: number(amount))
         case .loadingProjects:
             return l(key: "loadingProjects")
+        case .loginToBackit:
+            return l(key: "loginToBackit")
         case .youreUpToDate:
             return l(key: "youreUpToDate")
         case .errorLoadingProjects:
@@ -40,6 +44,8 @@ extension Appl10n: LocalizationType {
             return l(key: "loginWithFacebook")
         case .loginWithGoogle:
             return l(key: "loginWithGoogle")
+        case .signUpForAccount:
+            return l(key: "signUpForAccount")
         }
     }
 }

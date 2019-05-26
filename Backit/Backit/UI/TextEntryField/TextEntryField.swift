@@ -64,6 +64,16 @@ class TextEntryField: UIView {
         // FIXME: This constraint may need to be set in layout pass when we know the height of the view.
 //        height = view.frame.size.height
         titleLabelTopConstraint.constant = ceil(50.0 / CGFloat(2.0))
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(focusTextField))
+        gestureRecognizers = [gesture]
+    }
+    
+    @objc private func focusTextField(_ sender: Any) {
+        guard !textField.isFirstResponder else {
+            return
+        }
+        textField.becomeFirstResponder()
     }
 }
 

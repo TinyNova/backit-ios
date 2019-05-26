@@ -13,7 +13,13 @@ protocol SignInViewControllerDelegate: class {
 
 class SignInViewController: UIViewController {
     
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text = i18n.t(.loginToBackit)
+            theme.apply(.loginHeader, toLabel: titleLabel)
+        }
+    }
+    
     @IBOutlet private weak var emailTextField: TextEntryField! {
         didSet {
             emailTextField.configure(title: "Username", isSecure: false)
@@ -30,7 +36,7 @@ class SignInViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var loginButton: PrimaryButton! {
+    @IBOutlet private weak var loginButton: PrimaryButton! {
         didSet {
             loginButton.title = i18n.t(.continue).uppercased()
         }
@@ -55,13 +61,19 @@ class SignInViewController: UIViewController {
             loginWithGoogleButton.title = i18n.t(.loginWithGoogle)
         }
     }
-    @IBOutlet private weak var createAccountButton: UIButton!
+    
+    @IBOutlet private weak var createAccountButton: UnderlineButton! {
+        didSet {
+            createAccountButton.title = i18n.t(.signUpForAccount)
+        }
+    }
     
     var accountProvider: AccountProvider?
     
     weak var delegate: SignInViewControllerDelegate?
     
     let i18n = Localization<Appl10n>()
+    let theme: UIThemeApplier<AppTheme> = AppTheme.default
     
     func inject(accountProvider: AccountProvider) {
         self.accountProvider = accountProvider
@@ -98,6 +110,18 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func didTapForgotPassword(_ sender: Any) {
-        print("did tap forgot password")
+        print("forgot password")
+    }
+    
+    @IBAction func didTapFacebookLogin(_ sender: Any) {
+        print("login to facebook")
+    }
+    
+    @IBAction func didTapGoogleLogin(_ sender: Any) {
+        print("login with google")
+    }
+    
+    @IBAction func didTapCreateAccount(_ sender: Any) {
+        print("create account")
     }
 }
