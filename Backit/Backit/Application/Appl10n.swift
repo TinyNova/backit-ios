@@ -13,6 +13,8 @@ enum Appl10n {
     case errorLoadingProjects
     case `continue`
     case forgotYourPassword
+    case loginWithFacebook
+    case loginWithGoogle
 }
 
 extension Appl10n: LocalizationType {
@@ -34,6 +36,10 @@ extension Appl10n: LocalizationType {
             return l(key: "continue")
         case .forgotYourPassword:
             return l(key: "forgotYourPassword")
+        case .loginWithFacebook:
+            return l(key: "loginWithFacebook")
+        case .loginWithGoogle:
+            return l(key: "loginWithGoogle")
         }
     }
 }

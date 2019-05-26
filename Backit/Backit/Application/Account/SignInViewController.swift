@@ -41,9 +41,20 @@ class SignInViewController: UIViewController {
             forgotPasswordButton.title = i18n.t(.forgotYourPassword)
         }
     }
+    
     @IBOutlet private weak var separatorView: UIView!
-    @IBOutlet private weak var loginWithFacebookButton: UIButton!
-    @IBOutlet private weak var loginWithGoogleButton: UIButton!
+    
+    @IBOutlet private weak var loginWithFacebookButton: SecondaryButton! {
+        didSet {
+            loginWithFacebookButton.title = i18n.t(.loginWithFacebook)
+        }
+    }
+    
+    @IBOutlet private weak var loginWithGoogleButton: SecondaryButton! {
+        didSet {
+            loginWithGoogleButton.title = i18n.t(.loginWithGoogle)
+        }
+    }
     @IBOutlet private weak var createAccountButton: UIButton!
     
     var accountProvider: AccountProvider?

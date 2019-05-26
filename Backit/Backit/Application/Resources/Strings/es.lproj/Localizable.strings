@@ -12,3 +12,5 @@
 "errorLoadingProjects" = "An error occured. Tap to get next results.";
 "continue" = "Continue";
 "forgotYourPassword" = "Forgot your password?";
+"loginWithFacebook" = "Log in with Facebook";
+"loginWithGoogle" = "Log in with Google";

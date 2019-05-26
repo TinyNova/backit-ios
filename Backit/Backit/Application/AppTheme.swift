@@ -24,7 +24,7 @@ class AppTheme: UIStyle {
     }
     
     enum ButtonStyle {
-        case text
+        case none
     }
     
     enum ImageStyle {
@@ -40,6 +40,7 @@ class AppTheme: UIStyle {
         case title
         case primaryButton
         case secondaryButton
+        case textButton
     }
     
     enum TableViewStyle {
@@ -72,8 +73,8 @@ private class FontCache {
         return UIFont(name: "AcuminPro-Semibold", size: 22.0)!
     }()
 
-    lazy var bold18: UIFont = {
-        return UIFont(name: "AcuminPro-Bold", size: 18.0)!
+    lazy var bold16: UIFont = {
+        return UIFont(name: "AcuminPro-Bold", size: 16.0)!
     }()
     
     lazy var bold22: UIFont = {
@@ -112,10 +113,14 @@ extension AppTheme: UITheme {
                 label.font = FontCache.default.bold22
                 label.textColor = UIColor.fromHex(0xffffff)
             case .primaryButton:
-                label.font = FontCache.default.bold18
+                label.font = FontCache.default.bold16
                 label.textColor = UIColor.fromHex(0xffffff)
             case .secondaryButton:
-                break
+                label.font = FontCache.default.bold16
+                label.textColor = UIColor.fromHex(0xffffff)
+            case .textButton:
+                label.font = FontCache.default.bold16
+                label.textColor = UIColor.fromHex(0xffffff)
             }
         }
     }

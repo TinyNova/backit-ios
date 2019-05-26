@@ -63,6 +63,9 @@
 		076A8C4F22864BB10075B56C /* TestApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C4E22864BB10075B56C /* TestApplication.swift */; };
 		076A8C5122864BE50075B56C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C5022864BE50075B56C /* Application.swift */; };
 		076A8C5322864C070075B56C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C5222864C070075B56C /* main.swift */; };
+		07792B95229B09B80023D56C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07792B94229B09B80023D56C /* CustomButton.swift */; };
+		07792B97229B0C9F0023D56C /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07792B96229B0C9E0023D56C /* SecondaryButton.swift */; };
+		07792B99229B0CA80023D56C /* SecondaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07792B98229B0CA80023D56C /* SecondaryButton.xib */; };
 		077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */; };
 		077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */; };
 		077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172D227CE3B1003D5B17 /* UserSession.swift */; };
@@ -191,6 +194,9 @@
 		076A8C4E22864BB10075B56C /* TestApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApplication.swift; sourceTree = "<group>"; };
 		076A8C5022864BE50075B56C /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		076A8C5222864C070075B56C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		07792B94229B09B80023D56C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		07792B96229B0C9E0023D56C /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondaryButton.swift; path = Backit/UI/SecondaryButton.swift; sourceTree = SOURCE_ROOT; };
+		07792B98229B0CA80023D56C /* SecondaryButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SecondaryButton.xib; path = Backit/UI/SecondaryButton.xib; sourceTree = SOURCE_ROOT; };
 		077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServicePlugin.swift; sourceTree = "<group>"; };
 		077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrightFutures+Upstart.swift"; sourceTree = "<group>"; };
 		077B172D227CE3B1003D5B17 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -354,6 +360,7 @@
 				B905785D229A572100AD09C6 /* TextButton */,
 				072BB8742294BCB400265854 /* TextEntryField */,
 				072510D12283B12100C02645 /* PresenterProvider.swift */,
+				07792B94229B09B80023D56C /* CustomButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -675,6 +682,8 @@
 		B905785B229A56D400AD09C6 /* SecondaryButton */ = {
 			isa = PBXGroup;
 			children = (
+				07792B96229B0C9E0023D56C /* SecondaryButton.swift */,
+				07792B98229B0CA80023D56C /* SecondaryButton.xib */,
 			);
 			path = SecondaryButton;
 			sourceTree = "<group>";
@@ -804,6 +813,7 @@
 				B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */,
 				B9057861229A575400AD09C6 /* TextButton.xib in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
+				07792B99229B0CA80023D56C /* SecondaryButton.xib in Resources */,
 				B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */,
 				072BB8782294BCEC00265854 /* TextEntryField.xib in Resources */,
 				0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */,
@@ -937,6 +947,7 @@
 				07F666BE2298C12100FBE6F7 /* PrimaryButton.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
 				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
+				07792B97229B0C9F0023D56C /* SecondaryButton.swift in Sources */,
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
 				0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */,
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
@@ -991,6 +1002,7 @@
 				071B317B22794FAB00DB1561 /* LoginEndpoint.swift in Sources */,
 				076A8C5122864BE50075B56C /* Application.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
+				07792B95229B09B80023D56C /* CustomButton.swift in Sources */,
 				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
 				B9F827A12287D30D009D6220 /* ProjectFeedProviderServer.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,

@@ -6,11 +6,11 @@
 import Foundation
 import UIKit
 
-class TextButton: UIControl, CustomButton {
+class SecondaryButton: UIControl, CustomButton {
     
     @IBOutlet private weak var textLabel: UILabel! {
         didSet {
-            theme.apply(.textButton, toLabel: textLabel)
+            theme.apply(.secondaryButton, toLabel: textLabel)
         }
     }
     
@@ -40,7 +40,9 @@ class TextButton: UIControl, CustomButton {
             return
         }
         
-        view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.fromHex(0x3b5998)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 4.0
         view.superview?.backgroundColor = UIColor.clear
     }
     
