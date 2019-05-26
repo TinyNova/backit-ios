@@ -29,7 +29,14 @@ class SignInViewController: UIViewController {
             errorLabel.isHidden = true
         }
     }
-    @IBOutlet private weak var loginButton: UIButton!
+    
+    
+    @IBOutlet weak var loginButton: PrimaryButton! {
+        didSet {
+            loginButton.title = i18n.t(.continue).uppercased()
+        }
+    }
+    
     @IBOutlet private weak var forgotPasswordButton: UIButton!
     @IBOutlet private weak var separatorView: UIView!
     @IBOutlet private weak var loginWithFacebookButton: UIButton!
@@ -39,6 +46,8 @@ class SignInViewController: UIViewController {
     var accountProvider: AccountProvider?
     
     weak var delegate: SignInViewControllerDelegate?
+    
+    let i18n = Localization<Appl10n>()
     
     func inject(accountProvider: AccountProvider) {
         self.accountProvider = accountProvider

@@ -38,6 +38,8 @@ class AppTheme: UIStyle {
         case feedProjectName
         case smallInfoLabel
         case title
+        case primaryButton
+        case secondaryButton
     }
     
     enum TableViewStyle {
@@ -70,6 +72,10 @@ private class FontCache {
         return UIFont(name: "AcuminPro-Semibold", size: 22.0)!
     }()
 
+    lazy var bold18: UIFont = {
+        return UIFont(name: "AcuminPro-Bold", size: 18.0)!
+    }()
+    
     lazy var bold22: UIFont = {
         return UIFont(name: "AcuminPro-Bold", size: 22.0)!
     }()
@@ -105,6 +111,11 @@ extension AppTheme: UITheme {
             case .title:
                 label.font = FontCache.default.bold22
                 label.textColor = UIColor.fromHex(0xffffff)
+            case .primaryButton:
+                label.font = FontCache.default.bold18
+                label.textColor = UIColor.fromHex(0xffffff)
+            case .secondaryButton:
+                break
             }
         }
     }

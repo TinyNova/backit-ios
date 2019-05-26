@@ -94,6 +94,8 @@
 		07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61F621D6ED4600FE283C /* AppTheme.swift */; };
 		07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61FB21D6EF4800FE283C /* ViewIdentifiable.swift */; };
 		07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */; };
+		07F666BE2298C12100FBE6F7 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F666BD2298C12100FBE6F7 /* PrimaryButton.swift */; };
+		07F666C12298C13500FBE6F7 /* PrimaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07F666C02298C13500FBE6F7 /* PrimaryButton.xib */; };
 		07FBAD35228A39D2009E5189 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD34228A39D2009E5189 /* TabBarController.swift */; };
 		07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */; };
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
@@ -218,6 +220,8 @@
 		07EC61F621D6ED4600FE283C /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		07EC61FB21D6EF4800FE283C /* ViewIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIdentifiable.swift; sourceTree = "<group>"; };
 		07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Backit.swift"; sourceTree = "<group>"; };
+		07F666BD2298C12100FBE6F7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		07F666C02298C13500FBE6F7 /* PrimaryButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrimaryButton.xib; sourceTree = "<group>"; };
 		07FBAD34228A39D2009E5189 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+Backit.swift"; sourceTree = "<group>"; };
 		28641EDF0177674B24965218 /* Pods-BackitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackitTests/Pods-BackitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 		072510D02283B10B00C02645 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				07F666BF2298C12500FBE6F7 /* PrimaryButton */,
 				072BB8742294BCB400265854 /* TextEntryField */,
 				072510D12283B12100C02645 /* PresenterProvider.swift */,
 			);
@@ -617,6 +622,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		07F666BF2298C12500FBE6F7 /* PrimaryButton */ = {
+			isa = PBXGroup;
+			children = (
+				07F666BD2298C12100FBE6F7 /* PrimaryButton.swift */,
+				07F666C02298C13500FBE6F7 /* PrimaryButton.xib */,
+			);
+			path = PrimaryButton;
+			sourceTree = "<group>";
+		};
 		558BEF62525305F3967B7867 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,6 +776,7 @@
 				B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */,
 				072BB8782294BCEC00265854 /* TextEntryField.xib in Resources */,
 				0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */,
+				07F666C12298C13500FBE6F7 /* PrimaryButton.xib in Resources */,
 				0722325421D4375F009D1912 /* Assets.xcassets in Resources */,
 				0754B6682200CAD600E2DECD /* Localizable.strings in Resources */,
 				0722325221D4375C009D1912 /* Main.storyboard in Resources */,
@@ -888,6 +903,7 @@
 				075D4D302211CB6F006EFF37 /* Flags.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
 				077B1732227CE40E003D5B17 /* Errors.swift in Sources */,
+				07F666BE2298C12100FBE6F7 /* PrimaryButton.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
 				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
