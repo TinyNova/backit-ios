@@ -86,8 +86,8 @@ extension TextEntryField: UITextFieldDelegate {
         labelIsSmall = true
         layoutIfNeeded()
         
-        var scaleTransform = titleLabel.transform.scaledBy(x: 0.5, y: 0.5)
-        scaleTransform = scaleTransform.translatedBy(x: -50.0, y: -6.0)
+        var scaleTransform = titleLabel.transform.scaledBy(x: 0.7, y: 0.7)
+        scaleTransform = scaleTransform.translatedBy(x: -22.0, y: -2.0)
 
         UIView.animate(withDuration: 0.2) { [weak self] in
             guard let sself = self else {

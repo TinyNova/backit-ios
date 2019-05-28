@@ -48,7 +48,11 @@ class SignInViewController: UIViewController {
         }
     }
     
-    @IBOutlet private weak var separatorView: UIView!
+    @IBOutlet private weak var separatorView: UIView! {
+        didSet {
+            separatorView.backgroundColor = UIColor.fromHex(0x5f637b)
+        }
+    }
     
     @IBOutlet private weak var loginWithFacebookButton: SecondaryButton! {
         didSet {
@@ -92,8 +96,8 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func didTapLogin(_ sender: Any) {
-        guard let email = emailTextField.text,
-            let password = passwordTextField.text else {
+        guard let email = emailTextField.text, email.count > 0,
+            let password = passwordTextField.text, password.count > 0 else {
                 errorLabel.isHidden = false
                 errorLabel.text = "Please enter your email and password."
                 return

@@ -88,6 +88,10 @@ private class FontCache {
         return UIFont(name: "AcuminPro-Regular", size: 12.0)!
     }()
     
+    lazy var regular18: UIFont = {
+        return UIFont(name: "AcuminPro-Regular", size: 18.0)!
+    }()
+
     lazy var regular22: UIFont = {
         return UIFont(name: "AcuminPro-Regular", size: 22.0)!
     }()
@@ -113,8 +117,8 @@ extension AppTheme: UITheme {
                 label.font = FontCache.default.regular12
                 label.textColor = UIColor.fromHex(0x6b6c7e)
             case .title:
-                label.font = FontCache.default.bold22
-                label.textColor = UIColor.fromHex(0xffffff)
+                label.font = FontCache.default.regular18
+                label.textColor = UIColor.fromHex(0xcdced9)
             case .primaryButton:
                 label.font = FontCache.default.bold16
                 label.textColor = UIColor.fromHex(0xffffff)
