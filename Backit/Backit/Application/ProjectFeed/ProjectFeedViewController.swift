@@ -91,13 +91,12 @@ class ProjectFeedViewController: UIViewController {
     }
     
     @objc private func didTapAvatar(_ sender: Any) {
+        // TODO: If the user is logged in, display the Account Panel
         signInProvider.login()
             .onSuccess { (userSession) in
-                // TODO: Do something
+                // TODO: Do something. Reload the feed for the user?
             }
-            .onFailure { (error) in
-                // TODO: Do something?
-            }
+            // Don't do anything on "failure" (cancel)
     }
     
     @objc private func didTapLogo(_ sender: Any) {

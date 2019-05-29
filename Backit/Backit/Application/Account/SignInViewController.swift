@@ -104,13 +104,22 @@ class SignInViewController: UIViewController {
         }
 
         accountProvider?.login(email: email, password: password)
-            .onSuccess { [weak delegate] (userSession) in
-                delegate?.didLogin(userSession: userSession)
+            .onSuccess { [weak self] (userSession) in
+                self?.delegate?.didLogin(userSession: userSession)
+                self?.dismiss(animated: true, completion: nil)
             }
             .onFailure { [weak errorLabel] error in
+                switch error {
+                case .unknown:
+                    errorLabel?.text = "Something funky is going on! Don't worry, we're on it!"
+                case .validation(let fields):
+                    let errors: [String] = fields.map { (fieldErrors) -> String in
+                        return "\(fieldErrors.key): \(fieldErrors.value.joined(separator: ", "))"
+                    }
+                    errorLabel?.text = errors.joined(separator: "\n")
+                }
                 errorLabel?.isHidden = false
-                errorLabel?.text = "\(error)"
-        }
+            }
     }
 
     @IBAction func didTapForgotPassword(_ sender: Any) {

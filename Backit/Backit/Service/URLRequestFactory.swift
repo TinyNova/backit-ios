@@ -115,7 +115,7 @@ class URLRequestFactory {
             case .json:
                 return encodable.asJson
             case .keyValue:
-                // WARN: Not supported
+                print("WARN: Encoding POST w/ `Encodable` key-value parameters is not yet supported")
                 return nil
             case .data:
                 return nil
@@ -150,16 +150,6 @@ class URLRequestFactory {
         }
     }
 }
-
-/// Already implemented in `Encodable+Backit.swift`
-//extension Encodable {
-//    var asJson: Data? {
-//        if self is [String: Any] || self is [[String: Any]] {
-//            return try? JSONSerialization.data(withJSONObject: self, options: [])
-//        }
-//        return try? JSONEncoder().encode(self)
-//    }
-//}
 
 extension Dictionary where Key == String {
     var asKeyValuePairs: Data? {

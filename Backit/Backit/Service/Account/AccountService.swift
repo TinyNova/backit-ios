@@ -18,10 +18,10 @@ class AccountService: AccountProvider {
     }
     
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError> {
-        let endpoint = LoginEndpoint(postBody: .init(
-            email: email,
-            password: password
-        ))
+        let endpoint = LoginEndpoint(postBody: [
+            .email(email),
+            .password(password)
+        ])
         
         return service.request(endpoint)
             .mapError { (error) -> AccountProviderError in

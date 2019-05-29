@@ -24,10 +24,11 @@ struct LoginEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    struct PostBody: Encodable {
-        let email: String
-        let password: String
+    enum PostParameter {
+        case email(String)
+        case password(String)
     }
+    typealias PostBody = [PostParameter]
     
     var type: ServiceRequestType = .post
     var httpBodyEncodingStrategy: HTTPBodyEncodingStrategy = .keyValue
