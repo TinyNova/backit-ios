@@ -104,6 +104,8 @@
 		07FBAD35228A39D2009E5189 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD34228A39D2009E5189 /* TabBarController.swift */; };
 		07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */; };
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
+		AA30D78722A1CC3C0084D3F3 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */; };
+		AA30D78922A1D2780084D3F3 /* AppKeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */; };
 		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
 		B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */; };
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
@@ -242,6 +244,8 @@
 		7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
+		AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeychainProvider.swift; sourceTree = "<group>"; };
 		B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCollectionView.xib; sourceTree = "<group>"; };
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 				076A8C5022864BE50075B56C /* Application.swift */,
 				0722324A21D4375C009D1912 /* AppDelegate.swift */,
 				0754B66E2200EBA000E2DECD /* Appl10n.swift */,
+				AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */,
 				072510CE2283B0C300C02645 /* AppPresenterProvider.swift */,
 				B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */,
 				07EC61F621D6ED4600FE283C /* AppTheme.swift */,
@@ -422,14 +427,15 @@
 			isa = PBXGroup;
 			children = (
 				071B317622794F0B00DB1561 /* AccountProvider.swift */,
+				AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */,
 				0754B5F321FA589B00E2DECD /* Project.swift */,
 				071B317422794EE600DB1561 /* ProjectProvider.swift */,
 				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
-				071B317822794F3300DB1561 /* User.swift */,
-				077B172D227CE3B1003D5B17 /* UserSession.swift */,
 				B9FB5983227FF94D00A03BDC /* SessionProvider.swift */,
 				077B172F227CE3EB003D5B17 /* SignInProvider.swift */,
+				071B317822794F3300DB1561 /* User.swift */,
 				0700753022937312005B9F28 /* UserProvider.swift */,
+				077B172D227CE3B1003D5B17 /* UserSession.swift */,
 				0785F02022936CCC006AD593 /* UserStreamer.swift */,
 			);
 			path = Domain;
@@ -868,6 +874,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
@@ -877,6 +884,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightFutures.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
@@ -951,6 +959,7 @@
 				075D4D302211CB6F006EFF37 /* Flags.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
 				077B1732227CE40E003D5B17 /* Errors.swift in Sources */,
+				AA30D78922A1D2780084D3F3 /* AppKeychainProvider.swift in Sources */,
 				07F666BE2298C12100FBE6F7 /* PrimaryButton.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
 				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
@@ -984,6 +993,7 @@
 				0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */,
 				072BB8762294BCC800265854 /* TextEntryField.swift in Sources */,
 				077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */,
+				AA30D78722A1CC3C0084D3F3 /* KeychainProvider.swift in Sources */,
 				07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */,
 				0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */,
 				B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */,
@@ -1209,13 +1219,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DSZ2DNDVRK;
+				DEVELOPMENT_TEAM = L2K2M7VFXU;
 				INFOPLIST_FILE = Backit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.backit.Backit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.backer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Backit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1231,13 +1241,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DSZ2DNDVRK;
+				DEVELOPMENT_TEAM = L2K2M7VFXU;
 				INFOPLIST_FILE = Backit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.backit.Backit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.backer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Backit-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

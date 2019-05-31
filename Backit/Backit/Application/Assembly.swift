@@ -29,10 +29,15 @@ class Assembly {
         }
         .inObjectScope(.container)
         
+        container.register(KeychainProvider.self) { _ in
+            return AppKeychainProvider()
+        }
+        
         container.register(SignInProvider.self) { resolver in
+            let keychainProvider = resolver.resolve(KeychainProvider.self)!
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let presenterProvider = resolver.resolve(PresenterProvider.self)!
-            return AppSignInProvider(accountProvider: accountProvider, presenterProvider: presenterProvider)
+            return AppSignInProvider(keychainProvider: keychainProvider, accountProvider: accountProvider, presenterProvider: presenterProvider)
         }
         .inObjectScope(.container)
         
