@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 protocol SignInViewControllerDelegate: class {
-    func didLogin(userSession: UserSession)
+    func didSignIn(credentials: Credentials, userSession: UserSession)
     func userCancelled()
 }
 
@@ -105,7 +105,7 @@ class SignInViewController: UIViewController {
 
         accountProvider?.login(email: email, password: password)
             .onSuccess { [weak self] (userSession) in
-                self?.delegate?.didLogin(userSession: userSession)
+                self?.delegate?.didSignIn(credentials: Credentials(username: email, password: password), userSession: userSession)
                 self?.dismiss(animated: true, completion: nil)
             }
             .onFailure { [weak errorLabel] error in

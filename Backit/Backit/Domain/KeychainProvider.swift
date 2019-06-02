@@ -10,8 +10,13 @@ struct Credentials {
     let password: String
 }
 
+enum KeychainProviderError {
+    case unknown(Error)
+    case credentialsCorrupted
+}
+
 protocol KeychainProvider {
-    func saveCredentials(_ credentials: Credentials, completion: () -> Void)
-    func getCredentials(_ completion: (Credentials?) -> Void)
-    func removeCredentials(_ completion: () -> Void)
+    func saveCredentials(_ credentials: Credentials, completion: @escaping (KeychainProviderError?) -> Void)
+    func getCredentials(_ completion: @escaping (Credentials?, KeychainProviderError?) -> Void)
+    func removeCredentials(_ completion: @escaping (KeychainProviderError?) -> Void)
 }
