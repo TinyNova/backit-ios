@@ -106,6 +106,10 @@
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
 		AA30D78722A1CC3C0084D3F3 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */; };
 		AA30D78922A1D2780084D3F3 /* AppKeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */; };
+		AA30D78B22A5894F0084D3F3 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA30D78A22A5894F0084D3F3 /* Account.storyboard */; };
+		AA30D78D22A589870084D3F3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78C22A589870084D3F3 /* AccountViewController.swift */; };
+		AA30D78F22A596930084D3F3 /* AvatarTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78E22A596930084D3F3 /* AvatarTabBarItem.swift */; };
+		AA30D79122A596A20084D3F3 /* AvatarTabBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */; };
 		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
 		B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */; };
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
@@ -246,6 +250,10 @@
 		8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
 		AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeychainProvider.swift; sourceTree = "<group>"; };
+		AA30D78A22A5894F0084D3F3 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		AA30D78C22A589870084D3F3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		AA30D78E22A596930084D3F3 /* AvatarTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarTabBarItem.swift; sourceTree = "<group>"; };
+		AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarTabBarItem.xib; sourceTree = "<group>"; };
 		B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCollectionView.xib; sourceTree = "<group>"; };
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
@@ -576,6 +584,10 @@
 			children = (
 				0747A42A226560D6006BE39A /* SignIn.storyboard */,
 				0747A42C226560F8006BE39A /* SignInViewController.swift */,
+				AA30D78A22A5894F0084D3F3 /* Account.storyboard */,
+				AA30D78C22A589870084D3F3 /* AccountViewController.swift */,
+				AA30D78E22A596930084D3F3 /* AvatarTabBarItem.swift */,
+				AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -819,9 +831,11 @@
 				B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */,
 				B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */,
 				B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */,
+				AA30D78B22A5894F0084D3F3 /* Account.storyboard in Resources */,
 				B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */,
 				0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */,
 				078BCA952253B032003A03CA /* ProjectFeed.storyboard in Resources */,
+				AA30D79122A596A20084D3F3 /* AvatarTabBarItem.xib in Resources */,
 				B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */,
 				B9057861229A575400AD09C6 /* TextButton.xib in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
@@ -978,6 +992,7 @@
 				077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */,
 				07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
+				AA30D78D22A589870084D3F3 /* AccountViewController.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
 				072510D22283B12100C02645 /* PresenterProvider.swift in Sources */,
@@ -985,6 +1000,7 @@
 				076A8C4D22864BA80075B56C /* TestAppDelegate.swift in Sources */,
 				0700752F22936ED4005B9F28 /* UserStream.swift in Sources */,
 				0700753322937377005B9F28 /* UserService.swift in Sources */,
+				AA30D78F22A596930084D3F3 /* AvatarTabBarItem.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				B9A8E66A228BD520003CF94B /* UIFont+Backit.swift in Sources */,
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
