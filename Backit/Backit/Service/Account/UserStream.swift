@@ -27,7 +27,7 @@ class UserStream: UserStreamer {
         self.user = user
         
         listeners.forEach { (listener) in
-            if let listener = listener as? UserStreamListener {
+            if let listener = listener.value as? UserStreamListener {
                 listener.didChangeUser(user)
             }
         }

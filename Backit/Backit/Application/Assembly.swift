@@ -13,6 +13,10 @@ class Assembly {
     let container: Container = SwinjectStoryboard.defaultContainer
     
     init() {
+        container.register(URLSession.self) { _ in
+            return URLSession(configuration: URLSessionConfiguration.default)
+        }
+        
         container.register(ServiceRequester.self) { _ in
             return AlamofireServiceRequester()
         }
@@ -142,6 +146,12 @@ class Assembly {
             
         }
         
+        container.storyboardInitCompleted(AccountViewController.self) { (resolver, controller) in
+            let urlSession = resolver.resolve(URLSession.self)!
+            let userStreamer = resolver.resolve(UserStreamer.self)!
+            controller.inject(urlSession: urlSession, userStream: userStreamer)
+        }
+
         container.storyboardInitCompleted(ProjectFeedViewController.self) { resolver, controller in
             let theme = resolver.resolve(AppTheme.self)!
             let provider = resolver.resolve(ProjectFeedProvider.self)!

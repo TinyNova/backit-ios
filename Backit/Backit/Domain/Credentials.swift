@@ -5,9 +5,9 @@
 
 import Foundation
 
-struct UserSession {
+struct Credentials: Codable {
     let accountId: String
-    let csrfToken: String
-    let token: String
+    let username: String
+    let password: String
     let refreshToken: String
 }

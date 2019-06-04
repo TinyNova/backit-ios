@@ -8,13 +8,17 @@ private enum Constant {
 
 class AppKeychainProvider: KeychainProvider {
     func saveCredentials(_ credentials: Credentials, completion: @escaping (KeychainProviderError?) -> Void) {
+        guard let encodedCredentials = credentials.asJsonString else {
+            completion(.failedToEncodeCredentials)
+            return
+        }
         let keychain = Keychain(service: Constant.service)
 
         DispatchQueue.global().async {
             do {
                 try keychain
                     .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
-                    .set("\(credentials.username):\(credentials.password)", key: Constant.key)
+                    .set(encodedCredentials, key: Constant.key)
                 completion(nil)
             } catch let error {
                 completion(.unknown(error))
@@ -29,15 +33,17 @@ class AppKeychainProvider: KeychainProvider {
 
         DispatchQueue.global().async {
             do {
-                let credentialsString = try keychain
+                let encodedCredentials = try keychain
                     .authenticationPrompt("Authenticate to login to your account")
                     .get(Constant.key)
 
-                guard let parts = credentialsString?.split(separator: ":"), parts.count == 2 else {
-                    return completion(nil, .credentialsCorrupted)
+                guard let data = encodedCredentials?.data(using: .utf8),
+                      let credentials = try? JSONDecoder().decode(Credentials.self, from: data) else {
+                    completion(nil, .failedToDecodeCredentials)
+                    try keychain.removeAll()
+                    return
                 }
 
-                let credentials = Credentials(username: String(parts[0]), password: String(parts[1]))
                 completion(credentials, nil)
             } catch let error {
                 completion(nil, .unknown(error))

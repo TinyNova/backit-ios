@@ -21,7 +21,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // FIXME: Make sure that no requests are made before NewRelic has a chance to start. This may require requests being deferred until NewRelic starts.
         startNewRelic()
+        
         _ = assembly.container.resolve(Mixpanel.self)!
+        
+        accountProvider = assembly.container.resolve(AccountProvider.self)!
+        let keychainProvider = assembly.container.resolve(KeychainProvider.self)!
+//        keychainProvider.removeCredentials { _ in
+//            
+//        }
+        keychainProvider.getCredentials { [weak self] (credentials, error) in
+            guard let credentials = credentials else {
+                return print("INFO: No credentials. Skipping silent reauthentication")
+            }
+            
+            self?.accountProvider.silentlyReauthenticate(accountId: credentials.accountId, refreshToken: credentials.refreshToken)
+                .onSuccess { (userSession) in
+                    print("INFO: Successfully silently reauthenticated")
+                }
+                .onFailure { (error) in
+                    keychainProvider.removeCredentials { _ in
+                         print("INFO: Removed credentials")
+                    }
+                }
+        }
 
         // TODO: Display semi-transparent navigation bar
         UINavigationBar.appearance().isTranslucent = false

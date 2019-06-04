@@ -105,7 +105,7 @@ class SignInViewController: UIViewController {
 
         accountProvider?.login(email: email, password: password)
             .onSuccess { [weak self] (userSession) in
-                self?.delegate?.didSignIn(credentials: Credentials(username: email, password: password), userSession: userSession)
+                self?.delegate?.didSignIn(credentials: Credentials(accountId: userSession.accountId, username: email, password: password, refreshToken: userSession.refreshToken), userSession: userSession)
                 self?.dismiss(animated: true, completion: nil)
             }
             .onFailure { [weak errorLabel] error in

@@ -21,7 +21,7 @@ class AuthorizationServicePlugin: ServicePlugin {
     
     var key: ServicePluginKey = .authorization
     
-    private var token: String?
+    private var userSession: UserSession?
     
     private let signInProvider: SignInProvider
     private let sessionProvider: SessionProvider
@@ -40,7 +40,7 @@ class AuthorizationServicePlugin: ServicePlugin {
         guard let token = sessionProvider.token else {
             signInProvider.login()
                 .onSuccess { [weak self] (userSession) in
-                    self?.token = userSession.token
+                    self?.userSession = userSession
                     self?.updateRequest(request, with: userSession.token, on: promise)
                 }
                 .onFailure { (error) in
@@ -57,20 +57,39 @@ class AuthorizationServicePlugin: ServicePlugin {
     }
     
     func didReceiveResponse(_ response: ServiceResult) -> Future<ServiceResult, ServicePluginError> {
+        // This is NOT a refresh token issue
         guard let statusCode = response.statusCode, statusCode == 401 else {
             return Future(value: response)
         }
         
         let promise = Promise<ServiceResult, ServicePluginError>()
         
+        // The session expired but we don't have a session!
+        // Attempt to log the user in
+        guard let accountId = userSession?.accountId, let refreshToken = userSession?.refreshToken else {
+            signInProvider.login()
+                .onSuccess { [weak self] (userSession) in
+                    guard let sself = self else {
+                        return promise.failure(.strongSelf)
+                    }
+                    
+                    sself.userSession = userSession
+                    promise.failure(.retryRequest)
+                }
+                .onFailure { (error) in
+                    promise.failure(.failedToLogin)
+                }
+            return promise.future
+        }
+        
         // The user's session has expired. Attempt to silently re-auth.
-        accountProvider.silentlyReauthenticate()
+        accountProvider.silentlyReauthenticate(accountId: accountId, refreshToken: refreshToken)
             .onSuccess { [weak self] (userSession) in
                 guard let sself = self else {
                     return promise.failure(.strongSelf)
                 }
                 
-                sself.token = userSession.token
+                sself.userSession = userSession
                 promise.failure(.retryRequest)
             }
             .onFailure { [weak self] (error) in
@@ -85,7 +104,7 @@ class AuthorizationServicePlugin: ServicePlugin {
                             return promise.failure(.strongSelf)
                         }
                         
-                        sself.token = userSession.token
+                        sself.userSession = userSession
                         promise.failure(.retryRequest)
                     }
                     .onFailure { (error) in
@@ -109,6 +128,6 @@ class AuthorizationServicePlugin: ServicePlugin {
 
 extension AuthorizationServicePlugin: SessionProviderListener {
     func didChangeUserSession(_ userSession: UserSession) {
-        token = userSession.token
+        self.userSession = userSession
     }
 }

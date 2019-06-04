@@ -5,14 +5,11 @@
 
 import Foundation
 
-struct Credentials {
-    let username: String
-    let password: String
-}
-
 enum KeychainProviderError {
     case unknown(Error)
     case credentialsCorrupted
+    case failedToEncodeCredentials
+    case failedToDecodeCredentials
 }
 
 protocol KeychainProvider {

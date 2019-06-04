@@ -14,6 +14,13 @@ extension Encodable {
         return try? JSONEncoder().encode(self)
     }
     
+    var asJsonString: String? {
+        guard let json = asJson else {
+            return nil
+        }
+        return String(data: json, encoding: .utf8)
+    }
+    
     var asDictionary: [String: Any]? {
         // Already a dictionary
         if let dict = self as? [String: Any] {

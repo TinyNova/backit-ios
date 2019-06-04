@@ -140,6 +140,8 @@ class Service {
     }
 }
 
+// MARK: - Request Debug Tools
+
 func prettyPrint(_ data: Data) {
     guard let object = try? JSONSerialization.jsonObject(with: data, options: []),
           let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
@@ -149,4 +151,26 @@ func prettyPrint(_ data: Data) {
     }
     
     print(prettyPrintedString)
+}
+
+enum HTTPBodyDataType {
+    case string
+    case image
+    case data
+}
+
+func printRequest(_ request: URLRequest, encoding: HTTPBodyDataType = .string) {
+    print("\(request.httpMethod?.uppercased() ?? "UK") \(String(describing: request.url))")
+    if let httpBody = request.httpBody {
+        print("Body ----------")
+        switch encoding {
+        case .string:
+            print(String(data: httpBody, encoding: .utf8) ?? "Unknown HTTP Body Encoding")
+        case .image:
+            print("Image data w/ \(httpBody.count) byte(s)")
+        case .data:
+            print("Data w/ \(httpBody.count) byte(s)")
+        }
+        print("Body ----------")
+    }
 }

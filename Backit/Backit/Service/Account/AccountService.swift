@@ -30,11 +30,12 @@ class AccountService: AccountProvider {
             .flatMap { (response) -> Future<UserSession, AccountProviderError> in
                 guard let accountId = response.accountId,
                       let csrfToken = response.csrfToken,
-                      let token = response.token else {
+                      let token = response.token,
+                      let refreshToken = response.refreshToken else {
                     // TODO: Map `validation` errors
                     return Future(error: .validation([:]))
                 }
-                return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token))
+                return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
             .onSuccess { [weak self] (userSession) in
                 self?.sessionProvider.emit(userSession: userSession)
@@ -59,19 +60,41 @@ class AccountService: AccountProvider {
             .flatMap { (response) -> Future<UserSession, AccountProviderError> in
                 guard let accountId = response.accountId,
                       let csrfToken = response.csrfToken,
-                      let token = response.token else {
+                      let token = response.token,
+                      let refreshToken = response.refreshToken else {
                     // TODO: Map `validation` errors
                     return Future(error: .validation([:]))
                 }
-                return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token))
+                return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
             .onSuccess { [weak self] (userSession) in
                 self?.sessionProvider.emit(userSession: userSession)
             }
     }
         
-    func silentlyReauthenticate() -> Future<UserSession, AccountProviderError> {
-        // TODO: Emit signal on SessionProvider
-        return Future(error: .unknown(NotImplementedError()))
+    func silentlyReauthenticate(accountId: String, refreshToken: String) -> Future<UserSession, AccountProviderError> {
+        // FIXME: This endpoint may be called more than once at a time.
+        let endpoint = RefreshTokenEndpoint(postBody: [
+            .accountId(accountId),
+            .refreshToken(refreshToken)
+        ])
+        
+        return service.request(endpoint)
+            .mapError { (error) -> AccountProviderError in
+                return .unknown(error)
+            }
+            .flatMap { (response) -> Future<UserSession, AccountProviderError> in
+                guard let accountId = response.accountId,
+                      let csrfToken = response.csrfToken,
+                      let token = response.token,
+                      let refreshToken = response.refreshToken else {
+                    // TODO: Map `validation` errors
+                    return Future(error: .validation([:]))
+                }
+                return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
+            }
+            .onSuccess { [weak self] (userSession) in
+                self?.sessionProvider.emit(userSession: userSession)
+            }
     }
 }

@@ -3,6 +3,7 @@ import UIKit
 
 class AccountViewController: UITableViewController {
     
+    private var urlSession: URLSession?
     private var userStream: UserStreamer?
     
     required init?(coder aDecoder: NSCoder) {
@@ -11,7 +12,8 @@ class AccountViewController: UITableViewController {
         tabBarItem = UITabBarItem(title: nil, image: emptyProfileImage(), tag: 9999)
     }
     
-    func inject(userStream: UserStreamer) {
+    func inject(urlSession: URLSession, userStream: UserStreamer) {
+        self.urlSession = urlSession
         userStream.listen(self)
     }
     
@@ -22,22 +24,20 @@ class AccountViewController: UITableViewController {
         tabBarItem?.title = nil
     }
     
-    private func avatarImage() -> UIImage? {
-        return nil
-    }
-    
     private func emptyProfileImage() -> UIImage? {
-        guard let image = UIImage(named: "empty-profile")?
+        let image = UIImage(named: "empty-profile")?
             .fittedImage(to: 22.0)?
             .sd_tintedImage(with: UIColor.fromHex(0xffffff))?
-            .withRenderingMode(.alwaysOriginal) else {
-            return nil
-        }
+            .withRenderingMode(.alwaysOriginal)
 
         return ellipticalAvatar(with: image)
     }
     
-    private func ellipticalAvatar(with image: UIImage) -> UIImage? {
+    private func ellipticalAvatar(with image: UIImage?) -> UIImage? {
+        guard let image = image else {
+            return nil
+        }
+        
         let size = CGSize(width: 30, height: 30)
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
@@ -64,6 +64,21 @@ class AccountViewController: UITableViewController {
 
 extension AccountViewController: UserStreamListener {
     func didChangeUser(_ user: User) {
-        // TODO: Update the avatar image in the tab bar icon
+        guard let avatarUrl = user.avatarUrl else {
+            return
+        }
+        
+        urlSession?.dataTask(with: avatarUrl) { [weak self] (data, response, error) in
+            guard error == nil,
+                let data = data,
+                let image = UIImage(data: data),
+                let avatarImage = self?.ellipticalAvatar(with: image) else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.tabBarItem.image = avatarImage
+            }
+        }
     }
 }

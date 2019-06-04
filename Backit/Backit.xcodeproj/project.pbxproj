@@ -110,6 +110,8 @@
 		AA30D78D22A589870084D3F3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78C22A589870084D3F3 /* AccountViewController.swift */; };
 		AA30D78F22A596930084D3F3 /* AvatarTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78E22A596930084D3F3 /* AvatarTabBarItem.swift */; };
 		AA30D79122A596A20084D3F3 /* AvatarTabBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */; };
+		AAE9170422A62A4C00490A30 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170322A62A4C00490A30 /* Credentials.swift */; };
+		AAE9170622A62E5E00490A30 /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */; };
 		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
 		B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */; };
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
@@ -254,6 +256,8 @@
 		AA30D78C22A589870084D3F3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		AA30D78E22A596930084D3F3 /* AvatarTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarTabBarItem.swift; sourceTree = "<group>"; };
 		AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarTabBarItem.xib; sourceTree = "<group>"; };
+		AAE9170322A62A4C00490A30 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
 		B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCollectionView.xib; sourceTree = "<group>"; };
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
@@ -435,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				071B317622794F0B00DB1561 /* AccountProvider.swift */,
+				AAE9170322A62A4C00490A30 /* Credentials.swift */,
 				AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */,
 				0754B5F321FA589B00E2DECD /* Project.swift */,
 				071B317422794EE600DB1561 /* ProjectProvider.swift */,
@@ -563,10 +568,11 @@
 				07C9BD57227897A800E41F1D /* AccountService.swift */,
 				071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */,
 				071B317A22794FAB00DB1561 /* LoginEndpoint.swift */,
-				07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */,
+				AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */,
 				B9FB5985227FF97100A03BDC /* SessionService.swift */,
-				0700752E22936ED4005B9F28 /* UserStream.swift */,
+				07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */,
 				0700753222937377005B9F28 /* UserService.swift */,
+				0700752E22936ED4005B9F28 /* UserStream.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1026,8 +1032,10 @@
 				07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */,
 				0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */,
 				0732392222089D640034291C /* MetricAnalyticsEvent.swift in Sources */,
+				AAE9170622A62E5E00490A30 /* RefreshTokenEndpoint.swift in Sources */,
 				077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */,
 				0754B5F121F625DC00E2DECD /* ProjectService.swift in Sources */,
+				AAE9170422A62A4C00490A30 /* Credentials.swift in Sources */,
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
 				07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */,
 				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
