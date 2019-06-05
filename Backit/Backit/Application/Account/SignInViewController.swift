@@ -110,7 +110,9 @@ class SignInViewController: UIViewController {
             }
             .onFailure { [weak errorLabel] error in
                 switch error {
-                case .unknown:
+                case .unknown,
+                     .failedToDecode,
+                     .service:
                     errorLabel?.text = "Something funky is going on! Don't worry, we're on it!"
                 case .validation(let fields):
                     let errors: [String] = fields.map { (fieldErrors) -> String in

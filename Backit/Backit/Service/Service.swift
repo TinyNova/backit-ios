@@ -82,6 +82,7 @@ class Service {
                     return promise.failure(.strongSelf)
                 }
                 
+//                printRequest(urlRequest)
                 requester.request(urlRequest) { [weak self] (result) in
                     resultPromise = Promise<ServiceResult, ServicePluginError>()
                     resultPromise?.reduce(result, plugins) { (result, plugin) in
@@ -160,17 +161,25 @@ enum HTTPBodyDataType {
 }
 
 func printRequest(_ request: URLRequest, encoding: HTTPBodyDataType = .string) {
-    print("\(request.httpMethod?.uppercased() ?? "UK") \(String(describing: request.url))")
+    guard let url = request.url else {
+        return print("Could not get URL")
+    }
+    print("\(request.httpMethod?.uppercased() ?? "UK") \(url)")
+    if let headers = request.allHTTPHeaderFields {
+        print("Headers:")
+        headers.forEach { (tuple) in
+            print("  \(tuple.key): \(tuple.value)")
+        }
+    }
     if let httpBody = request.httpBody {
-        print("Body ----------")
+        print("Body:")
         switch encoding {
         case .string:
-            print(String(data: httpBody, encoding: .utf8) ?? "Unknown HTTP Body Encoding")
+            print(String(data: httpBody, encoding: .utf8) ?? "  Unknown HTTP Body Encoding")
         case .image:
-            print("Image data w/ \(httpBody.count) byte(s)")
+            print("  Image data w/ \(httpBody.count) byte(s)")
         case .data:
-            print("Data w/ \(httpBody.count) byte(s)")
+            print("  Data w/ \(httpBody.count) byte(s)")
         }
-        print("Body ----------")
     }
 }

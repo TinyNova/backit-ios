@@ -11,12 +11,12 @@ class AccountService: AccountProvider {
     
     private let service: Service
     private let sessionProvider: SessionProvider
-    private let fileUploader: FileUploader
+    private let amazonService: AmazonService
     
-    init(service: Service, sessionProvider: SessionProvider, fileUploader: FileUploader) {
+    init(service: Service, sessionProvider: SessionProvider, amazonService: AmazonService) {
         self.service = service
         self.sessionProvider = sessionProvider
-        self.fileUploader = fileUploader
+        self.amazonService = amazonService
     }
     
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError> {
@@ -106,6 +106,45 @@ class AccountService: AccountProvider {
     }
     
     func uploadAvatar(image: UIImage) -> Future<IgnorableValue, AccountProviderError> {
-        return Future(error: .unknown(GenericError()))
+        let endpoint = UploadAvatarEndpoint()
+        
+        return service.request(endpoint)
+            .mapError { (error) -> AccountProviderError in
+                return .unknown(error)
+            }
+            .flatMap { (response) -> Future<S3UploadFile, AccountProviderError> in
+                if let error = response.error {
+                    return Future(error: .service(error))
+                }
+                guard let bucket = response.bucket,
+                      let acl = response.acl,
+                      let awsKey = response.awsKey,
+                      let key = response.key,
+                      let policy = response.policy,
+                      let signature = response.signature else {
+                        return Future(error: .failedToDecode(type: "UploadAvatarEndpoint.ResponseType"))
+                }
+                
+                let s3file = S3UploadFile(
+                    filename: "avatar-image.png",
+                    bucket: bucket,
+                    acl: acl,
+                    awsKey: awsKey,
+                    key: key,
+                    policy: policy,
+                    signature: signature
+                )
+                return Future(value: s3file)
+            }
+            .flatMap { [amazonService] (s3file) -> Future<IgnorableValue, AccountProviderError> in
+                return amazonService.upload(file: s3file, image: image)
+                    .mapError(AccountProviderError.make(from:))
+            }
+    }
+}
+
+extension AccountProviderError {
+    static func make(from error: AmazonServiceError) -> AccountProviderError {
+        return .unknown(error)
     }
 }

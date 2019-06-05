@@ -45,7 +45,7 @@ class Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(FileUploader.self) { resolver in
+        container.register(AmazonService.self) { resolver in
             return AmazonService()
         }
         
@@ -127,8 +127,8 @@ class Assembly {
         container.register(AccountProvider.self) { resolver in
             let service = resolver.resolve(Service.self)!
             let sessionProvider = resolver.resolve(SessionProvider.self)!
-            let fileUploader = resolver.resolve(FileUploader.self)!
-            return AccountService(service: service, sessionProvider: sessionProvider, fileUploader: fileUploader)
+            let amazoneService = resolver.resolve(AmazonService.self)!
+            return AccountService(service: service, sessionProvider: sessionProvider, amazonService: amazoneService)
         }
         
         container.register(UserProvider.self) { resolver in

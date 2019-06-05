@@ -81,7 +81,9 @@ class AppSignInProvider: SignInProvider {
             }
             .onFailure { [weak self] (error) in
                 switch error {
-                case .unknown:
+                case .unknown,
+                     .failedToDecode,
+                     .service:
                     // TODO: We could potentially retry this request N times before we do this.
                     self?.loginUsingForm(promise: promise, reason: "Something went wrong on our end trying to validate your credentials. Please log in.")
                 case .validation:

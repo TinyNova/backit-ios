@@ -132,13 +132,13 @@ extension AccountViewController {
                 // TODO: Animate change
                 self?.updateTabBar(with: avatarImage)
 
-//                self?.accountProvider?.uploadAvatar(image: image)
-//                    .onSuccess { _ in
-//                        print("Successfully uploaded the avatar")
-//                    }
-//                    .onFailure { (error) in
-//                        print("Failed to upload the avatar: \(String(describing: error))")
-//                    }
+                self?.accountProvider?.uploadAvatar(image: image)
+                    .onSuccess { _ in
+                        print("Successfully uploaded the avatar")
+                    }
+                    .onFailure { (error) in
+                        print("Failed to upload the avatar: \(String(describing: error))")
+                    }
             }
         case 1:
             // `UserStreamListener` will handle the login/logout events.

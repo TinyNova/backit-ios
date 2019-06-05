@@ -19,7 +19,9 @@ typealias AccountValidationMessage = String
 
 enum AccountProviderError: Error {
     case unknown(Error)
+    case service(String)
     case validation([AccountValidationField: [AccountValidationMessage]])
+    case failedToDecode(type: String)
 }
 
 protocol AccountProvider {
