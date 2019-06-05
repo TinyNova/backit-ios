@@ -1,3 +1,4 @@
+import BrightFutures
 import Foundation
 import KeychainAccess
 
@@ -7,11 +8,13 @@ private enum Constant {
 }
 
 class AppKeychainProvider: KeychainProvider {
-    func saveCredentials(_ credentials: Credentials, completion: @escaping (KeychainProviderError?) -> Void) {
+    
+    func saveCredentials(_ credentials: Credentials) -> Future<IgnorableValue, KeychainProviderError> {
         guard let encodedCredentials = credentials.asJsonString else {
-            completion(.failedToEncodeCredentials)
-            return
+            return Future(error: .failedToEncodeCredentials)
         }
+        
+        let promise = Promise<IgnorableValue, KeychainProviderError>()
         let keychain = Keychain(service: Constant.service)
 
         DispatchQueue.global().async {
@@ -19,16 +22,19 @@ class AppKeychainProvider: KeychainProvider {
                 try keychain
                     .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
                     .set(encodedCredentials, key: Constant.key)
-                completion(nil)
+                promise.success(IgnorableValue())
             } catch let error {
-                completion(.unknown(error))
+                promise.failure(.unknown(error))
             }
         }
+        
+        return promise.future
     }
-    
-    func getCredentials(_ completion: @escaping (Credentials?, KeychainProviderError?) -> Void) {
+
+    func getCredentials() -> Future<Credentials, KeychainProviderError> {
         // TODO: Only get credentials if the user is using biometrics
         
+        let promise = Promise<Credentials, KeychainProviderError>()
         let keychain = Keychain(service: Constant.service)
 
         DispatchQueue.global().async {
@@ -39,26 +45,28 @@ class AppKeychainProvider: KeychainProvider {
 
                 guard let data = encodedCredentials?.data(using: .utf8),
                       let credentials = try? JSONDecoder().decode(Credentials.self, from: data) else {
-                    completion(nil, .failedToDecodeCredentials)
+                        promise.failure(.failedToDecodeCredentials)
                     try keychain.removeAll()
                     return
                 }
 
-                completion(credentials, nil)
+                promise.success(credentials)
             } catch let error {
-                completion(nil, .unknown(error))
+                promise.failure(.unknown(error))
             }
         }
+        
+        return promise.future
     }
     
-    func removeCredentials(_ completion: @escaping (KeychainProviderError?) -> Void) {
+    func removeCredentials() -> Future<IgnorableValue, KeychainProviderError> {
         let keychain = Keychain(service: Constant.service)
 
         do {
             try keychain.remove(Constant.key)
-            completion(nil)
+            return Future(value: IgnorableValue())
         } catch let error {
-            completion(.unknown(error))
+            return Future(error: .unknown(error))
         }
     }
 }

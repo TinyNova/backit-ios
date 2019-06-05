@@ -26,24 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         accountProvider = assembly.container.resolve(AccountProvider.self)!
         let keychainProvider = assembly.container.resolve(KeychainProvider.self)!
-//        keychainProvider.removeCredentials { _ in
-//            
-//        }
-        keychainProvider.getCredentials { [weak self] (credentials, error) in
-            guard let credentials = credentials else {
-                return print("INFO: No credentials. Skipping silent reauthentication")
-            }
-            
-            self?.accountProvider.silentlyReauthenticate(accountId: credentials.accountId, refreshToken: credentials.refreshToken)
-                .onSuccess { (userSession) in
-                    print("INFO: Successfully silently reauthenticated")
-                }
-                .onFailure { (error) in
-                    keychainProvider.removeCredentials { _ in
-                         print("INFO: Removed credentials")
+        keychainProvider.getCredentials()
+            .onSuccess { [weak self] credentials in
+                self?.accountProvider.silentlyReauthenticate(accountId: credentials.accountId, refreshToken: credentials.refreshToken)
+                    .onSuccess { (userSession) in
+                        print("INFO: Successfully silently reauthenticated")
                     }
-                }
-        }
+                    .onFailure { (error) in
+                        keychainProvider.removeCredentials().onComplete { _ in
+                             print("INFO: Removed credentials")
+                        }
+                    }
+            }
+            .onFailure { error in
+                return print("INFO: Failed to get credentials. Skipping silent reauthentication")
+            }
 
         // TODO: Display semi-transparent navigation bar
         UINavigationBar.appearance().isTranslucent = false

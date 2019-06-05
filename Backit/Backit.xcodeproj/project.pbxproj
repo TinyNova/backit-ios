@@ -115,8 +115,8 @@
 		AAE9170822A7317C00490A30 /* PhotoAlbumProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */; };
 		AAE9170A22A731AF00490A30 /* AppPhotoAlbumProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170922A731AF00490A30 /* AppPhotoAlbumProvider.swift */; };
 		AAE9170C22A7386100490A30 /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170B22A7386100490A30 /* FileUploader.swift */; };
-		AAE9170E22A738EE00490A30 /* NoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170D22A738EE00490A30 /* NoResult.swift */; };
 		AAE9171122A73F7900490A30 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9171022A73F7900490A30 /* AmazonService.swift */; };
+		AAE9171522A867A600490A30 /* IgnorableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9171422A867A600490A30 /* IgnorableValue.swift */; };
 		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
 		B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */; };
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
@@ -266,8 +266,8 @@
 		AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumProvider.swift; sourceTree = "<group>"; };
 		AAE9170922A731AF00490A30 /* AppPhotoAlbumProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPhotoAlbumProvider.swift; sourceTree = "<group>"; };
 		AAE9170B22A7386100490A30 /* FileUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
-		AAE9170D22A738EE00490A30 /* NoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResult.swift; sourceTree = "<group>"; };
 		AAE9171022A73F7900490A30 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
+		AAE9171422A867A600490A30 /* IgnorableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IgnorableValue.swift; sourceTree = "<group>"; };
 		B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCollectionView.xib; sourceTree = "<group>"; };
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
@@ -453,8 +453,8 @@
 				071B317622794F0B00DB1561 /* AccountProvider.swift */,
 				AAE9170322A62A4C00490A30 /* Credentials.swift */,
 				AAE9170B22A7386100490A30 /* FileUploader.swift */,
+				AAE9171422A867A600490A30 /* IgnorableValue.swift */,
 				AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */,
-				AAE9170D22A738EE00490A30 /* NoResult.swift */,
 				AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */,
 				0754B5F321FA589B00E2DECD /* Project.swift */,
 				071B317422794EE600DB1561 /* ProjectProvider.swift */,
@@ -1060,6 +1060,7 @@
 				076A8C4F22864BB10075B56C /* TestApplication.swift in Sources */,
 				0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */,
 				07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */,
+				AAE9171522A867A600490A30 /* IgnorableValue.swift in Sources */,
 				0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */,
 				0732392222089D640034291C /* MetricAnalyticsEvent.swift in Sources */,
 				AAE9170622A62E5E00490A30 /* RefreshTokenEndpoint.swift in Sources */,
@@ -1081,7 +1082,6 @@
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
 				07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */,
 				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
-				AAE9170E22A738EE00490A30 /* NoResult.swift in Sources */,
 				07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */,
 				075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */,
 				B905785F229A574600AD09C6 /* TextButton.swift in Sources */,

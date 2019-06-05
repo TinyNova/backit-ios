@@ -141,15 +141,12 @@ extension AccountViewController {
 //                    }
             }
         case 1:
+            // `UserStreamListener` will handle the login/logout events.
             if loggedIn {
-                signInProvider?.logout().onSuccess { [weak self] _ in
-                    self?.tableView.reloadData()
-                }
+                _ = signInProvider?.logout()
             }
             else {
-                signInProvider?.login().onSuccess { [weak self] userSession in
-                    self?.tableView.reloadData()
-                }
+                _ = signInProvider?.login()
             }
         default:
             break
@@ -157,6 +154,7 @@ extension AccountViewController {
     }
 }
 
+/// This will get called in the context of logging in.
 extension AccountViewController: UserStreamListener {
     func didChangeUser(_ user: User?) {
         loggedIn = user != nil

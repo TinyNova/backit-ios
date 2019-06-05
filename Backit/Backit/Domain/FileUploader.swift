@@ -7,5 +7,5 @@ enum FileUploaderError: Error {
 }
 
 protocol FileUploader {
-    func upload(image: UIImage) -> Future<NoResult, FileUploaderError>
+    func upload(image: UIImage) -> Future<IgnorableValue, FileUploaderError>
 }

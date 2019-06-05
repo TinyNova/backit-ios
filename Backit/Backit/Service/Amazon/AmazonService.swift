@@ -4,7 +4,7 @@ import UIKit
 
 class AmazonService: FileUploader {
     
-    func upload(image: UIImage) -> Future<NoResult, FileUploaderError> {
+    func upload(image: UIImage) -> Future<IgnorableValue, FileUploaderError> {
         return Future(error: .unknown(GenericError()))
     }
 }

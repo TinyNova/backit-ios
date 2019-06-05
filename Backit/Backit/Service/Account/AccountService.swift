@@ -43,11 +43,7 @@ class AccountService: AccountProvider {
                 self?.sessionProvider.emit(userSession: userSession)
             }
     }
-    
-    func logout() -> Future<NoValue, AccountProviderError> {
-        return Future(error: .unknown(GenericError()))
-    }
-    
+        
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String, lastName: String, subscribe: Bool) -> Future<UserSession, AccountProviderError> {
         let endpoint = CreateAccountEndpoint(postBody: .init(
             email: email,
@@ -104,7 +100,12 @@ class AccountService: AccountProvider {
             }
     }
     
-    func uploadAvatar(image: UIImage) -> Future<NoResult, AccountProviderError> {
+    func logout() -> Future<IgnorableValue, AccountProviderError> {
+        sessionProvider.emit(userSession: nil)
+        return Future(value: IgnorableValue())
+    }
+    
+    func uploadAvatar(image: UIImage) -> Future<IgnorableValue, AccountProviderError> {
         return Future(error: .unknown(GenericError()))
     }
 }

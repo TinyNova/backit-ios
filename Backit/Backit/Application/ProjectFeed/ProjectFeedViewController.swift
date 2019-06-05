@@ -53,7 +53,6 @@ class ProjectFeedViewController: UIViewController {
     
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
-    private weak var avatarImageView: UIImageView?
     
     func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider) {
         self.provider = provider
@@ -73,9 +72,7 @@ class ProjectFeedViewController: UIViewController {
         
         // Right navigation buttons
         let searchButton = makeSearchButton()
-        // TODO: Update the avatar when the user logs in
-        let avatarButton = makeAvatarButton()
-        navigationItem.rightBarButtonItems = [avatarButton, searchButton]
+        navigationItem.rightBarButtonItems = [searchButton]
         
         // Left navigation buttons
         let backitButton = makeBackitLogoButton()
@@ -88,15 +85,6 @@ class ProjectFeedViewController: UIViewController {
     
     @objc private func didTapSearch(_ sender: Any) {
         print("did tap search")
-    }
-    
-    @objc private func didTapAvatar(_ sender: Any) {
-        // TODO: If the user is logged in, display the Account Panel
-        signInProvider.login()
-            .onSuccess { (userSession) in
-                // TODO: Do something. Reload the feed for the user?
-            }
-            // Don't do anything on "failure" (cancel)
     }
     
     @objc private func didTapLogo(_ sender: Any) {
@@ -128,30 +116,6 @@ class ProjectFeedViewController: UIViewController {
         let searchButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(didTapSearch))
         searchButton.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
         return searchButton
-    }
-    
-    private func makeAvatarButton() -> UIBarButtonItem {
-        let avatarImage = UIImage(named: "empty-profile")?
-            .fittedImage(to: 30.0)?
-            .sd_tintedImage(with: UIColor.white)
-        
-        let avatarImageView = UIImageView(image: avatarImage)
-        avatarImageView.layer.cornerRadius = 4.0
-        avatarImageView.clipsToBounds = true
-        avatarImageView.gestureRecognizers = [UITapGestureRecognizer(target: self, action: #selector(didTapAvatar))]
-        self.avatarImageView = avatarImageView
-        setAnonymousUserImage()
-        
-        return UIBarButtonItem(customView: avatarImageView)
-    }
-    
-    private func setAnonymousUserImage() {
-//        let URL(string: "https://s3.amazonaws.com/backit.com/img/test/eric-250.jpg")!
-        let image = UIImage(named: "empty-profile")?
-            .fittedImage(to: 35.0)?
-            .sd_tintedImage(with: UIColor.fromHex(0xffffff))
-        
-        avatarImageView?.image = image
     }
     
     private func makeBackitLogoButton() -> UIBarButtonItem {
@@ -268,10 +232,6 @@ extension ProjectFeedViewController: ProjectFeedErrorViewDelegate {
 
 extension ProjectFeedViewController: UserStreamListener {
     func didChangeUser(_ user: User?) {
-        guard let avatarUrl = user?.avatarUrl else {
-            setAnonymousUserImage()
-            return
-        }
-        avatarImageView?.sd_setImage(with: avatarUrl, completed: nil)
+        // TODO: Query user's preferred projects.
     }
 }

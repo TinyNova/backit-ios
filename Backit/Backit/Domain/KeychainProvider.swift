@@ -3,9 +3,10 @@
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
+import BrightFutures
 import Foundation
 
-enum KeychainProviderError {
+enum KeychainProviderError: Error {
     case unknown(Error)
     case credentialsCorrupted
     case failedToEncodeCredentials
@@ -13,7 +14,7 @@ enum KeychainProviderError {
 }
 
 protocol KeychainProvider {
-    func saveCredentials(_ credentials: Credentials, completion: @escaping (KeychainProviderError?) -> Void)
-    func getCredentials(_ completion: @escaping (Credentials?, KeychainProviderError?) -> Void)
-    func removeCredentials(_ completion: @escaping (KeychainProviderError?) -> Void)
+    func saveCredentials(_ credentials: Credentials) -> Future<IgnorableValue, KeychainProviderError>
+    func getCredentials() -> Future<Credentials, KeychainProviderError>
+    func removeCredentials() -> Future<IgnorableValue, KeychainProviderError>
 }
