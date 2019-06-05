@@ -8,4 +8,5 @@ import UIKit
 
 protocol PresenterProvider {
     func present(_ viewController: UIViewController, completion: (() -> Void)?)
+    func dismiss(_ viewController: UIViewController, completion: (() -> Void)?)
 }

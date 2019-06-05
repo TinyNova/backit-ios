@@ -6,6 +6,7 @@ use_frameworks!
 
 target 'Backit' do
     pod 'Alamofire'
+    pod 'AWSS3'
     pod 'BrightFutures'
     pod 'KeychainAccess'
     pod 'Mixpanel'

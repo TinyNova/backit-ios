@@ -112,6 +112,11 @@
 		AA30D79122A596A20084D3F3 /* AvatarTabBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */; };
 		AAE9170422A62A4C00490A30 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170322A62A4C00490A30 /* Credentials.swift */; };
 		AAE9170622A62E5E00490A30 /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */; };
+		AAE9170822A7317C00490A30 /* PhotoAlbumProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */; };
+		AAE9170A22A731AF00490A30 /* AppPhotoAlbumProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170922A731AF00490A30 /* AppPhotoAlbumProvider.swift */; };
+		AAE9170C22A7386100490A30 /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170B22A7386100490A30 /* FileUploader.swift */; };
+		AAE9170E22A738EE00490A30 /* NoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170D22A738EE00490A30 /* NoResult.swift */; };
+		AAE9171122A73F7900490A30 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9171022A73F7900490A30 /* AmazonService.swift */; };
 		B2C446A8A75801F6C9B32FED /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */; };
 		B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */; };
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
@@ -258,6 +263,11 @@
 		AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarTabBarItem.xib; sourceTree = "<group>"; };
 		AAE9170322A62A4C00490A30 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
+		AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumProvider.swift; sourceTree = "<group>"; };
+		AAE9170922A731AF00490A30 /* AppPhotoAlbumProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPhotoAlbumProvider.swift; sourceTree = "<group>"; };
+		AAE9170B22A7386100490A30 /* FileUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
+		AAE9170D22A738EE00490A30 /* NoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResult.swift; sourceTree = "<group>"; };
+		AAE9171022A73F7900490A30 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
 		B90054C12285B61900C06087 /* ProjectImageCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCollectionView.xib; sourceTree = "<group>"; };
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
@@ -368,6 +378,7 @@
 				0722325521D4375F009D1912 /* LaunchScreen.storyboard */,
 				07FBAD34228A39D2009E5189 /* TabBarController.swift */,
 				07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */,
+				AAE9170922A731AF00490A30 /* AppPhotoAlbumProvider.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -422,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				07C9BD562278979200E41F1D /* Account */,
+				AAE9170F22A73F5900490A30 /* Amazon */,
 				0754B60721FC0FA400E2DECD /* Project */,
 				077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */,
 				0754B5F721FA590600E2DECD /* Service.swift */,
@@ -440,7 +452,10 @@
 			children = (
 				071B317622794F0B00DB1561 /* AccountProvider.swift */,
 				AAE9170322A62A4C00490A30 /* Credentials.swift */,
+				AAE9170B22A7386100490A30 /* FileUploader.swift */,
 				AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */,
+				AAE9170D22A738EE00490A30 /* NoResult.swift */,
+				AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */,
 				0754B5F321FA589B00E2DECD /* Project.swift */,
 				071B317422794EE600DB1561 /* ProjectProvider.swift */,
 				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
@@ -686,6 +701,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AAE9170F22A73F5900490A30 /* Amazon */ = {
+			isa = PBXGroup;
+			children = (
+				AAE9171022A73F7900490A30 /* AmazonService.swift */,
+			);
+			path = Amazon;
+			sourceTree = "<group>";
+		};
 		B077C247AFCEC327BD412C35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -892,6 +915,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
@@ -902,6 +927,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightFutures.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
@@ -980,6 +1007,7 @@
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
 				077B1732227CE40E003D5B17 /* Errors.swift in Sources */,
 				AA30D78922A1D2780084D3F3 /* AppKeychainProvider.swift in Sources */,
+				AAE9170A22A731AF00490A30 /* AppPhotoAlbumProvider.swift in Sources */,
 				07F666BE2298C12100FBE6F7 /* PrimaryButton.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
 				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
@@ -1012,6 +1040,7 @@
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
 				B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
+				AAE9170C22A7386100490A30 /* FileUploader.swift in Sources */,
 				0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */,
 				072BB8762294BCC800265854 /* TextEntryField.swift in Sources */,
 				077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */,
@@ -1021,6 +1050,7 @@
 				B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */,
 				0700753122937312005B9F28 /* UserProvider.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
+				AAE9170822A7317C00490A30 /* PhotoAlbumProvider.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
 				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,
 				077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */,
@@ -1051,6 +1081,7 @@
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
 				07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */,
 				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
+				AAE9170E22A738EE00490A30 /* NoResult.swift in Sources */,
 				07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */,
 				075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */,
 				B905785F229A574600AD09C6 /* TextButton.swift in Sources */,
@@ -1061,6 +1092,7 @@
 				071B317D227953D700DB1561 /* CreateAccountEndpoint.swift in Sources */,
 				071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */,
 				073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */,
+				AAE9171122A73F7900490A30 /* AmazonService.swift in Sources */,
 				071B317722794F0B00DB1561 /* AccountProvider.swift in Sources */,
 				0754B60D21FF32E900E2DECD /* URLRequestFactory.swift in Sources */,
 				0754B5F421FA589B00E2DECD /* Project.swift in Sources */,

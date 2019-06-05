@@ -50,6 +50,16 @@ class AppSignInProvider: SignInProvider {
         return promise.future
     }
     
+    func logout() -> Future<NoValue, SignInProviderError> {
+        keychainProvider.removeCredentials { (error) in
+            // Nothing to do.
+        }
+        return accountProvider.logout()
+            .mapError { (error) -> SignInProviderError in
+                return .unknown(error)
+            }
+    }
+    
     /**
      * Attempt to login the user with the stored credentials.
      *

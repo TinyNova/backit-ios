@@ -13,4 +13,5 @@ enum SignInProviderError: Error {
 
 protocol SignInProvider {
     func login() -> Future<UserSession, SignInProviderError>
+    func logout() -> Future<NoValue, SignInProviderError>
 }

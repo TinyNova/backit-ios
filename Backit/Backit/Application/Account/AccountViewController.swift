@@ -5,15 +5,21 @@ class AccountViewController: UITableViewController {
     
     private var urlSession: URLSession?
     private var userStream: UserStreamer?
+    private var signInProvider: SignInProvider?
+    private var albumProvider: PhotoAlbumProvider?
+    private var accountProvider: AccountProvider?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        tabBarItem = UITabBarItem(title: nil, image: emptyProfileImage(), tag: 9999)
+        updateTabBar(with: emptyProfileImage())
     }
     
-    func inject(urlSession: URLSession, userStream: UserStreamer) {
+    func inject(urlSession: URLSession, userStream: UserStreamer, signInProvider: SignInProvider, albumProvider: PhotoAlbumProvider, accountProvider: AccountProvider) {
         self.urlSession = urlSession
+        self.signInProvider = signInProvider
+        self.albumProvider = albumProvider
+        self.accountProvider = accountProvider
         userStream.listen(self)
     }
     
@@ -22,6 +28,12 @@ class AccountViewController: UITableViewController {
         
         title = "My Account"
         tabBarItem?.title = nil
+    }
+
+    private func updateTabBar(with image: UIImage?) {
+        let item = UITabBarItem(title: nil, image: image, tag: 9999)
+        item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        tabBarItem = item
     }
     
     private func emptyProfileImage() -> UIImage? {
@@ -38,27 +50,94 @@ class AccountViewController: UITableViewController {
             return nil
         }
         
-        let size = CGSize(width: 30, height: 30)
+        let points: CGFloat = 32.0
+        
+        let size = CGSize(width: points, height: points)
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
         
         // Background circle
-        let bgRect = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let bgRect = CGRect(x: 0, y: 0, width: points, height: points)
         context?.setFillColor(UIColor.fromHex(0xa7a9bc).cgColor)
         context?.addEllipse(in: bgRect)
         context?.drawPath(using: .fill)
         
-        // Circle the avatar image to fit inside the background circle
-        let avatarRect = CGRect(x: 4, y: 4, width: 22, height: 22)
-        let bezierPath = UIBezierPath(roundedRect: avatarRect, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 11.0, height: 11.0))
+        // Clip avatar image as circle to fit inside the background circle
+        let avatarRect = CGRect(x: 2, y: 2, width: 28, height: 28)
+        let bezierPath = UIBezierPath(roundedRect: avatarRect, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 14.0, height: 14.0))
         context?.addPath(bezierPath.cgPath)
         context?.clip()
-        context?.drawPath(using: .fillStroke)
-        context?.draw(image.cgImage!, in: avatarRect)
+        image.draw(in: avatarRect)
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage?.withRenderingMode(.alwaysOriginal)
+    }
+}
+
+extension AccountViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "ReuseIdentifier") {
+            configureCell(cell, at: indexPath)
+            return cell
+        }
+        
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "ReuseIdentifier")
+        configureCell(cell, at: indexPath)
+        return cell
+    }
+    
+    private func configureCell(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            cell.textLabel?.text = "Upload a picture"
+        case 1:
+            cell.textLabel?.text = "Sign out"
+        default:
+            break
+        }
+    }
+}
+
+extension AccountViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+        case 0:
+            albumProvider?.requestImage { [weak self] (image, error) in
+                guard let image = image else {
+                    return print("Error: \(String(describing: error))")
+                }
+                guard let avatarImage = self?.ellipticalAvatar(with: image) else {
+                    return print("Failed to create avatar")
+                }
+
+                // TODO: Animate change
+                self?.updateTabBar(with: avatarImage)
+
+//                self?.accountProvider?.uploadAvatar(image: image)
+//                    .onSuccess { _ in
+//                        print("Successfully uploaded the avatar")
+//                    }
+//                    .onFailure { (error) in
+//                        print("Failed to upload the avatar: \(String(describing: error))")
+//                    }
+            }
+        case 1:
+            // TODO: Reload the page and display a 'login'
+            _ = signInProvider?.logout()
+        default:
+            break
+        }
     }
 }
 

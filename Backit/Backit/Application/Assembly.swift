@@ -45,6 +45,10 @@ class Assembly {
         }
         .inObjectScope(.container)
         
+        container.register(FileUploader.self) { resolver in
+            return AmazonService()
+        }
+        
         container.register(PresenterProvider.self) { resolver in
             return AppPresenterProvider()
         }
@@ -123,7 +127,8 @@ class Assembly {
         container.register(AccountProvider.self) { resolver in
             let service = resolver.resolve(Service.self)!
             let sessionProvider = resolver.resolve(SessionProvider.self)!
-            return AccountService(service: service, sessionProvider: sessionProvider)
+            let fileUploader = resolver.resolve(FileUploader.self)!
+            return AccountService(service: service, sessionProvider: sessionProvider, fileUploader: fileUploader)
         }
         
         container.register(UserProvider.self) { resolver in
@@ -134,6 +139,11 @@ class Assembly {
         container.register(ProjectProvider.self) { resolver in
             let service = resolver.resolve(Service.self)!
             return ProjectService(service: service)
+        }
+        
+        container.register(PhotoAlbumProvider.self) { resolver in
+            let presenterProvider = resolver.resolve(PresenterProvider.self)!
+            return AppPhotoAlbumProvider(presenterProvider: presenterProvider)
         }
         
         // MARK: - UIViewController Registration
@@ -149,7 +159,10 @@ class Assembly {
         container.storyboardInitCompleted(AccountViewController.self) { (resolver, controller) in
             let urlSession = resolver.resolve(URLSession.self)!
             let userStreamer = resolver.resolve(UserStreamer.self)!
-            controller.inject(urlSession: urlSession, userStream: userStreamer)
+            let signInProvider = resolver.resolve(SignInProvider.self)!
+            let albumProvider = resolver.resolve(PhotoAlbumProvider.self)!
+            let accountProvider = resolver.resolve(AccountProvider.self)!
+            controller.inject(urlSession: urlSession, userStream: userStreamer, signInProvider: signInProvider, albumProvider: albumProvider, accountProvider: accountProvider)
         }
 
         container.storyboardInitCompleted(ProjectFeedViewController.self) { resolver, controller in

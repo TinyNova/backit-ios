@@ -24,6 +24,8 @@ enum AccountProviderError: Error {
 
 protocol AccountProvider {
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError>
+    func logout() -> Future<NoValue, AccountProviderError>
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String, lastName: String, subscribe: Bool) -> Future<UserSession, AccountProviderError>
     func silentlyReauthenticate(accountId: String, refreshToken: String) -> Future<UserSession, AccountProviderError>
+    func uploadAvatar(image: UIImage) -> Future<NoResult, AccountProviderError>
 }

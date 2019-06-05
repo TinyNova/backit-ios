@@ -11,10 +11,12 @@ class AccountService: AccountProvider {
     
     private let service: Service
     private let sessionProvider: SessionProvider
+    private let fileUploader: FileUploader
     
-    init(service: Service, sessionProvider: SessionProvider) {
+    init(service: Service, sessionProvider: SessionProvider, fileUploader: FileUploader) {
         self.service = service
         self.sessionProvider = sessionProvider
+        self.fileUploader = fileUploader
     }
     
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError> {
@@ -40,6 +42,10 @@ class AccountService: AccountProvider {
             .onSuccess { [weak self] (userSession) in
                 self?.sessionProvider.emit(userSession: userSession)
             }
+    }
+    
+    func logout() -> Future<NoValue, AccountProviderError> {
+        return Future(error: .unknown(GenericError()))
     }
     
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String, lastName: String, subscribe: Bool) -> Future<UserSession, AccountProviderError> {
@@ -96,5 +102,9 @@ class AccountService: AccountProvider {
             .onSuccess { [weak self] (userSession) in
                 self?.sessionProvider.emit(userSession: userSession)
             }
+    }
+    
+    func uploadAvatar(image: UIImage) -> Future<NoResult, AccountProviderError> {
+        return Future(error: .unknown(GenericError()))
     }
 }

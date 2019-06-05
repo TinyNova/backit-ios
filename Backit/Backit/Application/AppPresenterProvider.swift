@@ -15,6 +15,14 @@ class AppPresenterProvider: PresenterProvider {
         
         topViewController.present(viewController, animated: true, completion: completion)
     }
+    
+    func dismiss(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
+        guard let topViewController = viewController.presentingViewController else {
+            return
+        }
+
+        topViewController.dismiss(animated: true, completion: completion)
+    }
 }
 
 private extension UIApplication {
