@@ -9,6 +9,8 @@ class AccountViewController: UITableViewController {
     private var albumProvider: PhotoAlbumProvider?
     private var accountProvider: AccountProvider?
     
+    private var loggedIn: Bool = false
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -32,7 +34,7 @@ class AccountViewController: UITableViewController {
 
     private func updateTabBar(with image: UIImage?) {
         let item = UITabBarItem(title: nil, image: image, tag: 9999)
-        item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         tabBarItem = item
     }
     
@@ -90,7 +92,7 @@ extension AccountViewController {
             return cell
         }
         
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "ReuseIdentifier")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "ReuseIdentifier")
         configureCell(cell, at: indexPath)
         return cell
     }
@@ -99,8 +101,9 @@ extension AccountViewController {
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "Upload a picture"
+            cell.detailTextLabel?.text = loggedIn ? nil : "Sign in to upload your avatar"
         case 1:
-            cell.textLabel?.text = "Sign out"
+            cell.textLabel?.text = loggedIn ? "Sign out" : "Sign In"
         default:
             break
         }
@@ -113,6 +116,11 @@ extension AccountViewController {
         
         switch indexPath.row {
         case 0:
+            guard loggedIn else {
+                print("Error: Can not upload an avatar when logged out")
+                return
+            }
+            
             albumProvider?.requestImage { [weak self] (image, error) in
                 guard let image = image else {
                     return print("Error: \(String(describing: error))")
@@ -133,8 +141,16 @@ extension AccountViewController {
 //                    }
             }
         case 1:
-            // TODO: Reload the page and display a 'login'
-            _ = signInProvider?.logout()
+            if loggedIn {
+                signInProvider?.logout().onSuccess { [weak self] _ in
+                    self?.tableView.reloadData()
+                }
+            }
+            else {
+                signInProvider?.login().onSuccess { [weak self] userSession in
+                    self?.tableView.reloadData()
+                }
+            }
         default:
             break
         }
@@ -142,8 +158,11 @@ extension AccountViewController {
 }
 
 extension AccountViewController: UserStreamListener {
-    func didChangeUser(_ user: User) {
-        guard let avatarUrl = user.avatarUrl else {
+    func didChangeUser(_ user: User?) {
+        loggedIn = user != nil
+        tableView.reloadData()
+        
+        guard let avatarUrl = user?.avatarUrl else {
             return
         }
         

@@ -267,8 +267,8 @@ extension ProjectFeedViewController: ProjectFeedErrorViewDelegate {
 }
 
 extension ProjectFeedViewController: UserStreamListener {
-    func didChangeUser(_ user: User) {
-        guard let avatarUrl = user.avatarUrl else {
+    func didChangeUser(_ user: User?) {
+        guard let avatarUrl = user?.avatarUrl else {
             setAnonymousUserImage()
             return
         }

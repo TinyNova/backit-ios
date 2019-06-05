@@ -40,13 +40,18 @@ class SessionService: SessionProvider {
         }
     }
     
-    func emit(userSession: UserSession) {
+    func emit(userSession: UserSession?) {
         self.userSession = userSession
         
         listeners.forEach { (listener) in
             if let listener = listener as? SessionProviderListener {
                 listener.didChangeUserSession(userSession)
             }
+        }
+        
+        guard userSession != nil else {
+            userStreamer.emit(user: nil)
+            return
         }
         
         userProvider.user().onSuccess { [weak self] (user) in

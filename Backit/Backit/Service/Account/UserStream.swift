@@ -23,7 +23,7 @@ class UserStream: UserStreamer {
         }
     }
     
-    func emit(user: User) {
+    func emit(user: User?) {
         self.user = user
         
         listeners.forEach { (listener) in

@@ -13,7 +13,7 @@ enum SessionProviderError: Error {
 }
 
 protocol SessionProviderListener: AnyObject {
-    func didChangeUserSession(_ userSession: UserSession)
+    func didChangeUserSession(_ userSession: UserSession?)
 }
 
 /// TODO: Rename to `UserSessionStreamer`
@@ -30,5 +30,5 @@ protocol SessionProvider {
     /**
      Emit a new `UserSession` to all listeners.
      */
-    func emit(userSession: UserSession)
+    func emit(userSession: UserSession?)
 }
