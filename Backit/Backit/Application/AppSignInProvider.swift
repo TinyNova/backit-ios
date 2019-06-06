@@ -41,7 +41,7 @@ class AppSignInProvider: SignInProvider {
                 self?.loginUsingCredentials(credentials, promise: promise)
             }
             .onFailure { [weak self] (error) in
-                // TODO: If the error was because of cancel, then cancel. OR show the login (if the attempt failed).
+                // Challenge user with login form
                 self?.loginUsingForm(promise: promise)
             }
         
@@ -69,7 +69,7 @@ class AppSignInProvider: SignInProvider {
     }
     
     // MARK: Private methods
-        
+    
     /**
      * Attempt to login the user with the stored credentials.
      *

@@ -60,8 +60,8 @@ class AmazonService {
             "Content-Length": "\(httpBody.count)",
         ]
         request.httpBody = httpBody
-        print("INFO: Making request to upload file: \(filename)")
-        urlSession.dataTask(with: request) { (data, response, error) in
+        print("INFO: Making request to upload file: \(filename) to bucket: \(file.bucket)")
+        let task = urlSession.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 promise.failure(.failedToUploadFile(error))
                 return print("ERR: \(error)")
@@ -70,6 +70,7 @@ class AmazonService {
             promise.success(IgnorableValue())
             print("Successfully uploaded file: \(filename)")
         }
+        task.resume()
         
         return promise.future
     }
