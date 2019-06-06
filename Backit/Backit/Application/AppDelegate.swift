@@ -30,7 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .onSuccess { [weak self] credentials in
                 self?.accountProvider.silentlyReauthenticate(accountId: credentials.accountId, refreshToken: credentials.refreshToken)
                     .onSuccess { (userSession) in
-                        print("INFO: Successfully silently reauthenticated")
+                        let updatedCredentials = credentials.updateRefreshToken(userSession.refreshToken)
+                        keychainProvider.saveCredentials(updatedCredentials)
+                            .onSuccess { _ in
+                                print("INFO: Successfully silently reauthenticated")
+                            }
+                            .onFailure { error in
+                                print("ERR: Failed to save credentials \(error)")
+                            }
                     }
                     .onFailure { (error) in
                         keychainProvider.removeCredentials().onComplete { _ in

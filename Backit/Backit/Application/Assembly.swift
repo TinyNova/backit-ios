@@ -46,7 +46,8 @@ class Assembly {
         .inObjectScope(.container)
         
         container.register(AmazonService.self) { resolver in
-            return AmazonService()
+            let urlSession = resolver.resolve(URLSession.self)!
+            return AmazonService(urlSession: urlSession)
         }
         
         container.register(PresenterProvider.self) { resolver in

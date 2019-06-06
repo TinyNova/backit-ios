@@ -10,4 +10,13 @@ struct Credentials: Codable {
     let username: String
     let password: String
     let refreshToken: String
+    
+    func updateRefreshToken(_ newToken: String) -> Credentials {
+        return Credentials(
+            accountId: accountId,
+            username: username,
+            password: password,
+            refreshToken: newToken
+        )
+    }
 }

@@ -68,16 +68,24 @@ class AppSignInProvider: SignInProvider {
             }
     }
     
+    // MARK: Private methods
+        
     /**
      * Attempt to login the user with the stored credentials.
      *
-     * If the process fails because of a networking issue, then the user will be asked to login.
-     * If the process fails because of validation, then credentials will be removed and the user will be asked to login.
+     * If the process is successful, the credentials are updated with the new token.
+     *
+     * If the process fails because of:
+     *  - networking issue, then the user will be asked to login.
+     *  - validation, then credentials will be removed and the user will be asked to login.
      */
     private func loginUsingCredentials(_ credentials: Credentials, promise: Promise<UserSession, SignInProviderError>) {
         accountProvider.login(email: credentials.username, password: credentials.password)
-            .onSuccess { (userSession) in
-                promise.success(userSession)
+            .onSuccess { [weak self] (userSession) in
+                let updatedCredentials = credentials.updateRefreshToken(userSession.refreshToken)
+                self?.keychainProvider.saveCredentials(updatedCredentials).onComplete { _ /* TODO: Ignore Error for now */ in
+                    promise.success(userSession)
+                }
             }
             .onFailure { [weak self] (error) in
                 switch error {

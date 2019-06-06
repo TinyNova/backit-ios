@@ -10,6 +10,7 @@ private enum Constant {
 class AppKeychainProvider: KeychainProvider {
     
     func saveCredentials(_ credentials: Credentials) -> Future<IgnorableValue, KeychainProviderError> {
+        print("INFO: Saving credentials...")
         guard let encodedCredentials = credentials.asJsonString else {
             return Future(error: .failedToEncodeCredentials)
         }
@@ -32,6 +33,7 @@ class AppKeychainProvider: KeychainProvider {
     }
 
     func getCredentials() -> Future<Credentials, KeychainProviderError> {
+        print("INFO: Getting credentials...")
         // TODO: Only get credentials if the user is using biometrics
         
         let promise = Promise<Credentials, KeychainProviderError>()
@@ -60,6 +62,7 @@ class AppKeychainProvider: KeychainProvider {
     }
     
     func removeCredentials() -> Future<IgnorableValue, KeychainProviderError> {
+        print("INFO: Removing credentials...")
         let keychain = Keychain(service: Constant.service)
 
         do {
