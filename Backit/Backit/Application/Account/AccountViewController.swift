@@ -154,7 +154,6 @@ extension AccountViewController {
     }
 }
 
-/// This will get called in the context of logging in.
 extension AccountViewController: UserStreamListener {
     func didChangeUser(_ user: User?) {
         loggedIn = user != nil
