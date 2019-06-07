@@ -14,7 +14,11 @@ enum KeychainProviderError: Error {
 }
 
 protocol KeychainProvider {
+    func saveUserSession(_ userSession: UserSession) -> Future<IgnorableValue, KeychainProviderError>
+    func userSession() -> Future<UserSession, KeychainProviderError>
+
     func saveCredentials(_ credentials: Credentials) -> Future<IgnorableValue, KeychainProviderError>
-    func getCredentials() -> Future<Credentials, KeychainProviderError>
-    func removeCredentials() -> Future<IgnorableValue, KeychainProviderError>
+    func credentials() -> Future<Credentials, KeychainProviderError>
+
+    func removeAll() -> Future<IgnorableValue, KeychainProviderError>
 }

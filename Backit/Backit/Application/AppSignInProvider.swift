@@ -35,7 +35,7 @@ class AppSignInProvider: SignInProvider {
         let promise = Promise<UserSession, SignInProviderError>()
         self.promise = promise
         
-        keychainProvider.getCredentials()
+        keychainProvider.credentials()
             .onSuccess { [weak self] credentials in
                 // Login using credentials from keychain
                 self?.loginUsingCredentials(credentials, promise: promise)
@@ -57,7 +57,7 @@ class AppSignInProvider: SignInProvider {
             accountProvider.logout().mapError { error -> SignInProviderError in
                 return .unknown(error)
             },
-            keychainProvider.removeCredentials().mapError { error -> SignInProviderError in
+            keychainProvider.removeAll().mapError { error -> SignInProviderError in
                 return .unknown(error)
             }
         ]
@@ -82,8 +82,7 @@ class AppSignInProvider: SignInProvider {
     private func loginUsingCredentials(_ credentials: Credentials, promise: Promise<UserSession, SignInProviderError>) {
         accountProvider.login(email: credentials.username, password: credentials.password)
             .onSuccess { [weak self] (userSession) in
-                let updatedCredentials = credentials.updateRefreshToken(userSession.refreshToken)
-                self?.keychainProvider.saveCredentials(updatedCredentials).onComplete { _ /* TODO: Ignore Error for now */ in
+                self?.keychainProvider.saveUserSession(userSession).onComplete { _ /* TODO: Ignore Error for now */ in
                     promise.success(userSession)
                 }
             }
@@ -97,7 +96,7 @@ class AppSignInProvider: SignInProvider {
                 case .validation:
                     // Validation failed. Credentials are most likely out-of-date.
                     // Remove credentials and request that they login.
-                    self?.keychainProvider.removeCredentials().onComplete { _ in /* Ignore error */
+                    self?.keychainProvider.removeAll().onComplete { _ in /* Ignore error */
                         self?.loginUsingForm(promise: promise, reason: "Your credentials have become invalid since you last logged in.")
                     }
                 }
@@ -124,7 +123,12 @@ class AppSignInProvider: SignInProvider {
 
 extension AppSignInProvider: SignInViewControllerDelegate {
     func didSignIn(credentials: Credentials, userSession: UserSession) {
-        keychainProvider.saveCredentials(credentials).onComplete { [weak self] _ /* TODO: Ignore Error for now */ in
+        // FIXME: Only save credentials to the device if the user requested to do so. A new option must be provided that lets us know if credentials should be saved.
+        let futures: [Future<IgnorableValue, KeychainProviderError>] = [
+            keychainProvider.saveUserSession(userSession),
+            keychainProvider.saveCredentials(credentials)
+        ]
+        futures.sequence().onComplete { [weak self] _ in
             self?.promise?.success(userSession)
             self?.viewController?.dismiss(animated: true, completion: nil)
         }

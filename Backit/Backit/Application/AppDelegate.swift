@@ -26,12 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         accountProvider = assembly.container.resolve(AccountProvider.self)!
         let keychainProvider = assembly.container.resolve(KeychainProvider.self)!
-        keychainProvider.getCredentials()
-            .onSuccess { [weak self] credentials in
-                self?.accountProvider.silentlyReauthenticate(accountId: credentials.accountId, refreshToken: credentials.refreshToken)
+        keychainProvider.userSession()
+            .onSuccess { [weak self] userSession in
+                self?.accountProvider.silentlyReauthenticate(accountId: userSession.accountId, refreshToken: userSession.refreshToken)
                     .onSuccess { (userSession) in
-                        let updatedCredentials = credentials.updateRefreshToken(userSession.refreshToken)
-                        keychainProvider.saveCredentials(updatedCredentials)
+                        keychainProvider.saveUserSession(userSession)
                             .onSuccess { _ in
                                 print("INFO: Successfully silently reauthenticated")
                             }
@@ -40,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             }
                     }
                     .onFailure { (error) in
-                        keychainProvider.removeCredentials().onComplete { _ in
+                        keychainProvider.removeAll().onComplete { _ in
                              print("INFO: Removed credentials")
                         }
                     }
