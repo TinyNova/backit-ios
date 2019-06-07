@@ -124,6 +124,7 @@
 		B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */; };
 		B905785F229A574600AD09C6 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905785E229A574600AD09C6 /* TextButton.swift */; };
 		B9057861229A575400AD09C6 /* TextButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9057860229A575400AD09C6 /* TextButton.xib */; };
+		B9A72BF822AB0790006AA239 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A72BF722AB0790006AA239 /* CreateAccountViewController.swift */; };
 		B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */; };
 		B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */; };
 		B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */; };
@@ -274,6 +275,7 @@
 		B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageAnimatedCell.xib; sourceTree = "<group>"; };
 		B905785E229A574600AD09C6 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		B9057860229A575400AD09C6 /* TextButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextButton.xib; sourceTree = "<group>"; };
+		B9A72BF722AB0790006AA239 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Regular.otf"; sourceTree = "<group>"; };
 		B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
 		B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
@@ -603,12 +605,13 @@
 		07E9DD722264D314005DA147 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				0747A42A226560D6006BE39A /* SignIn.storyboard */,
-				0747A42C226560F8006BE39A /* SignInViewController.swift */,
 				AA30D78A22A5894F0084D3F3 /* Account.storyboard */,
 				AA30D78C22A589870084D3F3 /* AccountViewController.swift */,
 				AA30D78E22A596930084D3F3 /* AvatarTabBarItem.swift */,
 				AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */,
+				B9A72BF722AB0790006AA239 /* CreateAccountViewController.swift */,
+				0747A42A226560D6006BE39A /* SignIn.storyboard */,
+				0747A42C226560F8006BE39A /* SignInViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1064,6 +1067,7 @@
 				0754B5F121F625DC00E2DECD /* ProjectService.swift in Sources */,
 				AAE9170422A62A4C00490A30 /* Credentials.swift in Sources */,
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
+				B9A72BF822AB0790006AA239 /* CreateAccountViewController.swift in Sources */,
 				07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */,
 				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
 				07FBAD35228A39D2009E5189 /* TabBarController.swift in Sources */,

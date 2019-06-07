@@ -16,3 +16,13 @@
 "loginWithGoogle" = "Log in with Google";
 "signUpForAccount" = "Sign up for an account";
 "loginToBackit" = "Log in to Backit";
+"createAccount" = "Create account";
+"createAnAccount" = "Create an account";
+"email" = "Email";
+"username" = "Username";
+"password" = "Password";
+
+"byContinuingYouAgree" = "By continuing, you agree to Backit's\nTerms of Service and Privacy Policy";
+// NOTE: These values must match their respective strings in the above string
+"termsOfService" = "Terms of Service";
+"privacyPolicy" = "Privacy Policy";

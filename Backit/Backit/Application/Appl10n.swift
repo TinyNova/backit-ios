@@ -17,6 +17,14 @@ enum Appl10n {
     case loginWithFacebook
     case loginWithGoogle
     case signUpForAccount
+    case createAccount
+    case createAnAccount
+    case email
+    case username
+    case password
+    case byContinuingYouAgree
+    case termsOfService
+    case privacyPolicy
 }
 
 extension Appl10n: LocalizationType {
@@ -46,6 +54,22 @@ extension Appl10n: LocalizationType {
             return l(key: "loginWithGoogle")
         case .signUpForAccount:
             return l(key: "signUpForAccount")
+        case .createAccount:
+            return l(key: "createAccount")
+        case .createAnAccount:
+            return l(key: "createAnAccount")
+        case .email:
+            return l(key: "email")
+        case .username:
+            return l(key: "username")
+        case .password:
+            return l(key: "password")
+        case .byContinuingYouAgree:
+            return l(key: "byContinuingYouAgree")
+        case .termsOfService:
+            return l(key: "termsOfService")
+        case .privacyPolicy:
+            return l(key: "privacyPolicy")
         }
     }
 }

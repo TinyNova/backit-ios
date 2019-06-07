@@ -182,5 +182,10 @@ class Assembly {
             let accountProvider = resolver.resolve(AccountProvider.self)!
             controller.inject(accountProvider: accountProvider)
         }
+
+        container.storyboardInitCompleted(CreateAccountViewController.self) { resolver, controller in
+            let accountProvider = resolver.resolve(AccountProvider.self)!
+            controller.inject(accountProvider: accountProvider)
+        }
     }
 }

@@ -22,12 +22,12 @@ class SignInViewController: UIViewController {
     
     @IBOutlet private weak var emailTextField: TextEntryField! {
         didSet {
-            emailTextField.configure(title: "Username", isSecure: false)
+            emailTextField.configure(title: i18n.t(.username), isSecure: false)
         }
     }
     @IBOutlet private weak var passwordTextField: TextEntryField! {
         didSet {
-            passwordTextField.configure(title: "Password", isSecure: true)
+            passwordTextField.configure(title: i18n.t(.password), isSecure: true)
         }
     }
     @IBOutlet private weak var errorLabel: UILabel! {
@@ -137,6 +137,6 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func didTapCreateAccount(_ sender: Any) {
-        print("create account")
+        performSegue(withIdentifier: "ShowCreateAccount", sender: self)
     }
 }

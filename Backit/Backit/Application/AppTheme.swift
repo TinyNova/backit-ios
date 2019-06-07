@@ -56,7 +56,8 @@ class AppTheme: UIStyle {
     }
     
     enum TextViewStyle {
-        case none
+        case legal
+        case link(needle: String, href: String)
     }
     
     enum ViewStyle {
@@ -171,8 +172,41 @@ extension AppTheme: UITheme {
             }
         }
     }
-    
+
     func apply(_ styles: [TextViewStyle], toTextView textView: UITextView) {
+        styles.forEach { (style) in
+            switch style {
+            case .legal:
+                guard let text = textView.text else {
+                    return
+                }
+
+                textView.backgroundColor = UIColor.clear
+                textView.isEditable = false
+                textView.isScrollEnabled = false
+                textView.dataDetectorTypes = .link
+
+                let attrString = NSMutableAttributedString(string: text)
+                let paragraph = NSMutableParagraphStyle()
+                paragraph.lineSpacing = 8.0
+                paragraph.alignment = .center
+                let fullRange = NSMakeRange(0, text.count)
+                attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraph, range: fullRange)
+                attrString.addAttribute(.font, value: FontCache.default.regular18, range: fullRange)
+                attrString.addAttribute(.foregroundColor, value: UIColor.fromHex(0xffffff), range: fullRange)
+                textView.attributedText = attrString
+            case .link(let needle, let href):
+                guard let text = textView.text, let attrText = textView.attributedText else {
+                    return
+                }
+                let attrString = NSMutableAttributedString(attributedString: attrText)
+                let nsString = NSString(string: text)
+                let range = nsString.range(of: needle)
+                attrString.addAttribute(.link, value: href, range: range)
+                attrString.addAttribute(.foregroundColor, value: UIColor(red: 27.0 / 255.0, green: 150.0 / 255.0, blue: 241.0 / 255.0, alpha: 1.0), range: range)
+                textView.attributedText = attrString
+            }
+        }
     }
     
     func apply(_ styles: [TableViewStyle], toTableView tableView: UITableView) {
