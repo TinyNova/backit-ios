@@ -24,16 +24,17 @@ struct CreateAccountEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    struct PostBody: Encodable {
-        let email: String
-        let userName: String
-        let firstName: String?
-        let lastName: String?
-        let password: String
-        let repeatPassword: String
-        let subscribe: Bool
+    enum PostParameter {
+        case email(String)
+        case userName(String)
+        case firstName(String?)
+        case lastName(String)
+        case password(String)
+        case repeatPassword(String)
+        case subscribe(Bool)
     }
-    
+    typealias PostBody = [PostParameter]
+
     var type: ServiceRequestType = .post
     var httpBodyEncodingStrategy: HTTPBodyEncodingStrategy = .keyValue
     var endpoints: Endpoints = [

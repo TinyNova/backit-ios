@@ -9,8 +9,12 @@ class AccountViewController: UITableViewController {
     private var albumProvider: PhotoAlbumProvider?
     private var accountProvider: AccountProvider?
     
-    private var loggedIn: Bool = false
-    
+    private var user: User?
+
+    private var isLoggedIn: Bool {
+        return user != nil
+    }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -101,9 +105,15 @@ extension AccountViewController {
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "Upload a picture"
-            cell.detailTextLabel?.text = loggedIn ? nil : "Sign in to upload your avatar"
+            cell.detailTextLabel?.text = isLoggedIn ? nil : "Sign in to upload your avatar"
         case 1:
-            cell.textLabel?.text = loggedIn ? "Sign out" : "Sign In"
+            guard let user = user else {
+                cell.textLabel?.text = "Sign In"
+                cell.detailTextLabel?.text = nil
+                return
+            }
+            cell.textLabel?.text = "Sign out"
+            cell.detailTextLabel?.text = "Signed in as \(user.username)"
         default:
             break
         }
@@ -116,7 +126,7 @@ extension AccountViewController {
         
         switch indexPath.row {
         case 0:
-            guard loggedIn else {
+            guard isLoggedIn else {
                 print("Error: Can not upload an avatar when logged out")
                 return
             }
@@ -142,7 +152,7 @@ extension AccountViewController {
             }
         case 1:
             // `UserStreamListener` will handle the login/logout events.
-            if loggedIn {
+            if isLoggedIn {
                 _ = signInProvider?.logout()
             }
             else {
@@ -156,7 +166,7 @@ extension AccountViewController {
 
 extension AccountViewController: UserStreamListener {
     func didChangeUser(_ user: User?) {
-        loggedIn = user != nil
+        self.user = user
         tableView.reloadData()
         
         guard let avatarUrl = user?.avatarUrl else {

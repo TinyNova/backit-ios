@@ -23,30 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         startNewRelic()
         
         _ = assembly.container.resolve(Mixpanel.self)!
-        
+
         accountProvider = assembly.container.resolve(AccountProvider.self)!
-        let keychainProvider = assembly.container.resolve(KeychainProvider.self)!
-        keychainProvider.userSession()
-            .onSuccess { [weak self] userSession in
-                self?.accountProvider.silentlyReauthenticate(accountId: userSession.accountId, refreshToken: userSession.refreshToken)
-                    .onSuccess { (userSession) in
-                        keychainProvider.saveUserSession(userSession)
-                            .onSuccess { _ in
-                                print("INFO: Successfully silently reauthenticated")
-                            }
-                            .onFailure { error in
-                                print("ERR: Failed to save credentials \(error)")
-                            }
-                    }
-                    .onFailure { (error) in
-                        keychainProvider.removeAll().onComplete { _ in
-                             print("INFO: Removed credentials")
-                        }
-                    }
-            }
-            .onFailure { error in
-                return print("INFO: Failed to get credentials. Skipping silent reauthentication")
-            }
+        silentlyLoginUser()
 
         // TODO: Display semi-transparent navigation bar
         UINavigationBar.appearance().isTranslucent = false
@@ -74,7 +53,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
     }
-    
+
+    // MARK: Private methods
+
+    private func silentlyLoginUser() {
+        let keychainProvider = assembly.container.resolve(KeychainProvider.self)!
+        keychainProvider.userSession()
+            .onSuccess { [weak self] userSession in
+                self?.accountProvider.silentlyReauthenticate(accountId: userSession.accountId, refreshToken: userSession.refreshToken)
+                    .onSuccess { (userSession) in
+                        keychainProvider.saveUserSession(userSession)
+                            .onSuccess { _ in
+                                print("INFO: Successfully silently reauthenticated")
+                            }
+                            .onFailure { error in
+                                print("ERR: Failed to save credentials \(error)")
+                            }
+                    }
+                    .onFailure { (error) in
+                        keychainProvider.removeAll().onComplete { _ in
+                            print("INFO: Removed credentials")
+                    }
+                }
+            }
+            .onFailure { error in
+                return print("INFO: Failed to get credentials. Skipping silent reauthentication")
+            }
+    }
+
     // FIXME: Move this into a dependency.
     private func startNewRelic() {
         NewRelic.enableFeatures([

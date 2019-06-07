@@ -45,15 +45,15 @@ class AccountService: AccountProvider {
     }
         
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String, lastName: String, subscribe: Bool) -> Future<UserSession, AccountProviderError> {
-        let endpoint = CreateAccountEndpoint(postBody: .init(
-            email: email,
-            userName: username,
-            firstName: firstName,
-            lastName: lastName,
-            password: password,
-            repeatPassword: repeatPassword,
-            subscribe: subscribe
-        ))
+        let endpoint = CreateAccountEndpoint(postBody: [
+            .email(email),
+            .userName(username),
+            .firstName(firstName),
+            .lastName(lastName),
+            .password(password),
+            .repeatPassword(repeatPassword),
+            .subscribe(subscribe)
+        ])
         
         return service.request(endpoint)
             .mapError { (error) -> AccountProviderError in
