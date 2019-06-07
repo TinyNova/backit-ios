@@ -10,6 +10,14 @@
 import Foundation
 import UIKit
 
+enum TextEntryFieldType {
+    case `default`
+    case email
+    case numeric
+    case phoneNumber
+    case password
+}
+
 class TextEntryField: UIView {
     
     @IBOutlet weak var titleLabelTopConstraint: NSLayoutConstraint!
@@ -46,10 +54,29 @@ class TextEntryField: UIView {
         super.init(frame: frame)
         setup()
     }
-    
-    public func configure(title: String, isSecure: Bool) {
+
+    /**
+     * Configure how the text entry accepts data input.
+     *
+     * This should only be called once.
+     */
+    public func configure(title: String, type: TextEntryFieldType) {
         titleLabel.text = title
-        textField.isSecureTextEntry = isSecure
+
+        switch type {
+        case .default:
+            break
+        case .email:
+            textField.keyboardType = .emailAddress
+            textField.autocapitalizationType = .none
+            textField.autocorrectionType = .no
+        case .phoneNumber:
+            textField.keyboardType = .phonePad
+        case .numeric:
+            textField.keyboardType = .decimalPad
+        case .password:
+            textField.isSecureTextEntry = true
+        }
     }
     
     private func setup() {
@@ -66,7 +93,7 @@ class TextEntryField: UIView {
         titleLabelTopConstraint.constant = ceil(50.0 / CGFloat(2.0))
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(focusTextField))
-        gestureRecognizers = [gesture]
+        view.gestureRecognizers = [gesture]
     }
     
     @objc private func focusTextField(_ sender: Any) {
@@ -78,14 +105,15 @@ class TextEntryField: UIView {
 }
 
 extension TextEntryField: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         guard !labelIsSmall else {
-            return true
+            return
         }
 
         labelIsSmall = true
         layoutIfNeeded()
-        
+
         var scaleTransform = titleLabel.transform.scaledBy(x: 0.7, y: 0.7)
         scaleTransform = scaleTransform.translatedBy(x: -22.0, y: -2.0)
 
@@ -94,12 +122,10 @@ extension TextEntryField: UITextFieldDelegate {
                 return
             }
 
-            sself.titleLabel.transform = scaleTransform            
+            sself.titleLabel.transform = scaleTransform
             sself.titleLabelTopConstraint.constant = ceil(50.0 * CGFloat(0.1))
             sself.layoutIfNeeded()
         }
-        
-        return true
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {

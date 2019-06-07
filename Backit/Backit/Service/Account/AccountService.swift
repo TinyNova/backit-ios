@@ -44,7 +44,7 @@ class AccountService: AccountProvider {
             }
     }
         
-    func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String, lastName: String, subscribe: Bool) -> Future<UserSession, AccountProviderError> {
+    func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError> {
         let endpoint = CreateAccountEndpoint(postBody: [
             .email(email),
             .userName(username),

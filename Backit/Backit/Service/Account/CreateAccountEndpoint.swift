@@ -28,7 +28,7 @@ struct CreateAccountEndpoint: ServiceEndpoint {
         case email(String)
         case userName(String)
         case firstName(String?)
-        case lastName(String)
+        case lastName(String?)
         case password(String)
         case repeatPassword(String)
         case subscribe(Bool)

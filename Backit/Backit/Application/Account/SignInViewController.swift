@@ -22,12 +22,12 @@ class SignInViewController: UIViewController {
     
     @IBOutlet private weak var emailTextField: TextEntryField! {
         didSet {
-            emailTextField.configure(title: i18n.t(.username), isSecure: false)
+            emailTextField.configure(title: i18n.t(.username), type: .email)
         }
     }
     @IBOutlet private weak var passwordTextField: TextEntryField! {
         didSet {
-            passwordTextField.configure(title: i18n.t(.password), isSecure: true)
+            passwordTextField.configure(title: i18n.t(.password), type: .password)
         }
     }
     @IBOutlet private weak var errorLabel: UILabel! {
@@ -137,6 +137,22 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func didTapCreateAccount(_ sender: Any) {
-        performSegue(withIdentifier: "ShowCreateAccount", sender: self)
+        let storyboard = UIStoryboard(name: "CreateAccountViewController", bundle: Bundle(for: SignInViewController.self))
+        guard let vc = storyboard.instantiateInitialViewController() as? CreateAccountViewController else {
+            return
+        }
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension SignInViewController: CreateAccountViewControllerDelegate {
+    func didCreateAccount(credentials: Credentials, userSession: UserSession) {
+        delegate?.didSignIn(credentials: credentials, userSession: userSession)
+        dismiss(animated: true, completion: nil)
+    }
+
+    func userCancelled() {
+
     }
 }

@@ -6,8 +6,15 @@
 import Foundation
 import UIKit
 
+protocol CreateAccountViewControllerDelegate: class {
+    func didCreateAccount(credentials: Credentials, userSession: UserSession)
+    func userCancelled()
+}
+
 class CreateAccountViewController: UIViewController {
-    
+
+    weak var delegate: CreateAccountViewControllerDelegate?
+
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = i18n.t(.createAnAccount)
@@ -16,17 +23,17 @@ class CreateAccountViewController: UIViewController {
     }
     @IBOutlet weak var emailField: TextEntryField! {
         didSet {
-            emailField.configure(title: i18n.t(.email), isSecure: false)
+            emailField.configure(title: i18n.t(.email), type: .email)
         }
     }
     @IBOutlet weak var usernameField: TextEntryField! {
         didSet {
-            usernameField.configure(title: i18n.t(.username), isSecure: false)
+            usernameField.configure(title: i18n.t(.username), type: .default)
         }
     }
     @IBOutlet weak var passwordField: TextEntryField! {
         didSet {
-            passwordField.configure(title: i18n.t(.password), isSecure: true)
+            passwordField.configure(title: i18n.t(.password), type: .password)
         }
     }
     @IBOutlet weak var errorLabel: UILabel! {
@@ -65,7 +72,27 @@ class CreateAccountViewController: UIViewController {
     }
 
     @IBAction func didTapCreateAccount(_ sender: Any) {
-        print("Did tap create account")
+        guard let username = usernameField.text,
+              let email = emailField.text,
+              let password = passwordField.text else {
+            errorLabel.isHidden = false
+            errorLabel.text = "Please enter all fields"
+            return
+        }
+
+        // Validation:
+        // - username `/^[a-zA-Z0-9_-]+$/` 3:20
+
+        errorLabel.isHidden = true
+
+        accountProvider?.createAccount(email: email, username: username, password: password, repeatPassword: password, firstName: nil, lastName: nil, subscribe: false)
+            .onSuccess { [weak self] (userSession: UserSession) in
+                self?.delegate?.didCreateAccount(credentials: Credentials(username: username, password: password), userSession: userSession)
+            }
+            .onFailure { [weak self] (error) in
+                self?.errorLabel.isHidden = false
+                self?.errorLabel.text = error.localizedDescription
+            }
     }
 }
 
