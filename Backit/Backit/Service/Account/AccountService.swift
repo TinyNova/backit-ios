@@ -126,7 +126,6 @@ class AccountService: AccountProvider {
                 }
                 
                 let s3file = S3UploadFile(
-                    filename: "avatar-image",
                     bucket: bucket,
                     acl: acl,
                     awsKey: awsKey,

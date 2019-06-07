@@ -11,8 +11,6 @@ import Foundation
 import UIKit
 
 struct S3UploadFile {
-    // The `filename` should _not_ contain the file extension. The service will add it as it determines how to encode the file (JPEG | PNG | etc.).
-    let filename: String
     let bucket: String
     let acl: String
     let awsKey: String
@@ -25,7 +23,7 @@ enum AmazonServiceError: Error {
     case unknown(Error)
     case failedToCreateRequest
     case failedToConvertImageToJpeg
-    case failedToUploadFile(Error)
+    case failedToUploadFile(statusCode: Int, error: Error?)
 }
 
 class AmazonService {
@@ -49,23 +47,29 @@ class AmazonService {
         let boundary = generateBoundary()
         let httpBody = generateHTTPBody(for: file, data: data, boundary: boundary)
         
-        let filename = "\(file.filename).jpg"
+        let filename = file.key
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = [
             "Content-Type": "multipart/form-data; boundary=\"\(boundary)\"",
-            // TODO: Potentially add a custom User-Agent string so that we can track downloads by platform and app version.
-            "X-Filename": escapedValue(filename),
             "Content-Length": "\(httpBody.count)",
         ]
         request.httpBody = httpBody
         print("INFO: Making request to upload file: \(filename) to bucket: \(file.bucket)")
         let task = urlSession.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                promise.failure(.failedToUploadFile(error))
-                return print("ERR: \(error)")
+            guard let response = response as? HTTPURLResponse else {
+                promise.failure(.failedToUploadFile(statusCode: 0, error: nil))
+                return
             }
+            if let error = error {
+                promise.failure(.failedToUploadFile(statusCode: response.statusCode, error: error))
+                return print("ERR: Failed to upload w/ status code: \(response.statusCode), error: \(error)")
+            }
+            if response.statusCode >= 400 {
+                promise.failure(.failedToUploadFile(statusCode: response.statusCode, error: nil))
+                return print("ERR: Failed to upload w/ status code: \(response.statusCode)")
+            }º
             
             promise.success(IgnorableValue())
             print("Successfully uploaded file: \(filename)")
