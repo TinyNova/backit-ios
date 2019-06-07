@@ -69,7 +69,7 @@ class AmazonService {
             if response.statusCode >= 400 {
                 promise.failure(.failedToUploadFile(statusCode: response.statusCode, error: nil))
                 return print("ERR: Failed to upload w/ status code: \(response.statusCode)")
-            }º
+            }
             
             promise.success(IgnorableValue())
             print("Successfully uploaded file: \(filename)")
