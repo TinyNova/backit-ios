@@ -163,7 +163,7 @@ extension AccountViewController: UserStreamListener {
             return
         }
         
-        urlSession?.dataTask(with: avatarUrl) { [weak self] (data, response, error) in
+        let task = urlSession?.dataTask(with: avatarUrl) { [weak self] (data, response, error) in
             guard error == nil,
                 let data = data,
                 let image = UIImage(data: data),
@@ -175,5 +175,6 @@ extension AccountViewController: UserStreamListener {
                 self?.tabBarItem.image = avatarImage
             }
         }
+        task?.resume()
     }
 }
