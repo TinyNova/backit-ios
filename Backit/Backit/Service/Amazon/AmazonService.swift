@@ -38,7 +38,8 @@ class AmazonService {
         guard let url = URL(string: "https://\(file.bucket).s3.amazonaws.com/") else {
             return Future(error: .failedToCreateRequest)
         }
-        guard let jpegData = image.jpegData(compressionQuality: 1.0) else {
+        guard let smallImage = image.resizedImage(using: CGSize(width: 200.0, height: 200.0)),
+              let jpegData = smallImage.jpegData(compressionQuality: 1.0) else {
             return Future(error: .failedToConvertImageToJpeg)
         }
         
