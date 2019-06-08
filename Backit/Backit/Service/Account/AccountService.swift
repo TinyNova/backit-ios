@@ -73,6 +73,10 @@ class AccountService: AccountProvider {
                 self?.sessionProvider.emit(userSession: userSession)
             }
     }
+
+    func resetPassword(email: String) -> Future<IgnorableValue, AccountProviderError> {
+        return Future(error: .unknown(GenericError()))
+    }
         
     func silentlyReauthenticate(accountId: String, refreshToken: String) -> Future<UserSession, AccountProviderError> {
         // FIXME: This endpoint may be called more than once at a time.

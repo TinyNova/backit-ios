@@ -25,6 +25,9 @@ enum Appl10n {
     case byContinuingYouAgree
     case termsOfService
     case privacyPolicy
+    case mustHaveProvidedEmail
+    case resetPassword
+    case passwordSuccessfullyReset
 }
 
 extension Appl10n: LocalizationType {
@@ -70,6 +73,12 @@ extension Appl10n: LocalizationType {
             return l(key: "termsOfService")
         case .privacyPolicy:
             return l(key: "privacyPolicy")
+        case .mustHaveProvidedEmail:
+            return l(key: "mustHaveProvidedEmail")
+        case .resetPassword:
+            return l(key: "resetPassword")
+        case .passwordSuccessfullyReset:
+            return l(key: "passwordSuccessfullyReset")
         }
     }
 }

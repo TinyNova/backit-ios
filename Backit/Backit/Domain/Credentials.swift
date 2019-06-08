@@ -6,6 +6,6 @@
 import Foundation
 
 struct Credentials: Codable {
-    let username: String
+    let email: String
     let password: String
 }

@@ -56,7 +56,7 @@ class AppTheme: UIStyle {
     }
     
     enum TextViewStyle {
-        case legal
+        case informational
         case link(needle: String, href: String)
     }
     
@@ -176,7 +176,7 @@ extension AppTheme: UITheme {
     func apply(_ styles: [TextViewStyle], toTextView textView: UITextView) {
         styles.forEach { (style) in
             switch style {
-            case .legal:
+            case .informational:
                 guard let text = textView.text else {
                     return
                 }

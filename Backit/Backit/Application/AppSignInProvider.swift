@@ -80,7 +80,7 @@ class AppSignInProvider: SignInProvider {
      *  - validation, then credentials will be removed and the user will be asked to login.
      */
     private func loginUsingCredentials(_ credentials: Credentials, promise: Promise<UserSession, SignInProviderError>) {
-        accountProvider.login(email: credentials.username, password: credentials.password)
+        accountProvider.login(email: credentials.email, password: credentials.password)
             .onSuccess { [weak self] (userSession) in
                 self?.keychainProvider.saveUserSession(userSession).onComplete { _ /* TODO: Ignore Error for now */ in
                     promise.success(userSession)

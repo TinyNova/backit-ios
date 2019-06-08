@@ -28,6 +28,7 @@ protocol AccountProvider {
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError>
     func logout() -> Future<IgnorableValue, AccountProviderError>
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError>
+    func resetPassword(email: String) -> Future<IgnorableValue, AccountProviderError>
     func silentlyReauthenticate(accountId: String, refreshToken: String) -> Future<UserSession, AccountProviderError>
     func uploadAvatar(image: UIImage) -> Future<IgnorableValue, AccountProviderError>
 }

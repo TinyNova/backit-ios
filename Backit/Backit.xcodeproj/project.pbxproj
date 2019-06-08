@@ -125,6 +125,8 @@
 		B905785F229A574600AD09C6 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905785E229A574600AD09C6 /* TextButton.swift */; };
 		B9057861229A575400AD09C6 /* TextButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9057860229A575400AD09C6 /* TextButton.xib */; };
 		B928626E22AB28560093FDAB /* CreateAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B928626D22AB28560093FDAB /* CreateAccountViewController.storyboard */; };
+		B928627022AB32B20093FDAB /* LostPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B928626F22AB32B20093FDAB /* LostPasswordViewController.storyboard */; };
+		B928627222AB32C00093FDAB /* LostPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B928627122AB32C00093FDAB /* LostPasswordViewController.swift */; };
 		B9A72BF822AB0790006AA239 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A72BF722AB0790006AA239 /* CreateAccountViewController.swift */; };
 		B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */; };
 		B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */; };
@@ -277,6 +279,8 @@
 		B905785E229A574600AD09C6 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		B9057860229A575400AD09C6 /* TextButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextButton.xib; sourceTree = "<group>"; };
 		B928626D22AB28560093FDAB /* CreateAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccountViewController.storyboard; sourceTree = "<group>"; };
+		B928626F22AB32B20093FDAB /* LostPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LostPasswordViewController.storyboard; sourceTree = "<group>"; };
+		B928627122AB32C00093FDAB /* LostPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostPasswordViewController.swift; sourceTree = "<group>"; };
 		B9A72BF722AB0790006AA239 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		B9A8E663228BD4CF003CF94B /* Acumin Pro - Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Regular.otf"; sourceTree = "<group>"; };
 		B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
@@ -613,6 +617,8 @@
 				AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */,
 				B928626D22AB28560093FDAB /* CreateAccountViewController.storyboard */,
 				B9A72BF722AB0790006AA239 /* CreateAccountViewController.swift */,
+				B928626F22AB32B20093FDAB /* LostPasswordViewController.storyboard */,
+				B928627122AB32C00093FDAB /* LostPasswordViewController.swift */,
 				0747A42A226560D6006BE39A /* SignIn.storyboard */,
 				0747A42C226560F8006BE39A /* SignInViewController.swift */,
 			);
@@ -874,6 +880,7 @@
 				B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */,
 				B9057861229A575400AD09C6 /* TextButton.xib in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
+				B928627022AB32B20093FDAB /* LostPasswordViewController.storyboard in Resources */,
 				07792B99229B0CA80023D56C /* SecondaryButton.xib in Resources */,
 				07792B9D229B3AA10023D56C /* UnderlineButton.xib in Resources */,
 				B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */,
@@ -1044,6 +1051,7 @@
 				B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
 				0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */,
+				B928627222AB32C00093FDAB /* LostPasswordViewController.swift in Sources */,
 				072BB8762294BCC800265854 /* TextEntryField.swift in Sources */,
 				077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */,
 				AA30D78722A1CC3C0084D3F3 /* KeychainProvider.swift in Sources */,

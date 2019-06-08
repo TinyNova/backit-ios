@@ -13,6 +13,7 @@ import UIKit
 enum TextEntryFieldType {
     case `default`
     case email
+    case username
     case numeric
     case phoneNumber
     case password
@@ -56,7 +57,7 @@ class TextEntryField: UIView {
     }
 
     /**
-     * Configure how the text entry accepts data input.
+     * Configure how the text field accepts data input.
      *
      * This should only be called once.
      */
@@ -68,6 +69,9 @@ class TextEntryField: UIView {
             break
         case .email:
             textField.keyboardType = .emailAddress
+            textField.autocapitalizationType = .none
+            textField.autocorrectionType = .no
+        case .username:
             textField.autocapitalizationType = .none
             textField.autocorrectionType = .no
         case .phoneNumber:

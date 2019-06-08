@@ -22,7 +22,7 @@ class SignInViewController: UIViewController {
     
     @IBOutlet private weak var emailTextField: TextEntryField! {
         didSet {
-            emailTextField.configure(title: i18n.t(.username), type: .email)
+            emailTextField.configure(title: i18n.t(.email), type: .email)
         }
     }
     @IBOutlet private weak var passwordTextField: TextEntryField! {
@@ -97,15 +97,15 @@ class SignInViewController: UIViewController {
 
     @IBAction func didTapLogin(_ sender: Any) {
         guard let email = emailTextField.text, email.count > 0,
-            let password = passwordTextField.text, password.count > 0 else {
-                errorLabel.isHidden = false
-                errorLabel.text = "Please enter your email and password."
-                return
+              let password = passwordTextField.text, password.count > 0 else {
+            errorLabel.isHidden = false
+            errorLabel.text = "Please enter your email and password."
+            return
         }
 
         accountProvider?.login(email: email, password: password)
             .onSuccess { [weak self] (userSession) in
-                self?.delegate?.didSignIn(credentials: Credentials(username: email, password: password), userSession: userSession)
+                self?.delegate?.didSignIn(credentials: Credentials(email: email, password: password), userSession: userSession)
                 self?.dismiss(animated: true, completion: nil)
             }
             .onFailure { [weak errorLabel] error in
@@ -125,7 +125,11 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func didTapForgotPassword(_ sender: Any) {
-        print("forgot password")
+        let storyboard = UIStoryboard(name: "LostPasswordViewController", bundle: Bundle(for: SignInViewController.self))
+        guard let vc = storyboard.instantiateInitialViewController() as? LostPasswordViewController else {
+            return
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didTapFacebookLogin(_ sender: Any) {

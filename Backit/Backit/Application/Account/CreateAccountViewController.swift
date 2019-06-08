@@ -45,7 +45,7 @@ class CreateAccountViewController: UIViewController {
         didSet {
             legalTextView.delegate = self
             legalTextView.text = i18n.t(.byContinuingYouAgree)
-            theme.apply(.legal, toTextView: legalTextView)
+            theme.apply(.informational, toTextView: legalTextView)
             theme.apply(.link(needle: i18n.t(.termsOfService), href: "https://backit.com/terms"), toTextView: legalTextView)
             theme.apply(.link(needle: i18n.t(.privacyPolicy), href: "https://backit.com/policies"), toTextView: legalTextView)
         }
@@ -87,7 +87,7 @@ class CreateAccountViewController: UIViewController {
 
         accountProvider?.createAccount(email: email, username: username, password: password, repeatPassword: password, firstName: nil, lastName: nil, subscribe: false)
             .onSuccess { [weak self] (userSession: UserSession) in
-                self?.delegate?.didCreateAccount(credentials: Credentials(username: username, password: password), userSession: userSession)
+                self?.delegate?.didCreateAccount(credentials: Credentials(email: username, password: password), userSession: userSession)
             }
             .onFailure { [weak self] (error) in
                 self?.errorLabel.isHidden = false

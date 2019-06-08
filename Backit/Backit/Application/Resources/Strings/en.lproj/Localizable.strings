@@ -21,8 +21,12 @@
 "email" = "Email";
 "username" = "Username";
 "password" = "Password";
+"resetPassword" = "Request password reset email";
+"passwordSuccessfullyReset" = "If your account exists in our system you will receive an email shortly."
 
 "byContinuingYouAgree" = "By continuing, you agree to Backit's\nTerms of Service and Privacy Policy";
 // NOTE: These values must match their respective strings in the above string
 "termsOfService" = "Terms of Service";
 "privacyPolicy" = "Privacy Policy";
+
+"mustHaveProvidedEmail" = "Unfortunately, if you have never given us your email, we will not be able to reset your password.";
