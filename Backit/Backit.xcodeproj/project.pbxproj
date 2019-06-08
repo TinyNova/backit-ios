@@ -104,6 +104,7 @@
 		07FBAD35228A39D2009E5189 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD34228A39D2009E5189 /* TabBarController.swift */; };
 		07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */; };
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
+		AA0FD38422AC387E007DEEB6 /* RecoverPasswordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */; };
 		AA30D78722A1CC3C0084D3F3 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */; };
 		AA30D78922A1D2780084D3F3 /* AppKeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */; };
 		AA30D78B22A5894F0084D3F3 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA30D78A22A5894F0084D3F3 /* Account.storyboard */; };
@@ -259,6 +260,7 @@
 		7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordEndpoint.swift; sourceTree = "<group>"; };
 		AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
 		AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeychainProvider.swift; sourceTree = "<group>"; };
 		AA30D78A22A5894F0084D3F3 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 				07C9BD57227897A800E41F1D /* AccountService.swift */,
 				071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */,
 				071B317A22794FAB00DB1561 /* LoginEndpoint.swift */,
+				AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */,
 				AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */,
 				B9FB5985227FF97100A03BDC /* SessionService.swift */,
 				AAE9171622A880B400490A30 /* UploadAvatarEndpoint.swift */,
@@ -1055,6 +1058,7 @@
 				072BB8762294BCC800265854 /* TextEntryField.swift in Sources */,
 				077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */,
 				AA30D78722A1CC3C0084D3F3 /* KeychainProvider.swift in Sources */,
+				AA0FD38422AC387E007DEEB6 /* RecoverPasswordEndpoint.swift in Sources */,
 				07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */,
 				0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */,
 				B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */,

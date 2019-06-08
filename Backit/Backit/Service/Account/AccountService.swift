@@ -75,7 +75,17 @@ class AccountService: AccountProvider {
     }
 
     func resetPassword(email: String) -> Future<IgnorableValue, AccountProviderError> {
-        return Future(error: .unknown(GenericError()))
+        let endpoint = RecoverPasswordEndpoint(postBody: [
+            .email(email)
+        ])
+        
+        return service.request(endpoint)
+            .mapError { (error) -> AccountProviderError in
+                return .unknown(GenericError())
+            }
+            .map { (response) -> IgnorableValue in
+                return IgnorableValue()
+            }
     }
         
     func silentlyReauthenticate(accountId: String, refreshToken: String) -> Future<UserSession, AccountProviderError> {
