@@ -22,7 +22,7 @@
 "username" = "Username";
 "password" = "Password";
 "resetPassword" = "Request password reset email";
-"passwordSuccessfullyReset" = "If your account exists in our system you will receive an email shortly."
+"passwordSuccessfullyReset" = "If your account exists in our system you will receive an email shortly.";
 
 "byContinuingYouAgree" = "By continuing, you agree to Backit's\nTerms of Service and Privacy Policy";
 // NOTE: These values must match their respective strings in the above string

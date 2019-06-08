@@ -109,8 +109,9 @@ extension AppTheme: UITheme {
         for style in styles {
             switch style {
             case .error:
-                label.font = FontCache.default.regular22
-                label.textColor = UIColor.fromHex(0x130a33)
+                label.font = FontCache.default.regular18
+                label.textColor = UIColor.fromHex(0xd45f47)
+                label.numberOfLines = 0
             case .feedProjectName:
                 label.font = FontCache.default.semibold22
                 label.textColor = UIColor.fromHex(0x201c3b)

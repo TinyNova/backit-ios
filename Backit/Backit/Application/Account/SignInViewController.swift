@@ -33,6 +33,7 @@ class SignInViewController: UIViewController {
     @IBOutlet private weak var errorLabel: UILabel! {
         didSet {
             errorLabel.isHidden = true
+            theme.apply(.error, toLabel: errorLabel)
         }
     }
 

@@ -39,6 +39,7 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel! {
         didSet {
             errorLabel.isHidden = true
+            theme.apply(.error, toLabel: errorLabel)
         }
     }
     @IBOutlet weak var legalTextView: UITextView! {
