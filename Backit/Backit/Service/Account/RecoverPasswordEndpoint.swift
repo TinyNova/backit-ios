@@ -20,7 +20,7 @@ struct RecoverPasswordEndpoint: ServiceEndpoint {
     var type: ServiceRequestType = .post
     var httpBodyEncodingStrategy: HTTPBodyEncodingStrategy = .keyValue
     var endpoints: Endpoints = [
-        .qa: "https://api.qabackit.com/auth/recover"
+        .qa: "https://api.qabackit.com/account/auth/recover"
     ]
     
     var postBody: PostBody?

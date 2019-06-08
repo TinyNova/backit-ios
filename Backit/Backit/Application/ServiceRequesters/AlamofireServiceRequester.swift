@@ -11,15 +11,18 @@ import BrightFutures
 import Foundation
 
 extension ServiceResult {
-    static func make(from response: DataResponse<Any>) -> ServiceResult {
+    static func make(from response: DataResponse<Data>) -> ServiceResult {
         return ServiceResult(statusCode: response.response?.statusCode, data: response.data, error: response.error)
     }
 }
 
 class AlamofireServiceRequester: ServiceRequester {
     func request(_ urlRequest: URLRequest, callback: @escaping (ServiceResult) -> Void) {
-        Alamofire.request(urlRequest).responseJSON { (response) in
+        Alamofire.request(urlRequest).responseData { (response) in
             callback(ServiceResult.make(from: response))
         }
+//        Alamofire.request(urlRequest).responseJSON { (response) in
+//            callback(ServiceResult.make(from: response))
+//        }
     }
 }

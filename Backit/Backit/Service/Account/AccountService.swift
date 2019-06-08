@@ -83,8 +83,8 @@ class AccountService: AccountProvider {
             .mapError { (error) -> AccountProviderError in
                 return .unknown(GenericError())
             }
-            .map { (response) -> IgnorableValue in
-                return IgnorableValue()
+            .flatMap { (response) -> Future<IgnorableValue, AccountProviderError> in
+                return Future(value: IgnorableValue())
             }
     }
         
