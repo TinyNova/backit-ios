@@ -10,7 +10,9 @@
 	<array>
 		<dict>
 			<key>CFBundleURLSchemes</key>
-			<string>fb119773728365780</string>
+			<array>
+				<string>fb119773728365780</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>

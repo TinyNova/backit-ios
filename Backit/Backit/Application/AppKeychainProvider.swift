@@ -58,7 +58,12 @@ class AppKeychainProvider: KeychainProvider {
         return promise.future
     }
 
-    func saveCredentials(_ credentials: Credentials) -> Future<IgnorableValue, KeychainProviderError> {
+    func saveCredentials(_ credentials: Credentials?) -> Future<IgnorableValue, KeychainProviderError> {
+        guard let credentials = credentials else {
+            print("INFO: No credentials to save...")
+            return Future(error: .credentialsNotProvided)
+        }
+        
         print("INFO: Saving credentials...")
         guard let encodedCredentials = credentials.asJsonString else {
             return Future(error: .failedToEncodeCredentials)

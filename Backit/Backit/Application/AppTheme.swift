@@ -35,6 +35,7 @@ class AppTheme: UIStyle {
 
     enum LabelStyle {
         case error
+        case informationalHeader
         case feedProjectName
         case smallInfoLabel
         case title
@@ -112,6 +113,9 @@ extension AppTheme: UITheme {
                 label.font = FontCache.default.regular18
                 label.textColor = UIColor.fromHex(0xd45f47)
                 label.numberOfLines = 0
+            case .informationalHeader:
+                label.font = FontCache.default.regular18
+                label.textColor = UIColor.fromHex(0x000000)
             case .feedProjectName:
                 label.font = FontCache.default.semibold22
                 label.textColor = UIColor.fromHex(0x201c3b)

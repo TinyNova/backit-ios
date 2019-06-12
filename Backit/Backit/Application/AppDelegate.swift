@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
             .onFailure { error in
-                return print("INFO: Failed to get credentials. Skipping silent reauthentication")
+                return print("INFO: Failed to get session. Skipping silent reauthentication.")
             }
     }
 

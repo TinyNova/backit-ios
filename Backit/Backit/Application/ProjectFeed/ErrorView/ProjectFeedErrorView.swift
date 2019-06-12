@@ -9,7 +9,7 @@ class ProjectFeedErrorView: UIView {
     
     @IBOutlet weak var errorMessageLabel: UILabel! {
         didSet {
-            theme.apply(.error, toLabel: errorMessageLabel)
+            theme.apply(.informationalHeader, toLabel: errorMessageLabel)
         }
     }
     

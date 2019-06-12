@@ -88,9 +88,9 @@ class AppSignInProvider: SignInProvider {
             }
             .onFailure { [weak self] (error) in
                 switch error {
-                case .unknown,
+                case .thirdParty,
                      .failedToDecode,
-                     .service:
+                     .generic:
                     // TODO: We could potentially retry this request N times before we do this.
                     self?.loginUsingForm(promise: promise, reason: "Something went wrong on our end trying to validate your credentials. Please log in.")
                 case .validation:
@@ -122,7 +122,7 @@ class AppSignInProvider: SignInProvider {
 }
 
 extension AppSignInProvider: SignInViewControllerDelegate {
-    func didSignIn(credentials: Credentials, userSession: UserSession) {
+    func didSignIn(credentials: Credentials?, userSession: UserSession) {
         // FIXME: Only save credentials to the device if the user requested to do so. A new option must be provided that lets us know if credentials should be saved.
         let futures: [Future<IgnorableValue, KeychainProviderError>] = [
             keychainProvider.saveUserSession(userSession),

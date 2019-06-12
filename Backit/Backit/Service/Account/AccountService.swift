@@ -27,7 +27,7 @@ class AccountService: AccountProvider {
         
         return service.request(endpoint)
             .mapError { (error) -> AccountProviderError in
-                return .unknown(error)
+                return .generic(error)
             }
             .flatMap { (response) -> Future<UserSession, AccountProviderError> in
                 guard let accountId = response.accountId,
@@ -43,6 +43,10 @@ class AccountService: AccountProvider {
                 self?.sessionProvider.emit(userSession: userSession)
             }
     }
+    
+    func login(with facebookSession: FacebookSession) -> Future<UserSession, AccountProviderError> {
+        return Future(error: .generic(GenericError()))
+    }
         
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError> {
         let endpoint = CreateAccountEndpoint(postBody: [
@@ -57,7 +61,7 @@ class AccountService: AccountProvider {
         
         return service.request(endpoint)
             .mapError { (error) -> AccountProviderError in
-                return .unknown(error)
+                return .generic(error)
             }
             .flatMap { (response) -> Future<UserSession, AccountProviderError> in
                 guard let accountId = response.accountId,
@@ -81,7 +85,7 @@ class AccountService: AccountProvider {
         
         return service.request(endpoint)
             .mapError { (error) -> AccountProviderError in
-                return .unknown(GenericError())
+                return .generic(GenericError())
             }
             .flatMap { (response) -> Future<IgnorableValue, AccountProviderError> in
                 return Future(value: IgnorableValue())
@@ -97,7 +101,7 @@ class AccountService: AccountProvider {
         
         return service.request(endpoint)
             .mapError { (error) -> AccountProviderError in
-                return .unknown(error)
+                return .generic(error)
             }
             .flatMap { (response) -> Future<UserSession, AccountProviderError> in
                 guard let accountId = response.accountId,
@@ -124,11 +128,11 @@ class AccountService: AccountProvider {
         
         return service.request(endpoint)
             .mapError { (error) -> AccountProviderError in
-                return .unknown(error)
+                return .generic(error)
             }
             .flatMap { (response) -> Future<S3UploadFile, AccountProviderError> in
                 if let error = response.error {
-                    return Future(error: .service(error))
+                    return Future(error: .thirdParty(StringError(error: error)))
                 }
                 guard let bucket = response.bucket,
                       let acl = response.acl,
@@ -136,7 +140,7 @@ class AccountService: AccountProvider {
                       let key = response.key,
                       let policy = response.policy,
                       let signature = response.signature else {
-                        return Future(error: .failedToDecode(type: "UploadAvatarEndpoint.ResponseType"))
+                    return Future(error: .failedToDecode(type: "UploadAvatarEndpoint.ResponseType"))
                 }
                 
                 let s3file = S3UploadFile(
@@ -158,6 +162,6 @@ class AccountService: AccountProvider {
 
 extension AccountProviderError {
     static func make(from error: AmazonServiceError) -> AccountProviderError {
-        return .unknown(error)
+        return .thirdParty(error)
     }
 }
