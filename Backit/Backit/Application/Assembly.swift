@@ -147,6 +147,13 @@ class Assembly {
             return AppPhotoAlbumProvider(presenterProvider: presenterProvider)
         }
         
+        // MARK: - Social Media Providers
+        
+        container.register(FacebookProvider.self) { resolver in
+            let presenterProvider = resolver.resolve(PresenterProvider.self)!
+            return AppFacebookProvider(presenterProvider: presenterProvider)
+        }
+        
         // MARK: - UIViewController Registration
         
         container.storyboardInitCompleted(UINavigationController.self) { (resolver, controller) in
@@ -180,7 +187,8 @@ class Assembly {
         
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            controller.inject(accountProvider: accountProvider)
+            let facebookProvider = resolver.resolve(FacebookProvider.self)!
+            controller.inject(accountProvider: accountProvider, facebookProvider: facebookProvider)
         }
 
         container.storyboardInitCompleted(LostPasswordViewController.self) { resolver, controller in

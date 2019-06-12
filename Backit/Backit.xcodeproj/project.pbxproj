@@ -104,6 +104,8 @@
 		07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */; };
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
 		AA0FD38422AC387E007DEEB6 /* RecoverPasswordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */; };
+		AA0FD38622B08206007DEEB6 /* FacebookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0FD38522B08206007DEEB6 /* FacebookProvider.swift */; };
+		AA0FD38822B08258007DEEB6 /* AppFacebookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0FD38722B08258007DEEB6 /* AppFacebookProvider.swift */; };
 		AA30D78722A1CC3C0084D3F3 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */; };
 		AA30D78922A1D2780084D3F3 /* AppKeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */; };
 		AA30D78B22A5894F0084D3F3 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA30D78A22A5894F0084D3F3 /* Account.storyboard */; };
@@ -260,6 +262,8 @@
 		891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordEndpoint.swift; sourceTree = "<group>"; };
+		AA0FD38522B08206007DEEB6 /* FacebookProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookProvider.swift; sourceTree = "<group>"; };
+		AA0FD38722B08258007DEEB6 /* AppFacebookProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFacebookProvider.swift; sourceTree = "<group>"; };
 		AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
 		AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeychainProvider.swift; sourceTree = "<group>"; };
 		AA30D78A22A5894F0084D3F3 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
@@ -377,6 +381,7 @@
 				076A8C4B22864B6C0075B56C /* Test */,
 				076A8C5022864BE50075B56C /* Application.swift */,
 				0722324A21D4375C009D1912 /* AppDelegate.swift */,
+				AA0FD38722B08258007DEEB6 /* AppFacebookProvider.swift */,
 				0754B66E2200EBA000E2DECD /* Appl10n.swift */,
 				AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */,
 				072510CE2283B0C300C02645 /* AppPresenterProvider.swift */,
@@ -461,6 +466,7 @@
 			children = (
 				071B317622794F0B00DB1561 /* AccountProvider.swift */,
 				AAE9170322A62A4C00490A30 /* Credentials.swift */,
+				AA0FD38522B08206007DEEB6 /* FacebookProvider.swift */,
 				AAE9171422A867A600490A30 /* IgnorableValue.swift */,
 				AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */,
 				AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */,
@@ -933,6 +939,10 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Backit/Pods-Backit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
@@ -942,6 +952,10 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightFutures.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
@@ -1020,6 +1034,7 @@
 				AAE9170A22A731AF00490A30 /* AppPhotoAlbumProvider.swift in Sources */,
 				07F666BE2298C12100FBE6F7 /* PrimaryButton.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
+				AA0FD38622B08206007DEEB6 /* FacebookProvider.swift in Sources */,
 				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
 				07792B97229B0C9F0023D56C /* SecondaryButton.swift in Sources */,
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
@@ -1048,6 +1063,7 @@
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				B9A8E66A228BD520003CF94B /* UIFont+Backit.swift in Sources */,
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
+				AA0FD38822B08258007DEEB6 /* AppFacebookProvider.swift in Sources */,
 				B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
 				0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */,

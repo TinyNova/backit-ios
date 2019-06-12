@@ -74,14 +74,16 @@ class SignInViewController: UIViewController {
     }
     
     var accountProvider: AccountProvider?
+    var facebookProvider: FacebookProvider?
     
     weak var delegate: SignInViewControllerDelegate?
     
     let i18n = Localization<Appl10n>()
     let theme: UIThemeApplier<AppTheme> = AppTheme.default
     
-    func inject(accountProvider: AccountProvider) {
+    func inject(accountProvider: AccountProvider, facebookProvider: FacebookProvider) {
         self.accountProvider = accountProvider
+        self.facebookProvider = facebookProvider
     }
     
     override func viewDidLoad() {
@@ -134,7 +136,14 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func didTapFacebookLogin(_ sender: Any) {
-        print("login to facebook")
+        facebookProvider?.login()
+            .onSuccess { accessToken in
+                // TODO: Send token to Backit servers.
+                print("Access token: \(accessToken)")
+            }
+            .onFailure { error in
+                print("Error: \(error)")
+            }
     }
     
     @IBAction func didTapGoogleLogin(_ sender: Any) {

@@ -8,6 +8,10 @@ import UIKit
 
 class AppPresenterProvider: PresenterProvider {
     
+    var viewController: UIViewController? {
+        return UIApplication.topViewController()
+    }
+    
     func present(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let topViewController = UIApplication.topViewController() else {
             return
