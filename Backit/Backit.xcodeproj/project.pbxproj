@@ -86,7 +86,6 @@
 		0798AA4F21D45DC6004A6261 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F84D621D457B200C11799 /* UI.swift */; };
 		07A1C21421DEDF8E00E5A5DA /* ImagePagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */; };
 		07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */; };
-		07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC39C521D4414F00214687 /* ChangelogViewController.swift */; };
 		07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B25B01228E0A1B002476D4 /* FeedProject.swift */; };
 		07C9BD58227897A800E41F1D /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9BD57227897A800E41F1D /* AccountService.swift */; };
 		07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3B40E223175CC00959808 /* UIView+Backit.swift */; };
@@ -239,7 +238,6 @@
 		0798AA4721D45DB0004A6261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePagerView.xib; sourceTree = "<group>"; };
 		07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
-		07AC39C521D4414F00214687 /* ChangelogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangelogViewController.swift; sourceTree = "<group>"; };
 		07B25B01228E0A1B002476D4 /* FeedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedProject.swift; sourceTree = "<group>"; };
 		07C9BD57227897A800E41F1D /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		07E3B40E223175CC00959808 /* UIView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Backit.swift"; sourceTree = "<group>"; };
@@ -372,7 +370,6 @@
 			children = (
 				07E9DD722264D314005DA147 /* Account */,
 				0732391C22089B4F0034291C /* Analytics */,
-				07AC39C821D4416000214687 /* Changelog */,
 				07E3B40D223175BD00959808 /* Extensions */,
 				07EC5A78227BFC1E00B67C05 /* Plugins */,
 				078BCA932253B01D003A03CA /* ProjectFeed */,
@@ -563,14 +560,6 @@
 				0798AA4721D45DB0004A6261 /* Info.plist */,
 			);
 			path = BackitTests;
-			sourceTree = "<group>";
-		};
-		07AC39C821D4416000214687 /* Changelog */ = {
-			isa = PBXGroup;
-			children = (
-				07AC39C521D4414F00214687 /* ChangelogViewController.swift */,
-			);
-			path = Changelog;
 			sourceTree = "<group>";
 		};
 		07B25AFF228E08C1002476D4 /* LoadingResults */ = {
@@ -1115,7 +1104,6 @@
 				B905785F229A574600AD09C6 /* TextButton.swift in Sources */,
 				07C9BD58227897A800E41F1D /* AccountService.swift in Sources */,
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
-				07AC39C621D4414F00214687 /* ChangelogViewController.swift in Sources */,
 				0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */,
 				071B317D227953D700DB1561 /* CreateAccountEndpoint.swift in Sources */,
 				071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */,

@@ -1,6 +1,10 @@
 /**
- https://www.raywenderlich.com/250-internationalizing-your-ios-app-getting-started
+ *
+ * https://www.raywenderlich.com/250-internationalizing-your-ios-app-getting-started
+ *
+ * Copyright © 2019 Backit Inc. All rights reserved.
  */
+
 
 import Foundation
 
