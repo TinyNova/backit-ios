@@ -25,7 +25,6 @@
 		072BB8762294BCC800265854 /* TextEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072BB8752294BCC800265854 /* TextEntryField.swift */; };
 		072BB8782294BCEC00265854 /* TextEntryField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072BB8772294BCEC00265854 /* TextEntryField.xib */; };
 		0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391A22089B3E0034291C /* AnalyticsService.swift */; };
-		0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391D22089B7A0034291C /* MixpanelAnalyticsListener.swift */; };
 		0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391F22089CD80034291C /* BIAnalyticsEvent.swift */; };
 		0732392222089D640034291C /* MetricAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392122089D640034291C /* MetricAnalyticsEvent.swift */; };
 		073239242208A0250034291C /* AnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239232208A0250034291C /* AnalyticsListener.swift */; };
@@ -935,7 +934,6 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
-				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
@@ -945,7 +943,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightFutures.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
@@ -1073,7 +1070,6 @@
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				078BCA9B2256D99A003A03CA /* ProjectTableViewCell.swift in Sources */,
 				076A8C4F22864BB10075B56C /* TestApplication.swift in Sources */,
-				0732391E22089B7A0034291C /* MixpanelAnalyticsListener.swift in Sources */,
 				07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */,
 				AAE9171522A867A600490A30 /* IgnorableValue.swift in Sources */,
 				0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */,

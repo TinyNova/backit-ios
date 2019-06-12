@@ -4,7 +4,7 @@
  */
 
 import Foundation
-import Mixpanel
+//import Mixpanel
 import Swinject
 import SwinjectStoryboard
 
@@ -96,19 +96,19 @@ class Assembly {
         
         // This must be a singleton to ensure that transactions can be tracked between dependencies. (i.e. start/cancel/stop)
         container.register(AnalyticsService.self) { resolver in
-            let mixpanelListener = resolver.resolve(MixpanelAnalyticsListener.self)!
+//            let mixpanelListener = resolver.resolve(MixpanelAnalyticsListener.self)!
             let newRelicListener = resolver.resolve(NewRelicAnalyticsListener.self)!
-            return AnalyticsService(listeners: [mixpanelListener, newRelicListener])
+            return AnalyticsService(listeners: [/*mixpanelListener, */ newRelicListener])
         }.inObjectScope(.container)
 
-        container.register(Mixpanel.self) { resolver in
-            return Mixpanel.sharedInstance(withToken: "020cda1e8529c09118ff8b03d5d79072")
-        }.inObjectScope(.container)
-
-        container.register(MixpanelAnalyticsListener.self) { resolver in
-            let mixpanel = resolver.resolve(Mixpanel.self)!
-            return MixpanelAnalyticsListener(mixpanel: mixpanel)
-        }
+//        container.register(Mixpanel.self) { resolver in
+//            return Mixpanel.sharedInstance(withToken: "020cda1e8529c09118ff8b03d5d79072")
+//        }.inObjectScope(.container)
+//
+//        container.register(MixpanelAnalyticsListener.self) { resolver in
+//            let mixpanel = resolver.resolve(Mixpanel.self)!
+//            return MixpanelAnalyticsListener(mixpanel: mixpanel)
+//        }
         
         container.register(NewRelicAnalyticsListener.self) { resolver in
             return NewRelicAnalyticsListener()
