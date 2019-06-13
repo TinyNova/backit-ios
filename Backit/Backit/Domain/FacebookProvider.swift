@@ -6,18 +6,7 @@
 import BrightFutures
 import Foundation
 
-struct FacebookSession {
-    let token: String
-    let user: FacebookUser
-}
-
-struct FacebookUser {    
-    let id: String
-    let email: String?
-    let firstName: String?
-    let lastName: String?
-    let profileUrl: URL?
-}
+typealias FacebookAccessToken = String
 
 enum FacebookProviderError: Error {
     case facebook(Error)
@@ -28,5 +17,5 @@ enum FacebookProviderError: Error {
 
 protocol FacebookProvider {
     func login() -> Future<
-        FacebookSession, FacebookProviderError>
+        FacebookAccessToken, FacebookProviderError>
 }

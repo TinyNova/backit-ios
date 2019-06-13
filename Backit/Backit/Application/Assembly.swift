@@ -180,11 +180,7 @@ class Assembly {
             let signInProvider = resolver.resolve(SignInProvider.self)!
             controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer, signInProvider: signInProvider)
         }
-        
-        container.storyboardInitCompleted(ChangelogViewController.self) { (resolver, controller) in
-            
-        }
-        
+                
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let facebookProvider = resolver.resolve(FacebookProvider.self)!

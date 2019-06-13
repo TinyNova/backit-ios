@@ -44,8 +44,12 @@ class AccountService: AccountProvider {
             }
     }
     
-    func login(with facebookSession: FacebookSession) -> Future<UserSession, AccountProviderError> {
-        return Future(error: .generic(GenericError()))
+    func externalLogin(accessToken: String, provider: String) -> Future<UserSession, AccountProviderError> {
+//        let endpoint = ExternalLoginEndpoint(postBody: [
+//            .accessToken(facebookSession.token),
+//            .provider("facebook")
+//        ])
+        return Future(error: .generic(NotImplementedError()))
     }
         
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError> {

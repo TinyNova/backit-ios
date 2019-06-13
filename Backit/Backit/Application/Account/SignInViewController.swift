@@ -85,6 +85,7 @@ class SignInViewController: UIViewController {
     
     var accountProvider: AccountProvider?
     var facebookProvider: FacebookProvider?
+    var externalProvider: ExternalSignInProvider?
     
     weak var delegate: SignInViewControllerDelegate?
     
@@ -148,14 +149,17 @@ class SignInViewController: UIViewController {
     @IBAction func didTapFacebookLogin(_ sender: Any) {
         // TODO: Display a loading indicator
         facebookProvider?.login()
-            .mapError { (error: FacebookProviderError) -> AccountProviderError in
-                return .thirdParty(error)
+            .mapError { (error: FacebookProviderError) -> Error in
+                return error
             }
-            .flatMap { [weak self] (session: FacebookSession) -> Future<UserSession, AccountProviderError> in
-                guard let accountProvider = self?.accountProvider else {
-                    return Future(error: .generic(WeakReferenceError()))
+            .flatMap { [weak self] (token: FacebookAccessToken) -> Future<UserSession, Error> in
+                guard let externalProvider = self?.externalProvider else {
+                    return Future(error: WeakReferenceError())
                 }
-                return accountProvider.login(with: session)
+                return externalProvider.login(with: token, provider: .facebook)
+                    .mapError { (error) -> Error in
+                        return error
+                    }
             }
             .onSuccess { [weak self] (userSession) in
                 self?.delegate?.didSignIn(credentials: nil, userSession: userSession)
