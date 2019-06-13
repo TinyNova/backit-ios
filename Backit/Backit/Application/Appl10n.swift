@@ -32,6 +32,7 @@ enum Appl10n {
     case mustHaveProvidedEmail
     case resetPassword
     case passwordSuccessfullyReset
+    case finalizeCreatingYourAccount
 }
 
 extension Appl10n: LocalizationType {
@@ -83,6 +84,8 @@ extension Appl10n: LocalizationType {
             return l(key: "resetPassword")
         case .passwordSuccessfullyReset:
             return l(key: "passwordSuccessfullyReset")
+        case .finalizeCreatingYourAccount:
+            return l(key: "finalizeCreatingYourAccount")
         }
     }
 }

@@ -158,6 +158,7 @@ class SignInViewController: UIViewController {
                 }
                 return externalProvider.login(with: token, provider: .facebook)
                     .mapError { (error) -> Error in
+                        // TODO: if the reason for the failure is because we failed to login (bad network connection) display a banner and allow the user to try again.
                         return error
                     }
             }
