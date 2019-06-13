@@ -24,9 +24,20 @@ enum AccountProviderError: Error {
     case thirdParty(Error)
 }
 
+struct ExternalUserProfile {
+    let firstName: String
+    let lastName: String
+    let avatarUrl: URL
+}
+
+enum ExternalAccountResult {
+    case existingUser(UserSession)
+    case newUser(ExternalUserProfile)
+}
+
 protocol AccountProvider {
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError>
-    func externalLogin(accessToken: String, provider: String)  -> Future<UserSession, AccountProviderError>
+    func externalLogin(accessToken: String, provider: String)  -> Future<ExternalAccountResult, AccountProviderError>
     func logout() -> Future<IgnorableValue, AccountProviderError>
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError>
     func resetPassword(email: String) -> Future<IgnorableValue, AccountProviderError>

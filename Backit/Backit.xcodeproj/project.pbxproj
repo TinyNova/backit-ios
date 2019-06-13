@@ -114,6 +114,10 @@
 		AA30D79122A596A20084D3F3 /* AvatarTabBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */; };
 		AA5168C322B2E23300F79DC9 /* AppExternalSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5168C222B2E23300F79DC9 /* AppExternalSignInProvider.swift */; };
 		AA5168C522B2E30400F79DC9 /* ExternalSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5168C422B2E30400F79DC9 /* ExternalSignInProvider.swift */; };
+		AA5168C922B2E93D00F79DC9 /* PageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5168C822B2E93D00F79DC9 /* PageProvider.swift */; };
+		AA5168CB22B2E96C00F79DC9 /* FinalizeAccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5168CA22B2E96C00F79DC9 /* FinalizeAccountCreationViewController.swift */; };
+		AA5168CD22B2E97700F79DC9 /* FinalizeAccountCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA5168CC22B2E97700F79DC9 /* FinalizeAccountCreationViewController.storyboard */; };
+		AA5168CF22B2E9CE00F79DC9 /* AppPageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5168CE22B2E9CE00F79DC9 /* AppPageProvider.swift */; };
 		AAE9170422A62A4C00490A30 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170322A62A4C00490A30 /* Credentials.swift */; };
 		AAE9170622A62E5E00490A30 /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */; };
 		AAE9170822A7317C00490A30 /* PhotoAlbumProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */; };
@@ -274,6 +278,10 @@
 		AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarTabBarItem.xib; sourceTree = "<group>"; };
 		AA5168C222B2E23300F79DC9 /* AppExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExternalSignInProvider.swift; sourceTree = "<group>"; };
 		AA5168C422B2E30400F79DC9 /* ExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSignInProvider.swift; sourceTree = "<group>"; };
+		AA5168C822B2E93D00F79DC9 /* PageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageProvider.swift; sourceTree = "<group>"; };
+		AA5168CA22B2E96C00F79DC9 /* FinalizeAccountCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalizeAccountCreationViewController.swift; sourceTree = "<group>"; };
+		AA5168CC22B2E97700F79DC9 /* FinalizeAccountCreationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FinalizeAccountCreationViewController.storyboard; sourceTree = "<group>"; };
+		AA5168CE22B2E9CE00F79DC9 /* AppPageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPageProvider.swift; sourceTree = "<group>"; };
 		AAE9170322A62A4C00490A30 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
 		AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumProvider.swift; sourceTree = "<group>"; };
@@ -379,24 +387,19 @@
 				07E3B40D223175BD00959808 /* Extensions */,
 				07EC5A78227BFC1E00B67C05 /* Plugins */,
 				078BCA932253B01D003A03CA /* ProjectFeed */,
+				AA5168D022B2EA4D00F79DC9 /* Providers */,
 				07EC61F821D6EE1C00FE283C /* Resources */,
 				0754B61521FF3D9600E2DECD /* ServiceRequesters */,
 				076A8C4B22864B6C0075B56C /* Test */,
 				076A8C5022864BE50075B56C /* Application.swift */,
 				0722324A21D4375C009D1912 /* AppDelegate.swift */,
-				AA5168C222B2E23300F79DC9 /* AppExternalSignInProvider.swift */,
-				AA0FD38722B08258007DEEB6 /* AppFacebookProvider.swift */,
 				0754B66E2200EBA000E2DECD /* Appl10n.swift */,
-				AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */,
-				072510CE2283B0C300C02645 /* AppPresenterProvider.swift */,
-				B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */,
 				07EC61F621D6ED4600FE283C /* AppTheme.swift */,
 				07EC61ED21D6ECD300FE283C /* Assembly.swift */,
 				0722325021D4375C009D1912 /* Main.storyboard */,
 				0722325521D4375F009D1912 /* LaunchScreen.storyboard */,
 				07FBAD34228A39D2009E5189 /* TabBarController.swift */,
 				07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */,
-				AAE9170922A731AF00490A30 /* AppPhotoAlbumProvider.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -623,6 +626,8 @@
 				AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */,
 				B928626D22AB28560093FDAB /* CreateAccountViewController.storyboard */,
 				B9A72BF722AB0790006AA239 /* CreateAccountViewController.swift */,
+				AA5168CC22B2E97700F79DC9 /* FinalizeAccountCreationViewController.storyboard */,
+				AA5168CA22B2E96C00F79DC9 /* FinalizeAccountCreationViewController.swift */,
 				B928626F22AB32B20093FDAB /* LostPasswordViewController.storyboard */,
 				B928627122AB32C00093FDAB /* LostPasswordViewController.swift */,
 				0747A42A226560D6006BE39A /* SignIn.storyboard */,
@@ -717,6 +722,29 @@
 				69F51B125C0218073ED859C4 /* Pods-BackitTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA5168C722B2E93100F79DC9 /* PageProvider */ = {
+			isa = PBXGroup;
+			children = (
+				AA5168C822B2E93D00F79DC9 /* PageProvider.swift */,
+				AA5168CE22B2E9CE00F79DC9 /* AppPageProvider.swift */,
+			);
+			path = PageProvider;
+			sourceTree = "<group>";
+		};
+		AA5168D022B2EA4D00F79DC9 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				AA5168C722B2E93100F79DC9 /* PageProvider */,
+				AA5168C222B2E23300F79DC9 /* AppExternalSignInProvider.swift */,
+				AA0FD38722B08258007DEEB6 /* AppFacebookProvider.swift */,
+				AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */,
+				072510CE2283B0C300C02645 /* AppPresenterProvider.swift */,
+				B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */,
+				AAE9170922A731AF00490A30 /* AppPhotoAlbumProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		AAE9170F22A73F5900490A30 /* Amazon */ = {
@@ -884,6 +912,7 @@
 				078BCA952253B032003A03CA /* ProjectFeed.storyboard in Resources */,
 				AA30D79122A596A20084D3F3 /* AvatarTabBarItem.xib in Resources */,
 				B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */,
+				AA5168CD22B2E97700F79DC9 /* FinalizeAccountCreationViewController.storyboard in Resources */,
 				B9057861229A575400AD09C6 /* TextButton.xib in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
 				B928627022AB32B20093FDAB /* LostPasswordViewController.storyboard in Resources */,
@@ -1024,6 +1053,8 @@
 				073239242208A0250034291C /* AnalyticsListener.swift in Sources */,
 				0754B67422027BA600E2DECD /* LocalizationType.swift in Sources */,
 				0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */,
+				AA5168CF22B2E9CE00F79DC9 /* AppPageProvider.swift in Sources */,
+				AA5168C922B2E93D00F79DC9 /* PageProvider.swift in Sources */,
 				075D4D312211CB6F006EFF37 /* FlagValueMaker.swift in Sources */,
 				075D4D302211CB6F006EFF37 /* Flags.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
@@ -1051,6 +1082,7 @@
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				AA30D78D22A589870084D3F3 /* AccountViewController.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
+				AA5168CB22B2E96C00F79DC9 /* FinalizeAccountCreationViewController.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
 				072510D22283B12100C02645 /* PresenterProvider.swift in Sources */,
 				076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */,

@@ -44,11 +44,12 @@ class AccountService: AccountProvider {
             }
     }
     
-    func externalLogin(accessToken: String, provider: String) -> Future<UserSession, AccountProviderError> {
+    func externalLogin(accessToken: String, provider: String) -> Future<ExternalAccountResult, AccountProviderError> {
 //        let endpoint = ExternalLoginEndpoint(postBody: [
 //            .accessToken(facebookSession.token),
 //            .provider("facebook")
 //        ])
+        // 202, half created.
         return Future(error: .generic(NotImplementedError()))
     }
         

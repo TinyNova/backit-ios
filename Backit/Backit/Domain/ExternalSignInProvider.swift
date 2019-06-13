@@ -7,7 +7,8 @@ import BrightFutures
 import Foundation
 
 enum ExternalSignInProviderError: Error {
-    case none
+    case failedToSignIn
+    case generic(Error)
 }
 
 enum ExternalSignInProviderType {
