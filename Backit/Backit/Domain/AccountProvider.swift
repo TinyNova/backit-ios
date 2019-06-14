@@ -24,24 +24,34 @@ enum AccountProviderError: Error {
     case thirdParty(Error)
 }
 
-struct ExternalUserProfile {
-    let firstName: String
-    let lastName: String
-    let email: String
-    let avatarUrl: URL
+enum ExternalUserProvider {
+    case facebook
+    case google
 }
 
-enum ExternalAccountResult {
+struct ExternalUserProfile {
+    let type: ExternalUserProvider?
+    let id: String?
+    let firstName: String?
+    let lastName: String?
+    let email: String?
+    let avatarUrl: URL?
+}
+
+enum ExternalAccount {
     case existingUser(UserSession)
-    case newUser(ExternalUserProfile)
+    case newUser(signupToken: String, profile: ExternalUserProfile)
 }
 
 protocol AccountProvider {
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError>
-    func externalLogin(accessToken: String, provider: String)  -> Future<ExternalAccountResult, AccountProviderError>
     func logout() -> Future<IgnorableValue, AccountProviderError>
-    func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError>
+    
+    func externalLogin(accessToken: String, provider: String)  -> Future<ExternalAccount, AccountProviderError>
     func createExternalAccount(email: String, username: String) -> Future<UserSession, AccountProviderError>
+    func usernameAvailable(username: String) -> Future<Bool, AccountProviderError>
+    
+    func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError>
     func resetPassword(email: String) -> Future<IgnorableValue, AccountProviderError>
     func silentlyReauthenticate(accountId: String, refreshToken: String) -> Future<UserSession, AccountProviderError>
     func uploadAvatar(image: UIImage) -> Future<IgnorableValue, AccountProviderError>

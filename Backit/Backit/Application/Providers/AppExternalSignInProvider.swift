@@ -32,20 +32,24 @@ class AppExternalSignInProvider: ExternalSignInProvider {
                 switch result {
                 case .existingUser(let userSession):
                     promise.success(userSession)
-                case .newUser(let profile):
+                case .newUser(let signupToken, let profile):
                     guard let sself = self else {
                         return promise.failure(.generic(WeakReferenceError()))
                     }
                     
                     let vc = sself.pageProvider.finalizeAccountCreation()
                     vc.delegate = sself
-                    vc.configure(with: profile)
+                    vc.configure(signupToken: signupToken, profile: profile)
                     sself.presenterProvider.push(vc)
                 }
             }
             .onFailure { (error) in
                 promise.failure(.failedToSignIn)
             }
+        
+        _ = promise.future.andThen { [weak self] (result) in
+            self?.promise = nil
+        }
         
         self.promise = promise
         return promise.future

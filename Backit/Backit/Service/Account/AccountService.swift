@@ -44,16 +44,52 @@ class AccountService: AccountProvider {
             }
     }
     
-    func externalLogin(accessToken: String, provider: String) -> Future<ExternalAccountResult, AccountProviderError> {
-//        let endpoint = ExternalLoginEndpoint(postBody: [
-//            .accessToken(facebookSession.token),
-//            .provider("facebook")
-//        ])
-        // 202, half created.
-        return Future(error: .generic(NotImplementedError()))
+    func externalLogin(accessToken: String, provider: String) -> Future<ExternalAccount, AccountProviderError> {
+        let endpoint = ExternalLoginEndpoint(postBody: [
+            .accessToken(accessToken),
+            .provider(provider)
+        ])
+        
+        return service.request(endpoint)
+            .mapError { (error) -> AccountProviderError in
+                return .generic(error)
+            }
+            .flatMap { (response) -> Future<ExternalAccount, AccountProviderError> in
+                if let signupToken = response.signupToken {
+                    var avatarUrl: URL?
+                    if let avatar = response.providerUser?.avatar,
+                       let url = URL(string: avatar) {
+                        avatarUrl = url
+                    }
+                    return Future(value: .newUser(
+                        signupToken: signupToken,
+                        profile: ExternalUserProfile(
+                            type: ExternalUserProvider.make(from: response.providerUser?.id),
+                            id: response.providerUser?.id,
+                            firstName: response.providerUser?.firstName,
+                            lastName: response.providerUser?.lastName,
+                            email: response.providerUser?.email,
+                            avatarUrl: avatarUrl
+                        )
+                    ))
+                }
+                if let accountId = response.accountId,
+                   let csrfToken = response.csrfToken,
+                   let token = response.token,
+                   let refreshToken = response.refreshToken {
+                    return Future(value: .existingUser(UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken)))
+                }
+
+                // TODO: Map `validation` errors
+                return Future(error: .validation([:]))
+            }
     }
     
     func createExternalAccount(email: String, username: String) -> Future<UserSession, AccountProviderError> {
+        return Future(error: .generic(NotImplementedError()))
+    }
+    
+    func usernameAvailable(username: String) -> Future<Bool, AccountProviderError> {
         return Future(error: .generic(NotImplementedError()))
     }
         
@@ -172,5 +208,22 @@ class AccountService: AccountProvider {
 extension AccountProviderError {
     static func make(from error: AmazonServiceError) -> AccountProviderError {
         return .thirdParty(error)
+    }
+}
+
+extension ExternalUserProvider {
+    static func make(from provider: String?) -> ExternalUserProvider? {
+        guard let provider = provider else {
+            return nil
+        }
+        
+        switch provider.lowercased() {
+        case "facebook":
+            return .facebook
+        case "google":
+            return .google
+        default:
+            return nil
+        }
     }
 }

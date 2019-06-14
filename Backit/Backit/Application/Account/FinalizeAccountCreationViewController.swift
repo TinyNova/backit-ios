@@ -56,7 +56,7 @@ class FinalizeAccountCreationViewController: UIViewController {
     var accountProvider: AccountProvider?
     var profile: ExternalUserProfile?
     
-    func configure(with profile: ExternalUserProfile) {
+    func configure(signupToken: String, profile: ExternalUserProfile) {
         self.profile = profile
         emailField.text = profile.email
     }

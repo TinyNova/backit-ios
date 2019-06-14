@@ -45,7 +45,7 @@ class AppSignInProvider: SignInProvider {
                 self?.loginUsingForm(promise: promise)
             }
         
-        promise.future.onComplete { [weak self] (result) in
+        _ = promise.future.andThen { [weak self] (result) in
             self?.promise = nil
         }
         

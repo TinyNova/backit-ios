@@ -87,6 +87,7 @@
 		07A1C21421DEDF8E00E5A5DA /* ImagePagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */; };
 		07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */; };
 		07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B25B01228E0A1B002476D4 /* FeedProject.swift */; };
+		07B899C922B35845003F7597 /* CreateExternalAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */; };
 		07C9BD58227897A800E41F1D /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9BD57227897A800E41F1D /* AccountService.swift */; };
 		07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3B40E223175CC00959808 /* UIView+Backit.swift */; };
 		07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */; };
@@ -246,6 +247,7 @@
 		07A1C21321DEDF8E00E5A5DA /* ImagePagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePagerView.xib; sourceTree = "<group>"; };
 		07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
 		07B25B01228E0A1B002476D4 /* FeedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedProject.swift; sourceTree = "<group>"; };
+		07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExternalAccountEndpoint.swift; sourceTree = "<group>"; };
 		07C9BD57227897A800E41F1D /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		07E3B40E223175CC00959808 /* UIView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Backit.swift"; sourceTree = "<group>"; };
 		07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountEndpoint.swift; sourceTree = "<group>"; };
@@ -596,6 +598,8 @@
 			children = (
 				07C9BD57227897A800E41F1D /* AccountService.swift */,
 				071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */,
+				07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */,
+				AA0FD38922B1CFB5007DEEB6 /* ExternalLoginEndpoint.swift */,
 				071B317A22794FAB00DB1561 /* LoginEndpoint.swift */,
 				AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */,
 				AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */,
@@ -604,7 +608,6 @@
 				07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */,
 				0700753222937377005B9F28 /* UserService.swift */,
 				0700752E22936ED4005B9F28 /* UserStream.swift */,
-				AA0FD38922B1CFB5007DEEB6 /* ExternalLoginEndpoint.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1149,6 +1152,7 @@
 				07C9BD58227897A800E41F1D /* AccountService.swift in Sources */,
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
 				0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */,
+				07B899C922B35845003F7597 /* CreateExternalAccountEndpoint.swift in Sources */,
 				071B317D227953D700DB1561 /* CreateAccountEndpoint.swift in Sources */,
 				071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */,
 				073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */,

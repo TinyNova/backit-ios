@@ -5,23 +5,10 @@
 
 import Foundation
 
-struct ExternalLoginEndpoint: ServiceEndpoint {
-        
+struct CreateExternalAccountEndpoint: ServiceEndpoint {
+    
     struct ResponseType: Decodable {
-        struct ProviderUser: Decodable {
-            let provider: String
-            let id: String
-            let email: String?
-            let avatar: String?
-            let firstName: String?
-            let lastName: String?
-        }
-        
-        /// Success Response (202)
-        let signupToken: String?
-        let providerUser: ProviderUser?
-        
-        /// Success Response (200)
+        /// Success Response
         let csrfToken: String?
         let refreshToken: String?
         let accountId: String?
@@ -31,21 +18,22 @@ struct ExternalLoginEndpoint: ServiceEndpoint {
         let message: String?
         let validation: [String: [String]]? // <- I'm not sure if this comes back or not
     }
-
+    
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
     enum PostParameter {
-        case accessToken(String)
-        /// `provider` options are: `facebook`, `google`
-        case provider(String)
+        case username(String)
+        case signupToken(String)
+        case email(String)
+        case subscribe(Bool)
     }
     typealias PostBody = [PostParameter]
-
+    
     var type: ServiceRequestType = .post
     var httpBodyEncodingStrategy: HTTPBodyEncodingStrategy = .keyValue
     var endpoints: Endpoints = [
-        .qa: "https://api.qabackit.com/account/login/external"
+        .qa: "https://api.qabackit.com/account/accounts/external"
     ]
     
     var postBody: PostBody?
