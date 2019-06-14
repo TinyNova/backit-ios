@@ -59,6 +59,7 @@ class AppExternalSignInProvider: ExternalSignInProvider {
 extension AppExternalSignInProvider: FinalizeAccountCreationViewControllerDelegate {
     
     func didCreateAccount(userSession: UserSession) {
+        // TODO: Upload User's avatar
         promise?.success(userSession)
     }
 }

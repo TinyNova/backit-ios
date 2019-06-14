@@ -55,10 +55,10 @@ class AppSignInProvider: SignInProvider {
     func logout() -> Future<IgnorableValue, SignInProviderError> {
         let futures: [Future<IgnorableValue, SignInProviderError>] = [
             accountProvider.logout().mapError { error -> SignInProviderError in
-                return .unknown(error)
+                return .generic(error)
             },
             keychainProvider.removeAll().mapError { error -> SignInProviderError in
-                return .unknown(error)
+                return .generic(error)
             }
         ]
         
@@ -106,11 +106,11 @@ class AppSignInProvider: SignInProvider {
     private func loginUsingForm(promise: Promise<UserSession, SignInProviderError>, reason: String? = nil) {
         let storyboard = UIStoryboard(name: "SignIn", bundle: Bundle(for: AppSignInProvider.self))
         guard let vc = storyboard.instantiateInitialViewController() as? UINavigationController else {
-            promise.failure(.unknown(GenericError()))
+            promise.failure(.generic(GenericError()))
             return
         }
         guard let rootViewController = vc.topViewController as? SignInViewController else {
-            promise.failure(.unknown(GenericError()))
+            promise.failure(.generic(GenericError()))
             return
         }
         

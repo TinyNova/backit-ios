@@ -54,7 +54,7 @@ class AccountService: AccountProvider {
             .mapError { (error) -> AccountProviderError in
                 return .generic(error)
             }
-            .flatMap { (response) -> Future<ExternalAccount, AccountProviderError> in
+            .flatMap { [weak self] (response) -> Future<ExternalAccount, AccountProviderError> in
                 if let signupToken = response.signupToken {
                     var avatarUrl: URL?
                     if let avatar = response.providerUser?.avatar,
@@ -77,7 +77,14 @@ class AccountService: AccountProvider {
                    let csrfToken = response.csrfToken,
                    let token = response.token,
                    let refreshToken = response.refreshToken {
-                    return Future(value: .existingUser(UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken)))
+                    let userSession = UserSession(
+                        accountId: accountId,
+                        csrfToken: csrfToken,
+                        token: token,
+                        refreshToken: refreshToken
+                    )
+                    self?.sessionProvider.emit(userSession: userSession)
+                    return Future(value: .existingUser(userSession))
                 }
 
                 // TODO: Map `validation` errors

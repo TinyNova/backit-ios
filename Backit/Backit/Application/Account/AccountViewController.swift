@@ -187,7 +187,7 @@ extension AccountViewController: UserStreamListener {
             }
             
             DispatchQueue.main.async {
-                self?.tabBarItem.image = avatarImage
+                self?.updateTabBar(with: avatarImage)
             }
         }
         task?.resume()
