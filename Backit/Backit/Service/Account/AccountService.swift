@@ -52,6 +52,10 @@ class AccountService: AccountProvider {
         // 202, half created.
         return Future(error: .generic(NotImplementedError()))
     }
+    
+    func createExternalAccount(email: String, username: String) -> Future<UserSession, AccountProviderError> {
+        return Future(error: .generic(NotImplementedError()))
+    }
         
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError> {
         let endpoint = CreateAccountEndpoint(postBody: [

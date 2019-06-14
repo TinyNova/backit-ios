@@ -45,6 +45,14 @@ class Assembly {
         }
         .inObjectScope(.container)
         
+        container.register(ExternalSignInProvider.self) { resolver in
+            let accountProvider = resolver.resolve(AccountProvider.self)!
+            let pageProvider = resolver.resolve(PageProvider.self)!
+            let presenterProvider = resolver.resolve(PresenterProvider.self)!
+            return AppExternalSignInProvider(accountProvider: accountProvider, pageProvider: pageProvider, presenterProvider: presenterProvider)
+        }
+        .inObjectScope(.container)
+        
         container.register(AmazonService.self) { resolver in
             let urlSession = resolver.resolve(URLSession.self)!
             return AmazonService(urlSession: urlSession)
@@ -52,6 +60,10 @@ class Assembly {
         
         container.register(PresenterProvider.self) { resolver in
             return AppPresenterProvider()
+        }
+        
+        container.register(PageProvider.self) { resolver in
+            return AppPageProvider()
         }
         
         container.register(AuthorizationServicePlugin.self) { resolver in
@@ -164,6 +176,11 @@ class Assembly {
             
         }
         
+        container.storyboardInitCompleted(FinalizeAccountCreationViewController.self) { (resolver, controller) in
+            let accountProvider = resolver.resolve(AccountProvider.self)!
+            controller.inject(accountProvider: accountProvider)
+        }
+        
         container.storyboardInitCompleted(AccountViewController.self) { (resolver, controller) in
             let urlSession = resolver.resolve(URLSession.self)!
             let userStreamer = resolver.resolve(UserStreamer.self)!
@@ -184,7 +201,8 @@ class Assembly {
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let facebookProvider = resolver.resolve(FacebookProvider.self)!
-            controller.inject(accountProvider: accountProvider, facebookProvider: facebookProvider)
+            let externalProvider = resolver.resolve(ExternalSignInProvider.self)!
+            controller.inject(accountProvider: accountProvider, facebookProvider: facebookProvider, externalProvider: externalProvider)
         }
 
         container.storyboardInitCompleted(LostPasswordViewController.self) { resolver, controller in

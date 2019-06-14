@@ -92,9 +92,10 @@ class SignInViewController: UIViewController {
     let i18n = Localization<Appl10n>()
     let theme: UIThemeApplier<AppTheme> = AppTheme.default
     
-    func inject(accountProvider: AccountProvider, facebookProvider: FacebookProvider) {
+    func inject(accountProvider: AccountProvider, facebookProvider: FacebookProvider, externalProvider: ExternalSignInProvider) {
         self.accountProvider = accountProvider
         self.facebookProvider = facebookProvider
+        self.externalProvider = externalProvider
     }
     
     override func viewDidLoad() {

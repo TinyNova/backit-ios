@@ -38,7 +38,12 @@ class TextEntryField: UIView {
     }
     
     public var text: String? {
-        return textField.text
+        set {
+            textField.text = newValue
+        }
+        get {
+            return textField.text
+        }
     }
     
     let i18n = Localization<Appl10n>()
