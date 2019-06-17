@@ -9,6 +9,7 @@ import Foundation
 typealias FacebookAccessToken = String
 
 enum FacebookProviderError: Error {
+    case generic(Error)
     case facebook(Error)
     case failedToPresent
     case failedToLogin
@@ -18,4 +19,5 @@ enum FacebookProviderError: Error {
 protocol FacebookProvider {
     func login() -> Future<
         FacebookAccessToken, FacebookProviderError>
+    func logout() -> Future<IgnorableValue, FacebookProviderError>
 }

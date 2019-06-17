@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         accountProvider = assembly.container.resolve(AccountProvider.self)!
         silentlyLoginUser()
+        logoutOfFacebook()
 
         // TODO: Display semi-transparent navigation bar
         UINavigationBar.appearance().isTranslucent = false
@@ -79,6 +80,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .onFailure { error in
                 return print("INFO: Failed to get session. Skipping silent reauthentication.")
             }
+    }
+    
+    private func logoutOfFacebook() {
+        let provider = assembly.container.resolve(FacebookProvider.self)!
+        _ = provider.logout()
     }
 
     // FIXME: Move this into a dependency.

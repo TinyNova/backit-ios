@@ -62,6 +62,8 @@ class AppSignInProvider: SignInProvider {
             }
         ]
         
+        // TODO: If logged in with an external provider, log them out of that system too.
+        
         return futures.sequence()
             .map { values -> IgnorableValue in
                 return IgnorableValue()

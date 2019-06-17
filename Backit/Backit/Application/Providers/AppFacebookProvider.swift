@@ -45,4 +45,10 @@ class AppFacebookProvider: FacebookProvider {
         
         return promise.future
     }
+    
+    func logout() -> Future<IgnorableValue, FacebookProviderError> {
+        let loginManager = LoginManager()
+        loginManager.logOut()
+        return Future(value: IgnorableValue())
+    }
 }
