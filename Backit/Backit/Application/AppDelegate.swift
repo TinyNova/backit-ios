@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         accountProvider = assembly.container.resolve(AccountProvider.self)!
         silentlyLoginUser()
-        logoutOfFacebook()
+//        logoutOfFacebook()
 
         // TODO: Display semi-transparent navigation bar
         UINavigationBar.appearance().isTranslucent = false
