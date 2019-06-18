@@ -56,6 +56,7 @@ import GoogleSignIn
     }
     
     func logout() -> Future<IgnorableValue, GoogleProviderError> {
+        signIn?.disconnect()
         signIn?.signOut()
         return Future(value: IgnorableValue())
     }
@@ -72,6 +73,7 @@ extension AppGoogleProvider: GIDSignInDelegate {
         
         // NOTE: there is also an `accessToken`. `idToken` is used in the tutorial and states directly that it can be sent to the server.
         promise.success(user.authentication.idToken)
+//        promise.success(user.authentication.accessToken)
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
@@ -82,15 +84,16 @@ extension AppGoogleProvider: GIDSignInDelegate {
 extension AppGoogleProvider: GIDSignInUIDelegate {
     /// The user wants to sign in
     func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+        
     }
     
     /// Called when wanting to present a view to login
     func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-        
+        presenterProvider.present(viewController, completion: nil)
     }
     
     /// Called when user wants to dismiss the login
     func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-        
+        presenterProvider.dismiss(viewController, completion: nil)
     }
 }

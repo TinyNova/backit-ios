@@ -205,9 +205,10 @@ class Assembly {
                 
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            let facebookProvider = resolver.resolve(FacebookProvider.self)!
             let externalProvider = resolver.resolve(ExternalSignInProvider.self)!
-            controller.inject(accountProvider: accountProvider, facebookProvider: facebookProvider, externalProvider: externalProvider)
+            let facebookProvider = resolver.resolve(FacebookProvider.self)!
+            let googleProvider = resolver.resolve(GoogleProvider.self)!
+            controller.inject(accountProvider: accountProvider, externalProvider: externalProvider, facebookProvider: facebookProvider, googleProvider: googleProvider)
         }
 
         container.storyboardInitCompleted(LostPasswordViewController.self) { resolver, controller in

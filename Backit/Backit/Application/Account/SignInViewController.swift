@@ -84,18 +84,20 @@ class SignInViewController: UIViewController {
     }
     
     var accountProvider: AccountProvider?
-    var facebookProvider: FacebookProvider?
     var externalProvider: ExternalSignInProvider?
+    var facebookProvider: FacebookProvider?
+    var googleProvider: GoogleProvider?
     
     weak var delegate: SignInViewControllerDelegate?
     
     let i18n = Localization<Appl10n>()
     let theme: UIThemeApplier<AppTheme> = AppTheme.default
     
-    func inject(accountProvider: AccountProvider, facebookProvider: FacebookProvider, externalProvider: ExternalSignInProvider) {
+    func inject(accountProvider: AccountProvider, externalProvider: ExternalSignInProvider, facebookProvider: FacebookProvider, googleProvider: GoogleProvider) {
         self.accountProvider = accountProvider
-        self.facebookProvider = facebookProvider
         self.externalProvider = externalProvider
+        self.facebookProvider = facebookProvider
+        self.googleProvider = googleProvider
     }
     
     override func viewDidLoad() {
@@ -148,7 +150,6 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func didTapFacebookLogin(_ sender: Any) {
-        // TODO: Display a loading indicator
         facebookProvider?.login()
             .mapError { (error: FacebookProviderError) -> Error in
                 return error
@@ -173,7 +174,27 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func didTapGoogleLogin(_ sender: Any) {
-        print("login with google")
+        googleProvider?.login()
+            .mapError { (error: GoogleProviderError) -> Error in
+                return error
+            }
+            .flatMap { [weak self] (token: GoogleAuthenticationToken) -> Future<UserSession, Error> in
+                guard let externalProvider = self?.externalProvider else {
+                    return Future(error: WeakReferenceError())
+                }
+                return externalProvider.login(with: token, provider: .google)
+                    .mapError { (error) -> Error in
+                        // TODO: if the reason for the failure is because we failed to login (bad network connection) display a banner and allow the user to try again.
+                        return error
+                }
+            }
+            .onSuccess { [weak self] (userSession) in
+                self?.delegate?.didSignIn(credentials: nil, userSession: userSession)
+                self?.dismiss(animated: true, completion: nil)
+            }
+            .onFailure { [weak self] error in
+                self?.errorLabel.text = "\(error)"
+            }
     }
     
     @IBAction func didTapCreateAccount(_ sender: Any) {
