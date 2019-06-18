@@ -10,6 +10,10 @@
 import Foundation
 import UIKit
 
+protocol TextEntryFieldDelegate: class {
+    func didChangeText(field: TextEntryField, text: String?)
+}
+
 enum TextEntryFieldType {
     case `default`
     case email
@@ -34,11 +38,20 @@ class TextEntryField: UIView {
         didSet {
             theme.apply(.normal, toTextField: textField)
             textField.delegate = self
+            textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         }
     }
     
+    /// Set the value of text. This should be done _before_ the form is displayed as this operation should be performed while the field does _not_ have focus. Otherwise the state of the label may become out of sync.
     public var text: String? {
         set {
+            if newValue == nil {
+                makeLabelLarge()
+            }
+            else {
+                makeLabelSmall()
+            }
+
             textField.text = newValue
         }
         get {
@@ -49,6 +62,8 @@ class TextEntryField: UIView {
     let i18n = Localization<Appl10n>()
     let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
+    weak var delegate: TextEntryFieldDelegate?
+    
     private var labelIsSmall = false
     
     required init?(coder aDecoder: NSCoder) {
@@ -111,48 +126,64 @@ class TextEntryField: UIView {
         }
         textField.becomeFirstResponder()
     }
-}
-
-extension TextEntryField: UITextFieldDelegate {
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        delegate?.didChangeText(field: self, text: textField.text)
+    }
+    
+    private func makeLabelSmall() {
         guard !labelIsSmall else {
             return
         }
-
+        
         labelIsSmall = true
         layoutIfNeeded()
-
+        
         var scaleTransform = titleLabel.transform.scaledBy(x: 0.7, y: 0.7)
         scaleTransform = scaleTransform.translatedBy(x: -22.0, y: -2.0)
-
+        
         UIView.animate(withDuration: 0.2) { [weak self] in
             guard let sself = self else {
                 return
             }
-
+            
             sself.titleLabel.transform = scaleTransform
             sself.titleLabelTopConstraint.constant = ceil(50.0 * CGFloat(0.1))
             sself.layoutIfNeeded()
         }
     }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard labelIsSmall && textField.text?.count == 0 else {
+    
+    private func makeLabelLarge() {
+        guard labelIsSmall else {
             return
         }
-
+        
         labelIsSmall = false
         layoutIfNeeded()
-
+        
         UIView.animate(withDuration: 0.2) { [weak self] in
             guard let sself = self else {
                 return
             }
-
+            
             sself.titleLabel.transform = CGAffineTransform.identity
             sself.titleLabelTopConstraint.constant = ceil(50.0 / CGFloat(2.0))
             sself.layoutIfNeeded()
         }
+    }
+}
+
+extension TextEntryField: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        makeLabelSmall()
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard textField.text?.count == 0 else {
+            return
+        }
+
+        makeLabelLarge()
     }
 }

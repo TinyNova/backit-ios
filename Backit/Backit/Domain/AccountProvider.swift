@@ -38,6 +38,8 @@ struct ExternalUserProfile {
     let avatarUrl: URL?
 }
 
+typealias UsernameAvailable = Bool
+
 enum ExternalAccount {
     case existingUser(UserSession)
     case newUser(signupToken: String, profile: ExternalUserProfile)
@@ -49,7 +51,7 @@ protocol AccountProvider {
     
     func externalLogin(accessToken: String, provider: String)  -> Future<ExternalAccount, AccountProviderError>
     func createExternalAccount(email: String, username: String) -> Future<UserSession, AccountProviderError>
-    func usernameAvailable(username: String) -> Future<Bool, AccountProviderError>
+    func usernameAvailable(username: String) -> Future<UsernameAvailable, AccountProviderError>
     
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError>
     func resetPassword(email: String) -> Future<IgnorableValue, AccountProviderError>

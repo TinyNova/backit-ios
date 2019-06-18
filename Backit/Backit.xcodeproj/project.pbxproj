@@ -33,6 +33,7 @@
 		0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392B220912960034291C /* AnalyticsTransaction.swift */; };
 		0745C98522B9334400E85948 /* GoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745C98422B9334400E85948 /* GoogleProvider.swift */; };
 		0745C98722B933A500E85948 /* AppGoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745C98622B933A500E85948 /* AppGoogleProvider.swift */; };
+		0745C98922B99C5500E85948 /* UsernameAvailabilityEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */; };
 		0747A42B226560D6006BE39A /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0747A42A226560D6006BE39A /* SignIn.storyboard */; };
 		0747A42D226560F8006BE39A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0747A42C226560F8006BE39A /* SignInViewController.swift */; };
 		0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */; };
@@ -194,6 +195,7 @@
 		0732392B220912960034291C /* AnalyticsTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransaction.swift; sourceTree = "<group>"; };
 		0745C98422B9334400E85948 /* GoogleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleProvider.swift; sourceTree = "<group>"; };
 		0745C98622B933A500E85948 /* AppGoogleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGoogleProvider.swift; sourceTree = "<group>"; };
+		0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameAvailabilityEndpoint.swift; sourceTree = "<group>"; };
 		0747A42A226560D6006BE39A /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		0747A42C226560F8006BE39A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Backit.swift"; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 				B9FB5985227FF97100A03BDC /* SessionService.swift */,
 				AAE9171622A880B400490A30 /* UploadAvatarEndpoint.swift */,
 				07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */,
+				0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */,
 				0700753222937377005B9F28 /* UserService.swift */,
 				0700752E22936ED4005B9F28 /* UserStream.swift */,
 			);
@@ -1144,6 +1147,7 @@
 				07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */,
 				0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */,
 				AA0FD38A22B1CFB5007DEEB6 /* ExternalLoginEndpoint.swift in Sources */,
+				0745C98922B99C5500E85948 /* UsernameAvailabilityEndpoint.swift in Sources */,
 				B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */,
 				0700753122937312005B9F28 /* UserProvider.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,

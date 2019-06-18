@@ -96,8 +96,18 @@ class AccountService: AccountProvider {
         return Future(error: .generic(NotImplementedError()))
     }
     
-    func usernameAvailable(username: String) -> Future<Bool, AccountProviderError> {
-        return Future(error: .generic(NotImplementedError()))
+    func usernameAvailable(username: String) -> Future<UsernameAvailable, AccountProviderError> {
+        let endpoint = UsernameAvailabilityEndpoint(pathParameters: [
+            .userName(username)
+        ])
+        
+        return service.request(endpoint)
+            .mapError { (error) -> AccountProviderError in
+                return .generic(error)
+            }
+            .flatMap { (result) -> Future<Bool, AccountProviderError> in
+                return Future(value: !result.found)
+            }
     }
         
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError> {

@@ -34,19 +34,19 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var percentFundedLabel: UILabel! {
         didSet {
-            theme.apply(.smallInfoLabel, toLabel: percentFundedLabel)
+            theme.apply(.smallInfo, toLabel: percentFundedLabel)
         }
     }
     
     @IBOutlet private weak var earlyBirdLabel: UILabel! {
         didSet {
-            theme.apply(.smallInfoLabel, toLabel: earlyBirdLabel)
+            theme.apply(.smallInfo, toLabel: earlyBirdLabel)
         }
     }
     
     @IBOutlet private weak var daysLeftLabel: UILabel! {
         didSet {
-            theme.apply(.smallInfoLabel, toLabel: daysLeftLabel)
+            theme.apply(.smallInfo, toLabel: daysLeftLabel)
         }
     }
     
@@ -69,7 +69,7 @@ class ProjectTableViewCell: UITableViewCell {
     }
     @IBOutlet private weak var totalVotesLabel: UILabel! {
         didSet {
-            theme.apply(.smallInfoLabel, toLabel: totalVotesLabel)
+            theme.apply(.smallInfo, toLabel: totalVotesLabel)
         }
     }
     
@@ -86,7 +86,7 @@ class ProjectTableViewCell: UITableViewCell {
     }
     @IBOutlet private weak var totalCommentsLabel: UILabel! {
         didSet {
-            theme.apply(.smallInfoLabel, toLabel: totalCommentsLabel)
+            theme.apply(.smallInfo, toLabel: totalCommentsLabel)
         }
     }
     
@@ -103,7 +103,7 @@ class ProjectTableViewCell: UITableViewCell {
     }
     @IBOutlet private weak var shareLabel: UILabel! {
         didSet {
-            theme.apply(.smallInfoLabel, toLabel: shareLabel)
+            theme.apply(.smallInfo, toLabel: shareLabel)
         }
     }
     

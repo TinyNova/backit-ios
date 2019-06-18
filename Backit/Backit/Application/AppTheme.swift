@@ -37,7 +37,8 @@ class AppTheme: UIStyle {
         case error
         case informationalHeader
         case feedProjectName
-        case smallInfoLabel
+        case smallInfo
+        case info
         case title
         case primaryButton
         case secondaryButton
@@ -89,7 +90,11 @@ private class FontCache {
     lazy var regular12: UIFont = {
         return UIFont(name: "AcuminPro-Regular", size: 12.0)!
     }()
-    
+
+    lazy var regular16: UIFont = {
+        return UIFont(name: "AcuminPro-Regular", size: 16.0)!
+    }()
+
     lazy var regular18: UIFont = {
         return UIFont(name: "AcuminPro-Regular", size: 18.0)!
     }()
@@ -119,9 +124,13 @@ extension AppTheme: UITheme {
             case .feedProjectName:
                 label.font = FontCache.default.semibold22
                 label.textColor = UIColor.fromHex(0x201c3b)
-            case .smallInfoLabel:
+            case .smallInfo:
                 label.font = FontCache.default.regular12
                 label.textColor = UIColor.fromHex(0x6b6c7e)
+            case .info:
+                label.font = FontCache.default.regular16
+                label.textColor = UIColor.fromHex(0xffffff)
+                label.numberOfLines = 0
             case .title:
                 label.font = FontCache.default.regular18
                 label.textColor = UIColor.fromHex(0xcdced9)

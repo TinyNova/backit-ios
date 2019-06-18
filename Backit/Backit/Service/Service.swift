@@ -30,6 +30,8 @@ struct ServiceResult {
 
 class Service {
     
+    var debug: Bool = false
+    
     // Must use `var` for now to remove circular dependency.
     var pluginProvider: ServicePluginProvider?
     
@@ -78,12 +80,15 @@ class Service {
                 return plugin.willSendRequest(urlRequest)
             }
             .onSuccess { [weak self] (urlRequest) in
-                guard let requester = self?.requester else {
+                guard let sself = self else {
                     return promise.failure(.strongSelf)
                 }
                 
-//                printRequest(urlRequest)
-                requester.request(urlRequest) { [weak self] (result) in
+                if sself.debug {
+                    printRequest(urlRequest)
+                }
+                
+                sself.requester.request(urlRequest) { [weak self] (result) in
                     resultPromise = Promise<ServiceResult, ServicePluginError>()
                     resultPromise?.reduce(result, plugins) { (result, plugin) in
                         return plugin.didReceiveResponse(result)
