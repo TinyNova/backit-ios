@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         accountProvider = assembly.container.resolve(AccountProvider.self)!
         silentlyLoginUser()
+        startGoogleSignIn()
 //        logoutOfFacebook()
 
         // TODO: Display semi-transparent navigation bar
@@ -38,6 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UIFont.displayAllAvailableFonts()
 
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let provider = assembly.container.resolve(GoogleProvider.self)!
+        return provider.appDidOpen(url: url, with: options)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -80,6 +86,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .onFailure { error in
                 return print("INFO: Failed to get session. Skipping silent reauthentication.")
             }
+    }
+    
+    private func startGoogleSignIn() {
+        let provider = assembly.container.resolve(GoogleProvider.self)!
+        provider.appDidLaunch()
     }
     
     private func logoutOfFacebook() {

@@ -78,7 +78,7 @@ class ProjectFeedViewController: UIViewController {
         let backitButton = makeBackitLogoButton()
         navigationItem.leftBarButtonItems = [backitButton]
         
-        provider.loadProjects()
+//        provider.loadProjects()
     }
     
     // MARK: Actions

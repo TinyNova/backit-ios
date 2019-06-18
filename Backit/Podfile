@@ -8,6 +8,7 @@ target 'Backit' do
     pod 'Alamofire'
     pod 'BrightFutures'
     pod 'FacebookLogin'
+    pod 'GoogleSignIn'
     pod 'KeychainAccess'
 #    pod 'Mixpanel'
     pod 'NewRelicAgent'

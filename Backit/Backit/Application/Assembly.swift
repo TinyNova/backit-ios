@@ -164,7 +164,12 @@ class Assembly {
         container.register(FacebookProvider.self) { resolver in
             let presenterProvider = resolver.resolve(PresenterProvider.self)!
             return AppFacebookProvider(presenterProvider: presenterProvider)
-        }
+        }.inObjectScope(.container)
+        
+        container.register(GoogleProvider.self) { resolver in
+            let presenterProvider = resolver.resolve(PresenterProvider.self)!
+            return AppGoogleProvider(presenterProvider: presenterProvider)
+        }.inObjectScope(.container)
         
         // MARK: - UIViewController Registration
         

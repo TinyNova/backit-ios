@@ -12,16 +12,23 @@ class AppFacebookProvider: FacebookProvider {
     
     let presenterProvider: PresenterProvider
     
+    var promise: Promise<FacebookAccessToken, FacebookProviderError>?
+    
     init(presenterProvider: PresenterProvider) {
         self.presenterProvider = presenterProvider
     }
     
     func login() -> Future<FacebookAccessToken, FacebookProviderError> {
+        if let promise = promise {
+            return promise.future
+        }
+        
         guard let viewController = presenterProvider.viewController else {
             return Future(error: .failedToPresent)
         }
         
         let promise = Promise<FacebookAccessToken, FacebookProviderError>()
+        self.promise = promise
         
         let loginManager = LoginManager()
         let permissions: [String] = [
@@ -41,6 +48,10 @@ class AppFacebookProvider: FacebookProvider {
             }
             
             promise.success(token)
+        }
+        
+        _ = promise.future.andThen { [weak self] (result) in
+            self?.promise = nil
         }
         
         return promise.future
