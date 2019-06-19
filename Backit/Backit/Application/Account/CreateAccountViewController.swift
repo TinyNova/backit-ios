@@ -36,12 +36,6 @@ class CreateAccountViewController: UIViewController {
             passwordField.configure(title: i18n.t(.password), type: .password)
         }
     }
-    @IBOutlet weak var errorLabel: UILabel! {
-        didSet {
-            errorLabel.isHidden = true
-            theme.apply(.error, toLabel: errorLabel)
-        }
-    }
     @IBOutlet weak var legalTextView: UITextView! {
         didSet {
             legalTextView.delegate = self
@@ -57,13 +51,15 @@ class CreateAccountViewController: UIViewController {
         }
     }
 
-    let i18n = Localization<Appl10n>()
-    let theme: UIThemeApplier<AppTheme> = AppTheme.default
+    private let i18n = Localization<Appl10n>()
+    private let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
-    var accountProvider: AccountProvider?
+    private var accountProvider: AccountProvider?
+    private var bannerProvider: BannerProvider?
 
-    func inject(accountProvider: AccountProvider) {
+    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider) {
         self.accountProvider = accountProvider
+        self.bannerProvider = bannerProvider
     }
 
     override func viewDidLoad() {
@@ -76,23 +72,19 @@ class CreateAccountViewController: UIViewController {
         guard let username = usernameField.text,
               let email = emailField.text,
               let password = passwordField.text else {
-            errorLabel.isHidden = false
-            errorLabel.text = "Please enter all fields"
+            bannerProvider?.present(type: .error, title: nil, message: "Please provide a username and email")
             return
         }
 
         // Validation:
         // - username `/^[a-zA-Z0-9_-]+$/` 3:20
 
-        errorLabel.isHidden = true
-
         accountProvider?.createAccount(email: email, username: username, password: password, repeatPassword: password, firstName: nil, lastName: nil, subscribe: false)
             .onSuccess { [weak self] (userSession: UserSession) in
                 self?.delegate?.didCreateAccount(credentials: Credentials(email: username, password: password), userSession: userSession)
             }
             .onFailure { [weak self] (error) in
-                self?.errorLabel.isHidden = false
-                self?.errorLabel.text = error.localizedDescription
+                self?.bannerProvider?.present(error: error)
             }
     }
 }

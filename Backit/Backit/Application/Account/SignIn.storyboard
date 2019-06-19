@@ -75,14 +75,8 @@
                                                     <constraint firstAttribute="height" constant="65" id="5dl-oD-NI3"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYs-bt-eml">
-                                                <rect key="frame" x="0.0" y="262.5" width="374" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.7629736075129534" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wz-4d-N6e" customClass="PrimaryButton" customModule="Backit" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="301" width="374" height="45"/>
+                                                <rect key="frame" x="0.0" y="262.5" width="374" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="keu-rL-tW9"/>
@@ -92,7 +86,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6s7-2w-etr" customClass="TextButton" customModule="Backit" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="364" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="325.5" width="374" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="BuU-we-zr4"/>
@@ -102,14 +96,14 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAY-pi-olG">
-                                                <rect key="frame" x="0.0" y="412" width="374" height="1"/>
+                                                <rect key="frame" x="0.0" y="373.5" width="374" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="0cr-an-1BC"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oq5-0T-xKo" customClass="SecondaryButton" customModule="Backit" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="431" width="374" height="45"/>
+                                                <rect key="frame" x="0.0" y="392.5" width="374" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="5Fw-ey-yQL"/>
@@ -119,7 +113,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8W3-re-3cU" customClass="SecondaryButton" customModule="Backit" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="494" width="374" height="45"/>
+                                                <rect key="frame" x="0.0" y="455.5" width="374" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="4kK-U8-RNb"/>
@@ -129,7 +123,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Nyy-BZ-dXU">
-                                                <rect key="frame" x="0.0" y="557" width="374" height="169"/>
+                                                <rect key="frame" x="0.0" y="518.5" width="374" height="207.5"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fn4-wQ-Bjy" customClass="UnderlineButton" customModule="Backit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="744" width="374" height="30"/>
@@ -167,7 +161,6 @@
                     <connections>
                         <outlet property="createAccountButton" destination="fn4-wQ-Bjy" id="lT6-OU-O2v"/>
                         <outlet property="emailTextField" destination="iuk-kM-3Oi" id="JSY-aT-6Kb"/>
-                        <outlet property="errorLabel" destination="EYs-bt-eml" id="Xol-Kg-UcD"/>
                         <outlet property="forgotPasswordButton" destination="6s7-2w-etr" id="n5q-so-3ge"/>
                         <outlet property="loginButton" destination="3Wz-4d-N6e" id="vsp-Gc-kRp"/>
                         <outlet property="loginWithFacebookButton" destination="Oq5-0T-xKo" id="J03-n2-qTe"/>

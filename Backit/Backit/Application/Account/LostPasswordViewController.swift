@@ -19,12 +19,6 @@ class LostPasswordViewController: UIViewController {
             emailField.configure(title: i18n.t(.email), type: .email)
         }
     }
-    @IBOutlet weak var errorLabel: UILabel! {
-        didSet {
-            errorLabel.isHidden = true
-            theme.apply(.error, toLabel: errorLabel)
-        }
-    }
     @IBOutlet weak var informationTextView: UITextView! {
         didSet {
             informationTextView.text = i18n.t(.mustHaveProvidedEmail)
@@ -41,9 +35,11 @@ class LostPasswordViewController: UIViewController {
     let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
     var accountProvider: AccountProvider?
+    var bannerProvider: BannerProvider?
 
-    func inject(accountProvider: AccountProvider) {
+    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider) {
         self.accountProvider = accountProvider
+        self.bannerProvider = bannerProvider
     }
 
     override func viewDidLoad() {
@@ -54,13 +50,10 @@ class LostPasswordViewController: UIViewController {
 
     @IBAction func didTapResetPasswordButton(_ sender: Any) {
         guard let email = emailField.text else {
-            errorLabel.isHidden = false
-            errorLabel.text = "Please enter your email"
+            bannerProvider?.present(type: .error, title: nil, message: "Please enter your email")
             return
         }
-
-        errorLabel.isHidden = true
-
+        
         accountProvider?.resetPassword(email: email)
             .onSuccess { [weak self] _ in
                 UIView.animate(withDuration: 0.3, animations: {
@@ -68,8 +61,7 @@ class LostPasswordViewController: UIViewController {
                 })
             }
             .onFailure { [weak self] (error) in
-                self?.errorLabel.isHidden = false
-                self?.errorLabel.text = error.localizedDescription
+                self?.bannerProvider?.present(error: error)
             }
     }
 }

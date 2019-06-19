@@ -68,6 +68,10 @@ class Assembly {
             return AppPresenterProvider()
         }
         
+        container.register(BannerProvider.self) { resolver in
+            return AppBannerProvider()
+        }
+        
         container.register(PageProvider.self) { resolver in
             return AppPageProvider()
         }
@@ -190,7 +194,8 @@ class Assembly {
         
         container.storyboardInitCompleted(FinalizeAccountCreationViewController.self) { (resolver, controller) in
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            controller.inject(accountProvider: accountProvider)
+            let bannerProvider = resolver.resolve(BannerProvider.self)!
+            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider)
         }
         
         container.storyboardInitCompleted(AccountViewController.self) { (resolver, controller) in
@@ -213,20 +218,23 @@ class Assembly {
                 
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
+            let bannerProvider = resolver.resolve(BannerProvider.self)!
             let externalProvider = resolver.resolve(ExternalSignInProvider.self)!
             let facebookProvider = resolver.resolve(FacebookProvider.self)!
             let googleProvider = resolver.resolve(GoogleProvider.self)!
-            controller.inject(accountProvider: accountProvider, externalProvider: externalProvider, facebookProvider: facebookProvider, googleProvider: googleProvider)
+            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, externalProvider: externalProvider, facebookProvider: facebookProvider, googleProvider: googleProvider)
         }
 
         container.storyboardInitCompleted(LostPasswordViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            controller.inject(accountProvider: accountProvider)
+            let bannerProvider = resolver.resolve(BannerProvider.self)!
+            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider)
         }
 
         container.storyboardInitCompleted(CreateAccountViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            controller.inject(accountProvider: accountProvider)
+            let bannerProvider = resolver.resolve(BannerProvider.self)!
+            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider)
         }
     }
 }

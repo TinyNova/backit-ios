@@ -20,4 +20,8 @@ class log {
     class func e(_ error: Error) {
         print("ERROR: \(error)")
     }
+    
+    class func c(_ message: String) {
+        print("CRITICAL: \(message)")
+    }
 }

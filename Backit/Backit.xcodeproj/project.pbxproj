@@ -31,6 +31,8 @@
 		073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239252208A0480034291C /* AnalyticsPublisher.swift */; };
 		073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239272208A06E0034291C /* AnalyticsEvent.swift */; };
 		0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392B220912960034291C /* AnalyticsTransaction.swift */; };
+		073AE1A522BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */; };
+		073AE1A722BAE24E00BD1A30 /* AppBannerMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */; };
 		0745C98522B9334400E85948 /* GoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745C98422B9334400E85948 /* GoogleProvider.swift */; };
 		0745C98722B933A500E85948 /* AppGoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745C98622B933A500E85948 /* AppGoogleProvider.swift */; };
 		0745C98922B99C5500E85948 /* UsernameAvailabilityEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */; };
@@ -78,6 +80,8 @@
 		07820D6122BA639100B44D86 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07820D6022BA639100B44D86 /* Logging.swift */; };
 		07820D6322BA689200B44D86 /* UserAvatarStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07820D6222BA689200B44D86 /* UserAvatarStreamer.swift */; };
 		07820D6522BA696500B44D86 /* UserAvatarStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07820D6422BA696500B44D86 /* UserAvatarStream.swift */; };
+		07820D6722BADC6500B44D86 /* BannerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07820D6622BADC6500B44D86 /* BannerProvider.swift */; };
+		07820D6922BADD0100B44D86 /* AppBannerPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07820D6822BADD0100B44D86 /* AppBannerPresenterProvider.swift */; };
 		0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785F02022936CCC006AD593 /* UserStreamer.swift */; };
 		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
 		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
@@ -196,6 +200,8 @@
 		073239252208A0480034291C /* AnalyticsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPublisher.swift; sourceTree = "<group>"; };
 		073239272208A06E0034291C /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		0732392B220912960034291C /* AnalyticsTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransaction.swift; sourceTree = "<group>"; };
+		073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountProviderError+BannerErrorMessage.swift"; sourceTree = "<group>"; };
+		073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBannerMessageProvider.swift; sourceTree = "<group>"; };
 		0745C98422B9334400E85948 /* GoogleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleProvider.swift; sourceTree = "<group>"; };
 		0745C98622B933A500E85948 /* AppGoogleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGoogleProvider.swift; sourceTree = "<group>"; };
 		0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameAvailabilityEndpoint.swift; sourceTree = "<group>"; };
@@ -244,6 +250,8 @@
 		07820D6022BA639100B44D86 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		07820D6222BA689200B44D86 /* UserAvatarStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarStreamer.swift; sourceTree = "<group>"; };
 		07820D6422BA696500B44D86 /* UserAvatarStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarStream.swift; sourceTree = "<group>"; };
+		07820D6622BADC6500B44D86 /* BannerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerProvider.swift; sourceTree = "<group>"; };
+		07820D6822BADD0100B44D86 /* AppBannerPresenterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBannerPresenterProvider.swift; sourceTree = "<group>"; };
 		0785F02022936CCC006AD593 /* UserStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStreamer.swift; sourceTree = "<group>"; };
 		07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -396,6 +404,7 @@
 		0722326C21D44028009D1912 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				073AE1A322BAE1E000BD1A30 /* BannerMessageErrors */,
 				07E9DD722264D314005DA147 /* Account */,
 				0732391C22089B4F0034291C /* Analytics */,
 				07E3B40D223175BD00959808 /* Extensions */,
@@ -426,6 +435,7 @@
 				B905785B229A56D400AD09C6 /* SecondaryButton */,
 				B905785D229A572100AD09C6 /* TextButton */,
 				072BB8742294BCB400265854 /* TextEntryField */,
+				07820D6622BADC6500B44D86 /* BannerProvider.swift */,
 				072510D12283B12100C02645 /* PresenterProvider.swift */,
 				07792B94229B09B80023D56C /* CustomButton.swift */,
 			);
@@ -462,6 +472,14 @@
 				07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */,
 			);
 			path = Analytics;
+			sourceTree = "<group>";
+		};
+		073AE1A322BAE1E000BD1A30 /* BannerMessageErrors */ = {
+			isa = PBXGroup;
+			children = (
+				073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */,
+			);
+			path = BannerMessageErrors;
 			sourceTree = "<group>";
 		};
 		0745C98A22B9BA5900E85948 /* Endopints */ = {
@@ -765,6 +783,8 @@
 			isa = PBXGroup;
 			children = (
 				AA5168C722B2E93100F79DC9 /* PageProvider */,
+				073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */,
+				07820D6822BADD0100B44D86 /* AppBannerPresenterProvider.swift */,
 				AA5168C222B2E23300F79DC9 /* AppExternalSignInProvider.swift */,
 				AA0FD38722B08258007DEEB6 /* AppFacebookProvider.swift */,
 				0745C98622B933A500E85948 /* AppGoogleProvider.swift */,
@@ -1129,6 +1149,7 @@
 				B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */,
 				076A8C5322864C070075B56C /* main.swift in Sources */,
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
+				07820D6722BADC6500B44D86 /* BannerProvider.swift in Sources */,
 				0745C98722B933A500E85948 /* AppGoogleProvider.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				B9FB5984227FF94D00A03BDC /* UserSessionStreamer.swift in Sources */,
@@ -1146,6 +1167,7 @@
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
 				072510D22283B12100C02645 /* PresenterProvider.swift in Sources */,
 				076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */,
+				073AE1A522BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift in Sources */,
 				076A8C4D22864BA80075B56C /* TestAppDelegate.swift in Sources */,
 				0700752F22936ED4005B9F28 /* UserStream.swift in Sources */,
 				0700753322937377005B9F28 /* UserService.swift in Sources */,
@@ -1171,6 +1193,7 @@
 				0700753122937312005B9F28 /* UserProvider.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				AAE9170822A7317C00490A30 /* PhotoAlbumProvider.swift in Sources */,
+				07820D6922BADD0100B44D86 /* AppBannerPresenterProvider.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
 				AAE9171722A880B400490A30 /* UploadAvatarEndpoint.swift in Sources */,
 				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,
@@ -1207,6 +1230,7 @@
 				07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */,
 				075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */,
 				AA5168C322B2E23300F79DC9 /* AppExternalSignInProvider.swift in Sources */,
+				073AE1A722BAE24E00BD1A30 /* AppBannerMessageProvider.swift in Sources */,
 				B905785F229A574600AD09C6 /* TextButton.swift in Sources */,
 				07C9BD58227897A800E41F1D /* AccountService.swift in Sources */,
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,

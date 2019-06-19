@@ -89,6 +89,7 @@ class FinalizeAccountCreationViewController: UIViewController {
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
     private var accountProvider: AccountProvider?
+    private var bannerProvider: BannerProvider?
     private var signupToken: String?
     private var profile: ExternalUserProfile?
     private var usernameState: UsernameState = .initial
@@ -99,8 +100,9 @@ class FinalizeAccountCreationViewController: UIViewController {
         self.profile = profile
     }
     
-    func inject(accountProvider: AccountProvider) {
+    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider) {
         self.accountProvider = accountProvider
+        self.bannerProvider = bannerProvider
     }
     
     override func viewDidLoad() {
@@ -112,19 +114,20 @@ class FinalizeAccountCreationViewController: UIViewController {
     
     @IBAction func didTapCreateAccount(_ sender: Any) {
         guard let signupToken = signupToken else {
-            return log.e("Page has not been configured!")
+            return log.c("Page has not been configured!")
         }
         guard let username = usernameField.text, username.count > 0,
               let email = emailField.text, email.count > 0 else {
-            return log.e("Please enter your username and email.")
+            bannerProvider?.present(type: .error, title: nil, message: "Please enter your username and email")
+            return
         }
         
         accountProvider?.createExternalAccount(email: email, username: username, subscribe: false, signupToken: signupToken)
             .onSuccess { [weak self] (userSession) in
                 self?.delegate?.didCreateAccount(userSession: userSession)
             }
-            .onFailure { (error) in
-                log.e("Failed to create account: \(error)")
+            .onFailure { [weak self] (error) in
+                self?.bannerProvider?.present(error: error)
             }
     }
     
@@ -203,8 +206,8 @@ extension FinalizeAccountCreationViewController: TextEntryFieldDelegate {
                     self?.usernameTakenMessage()
                 }
             }
-            .onFailure { (error) in
-                log.e(error)
+            .onFailure { [weak self] (error) in
+                self?.bannerProvider?.present(error: error)
             }
     }
 }
