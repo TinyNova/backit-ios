@@ -75,6 +75,7 @@
 		077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172D227CE3B1003D5B17 /* UserSession.swift */; };
 		077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172F227CE3EB003D5B17 /* SignInProvider.swift */; };
 		077B1732227CE40E003D5B17 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1731227CE40E003D5B17 /* Errors.swift */; };
+		07820D6122BA639100B44D86 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07820D6022BA639100B44D86 /* Logging.swift */; };
 		0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785F02022936CCC006AD593 /* UserStreamer.swift */; };
 		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
 		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
@@ -238,6 +239,7 @@
 		077B172D227CE3B1003D5B17 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		077B172F227CE3EB003D5B17 /* SignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProvider.swift; sourceTree = "<group>"; };
 		077B1731227CE40E003D5B17 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		07820D6022BA639100B44D86 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		0785F02022936CCC006AD593 /* UserStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStreamer.swift; sourceTree = "<group>"; };
 		07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 				076A8C492286498A0075B56C /* Encodable+Backit.swift */,
 				0754B60521FBDDC400E2DECD /* Environment.swift */,
 				077B1731227CE40E003D5B17 /* Errors.swift */,
+				07820D6022BA639100B44D86 /* Logging.swift */,
 				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
 				B9A8E669228BD520003CF94B /* UIFont+Backit.swift */,
 				0754B5E921F0DC2000E2DECD /* UIImage+Backit.swift */,
@@ -1128,6 +1131,7 @@
 				0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */,
 				077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */,
 				07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */,
+				07820D6122BA639100B44D86 /* Logging.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				AA30D78D22A589870084D3F3 /* AccountViewController.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,

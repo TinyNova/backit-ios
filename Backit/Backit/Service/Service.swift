@@ -152,7 +152,7 @@ func prettyPrint(_ data: Data) {
     guard let object = try? JSONSerialization.jsonObject(with: data, options: []),
           let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
           let prettyPrintedString = String(data: data, encoding: .utf8) else {
-        print("Failed to pretty print Data!")
+        log.e("Failed to pretty print Data!")
         return
     }
     
@@ -167,24 +167,24 @@ enum HTTPBodyDataType {
 
 func printRequest(_ request: URLRequest, encoding: HTTPBodyDataType = .string) {
     guard let url = request.url else {
-        return print("Could not get URL")
+        return log.e("Could not get URL")
     }
-    print("\(request.httpMethod?.uppercased() ?? "UK") \(url)")
+    log.i("\(request.httpMethod?.uppercased() ?? "UK") \(url)")
     if let headers = request.allHTTPHeaderFields {
-        print("Headers:")
+        log.i("Headers:")
         headers.forEach { (tuple) in
-            print("  \(tuple.key): \(tuple.value)")
+            log.i("  \(tuple.key): \(tuple.value)")
         }
     }
     if let httpBody = request.httpBody {
-        print("Body:")
+        log.i("Body:")
         switch encoding {
         case .string:
-            print(String(data: httpBody, encoding: .utf8) ?? "  Unknown HTTP Body Encoding")
+            log.i(String(data: httpBody, encoding: .utf8) ?? "  Unknown HTTP Body Encoding")
         case .image:
-            print("  Image data w/ \(httpBody.count) byte(s)")
+            log.i("  Image data w/ \(httpBody.count) byte(s)")
         case .data:
-            print("  Data w/ \(httpBody.count) byte(s)")
+            log.i("  Data w/ \(httpBody.count) byte(s)")
         }
     }
 }

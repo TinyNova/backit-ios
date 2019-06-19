@@ -17,7 +17,7 @@ extension UIFont {
         familyNames.forEach { (familyName) in
             let fontNames = UIFont.fontNames(forFamilyName: familyName)
             fontNames.forEach { (fontName) in
-                print("Font name: \(fontName)")
+                log.i("Font name: \(fontName)")
             }
         }
     }

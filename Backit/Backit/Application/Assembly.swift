@@ -46,10 +46,11 @@ class Assembly {
         .inObjectScope(.container)
         
         container.register(ExternalSignInProvider.self) { resolver in
+            let urlSession = resolver.resolve(URLSession.self)!
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let pageProvider = resolver.resolve(PageProvider.self)!
             let presenterProvider = resolver.resolve(PresenterProvider.self)!
-            return AppExternalSignInProvider(accountProvider: accountProvider, pageProvider: pageProvider, presenterProvider: presenterProvider)
+            return AppExternalSignInProvider(urlSession: urlSession, accountProvider: accountProvider, pageProvider: pageProvider, presenterProvider: presenterProvider)
         }
         .inObjectScope(.container)
         

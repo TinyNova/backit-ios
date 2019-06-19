@@ -16,7 +16,7 @@ private enum Constant {
 class AppKeychainProvider: KeychainProvider {
     
     func saveUserSession(_ userSession: UserSession) -> Future<IgnorableValue, KeychainProviderError> {
-        print("INFO: Saving session...")
+        log.i("Saving session")
         guard let encodedValue = userSession.asJsonString else {
             return Future(error: .failedToEncodeCredentials)
         }
@@ -38,7 +38,7 @@ class AppKeychainProvider: KeychainProvider {
     }
 
     func userSession() -> Future<UserSession, KeychainProviderError> {
-        print("INFO: Getting session...")
+        log.i("Getting session")
 
         let promise = Promise<UserSession, KeychainProviderError>()
         let keychain = Keychain(service: Constant.service)
@@ -65,11 +65,11 @@ class AppKeychainProvider: KeychainProvider {
 
     func saveCredentials(_ credentials: Credentials?) -> Future<IgnorableValue, KeychainProviderError> {
         guard let credentials = credentials else {
-            print("INFO: No credentials to save...")
+            log.i("No credentials to save")
             return Future(error: .credentialsNotProvided)
         }
         
-        print("INFO: Saving credentials...")
+        log.i("Saving credentials")
         guard let encodedCredentials = credentials.asJsonString else {
             return Future(error: .failedToEncodeCredentials)
         }
@@ -92,7 +92,7 @@ class AppKeychainProvider: KeychainProvider {
     }
 
     func credentials() -> Future<Credentials, KeychainProviderError> {
-        print("INFO: Getting credentials...")
+        log.i("Getting credentials")
         // TODO: Only get credentials if the user is using biometrics
         
         let promise = Promise<Credentials, KeychainProviderError>()
@@ -121,7 +121,7 @@ class AppKeychainProvider: KeychainProvider {
     }
     
     func removeAll() -> Future<IgnorableValue, KeychainProviderError> {
-        print("INFO: Removing credentials...")
+        log.i("Removing credentials")
         let keychain = Keychain(service: Constant.service)
 
         do {

@@ -25,7 +25,7 @@ class AnalyticsService {
     func start( _ event: AnalyticsEvent) {
         let id = eventId(for: event)
         guard transactions[id] == nil else {
-            print("WARN: Attempting to start a transaction event for \(event) which has already been started")
+            log.i("Attempting to start a transaction event for \(event) which has already been started")
             return
         }
         let startTime = DispatchTime.now()

@@ -58,19 +58,19 @@ class AmazonService {
         ]
         request.httpBody = httpBody
 
-        print("INFO: Making request to upload file: \(filename) to bucket: \(file.bucket)")
+        log.i("Making request to upload file: \(filename) to bucket: \(file.bucket)")
         let task = urlSession.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 promise.failure(.failedToUploadFile(statusCode: 0, error: error))
-                return print("ERR: Failed to upload w/ error: \(error)")
+                return log.e("Failed to upload w/ error: \(error)")
             }
             if let response = response as? HTTPURLResponse, response.statusCode >= 400 {
                 promise.failure(.failedToUploadFile(statusCode: response.statusCode, error: nil))
-                return print("ERR: Failed to upload w/ status code: \(response.statusCode) data:\n\(String(data: data ?? Data(), encoding: .utf8)!)")
+                return log.e("Failed to upload w/ status code: \(response.statusCode) data:\n\(String(data: data ?? Data(), encoding: .utf8)!)")
             }
             
             promise.success(IgnorableValue())
-            print("Successfully uploaded file: \(filename)")
+            log.i("Successfully uploaded file: \(filename)")
         }
         task.resume()
         
@@ -88,7 +88,7 @@ class AmazonService {
         
         func append(_ string: String) {
             guard let data = string.data(using: .utf8, allowLossyConversion: false) else {
-                return print("ERR: Failed to append string \(string) to HTTPBody")
+                return log.e("Failed to append string \(string) to HTTPBody")
             }
             httpBody.append(data)
         }

@@ -66,7 +66,7 @@ class Flags {
      */
     func register(flag: FlagValue) {
         guard flagValueType(for: flag.id) == nil else {
-            print("WARN: Attempting to register more than one FlagValue for flag \(flag.id)")
+            log.w("Attempting to register more than one FlagValue for flag \(flag.id)")
             return
         }
         flagValues.append(flag)
@@ -97,7 +97,7 @@ class Flags {
      */
     func setValue(key: String, value: Any) {
         guard let flagValue = flagValueType(for: key) else {
-            print("WARN: A flag with key \(key) does not exist")
+            log.w("A flag with key \(key) does not exist")
             return
         }
         
@@ -114,7 +114,7 @@ class Flags {
      */
     func setValue(for flagId: FlagID, value: Any) {
         guard let flagValue = flagValueType(for: flagId) else {
-            print("WARN: Flag w/ ID  \(flagId) has not been registered")
+            log.w("Flag w/ ID  \(flagId) has not been registered")
             return
         }
         

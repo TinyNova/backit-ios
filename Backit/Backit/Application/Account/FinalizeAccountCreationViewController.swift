@@ -36,7 +36,7 @@ private class MessageQueue {
     
     func next() -> String {
         guard messages.count > 0 else {
-            print("WARN: `MessageQueue.messages` has no messages")
+            log.w("`MessageQueue.messages` has no messages")
             return ""
         }
         
@@ -112,11 +112,11 @@ class FinalizeAccountCreationViewController: UIViewController {
     
     @IBAction func didTapCreateAccount(_ sender: Any) {
         guard let signupToken = signupToken else {
-            return print("ERROR: Page has not been configured!")
+            return log.e("Page has not been configured!")
         }
         guard let username = usernameField.text, username.count > 0,
               let email = emailField.text, email.count > 0 else {
-            return print("ERROR: Please enter your username and email.")
+            return log.e("Please enter your username and email.")
         }
         
         accountProvider?.createExternalAccount(email: email, username: username, subscribe: false, signupToken: signupToken)
@@ -124,7 +124,7 @@ class FinalizeAccountCreationViewController: UIViewController {
                 self?.delegate?.didCreateAccount(userSession: userSession)
             }
             .onFailure { (error) in
-                print("Failed to create account: \(error)")
+                log.e("Failed to create account: \(error)")
             }
     }
     
@@ -204,7 +204,7 @@ extension FinalizeAccountCreationViewController: TextEntryFieldDelegate {
                 }
             }
             .onFailure { (error) in
-                print("Error: \(error)")
+                log.e(error)
             }
     }
 }

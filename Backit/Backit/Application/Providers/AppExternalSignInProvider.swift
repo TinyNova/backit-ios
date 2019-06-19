@@ -8,13 +8,16 @@ import Foundation
 
 class AppExternalSignInProvider: ExternalSignInProvider {
     
+    let urlSession: URLSession
     let accountProvider: AccountProvider
     let pageProvider: PageProvider
     let presenterProvider: PresenterProvider
     
     var promise: Promise<UserSession, ExternalSignInProviderError>?
+    var profile: ExternalUserProfile?
     
-    init(accountProvider: AccountProvider, pageProvider: PageProvider, presenterProvider: PresenterProvider) {
+    init(urlSession: URLSession, accountProvider: AccountProvider, pageProvider: PageProvider, presenterProvider: PresenterProvider) {
+        self.urlSession = urlSession
         self.accountProvider = accountProvider
         self.pageProvider = pageProvider
         self.presenterProvider = presenterProvider
@@ -36,6 +39,9 @@ class AppExternalSignInProvider: ExternalSignInProvider {
                     guard let sself = self else {
                         return promise.failure(.generic(WeakReferenceError()))
                     }
+                    
+                    // Used later to upload avatar
+                    sself.profile = profile
                     
                     let vc = sself.pageProvider.finalizeAccountCreation()
                     vc.delegate = sself
@@ -59,8 +65,38 @@ class AppExternalSignInProvider: ExternalSignInProvider {
 extension AppExternalSignInProvider: FinalizeAccountCreationViewControllerDelegate {
     
     func didCreateAccount(userSession: UserSession) {
-        // TODO: Upload User's avatar
-        promise?.success(userSession)
+        guard let promise = promise else {
+            return
+        }
+        guard let avatarUrl = profile?.avatarUrl else {
+            return promise.success(userSession)
+        }
+        
+        log.i("Uploading avatar")
+        
+        let task = urlSession.dataTask(with: avatarUrl) { [weak self] (data, response, error) in
+            if let error = error {
+                log.w("Failed to upload avatar \(error)")
+                return promise.success(userSession)
+            }
+            guard let data = data else {
+                log.w("ata provided is empty")
+                return promise.success(userSession)
+            }
+            guard let image = UIImage(data: data) else {
+                log.w("Image could not be created from data")
+                return promise.success(userSession)
+            }
+            
+            self?.accountProvider.uploadAvatar(image: image)
+                .onSuccess { _ in
+                    log.i("Successfully uploaded the avatar")
+                }
+                .onFailure { (error) in
+                    log.e("Failed to upload the avatar: \(String(describing: error))")
+                }
+        }
+        task.resume()
     }
 }
 

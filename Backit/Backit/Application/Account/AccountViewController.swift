@@ -132,16 +132,16 @@ extension AccountViewController {
         switch indexPath.row {
         case 0:
             guard isLoggedIn else {
-                print("Error: Can not upload an avatar when logged out")
+                log.e("Can not upload an avatar when logged out")
                 return
             }
             
             albumProvider?.requestImage { [weak self] (image, error) in
                 guard let image = image else {
-                    return print("Error: \(String(describing: error))")
+                    return log.e(String(describing: error))
                 }
                 guard let avatarImage = self?.ellipticalAvatar(with: image) else {
-                    return print("Failed to create avatar")
+                    return log.e("Failed to create avatar")
                 }
 
                 // TODO: Animate change
@@ -149,10 +149,10 @@ extension AccountViewController {
 
                 self?.accountProvider?.uploadAvatar(image: image)
                     .onSuccess { _ in
-                        print("Successfully uploaded the avatar")
+                        log.i("Successfully uploaded the avatar")
                     }
                     .onFailure { (error) in
-                        print("Failed to upload the avatar: \(String(describing: error))")
+                        log.e("Failed to upload the avatar: \(String(describing: error))")
                     }
             }
         case 1:

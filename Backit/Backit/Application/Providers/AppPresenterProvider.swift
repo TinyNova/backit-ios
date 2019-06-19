@@ -14,7 +14,7 @@ class AppPresenterProvider: PresenterProvider {
     
     func present(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let topViewController = UIApplication.topViewController() else {
-            print("WARN: Failed to present \(viewController) on the top UIViewController")
+            log.w("Failed to present \(viewController) on the top UIViewController")
             return
         }
         
@@ -31,7 +31,7 @@ class AppPresenterProvider: PresenterProvider {
     
     func push(_ viewController: UIViewController) {
         guard let navigationController = UIApplication.topViewController()?.navigationController else {
-            print("WARN: Failed to push \(viewController) on to a UINavigationController")
+            log.w("Failed to push \(viewController) on to a UINavigationController")
             return
         }
         

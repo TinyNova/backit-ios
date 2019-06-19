@@ -54,7 +54,7 @@ class URLRequestFactory {
         
         return pathParameters.reduce(urlString) { (result, parameter) -> String in
             guard let param = nameValue(for: "\(parameter)") else {
-                print("Failed to extract key/value path parameter for \(parameter). It must be an `enum` case with a single associated value.")
+                log.e("Failed to extract key/value path parameter for \(parameter). It must be an `enum` case with a single associated value.")
                 return ""
             }
             return result.replacingOccurrences(of: "{\(param.name)}", with: param.value)
@@ -69,7 +69,7 @@ class URLRequestFactory {
         var headerFields = [String: String]()
         for header in headers {
             guard let param = nameValue(for: "\(header)") else {
-                print("Failed to extract key/value header parameter for \(header). It must be an `enum` case with a single associated value.")
+                log.e("Failed to extract key/value header parameter for \(header). It must be an `enum` case with a single associated value.")
                 return nil
             }
             headerFields[param.name] = param.value
@@ -85,7 +85,7 @@ class URLRequestFactory {
         var items = [URLQueryItem]()
         for parameter in parameters {
             guard let param = nameValue(for: "\(parameter)") else {
-                print("Failed to extract key/value GET parameter for \(parameter). It must be an `enum` case with a single associated value.")
+                log.e("Failed to extract key/value GET parameter for \(parameter). It must be an `enum` case with a single associated value.")
                 return nil
             }
             
@@ -115,7 +115,7 @@ class URLRequestFactory {
             case .json:
                 return encodable.asJson
             case .keyValue:
-                print("WARN: Encoding POST w/ `Encodable` key-value parameters is not yet supported")
+                log.w("Encoding POST w/ `Encodable` key-value parameters is not yet supported")
                 return nil
             case .data:
                 return nil
@@ -133,7 +133,7 @@ class URLRequestFactory {
         
         for parameter in parameters {
             guard let param = nameValue(for: "\(parameter)") else {
-                print("Failed to extract POST key/value parameter for \(parameter). It must be an `enum` case with a single associated value.")
+                log.e("Failed to extract POST key/value parameter for \(parameter). It must be an `enum` case with a single associated value.")
                 return nil
             }
             

@@ -153,14 +153,14 @@ class ProjectTableViewCell: UITableViewCell {
     // MARK: Private functions
     
     @objc private func didTapShare(gesture: UITapGestureRecognizer) {
-        print("did tap share")
+        log.i("did tap share")
     }
     
     @objc private func didTapComments(gesture: UITapGestureRecognizer) {
-        print("did tap comment")
+        log.i("did tap comment")
     }
     
     @objc private func didTapUpVote(gesture: UITapGestureRecognizer) {
-        print("did tap up vote")
+        log.i("did tap up vote")
     }
 }

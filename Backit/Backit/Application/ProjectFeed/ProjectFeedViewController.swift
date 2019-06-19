@@ -84,11 +84,11 @@ class ProjectFeedViewController: UIViewController {
     // MARK: Actions
     
     @objc private func didTapSearch(_ sender: Any) {
-        print("did tap search")
+        log.i("did tap search")
     }
     
     @objc private func didTapLogo(_ sender: Any) {
-        print("did tap logo")
+        log.i("did tap logo")
     }
     
     // MARK: Private functions
@@ -203,11 +203,11 @@ extension ProjectFeedViewController: UITableViewDataSource {
 
 extension ProjectFeedViewController: ProjectTableViewCellDelegate {
     func didTapProject(_ project: FeedProject) {
-        print("Did tap project title")
+        log.i("Did tap project title")
     }
     
     func didTapComments(_ project: FeedProject) {
-        print("Did tap comments")
+        log.i("Did tap comments")
     }
     
     func didTapAsset(_ project: ProjectAsset) {

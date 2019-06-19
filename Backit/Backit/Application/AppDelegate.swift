@@ -71,20 +71,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     .onSuccess { (userSession) in
                         keychainProvider.saveUserSession(userSession)
                             .onSuccess { _ in
-                                print("INFO: Successfully silently reauthenticated")
+                                log.i("Successfully silently reauthenticated")
                             }
                             .onFailure { error in
-                                print("ERR: Failed to save credentials \(error)")
+                                log.e("Failed to save credentials \(error)")
                             }
                     }
                     .onFailure { (error) in
                         keychainProvider.removeAll().onComplete { _ in
-                            print("INFO: Removed credentials")
+                            log.i("Removed credentials")
                     }
                 }
             }
             .onFailure { error in
-                return print("INFO: Failed to get session. Skipping silent reauthentication.")
+                return log.i("Failed to get session. Skipping silent reauthentication.")
             }
     }
     
