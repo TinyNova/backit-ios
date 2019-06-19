@@ -458,6 +458,22 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
+		0745C98A22B9BA5900E85948 /* Endopints */ = {
+			isa = PBXGroup;
+			children = (
+				071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */,
+				07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */,
+				AA0FD38922B1CFB5007DEEB6 /* ExternalLoginEndpoint.swift */,
+				071B317A22794FAB00DB1561 /* LoginEndpoint.swift */,
+				AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */,
+				AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */,
+				AAE9171622A880B400490A30 /* UploadAvatarEndpoint.swift */,
+				07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */,
+				0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */,
+			);
+			path = Endopints;
+			sourceTree = "<group>";
+		};
 		0754B5ED21F6229400E2DECD /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,17 +619,9 @@
 		07C9BD562278979200E41F1D /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				0745C98A22B9BA5900E85948 /* Endopints */,
 				07C9BD57227897A800E41F1D /* AccountService.swift */,
-				071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */,
-				07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */,
-				AA0FD38922B1CFB5007DEEB6 /* ExternalLoginEndpoint.swift */,
-				071B317A22794FAB00DB1561 /* LoginEndpoint.swift */,
-				AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */,
-				AAE9170522A62E5E00490A30 /* RefreshTokenEndpoint.swift */,
 				B9FB5985227FF97100A03BDC /* SessionService.swift */,
-				AAE9171622A880B400490A30 /* UploadAvatarEndpoint.swift */,
-				07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */,
-				0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */,
 				0700753222937377005B9F28 /* UserService.swift */,
 				0700752E22936ED4005B9F28 /* UserStream.swift */,
 			);

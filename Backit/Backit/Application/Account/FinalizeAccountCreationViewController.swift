@@ -141,9 +141,6 @@ class FinalizeAccountCreationViewController: UIViewController {
         "❌ taken"
     ])
     private func usernameTakenMessage() {
-        guard usernameState != .unavailable else {
-            return
-        }
         usernameState = .unavailable
         validUsernameLabel.text = q0.next()
     }
@@ -194,7 +191,6 @@ extension FinalizeAccountCreationViewController: TextEntryFieldDelegate {
         accountProvider?.usernameAvailable(username: text)
             .onSuccess { [weak self] (available) in
                 guard ctr == self?.requestCounter ?? 0 else {
-                    print("INFO: too fast")
                     return
                 }
                 
