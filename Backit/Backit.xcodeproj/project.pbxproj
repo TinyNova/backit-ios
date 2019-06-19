@@ -149,7 +149,7 @@
 		B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */; };
 		B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */; };
 		B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */; };
-		B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5983227FF94D00A03BDC /* SessionProvider.swift */; };
+		B9FB5984227FF94D00A03BDC /* UserSessionStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5983227FF94D00A03BDC /* UserSessionStreamer.swift */; };
 		B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5985227FF97100A03BDC /* SessionService.swift */; };
 /* End PBXBuildFile section */
 
@@ -317,7 +317,7 @@
 		B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectFeedErrorView.xib; sourceTree = "<group>"; };
 		B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFeedErrorView.swift; sourceTree = "<group>"; };
 		B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignInProvider.swift; sourceTree = "<group>"; };
-		B9FB5983227FF94D00A03BDC /* SessionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
+		B9FB5983227FF94D00A03BDC /* UserSessionStreamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSessionStreamer.swift; sourceTree = "<group>"; };
 		B9FB5985227FF97100A03BDC /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		DDE6A40E61C994528485F9C6 /* Pods-BackitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DFB4946CA755B950FFED3B7B /* Pods-Backit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.release.xcconfig"; sourceTree = "<group>"; };
@@ -508,11 +508,11 @@
 				0754B5F321FA589B00E2DECD /* Project.swift */,
 				071B317422794EE600DB1561 /* ProjectProvider.swift */,
 				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
-				B9FB5983227FF94D00A03BDC /* SessionProvider.swift */,
 				077B172F227CE3EB003D5B17 /* SignInProvider.swift */,
 				071B317822794F3300DB1561 /* User.swift */,
 				0700753022937312005B9F28 /* UserProvider.swift */,
 				077B172D227CE3B1003D5B17 /* UserSession.swift */,
+				B9FB5983227FF94D00A03BDC /* UserSessionStreamer.swift */,
 				0785F02022936CCC006AD593 /* UserStreamer.swift */,
 			);
 			path = Domain;
@@ -1125,7 +1125,7 @@
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
 				0745C98722B933A500E85948 /* AppGoogleProvider.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
-				B9FB5984227FF94D00A03BDC /* SessionProvider.swift in Sources */,
+				B9FB5984227FF94D00A03BDC /* UserSessionStreamer.swift in Sources */,
 				072510CF2283B0C300C02645 /* AppPresenterProvider.swift in Sources */,
 				0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */,
 				0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */,

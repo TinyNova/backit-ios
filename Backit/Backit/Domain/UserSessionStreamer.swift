@@ -16,8 +16,7 @@ protocol SessionProviderListener: AnyObject {
     func didChangeUserSession(_ userSession: UserSession?)
 }
 
-/// TODO: Rename to `UserSessionStreamer`
-protocol SessionProvider {
+protocol UserSessionStreamer {
     var token: String? { get }
     
     /**

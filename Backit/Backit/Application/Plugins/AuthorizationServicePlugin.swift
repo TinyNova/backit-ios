@@ -24,12 +24,12 @@ class AuthorizationServicePlugin: ServicePlugin {
     private var userSession: UserSession?
     
     private let signInProvider: SignInProvider
-    private let sessionProvider: SessionProvider
+    private let sessionStream: UserSessionStreamer
     private let accountProvider: AccountProvider
     
-    init(signInProvider: SignInProvider, sessionProvider: SessionProvider, accountProvider: AccountProvider) {
+    init(signInProvider: SignInProvider, sessionStream: UserSessionStreamer, accountProvider: AccountProvider) {
         self.signInProvider = signInProvider
-        self.sessionProvider = sessionProvider
+        self.sessionStream = sessionStream
         self.accountProvider = accountProvider
     }
     
@@ -37,7 +37,7 @@ class AuthorizationServicePlugin: ServicePlugin {
         let promise = Promise<URLRequest, ServicePluginError>()
 
         // Login, if the user has not yet logged in.
-        guard let token = sessionProvider.token else {
+        guard let token = sessionStream.token else {
             signInProvider.login()
                 .onSuccess { [weak self] (userSession) in
                     self?.userSession = userSession

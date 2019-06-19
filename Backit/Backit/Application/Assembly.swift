@@ -21,7 +21,7 @@ class Assembly {
             return AlamofireServiceRequester()
         }
         
-        container.register(SessionProvider.self) { resolver in
+        container.register(UserSessionStreamer.self) { resolver in
             let userProvider = resolver.resolve(UserProvider.self)!
             let userStreamer = resolver.resolve(UserStreamer.self)!
             return SessionService(userProvider: userProvider, userStreamer: userStreamer)
@@ -69,9 +69,9 @@ class Assembly {
         
         container.register(AuthorizationServicePlugin.self) { resolver in
             let signInProvider = resolver.resolve(SignInProvider.self)!
-            let sessionProvider = resolver.resolve(SessionProvider.self)!
+            let sessionStream = resolver.resolve(UserSessionStreamer.self)!
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            return AuthorizationServicePlugin(signInProvider: signInProvider, sessionProvider: sessionProvider, accountProvider: accountProvider)
+            return AuthorizationServicePlugin(signInProvider: signInProvider, sessionStream: sessionStream, accountProvider: accountProvider)
         }
         
         container.register(ServicePluginProvider.self) { resolver in
@@ -140,9 +140,9 @@ class Assembly {
         
         container.register(AccountProvider.self) { resolver in
             let service = resolver.resolve(Service.self)!
-            let sessionProvider = resolver.resolve(SessionProvider.self)!
+            let sessionStream = resolver.resolve(UserSessionStreamer.self)!
             let amazoneService = resolver.resolve(AmazonService.self)!
-            return AccountService(service: service, sessionProvider: sessionProvider, amazonService: amazoneService)
+            return AccountService(service: service, sessionStream: sessionStream, amazonService: amazoneService)
         }
         
         container.register(UserProvider.self) { resolver in

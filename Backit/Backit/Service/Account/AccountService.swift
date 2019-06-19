@@ -10,12 +10,12 @@ import Foundation
 class AccountService: AccountProvider {
     
     private let service: Service
-    private let sessionProvider: SessionProvider
+    private let sessionStream: UserSessionStreamer
     private let amazonService: AmazonService
     
-    init(service: Service, sessionProvider: SessionProvider, amazonService: AmazonService) {
+    init(service: Service, sessionStream: UserSessionStreamer, amazonService: AmazonService) {
         self.service = service
-        self.sessionProvider = sessionProvider
+        self.sessionStream = sessionStream
         self.amazonService = amazonService
     }
     
@@ -40,7 +40,7 @@ class AccountService: AccountProvider {
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
             .onSuccess { [weak self] (userSession) in
-                self?.sessionProvider.emit(userSession: userSession)
+                self?.sessionStream.emit(userSession: userSession)
             }
     }
     
@@ -83,7 +83,7 @@ class AccountService: AccountProvider {
                         token: token,
                         refreshToken: refreshToken
                     )
-                    self?.sessionProvider.emit(userSession: userSession)
+                    self?.sessionStream.emit(userSession: userSession)
                     return Future(value: .existingUser(userSession))
                 }
 
@@ -115,7 +115,7 @@ class AccountService: AccountProvider {
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
             .onSuccess { [weak self] (userSession) in
-                self?.sessionProvider.emit(userSession: userSession)
+                self?.sessionStream.emit(userSession: userSession)
             }
     }
     
@@ -159,7 +159,7 @@ class AccountService: AccountProvider {
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
             .onSuccess { [weak self] (userSession) in
-                self?.sessionProvider.emit(userSession: userSession)
+                self?.sessionStream.emit(userSession: userSession)
             }
     }
 
@@ -199,12 +199,12 @@ class AccountService: AccountProvider {
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
             .onSuccess { [weak self] (userSession) in
-                self?.sessionProvider.emit(userSession: userSession)
+                self?.sessionStream.emit(userSession: userSession)
             }
     }
     
     func logout() -> Future<IgnorableValue, AccountProviderError> {
-        sessionProvider.emit(userSession: nil)
+        sessionStream.emit(userSession: nil)
         return Future(value: IgnorableValue())
     }
     
