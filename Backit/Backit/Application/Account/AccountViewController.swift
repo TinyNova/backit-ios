@@ -10,6 +10,7 @@ class AccountViewController: UITableViewController {
     
     private var urlSession: URLSession?
     private var userStream: UserStreamer?
+    private var avatarStream: UserAvatarStreamer?
     private var signInProvider: SignInProvider?
     private var albumProvider: PhotoAlbumProvider?
     private var accountProvider: AccountProvider?
@@ -26,12 +27,13 @@ class AccountViewController: UITableViewController {
         updateTabBar(with: emptyProfileImage())
     }
     
-    func inject(urlSession: URLSession, userStream: UserStreamer, signInProvider: SignInProvider, albumProvider: PhotoAlbumProvider, accountProvider: AccountProvider) {
+    func inject(urlSession: URLSession, userStream: UserStreamer, avatarStream: UserAvatarStreamer, signInProvider: SignInProvider, albumProvider: PhotoAlbumProvider, accountProvider: AccountProvider) {
         self.urlSession = urlSession
         self.signInProvider = signInProvider
         self.albumProvider = albumProvider
         self.accountProvider = accountProvider
         userStream.listen(self)
+        avatarStream.listen(self)
     }
     
     override func viewDidLoad() {
@@ -140,12 +142,6 @@ extension AccountViewController {
                 guard let image = image else {
                     return log.e(String(describing: error))
                 }
-                guard let avatarImage = self?.ellipticalAvatar(with: image) else {
-                    return log.e("Failed to create avatar")
-                }
-
-                // TODO: Animate change
-                self?.updateTabBar(with: avatarImage)
 
                 self?.accountProvider?.uploadAvatar(image: image)
                     .onSuccess { _ in
@@ -191,5 +187,26 @@ extension AccountViewController: UserStreamListener {
             }
         }
         task?.resume()
+    }
+}
+
+extension AccountViewController: UserAvatarStreamListener {
+    
+    func didChangeAvatar(_ image: UIImage?, state: UserAvatarStreamState) {
+        guard let image = image else {
+            return log.i("Avatar is empty")
+        }
+        // This prevents double drawing of image.
+        guard state == .uploading || state == .cached else {
+            return log.i("Ignoring any avatar state except `uploading` and `cached`")
+        }
+        guard let avatarImage = ellipticalAvatar(with: image) else {
+            return log.i("Failed to create elliptical avatar")
+        }
+        
+        // TODO: Animate the image.
+        DispatchQueue.main.async { [weak self] in
+            self?.updateTabBar(with: avatarImage)
+        }
     }
 }

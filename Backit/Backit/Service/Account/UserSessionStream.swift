@@ -15,7 +15,7 @@ private class AnySessionProviderListener {
     }
 }
 
-class SessionService: UserSessionStreamer {
+class UserSessionStream: UserSessionStreamer {
     
     var token: String? {
         return userSession?.token

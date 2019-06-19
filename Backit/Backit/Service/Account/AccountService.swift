@@ -11,11 +11,13 @@ class AccountService: AccountProvider {
     
     private let service: Service
     private let sessionStream: UserSessionStreamer
+    private let avatarStream: UserAvatarStreamer
     private let amazonService: AmazonService
     
-    init(service: Service, sessionStream: UserSessionStreamer, amazonService: AmazonService) {
+    init(service: Service, sessionStream: UserSessionStreamer, avatarStream: UserAvatarStreamer, amazonService: AmazonService) {
         self.service = service
         self.sessionStream = sessionStream
+        self.avatarStream = avatarStream
         self.amazonService = amazonService
     }
     
@@ -211,6 +213,8 @@ class AccountService: AccountProvider {
     func uploadAvatar(image: UIImage) -> Future<IgnorableValue, AccountProviderError> {
         let endpoint = UploadAvatarEndpoint()
         
+        avatarStream.emit(image: image, state: .uploading)
+        
         return service.request(endpoint)
             .mapError { (error) -> AccountProviderError in
                 return .generic(error)
@@ -241,6 +245,12 @@ class AccountService: AccountProvider {
             .flatMap { [amazonService] (s3file) -> Future<IgnorableValue, AccountProviderError> in
                 return amazonService.upload(file: s3file, image: image)
                     .mapError(AccountProviderError.make(from:))
+            }
+            .onSuccess { [weak self] _ in
+                self?.avatarStream.emit(image: image, state: .uploaded)
+            }
+            .onFailure { [weak self] _ in
+                self?.avatarStream.emit(image: image, state: .failed)
             }
     }
 }

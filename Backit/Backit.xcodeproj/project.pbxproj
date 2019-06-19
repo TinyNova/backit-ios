@@ -76,6 +76,8 @@
 		077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172F227CE3EB003D5B17 /* SignInProvider.swift */; };
 		077B1732227CE40E003D5B17 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1731227CE40E003D5B17 /* Errors.swift */; };
 		07820D6122BA639100B44D86 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07820D6022BA639100B44D86 /* Logging.swift */; };
+		07820D6322BA689200B44D86 /* UserAvatarStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07820D6222BA689200B44D86 /* UserAvatarStreamer.swift */; };
+		07820D6522BA696500B44D86 /* UserAvatarStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07820D6422BA696500B44D86 /* UserAvatarStream.swift */; };
 		0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785F02022936CCC006AD593 /* UserStreamer.swift */; };
 		07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */; };
 		07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */; };
@@ -150,7 +152,7 @@
 		B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */; };
 		B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */; };
 		B9FB5984227FF94D00A03BDC /* UserSessionStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5983227FF94D00A03BDC /* UserSessionStreamer.swift */; };
-		B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5985227FF97100A03BDC /* SessionService.swift */; };
+		B9FB5986227FF97100A03BDC /* UserSessionStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB5985227FF97100A03BDC /* UserSessionStream.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +242,8 @@
 		077B172F227CE3EB003D5B17 /* SignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProvider.swift; sourceTree = "<group>"; };
 		077B1731227CE40E003D5B17 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		07820D6022BA639100B44D86 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		07820D6222BA689200B44D86 /* UserAvatarStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarStreamer.swift; sourceTree = "<group>"; };
+		07820D6422BA696500B44D86 /* UserAvatarStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarStream.swift; sourceTree = "<group>"; };
 		0785F02022936CCC006AD593 /* UserStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStreamer.swift; sourceTree = "<group>"; };
 		07862CA4220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		07862CA6220B6CDA00C666E7 /* Backit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backit-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -318,7 +322,7 @@
 		B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFeedErrorView.swift; sourceTree = "<group>"; };
 		B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignInProvider.swift; sourceTree = "<group>"; };
 		B9FB5983227FF94D00A03BDC /* UserSessionStreamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSessionStreamer.swift; sourceTree = "<group>"; };
-		B9FB5985227FF97100A03BDC /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		B9FB5985227FF97100A03BDC /* UserSessionStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSessionStream.swift; sourceTree = "<group>"; };
 		DDE6A40E61C994528485F9C6 /* Pods-BackitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DFB4946CA755B950FFED3B7B /* Pods-Backit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.release.xcconfig"; sourceTree = "<group>"; };
 		F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -510,6 +514,7 @@
 				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
 				077B172F227CE3EB003D5B17 /* SignInProvider.swift */,
 				071B317822794F3300DB1561 /* User.swift */,
+				07820D6222BA689200B44D86 /* UserAvatarStreamer.swift */,
 				0700753022937312005B9F28 /* UserProvider.swift */,
 				077B172D227CE3B1003D5B17 /* UserSession.swift */,
 				B9FB5983227FF94D00A03BDC /* UserSessionStreamer.swift */,
@@ -623,7 +628,8 @@
 			children = (
 				0745C98A22B9BA5900E85948 /* Endopints */,
 				07C9BD57227897A800E41F1D /* AccountService.swift */,
-				B9FB5985227FF97100A03BDC /* SessionService.swift */,
+				07820D6422BA696500B44D86 /* UserAvatarStream.swift */,
+				B9FB5985227FF97100A03BDC /* UserSessionStream.swift */,
 				0700753222937377005B9F28 /* UserService.swift */,
 				0700752E22936ED4005B9F28 /* UserStream.swift */,
 			);
@@ -1129,6 +1135,7 @@
 				072510CF2283B0C300C02645 /* AppPresenterProvider.swift in Sources */,
 				0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */,
 				0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */,
+				07820D6522BA696500B44D86 /* UserAvatarStream.swift in Sources */,
 				077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */,
 				07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */,
 				07820D6122BA639100B44D86 /* Logging.swift in Sources */,
@@ -1181,6 +1188,7 @@
 				0754B5F121F625DC00E2DECD /* ProjectService.swift in Sources */,
 				AAE9170422A62A4C00490A30 /* Credentials.swift in Sources */,
 				07EC61F521D6ED3800FE283C /* UIThemeApplier.swift in Sources */,
+				07820D6322BA689200B44D86 /* UserAvatarStreamer.swift in Sources */,
 				B9A72BF822AB0790006AA239 /* CreateAccountViewController.swift in Sources */,
 				07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */,
 				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
@@ -1192,7 +1200,7 @@
 				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
 				B9F827A12287D30D009D6220 /* ProjectFeedProviderServer.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
-				B9FB5986227FF97100A03BDC /* SessionService.swift in Sources */,
+				B9FB5986227FF97100A03BDC /* UserSessionStream.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
 				07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */,
 				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
