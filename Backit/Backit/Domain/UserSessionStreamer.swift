@@ -3,16 +3,9 @@
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
-import BrightFutures
 import Foundation
 
-typealias SessionProviderCallback = (UserSession) -> Void
-
-enum SessionProviderError: Error {
-    case unknown(Error)
-}
-
-protocol SessionProviderListener: AnyObject {
+protocol UserSessionListener: AnyObject {
     func didChangeUserSession(_ userSession: UserSession?)
 }
 
@@ -24,7 +17,7 @@ protocol UserSessionStreamer {
      
      This will send the current `UserSession`, if there is one.
      */
-    func listen(_ listener: SessionProviderListener)
+    func listen(_ listener: UserSessionListener)
     
     /**
      Emit a new `UserSession` to all listeners.

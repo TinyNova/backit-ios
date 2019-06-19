@@ -32,7 +32,7 @@ class SessionService: UserSessionStreamer {
         self.userStreamer = userStreamer
     }
     
-    func listen(_ listener: SessionProviderListener) {
+    func listen(_ listener: UserSessionListener) {
         listeners.append(AnySessionProviderListener(listener))
         
         if let userSession = userSession {
@@ -44,7 +44,7 @@ class SessionService: UserSessionStreamer {
         self.userSession = userSession
         
         listeners.forEach { (listener) in
-            if let listener = listener as? SessionProviderListener {
+            if let listener = listener as? UserSessionListener {
                 listener.didChangeUserSession(userSession)
             }
         }

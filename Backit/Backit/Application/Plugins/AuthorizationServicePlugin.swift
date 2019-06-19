@@ -126,7 +126,7 @@ class AuthorizationServicePlugin: ServicePlugin {
     }
 }
 
-extension AuthorizationServicePlugin: SessionProviderListener {
+extension AuthorizationServicePlugin: UserSessionListener {
     func didChangeUserSession(_ userSession: UserSession?) {
         self.userSession = userSession
     }
