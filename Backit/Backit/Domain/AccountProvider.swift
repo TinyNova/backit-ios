@@ -50,7 +50,7 @@ protocol AccountProvider {
     func logout() -> Future<IgnorableValue, AccountProviderError>
     
     func externalLogin(accessToken: String, provider: String)  -> Future<ExternalAccount, AccountProviderError>
-    func createExternalAccount(email: String, username: String) -> Future<UserSession, AccountProviderError>
+    func createExternalAccount(email: String, username: String, subscribe: Bool, signupToken: String) -> Future<UserSession, AccountProviderError>
     func usernameAvailable(username: String) -> Future<UsernameAvailable, AccountProviderError>
     
     func createAccount(email: String, username: String, password: String, repeatPassword: String, firstName: String?, lastName: String?, subscribe: Bool) -> Future<UserSession, AccountProviderError>

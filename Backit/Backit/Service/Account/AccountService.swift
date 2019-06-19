@@ -92,8 +92,31 @@ class AccountService: AccountProvider {
             }
     }
     
-    func createExternalAccount(email: String, username: String) -> Future<UserSession, AccountProviderError> {
-        return Future(error: .generic(NotImplementedError()))
+    func createExternalAccount(email: String, username: String, subscribe: Bool, signupToken: String) -> Future<UserSession, AccountProviderError> {
+        let endpoint = CreateExternalAccountEndpoint(postBody: [
+            .email(email),
+            .userName(username),
+            .signupToken(signupToken),
+            .subscribe(subscribe)
+        ])
+        
+        return service.request(endpoint)
+            .mapError { (error) -> AccountProviderError in
+                return .generic(error)
+            }
+            .flatMap { response -> Future<UserSession, AccountProviderError> in
+                guard let accountId = response.accountId,
+                      let csrfToken = response.csrfToken,
+                      let token = response.token,
+                      let refreshToken = response.refreshToken else {
+                    // TODO: Map `validation` errors
+                    return Future(error: .validation([:]))
+                }
+                return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
+            }
+            .onSuccess { [weak self] (userSession) in
+                self?.sessionProvider.emit(userSession: userSession)
+            }
     }
     
     func usernameAvailable(username: String) -> Future<UsernameAvailable, AccountProviderError> {

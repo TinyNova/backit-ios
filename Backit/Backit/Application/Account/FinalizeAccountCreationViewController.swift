@@ -89,14 +89,14 @@ class FinalizeAccountCreationViewController: UIViewController {
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
     private var accountProvider: AccountProvider?
+    private var signupToken: String?
     private var profile: ExternalUserProfile?
-    private var emailAddress: String?
     private var usernameState: UsernameState = .initial
     private var requestCounter: Int = 0
     
     func configure(signupToken: String, profile: ExternalUserProfile) {
+        self.signupToken = signupToken
         self.profile = profile
-        emailAddress = profile.email
     }
     
     func inject(accountProvider: AccountProvider) {
@@ -107,17 +107,19 @@ class FinalizeAccountCreationViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.fromHex(0x130a33)
         title = i18n.t(.createAccount)
-        emailField.text = emailAddress
+        emailField.text = profile?.email
     }
     
     @IBAction func didTapCreateAccount(_ sender: Any) {
+        guard let signupToken = signupToken else {
+            return print("ERROR: Page has not been configured!")
+        }
         guard let username = usernameField.text, username.count > 0,
               let email = emailField.text, email.count > 0 else {
-            print("Please enter your username and email.")
-            return
+            return print("ERROR: Please enter your username and email.")
         }
         
-        accountProvider?.createExternalAccount(email: email, username: username)
+        accountProvider?.createExternalAccount(email: email, username: username, subscribe: false, signupToken: signupToken)
             .onSuccess { [weak self] (userSession) in
                 self?.delegate?.didCreateAccount(userSession: userSession)
             }

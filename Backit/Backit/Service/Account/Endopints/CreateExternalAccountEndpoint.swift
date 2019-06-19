@@ -23,7 +23,7 @@ struct CreateExternalAccountEndpoint: ServiceEndpoint {
     enum PathParameter { }
     enum QueryParameter { }
     enum PostParameter {
-        case username(String)
+        case userName(String)
         case signupToken(String)
         case email(String)
         case subscribe(Bool)
