@@ -25,7 +25,7 @@ import GoogleSignIn
     }
     
     func appDidLaunch() {
-        signIn?.clientID = "870387048248-3umdjrf2l7gtou4maofnvqubrf8dt2jg.apps.googleusercontent.com"
+        signIn?.clientID = "456554125427-g452q3cc0b9a6755k52r8n6crcnost2t.apps.googleusercontent.com"
         signIn?.delegate = self
     }
     
@@ -72,8 +72,8 @@ extension AppGoogleProvider: GIDSignInDelegate {
         }
         
         // NOTE: there is also an `accessToken`. `idToken` is used in the tutorial and states directly that it can be sent to the server.
-        promise.success(user.authentication.idToken)
-//        promise.success(user.authentication.accessToken)
+//        promise.success(user.authentication.idToken)
+        promise.success(user.authentication.accessToken)
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

@@ -95,6 +95,9 @@ extension AppExternalSignInProvider: FinalizeAccountCreationViewControllerDelega
                 .onFailure { (error) in
                     log.e("Failed to upload the avatar: \(String(describing: error))")
                 }
+                .onComplete { (result) in
+                    promise.success(userSession)
+                }
         }
         task.resume()
     }

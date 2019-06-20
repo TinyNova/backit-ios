@@ -36,10 +36,12 @@ class LostPasswordViewController: UIViewController {
 
     var accountProvider: AccountProvider?
     var bannerProvider: BannerProvider?
+    var overlay: ProgressOverlayProvider?
 
-    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider) {
+    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider, overlay: ProgressOverlayProvider) {
         self.accountProvider = accountProvider
         self.bannerProvider = bannerProvider
+        self.overlay = overlay
     }
 
     override func viewDidLoad() {
@@ -54,6 +56,7 @@ class LostPasswordViewController: UIViewController {
             return
         }
         
+        overlay?.show(in: self)
         accountProvider?.resetPassword(email: email)
             .onSuccess { [weak self] _ in
                 UIView.animate(withDuration: 0.3, animations: {
@@ -62,6 +65,9 @@ class LostPasswordViewController: UIViewController {
             }
             .onFailure { [weak self] (error) in
                 self?.bannerProvider?.present(error: error)
+            }
+            .onComplete { [weak self] _ in
+                self?.overlay?.dismiss()
             }
     }
 }

@@ -72,6 +72,10 @@ class Assembly {
             return AppBannerProvider()
         }
         
+        container.register(ProgressOverlayProvider.self) { resolver in
+            return AppProgressOverlayProvider()
+        }
+        
         container.register(PageProvider.self) { resolver in
             return AppPageProvider()
         }
@@ -195,7 +199,8 @@ class Assembly {
         container.storyboardInitCompleted(FinalizeAccountCreationViewController.self) { (resolver, controller) in
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let bannerProvider = resolver.resolve(BannerProvider.self)!
-            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider)
+            let overlay = resolver.resolve(ProgressOverlayProvider.self)!
+            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, overlay: overlay)
         }
         
         container.storyboardInitCompleted(AccountViewController.self) { (resolver, controller) in
@@ -205,7 +210,8 @@ class Assembly {
             let signInProvider = resolver.resolve(SignInProvider.self)!
             let albumProvider = resolver.resolve(PhotoAlbumProvider.self)!
             let accountProvider = resolver.resolve(AccountProvider.self)!
-            controller.inject(urlSession: urlSession, userStream: userStream, avatarStream: avatarStream, signInProvider: signInProvider, albumProvider: albumProvider, accountProvider: accountProvider)
+            let overlay = resolver.resolve(ProgressOverlayProvider.self)!
+            controller.inject(urlSession: urlSession, userStream: userStream, avatarStream: avatarStream, signInProvider: signInProvider, albumProvider: albumProvider, accountProvider: accountProvider, overlay: overlay)
         }
 
         container.storyboardInitCompleted(ProjectFeedViewController.self) { resolver, controller in
@@ -219,22 +225,25 @@ class Assembly {
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let bannerProvider = resolver.resolve(BannerProvider.self)!
+            let overlay = resolver.resolve(ProgressOverlayProvider.self)!
             let externalProvider = resolver.resolve(ExternalSignInProvider.self)!
             let facebookProvider = resolver.resolve(FacebookProvider.self)!
             let googleProvider = resolver.resolve(GoogleProvider.self)!
-            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, externalProvider: externalProvider, facebookProvider: facebookProvider, googleProvider: googleProvider)
+            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, overlay: overlay, externalProvider: externalProvider, facebookProvider: facebookProvider, googleProvider: googleProvider)
         }
 
         container.storyboardInitCompleted(LostPasswordViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let bannerProvider = resolver.resolve(BannerProvider.self)!
-            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider)
+            let overlay = resolver.resolve(ProgressOverlayProvider.self)!
+            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, overlay: overlay)
         }
 
         container.storyboardInitCompleted(CreateAccountViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let bannerProvider = resolver.resolve(BannerProvider.self)!
-            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider)
+            let overlay = resolver.resolve(ProgressOverlayProvider.self)!
+            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, overlay: overlay)
         }
     }
 }

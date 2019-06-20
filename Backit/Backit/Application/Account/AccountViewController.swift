@@ -14,6 +14,7 @@ class AccountViewController: UITableViewController {
     private var signInProvider: SignInProvider?
     private var albumProvider: PhotoAlbumProvider?
     private var accountProvider: AccountProvider?
+    private var overlay: ProgressOverlayProvider?
     
     private var user: User?
 
@@ -27,11 +28,12 @@ class AccountViewController: UITableViewController {
         updateTabBar(with: emptyProfileImage())
     }
     
-    func inject(urlSession: URLSession, userStream: UserStreamer, avatarStream: UserAvatarStreamer, signInProvider: SignInProvider, albumProvider: PhotoAlbumProvider, accountProvider: AccountProvider) {
+    func inject(urlSession: URLSession, userStream: UserStreamer, avatarStream: UserAvatarStreamer, signInProvider: SignInProvider, albumProvider: PhotoAlbumProvider, accountProvider: AccountProvider, overlay: ProgressOverlayProvider) {
         self.urlSession = urlSession
         self.signInProvider = signInProvider
         self.albumProvider = albumProvider
         self.accountProvider = accountProvider
+        self.overlay = overlay
         userStream.listen(self)
         avatarStream.listen(self)
     }
@@ -138,6 +140,7 @@ extension AccountViewController {
                 return
             }
             
+            overlay?.show(in: self)
             albumProvider?.requestImage { [weak self] (image, error) in
                 guard let image = image else {
                     return log.e(String(describing: error))
@@ -150,11 +153,17 @@ extension AccountViewController {
                     .onFailure { (error) in
                         log.e("Failed to upload the avatar: \(String(describing: error))")
                     }
+                    .onComplete { [weak self] _ in
+                        self?.overlay?.dismiss()
+                    }
             }
         case 1:
             // `UserStreamListener` will handle the login/logout events.
             if isLoggedIn {
-                _ = signInProvider?.logout()
+                overlay?.show(in: self)
+                signInProvider?.logout().onComplete { [weak self] _ in
+                    self?.overlay?.dismiss()
+                }
             }
             else {
                 _ = signInProvider?.login()

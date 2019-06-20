@@ -56,10 +56,12 @@ class CreateAccountViewController: UIViewController {
 
     private var accountProvider: AccountProvider?
     private var bannerProvider: BannerProvider?
+    private var overlay: ProgressOverlayProvider?
 
-    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider) {
+    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider, overlay: ProgressOverlayProvider) {
         self.accountProvider = accountProvider
         self.bannerProvider = bannerProvider
+        self.overlay = overlay
     }
 
     override func viewDidLoad() {
@@ -79,6 +81,7 @@ class CreateAccountViewController: UIViewController {
         // Validation:
         // - username `/^[a-zA-Z0-9_-]+$/` 3:20
 
+        overlay?.show(in: self)
         accountProvider?.createAccount(email: email, username: username, password: password, repeatPassword: password, firstName: nil, lastName: nil, subscribe: false)
             .onSuccess { [weak self] (userSession: UserSession) in
                 self?.delegate?.didCreateAccount(credentials: Credentials(email: username, password: password), userSession: userSession)
@@ -86,10 +89,15 @@ class CreateAccountViewController: UIViewController {
             .onFailure { [weak self] (error) in
                 self?.bannerProvider?.present(error: error)
             }
+            .onComplete { [weak self] _ in
+                self?.overlay?.dismiss()
+            }
     }
 }
 
 extension CreateAccountViewController: UITextViewDelegate {
+    
+    /// Required in order for links in text view to be opened in the browser
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         return true
     }

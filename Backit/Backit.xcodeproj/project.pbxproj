@@ -33,6 +33,8 @@
 		0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392B220912960034291C /* AnalyticsTransaction.swift */; };
 		073AE1A522BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */; };
 		073AE1A722BAE24E00BD1A30 /* AppBannerMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */; };
+		073AE1A922BB0E2C00BD1A30 /* ProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */; };
+		073AE1AB22BBD58200BD1A30 /* AppProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1AA22BBD58200BD1A30 /* AppProgressOverlayProvider.swift */; };
 		0745C98522B9334400E85948 /* GoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745C98422B9334400E85948 /* GoogleProvider.swift */; };
 		0745C98722B933A500E85948 /* AppGoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745C98622B933A500E85948 /* AppGoogleProvider.swift */; };
 		0745C98922B99C5500E85948 /* UsernameAvailabilityEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */; };
@@ -202,6 +204,8 @@
 		0732392B220912960034291C /* AnalyticsTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransaction.swift; sourceTree = "<group>"; };
 		073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountProviderError+BannerErrorMessage.swift"; sourceTree = "<group>"; };
 		073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBannerMessageProvider.swift; sourceTree = "<group>"; };
+		073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlayProvider.swift; sourceTree = "<group>"; };
+		073AE1AA22BBD58200BD1A30 /* AppProgressOverlayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressOverlayProvider.swift; sourceTree = "<group>"; };
 		0745C98422B9334400E85948 /* GoogleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleProvider.swift; sourceTree = "<group>"; };
 		0745C98622B933A500E85948 /* AppGoogleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGoogleProvider.swift; sourceTree = "<group>"; };
 		0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameAvailabilityEndpoint.swift; sourceTree = "<group>"; };
@@ -436,8 +440,9 @@
 				B905785D229A572100AD09C6 /* TextButton */,
 				072BB8742294BCB400265854 /* TextEntryField */,
 				07820D6622BADC6500B44D86 /* BannerProvider.swift */,
-				072510D12283B12100C02645 /* PresenterProvider.swift */,
 				07792B94229B09B80023D56C /* CustomButton.swift */,
+				072510D12283B12100C02645 /* PresenterProvider.swift */,
+				073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -792,6 +797,7 @@
 				072510CE2283B0C300C02645 /* AppPresenterProvider.swift */,
 				B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */,
 				AAE9170922A731AF00490A30 /* AppPhotoAlbumProvider.swift */,
+				073AE1AA22BBD58200BD1A30 /* AppProgressOverlayProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -1186,6 +1192,7 @@
 				AA30D78722A1CC3C0084D3F3 /* KeychainProvider.swift in Sources */,
 				AA0FD38422AC387E007DEEB6 /* RecoverPasswordEndpoint.swift in Sources */,
 				07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */,
+				073AE1AB22BBD58200BD1A30 /* AppProgressOverlayProvider.swift in Sources */,
 				0754B61421FF3A1000E2DECD /* AlamofireServiceRequester.swift in Sources */,
 				AA0FD38A22B1CFB5007DEEB6 /* ExternalLoginEndpoint.swift in Sources */,
 				0745C98922B99C5500E85948 /* UsernameAvailabilityEndpoint.swift in Sources */,
@@ -1244,6 +1251,7 @@
 				0754B60D21FF32E900E2DECD /* URLRequestFactory.swift in Sources */,
 				0754B5F421FA589B00E2DECD /* Project.swift in Sources */,
 				0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */,
+				073AE1A922BB0E2C00BD1A30 /* ProgressOverlayProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

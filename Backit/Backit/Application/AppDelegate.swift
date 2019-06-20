@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         accountProvider = assembly.container.resolve(AccountProvider.self)!
         silentlyLoginUser()
-        startGoogleSignIn()
-//        logoutOfFacebook()
+        initializeGoogleSignIn()
+        logoutOfSignInProviders()
 
         // TODO: Display semi-transparent navigation bar
         UINavigationBar.appearance().isTranslucent = false
@@ -88,9 +88,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
     }
     
-    private func startGoogleSignIn() {
+    private func initializeGoogleSignIn() {
         let provider = assembly.container.resolve(GoogleProvider.self)!
         provider.appDidLaunch()
+    }
+    
+    private func logoutOfSignInProviders() {
+        logoutOfFacebook()
+        logoutOfGoogle()
+    }
+    
+    private func logoutOfGoogle() {
+        let provider = assembly.container.resolve(GoogleProvider.self)!
+        _ = provider.logout()
     }
     
     private func logoutOfFacebook() {

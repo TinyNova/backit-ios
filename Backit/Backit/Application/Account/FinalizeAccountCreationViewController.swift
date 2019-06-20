@@ -90,6 +90,8 @@ class FinalizeAccountCreationViewController: UIViewController {
 
     private var accountProvider: AccountProvider?
     private var bannerProvider: BannerProvider?
+    private var overlay: ProgressOverlayProvider?
+    
     private var signupToken: String?
     private var profile: ExternalUserProfile?
     private var usernameState: UsernameState = .initial
@@ -100,9 +102,10 @@ class FinalizeAccountCreationViewController: UIViewController {
         self.profile = profile
     }
     
-    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider) {
+    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider, overlay: ProgressOverlayProvider) {
         self.accountProvider = accountProvider
         self.bannerProvider = bannerProvider
+        self.overlay = overlay
     }
     
     override func viewDidLoad() {
@@ -122,12 +125,16 @@ class FinalizeAccountCreationViewController: UIViewController {
             return
         }
         
+        overlay?.show(in: self)
         accountProvider?.createExternalAccount(email: email, username: username, subscribe: false, signupToken: signupToken)
             .onSuccess { [weak self] (userSession) in
                 self?.delegate?.didCreateAccount(userSession: userSession)
             }
             .onFailure { [weak self] (error) in
                 self?.bannerProvider?.present(error: error)
+            }
+            .onComplete { [weak self] _ in
+                self?.overlay?.dismiss()
             }
     }
     

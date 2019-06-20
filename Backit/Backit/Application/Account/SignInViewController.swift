@@ -77,20 +77,22 @@ class SignInViewController: UIViewController {
         }
     }
     
+    weak var delegate: SignInViewControllerDelegate?
+    
     private var accountProvider: AccountProvider?
     private var bannerProvider: BannerProvider?
+    private var overlay: ProgressOverlayProvider?
     private var externalProvider: ExternalSignInProvider?
     private var facebookProvider: FacebookProvider?
     private var googleProvider: GoogleProvider?
     
-    weak var delegate: SignInViewControllerDelegate?
-    
     private let i18n = Localization<Appl10n>()
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
     
-    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider, externalProvider: ExternalSignInProvider, facebookProvider: FacebookProvider, googleProvider: GoogleProvider) {
+    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider, overlay: ProgressOverlayProvider, externalProvider: ExternalSignInProvider, facebookProvider: FacebookProvider, googleProvider: GoogleProvider) {
         self.accountProvider = accountProvider
         self.bannerProvider = bannerProvider
+        self.overlay = overlay
         self.externalProvider = externalProvider
         self.facebookProvider = facebookProvider
         self.googleProvider = googleProvider
@@ -115,6 +117,7 @@ class SignInViewController: UIViewController {
             return
         }
 
+        overlay?.show(in: self)
         accountProvider?.login(email: email, password: password)
             .onSuccess { [weak self] (userSession) in
                 self?.delegate?.didSignIn(credentials: Credentials(email: email, password: password), userSession: userSession)
@@ -122,6 +125,9 @@ class SignInViewController: UIViewController {
             }
             .onFailure { [weak self] error in
                 self?.bannerProvider?.present(error: error)
+            }
+            .onComplete { [weak self] _ in
+                self?.overlay?.dismiss()
             }
     }
 
@@ -134,6 +140,7 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func didTapFacebookLogin(_ sender: Any) {
+        overlay?.show(in: self)
         facebookProvider?.login()
             .mapError { (error: FacebookProviderError) -> Error in
                 return error
@@ -155,9 +162,13 @@ class SignInViewController: UIViewController {
             .onFailure { [weak self] error in
                 self?.bannerProvider?.present(error: error)
             }
+            .onComplete { [weak self] _ in
+                self?.overlay?.dismiss()
+            }
     }
     
     @IBAction func didTapGoogleLogin(_ sender: Any) {
+        overlay?.show(in: self)
         googleProvider?.login()
             .mapError { (error: GoogleProviderError) -> Error in
                 return error
@@ -178,6 +189,9 @@ class SignInViewController: UIViewController {
             }
             .onFailure { [weak self] error in
                 self?.bannerProvider?.present(error: error)
+            }
+            .onComplete { [weak self] _ in
+                self?.overlay?.dismiss()
             }
     }
     
