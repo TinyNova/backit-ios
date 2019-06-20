@@ -40,10 +40,13 @@ class AppExternalSignInProvider: ExternalSignInProvider {
                         return promise.failure(.generic(WeakReferenceError()))
                     }
                     
+                    guard let vc = sself.pageProvider.finalizeAccountCreation() else {
+                        return promise.failure(.generic(StoryboardError()))
+                    }
+                    
                     // Used later to upload avatar
                     sself.profile = profile
                     
-                    let vc = sself.pageProvider.finalizeAccountCreation()
                     vc.delegate = sself
                     vc.configure(signupToken: signupToken, profile: profile)
                     sself.presenterProvider.push(vc)

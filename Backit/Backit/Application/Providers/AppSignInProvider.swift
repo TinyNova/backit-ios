@@ -12,14 +12,16 @@ class AppSignInProvider: SignInProvider {
     let keychainProvider: KeychainProvider
     let accountProvider: AccountProvider
     let presenterProvider: PresenterProvider
+    let pageProvider: PageProvider
     
     var promise: Promise<UserSession, SignInProviderError>?
     var viewController: SignInViewController?
     
-    init(keychainProvider: KeychainProvider, accountProvider: AccountProvider, presenterProvider: PresenterProvider) {
+    init(keychainProvider: KeychainProvider, accountProvider: AccountProvider, presenterProvider: PresenterProvider, pageProvider: PageProvider) {
         self.keychainProvider = keychainProvider
         self.accountProvider = accountProvider
         self.presenterProvider = presenterProvider
+        self.pageProvider = pageProvider
     }
     
     /**
@@ -106,8 +108,7 @@ class AppSignInProvider: SignInProvider {
     }
     
     private func loginUsingForm(promise: Promise<UserSession, SignInProviderError>, reason: String? = nil) {
-        let storyboard = UIStoryboard(name: "SignIn", bundle: Bundle(for: AppSignInProvider.self))
-        guard let vc = storyboard.instantiateInitialViewController() as? UINavigationController else {
+        guard let vc = pageProvider.signIn() else {
             promise.failure(.generic(GenericError()))
             return
         }

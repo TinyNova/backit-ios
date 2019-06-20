@@ -46,7 +46,8 @@ class Assembly {
             let keychainProvider = resolver.resolve(KeychainProvider.self)!
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let presenterProvider = resolver.resolve(PresenterProvider.self)!
-            return AppSignInProvider(keychainProvider: keychainProvider, accountProvider: accountProvider, presenterProvider: presenterProvider)
+            let pageProvider = resolver.resolve(PageProvider.self)!
+            return AppSignInProvider(keychainProvider: keychainProvider, accountProvider: accountProvider, presenterProvider: presenterProvider, pageProvider: pageProvider)
         }
         .inObjectScope(.container)
         
@@ -221,15 +222,16 @@ class Assembly {
             let signInProvider = resolver.resolve(SignInProvider.self)!
             controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer, signInProvider: signInProvider)
         }
-                
+
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let bannerProvider = resolver.resolve(BannerProvider.self)!
             let overlay = resolver.resolve(ProgressOverlayProvider.self)!
+            let pageProvider = resolver.resolve(PageProvider.self)!
             let externalProvider = resolver.resolve(ExternalSignInProvider.self)!
             let facebookProvider = resolver.resolve(FacebookProvider.self)!
             let googleProvider = resolver.resolve(GoogleProvider.self)!
-            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, overlay: overlay, externalProvider: externalProvider, facebookProvider: facebookProvider, googleProvider: googleProvider)
+            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, overlay: overlay, pageProvider: pageProvider, externalProvider: externalProvider, facebookProvider: facebookProvider, googleProvider: googleProvider)
         }
 
         container.storyboardInitCompleted(LostPasswordViewController.self) { resolver, controller in

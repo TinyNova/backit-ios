@@ -82,6 +82,7 @@ class SignInViewController: UIViewController {
     private var accountProvider: AccountProvider?
     private var bannerProvider: BannerProvider?
     private var overlay: ProgressOverlayProvider?
+    private var pageProvider: PageProvider?
     private var externalProvider: ExternalSignInProvider?
     private var facebookProvider: FacebookProvider?
     private var googleProvider: GoogleProvider?
@@ -89,10 +90,11 @@ class SignInViewController: UIViewController {
     private let i18n = Localization<Appl10n>()
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
     
-    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider, overlay: ProgressOverlayProvider, externalProvider: ExternalSignInProvider, facebookProvider: FacebookProvider, googleProvider: GoogleProvider) {
+    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider, overlay: ProgressOverlayProvider, pageProvider: PageProvider, externalProvider: ExternalSignInProvider, facebookProvider: FacebookProvider, googleProvider: GoogleProvider) {
         self.accountProvider = accountProvider
         self.bannerProvider = bannerProvider
         self.overlay = overlay
+        self.pageProvider = pageProvider
         self.externalProvider = externalProvider
         self.facebookProvider = facebookProvider
         self.googleProvider = googleProvider
@@ -132,8 +134,7 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func didTapForgotPassword(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "LostPasswordViewController", bundle: Bundle(for: SignInViewController.self))
-        guard let vc = storyboard.instantiateInitialViewController() as? LostPasswordViewController else {
+        guard let vc = pageProvider?.lostPassword() else {
             return
         }
         navigationController?.pushViewController(vc, animated: true)
@@ -196,8 +197,7 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func didTapCreateAccount(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "CreateAccountViewController", bundle: Bundle(for: SignInViewController.self))
-        guard let vc = storyboard.instantiateInitialViewController() as? CreateAccountViewController else {
+        guard let vc = pageProvider?.createAccount() else {
             return
         }
         vc.delegate = self

@@ -26,3 +26,7 @@ struct NotImplementedError: Error {
 struct WeakReferenceError: Error {
     
 }
+
+struct StoryboardError: Error {
+    
+}

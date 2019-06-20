@@ -4,7 +4,11 @@
  */
 
 import Foundation
+import UIKit
 
 protocol PageProvider {
-    func finalizeAccountCreation() -> FinalizeAccountCreationViewController
+    func finalizeAccountCreation() -> FinalizeAccountCreationViewController?
+    func lostPassword() -> LostPasswordViewController?
+    func createAccount() -> CreateAccountViewController?
+    func signIn() -> UINavigationController?
 }
