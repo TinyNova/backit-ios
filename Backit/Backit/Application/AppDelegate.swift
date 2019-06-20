@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         accountProvider = assembly.container.resolve(AccountProvider.self)!
         silentlyLoginUser()
         initializeGoogleSignIn()
-        logoutOfSignInProviders()
+//        logout()
 
         // TODO: Display semi-transparent navigation bar
         UINavigationBar.appearance().isTranslucent = false
@@ -93,21 +93,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         provider.appDidLaunch()
     }
     
-    private func logoutOfSignInProviders() {
-        logoutOfFacebook()
-        logoutOfGoogle()
-    }
-    
-    private func logoutOfGoogle() {
+    private func logout() {
         let provider = assembly.container.resolve(GoogleProvider.self)!
         _ = provider.logout()
     }
     
-    private func logoutOfFacebook() {
-        let provider = assembly.container.resolve(FacebookProvider.self)!
-        _ = provider.logout()
-    }
-
     // FIXME: Move this into a dependency.
     private func startNewRelic() {
         NewRelic.enableFeatures([

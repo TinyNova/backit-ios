@@ -47,7 +47,9 @@ class Assembly {
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let presenterProvider = resolver.resolve(PresenterProvider.self)!
             let pageProvider = resolver.resolve(PageProvider.self)!
-            return AppSignInProvider(keychainProvider: keychainProvider, accountProvider: accountProvider, presenterProvider: presenterProvider, pageProvider: pageProvider)
+            let facebookProvider = resolver.resolve(FacebookProvider.self)!
+            let googleProvider = resolver.resolve(GoogleProvider.self)!
+            return AppSignInProvider(keychainProvider: keychainProvider, accountProvider: accountProvider, presenterProvider: presenterProvider, pageProvider: pageProvider, facebookProvider: facebookProvider, googleProvider: googleProvider)
         }
         .inObjectScope(.container)
         

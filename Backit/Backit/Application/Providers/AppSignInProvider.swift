@@ -13,15 +13,19 @@ class AppSignInProvider: SignInProvider {
     let accountProvider: AccountProvider
     let presenterProvider: PresenterProvider
     let pageProvider: PageProvider
+    let facebookProvider: FacebookProvider
+    let googleProvider: GoogleProvider
     
     var promise: Promise<UserSession, SignInProviderError>?
     var viewController: SignInViewController?
     
-    init(keychainProvider: KeychainProvider, accountProvider: AccountProvider, presenterProvider: PresenterProvider, pageProvider: PageProvider) {
+    init(keychainProvider: KeychainProvider, accountProvider: AccountProvider, presenterProvider: PresenterProvider, pageProvider: PageProvider, facebookProvider: FacebookProvider, googleProvider: GoogleProvider) {
         self.keychainProvider = keychainProvider
         self.accountProvider = accountProvider
         self.presenterProvider = presenterProvider
         self.pageProvider = pageProvider
+        self.facebookProvider = facebookProvider
+        self.googleProvider = googleProvider
     }
     
     /**
@@ -61,10 +65,16 @@ class AppSignInProvider: SignInProvider {
             },
             keychainProvider.removeAll().mapError { error -> SignInProviderError in
                 return .generic(error)
+            },
+            
+            // External providers
+            facebookProvider.logout().mapError { error -> SignInProviderError in
+                return .generic(error)
+            },
+            googleProvider.logout().mapError { error -> SignInProviderError in
+                return .generic(error)
             }
         ]
-        
-        // TODO: If logged in with an external provider, log them out of that system too.
         
         return futures.sequence()
             .map { values -> IgnorableValue in
