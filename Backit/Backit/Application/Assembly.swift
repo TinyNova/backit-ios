@@ -95,6 +95,10 @@ class Assembly {
             
             let pluginProvider = ServicePluginProvider()
             pluginProvider.registerPlugin(authorizationPlugin)
+            let rules: [HostRule] = [
+                HostRule(subject: "api.qabackit.com", replacement: "10.87.148.179:8443")
+            ]
+            pluginProvider.registerPlugin(HostReplacerServicePlugin(rules: rules))
             return pluginProvider
         }.inObjectScope(.container)
         
@@ -147,7 +151,9 @@ class Assembly {
         
         container.register(Service.self) { resolver in
             let requester = resolver.resolve(ServiceRequester.self)!
-            return Service(environment: .qa, requester: requester)
+            let service = Service(environment: .qa, requester: requester)
+            service.debug = true
+            return service
         }
         .initCompleted { (resolver, service) in
             let pluginProvider = resolver.resolve(ServicePluginProvider.self)!

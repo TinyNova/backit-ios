@@ -30,9 +30,10 @@ struct ServiceResult {
 
 class Service {
     
+    /// Will print the `URLRequest`
     var debug: Bool = false
     
-    // Must use `var` for now to remove circular dependency.
+    /// NOTE: Must use `var` for now to remove circular dependency.
     var pluginProvider: ServicePluginProvider?
     
     private let environment: Environment

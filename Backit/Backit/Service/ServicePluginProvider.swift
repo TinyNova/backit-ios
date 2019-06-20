@@ -9,7 +9,9 @@
 import Foundation
 
 class ServicePluginProvider {
+    
     private var plugins: [ServicePlugin] = []
+    private var alwaysPlugins: [ServicePlugin] = []
     
     /**
      Register a plugin.
@@ -17,7 +19,12 @@ class ServicePluginProvider {
      - parameter plugin: A plugin to register.
      */
     func registerPlugin(_ plugin: ServicePlugin) {
-        self.plugins.append(plugin)
+        if plugin.key == .alwaysUse {
+            self.alwaysPlugins.append(plugin)
+        }
+        else {
+            self.plugins.append(plugin)
+        }
     }
     
     /**
@@ -26,7 +33,9 @@ class ServicePluginProvider {
      - parameter plugins: A list of plugins to register
      */
     func registerPlugins(_ plugins: [ServicePlugin]) {
-        self.plugins.append(contentsOf: plugins)
+        plugins.forEach { (plugin) in
+            registerPlugin(plugin)
+        }
     }
     
     /**
@@ -37,15 +46,18 @@ class ServicePluginProvider {
      */
     func pluginsFor<T: ServiceEndpoint>(_ endpoint: T) throws -> [ServicePlugin] {
         guard let endpointPlugins = endpoint.plugins else {
-            return []
+            return alwaysPlugins
         }
         
-        let returnPlugins: [ServicePlugin] = plugins.filter { (plugin) -> Bool in
+        var returnPlugins: [ServicePlugin] = plugins.filter { (plugin) -> Bool in
             return endpointPlugins.contains(plugin.key)
         }
         if endpointPlugins.count != returnPlugins.count {
             throw ServiceError.requiredPluginsNotFound(endpointPlugins)
         }
+        
+        returnPlugins.append(contentsOf: alwaysPlugins)
+        
         return returnPlugins
     }
 }

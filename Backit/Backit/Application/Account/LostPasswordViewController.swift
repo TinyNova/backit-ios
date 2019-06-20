@@ -10,7 +10,7 @@ class LostPasswordViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
-            titleLabel.text = i18n.t(.createAnAccount)
+            titleLabel.text = i18n.t(.recoverPassword)
             theme.apply(.loginHeader, toLabel: titleLabel)
         }
     }

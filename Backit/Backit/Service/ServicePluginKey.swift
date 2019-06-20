@@ -11,6 +11,9 @@
 import Foundation
 
 enum ServicePluginKey: Equatable {
+    /// A special key which will _always_ be used, regardless of whether it has been configured by the `ServiceEndpoint`.
+    case alwaysUse
+    
     /// Adds `Authorization: bearer [session token]` into request.
     case authorization
 }

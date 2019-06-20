@@ -31,6 +31,7 @@
 		073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239252208A0480034291C /* AnalyticsPublisher.swift */; };
 		073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239272208A06E0034291C /* AnalyticsEvent.swift */; };
 		0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392B220912960034291C /* AnalyticsTransaction.swift */; };
+		0736DACC22BC4084001F7C08 /* HostReplacerServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0736DACB22BC4084001F7C08 /* HostReplacerServicePlugin.swift */; };
 		073AE1A522BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */; };
 		073AE1A722BAE24E00BD1A30 /* AppBannerMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */; };
 		073AE1A922BB0E2C00BD1A30 /* ProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */; };
@@ -202,6 +203,7 @@
 		073239252208A0480034291C /* AnalyticsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPublisher.swift; sourceTree = "<group>"; };
 		073239272208A06E0034291C /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		0732392B220912960034291C /* AnalyticsTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransaction.swift; sourceTree = "<group>"; };
+		0736DACB22BC4084001F7C08 /* HostReplacerServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostReplacerServicePlugin.swift; sourceTree = "<group>"; };
 		073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountProviderError+BannerErrorMessage.swift"; sourceTree = "<group>"; };
 		073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBannerMessageProvider.swift; sourceTree = "<group>"; };
 		073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlayProvider.swift; sourceTree = "<group>"; };
@@ -690,6 +692,7 @@
 			isa = PBXGroup;
 			children = (
 				077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */,
+				0736DACB22BC4084001F7C08 /* HostReplacerServicePlugin.swift */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -1156,6 +1159,7 @@
 				076A8C5322864C070075B56C /* main.swift in Sources */,
 				073239262208A0480034291C /* AnalyticsPublisher.swift in Sources */,
 				07820D6722BADC6500B44D86 /* BannerProvider.swift in Sources */,
+				0736DACC22BC4084001F7C08 /* HostReplacerServicePlugin.swift in Sources */,
 				0745C98722B933A500E85948 /* AppGoogleProvider.swift in Sources */,
 				07EC620B21D6F86D00FE283C /* UIColor+Backit.swift in Sources */,
 				B9FB5984227FF94D00A03BDC /* UserSessionStreamer.swift in Sources */,
