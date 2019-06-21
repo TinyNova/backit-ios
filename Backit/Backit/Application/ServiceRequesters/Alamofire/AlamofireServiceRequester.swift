@@ -17,12 +17,16 @@ extension ServiceResult {
 }
 
 class AlamofireServiceRequester: ServiceRequester {
+    
+    let sessionManager: SessionManager
+    
+    init(sessionManager: SessionManager) {
+        self.sessionManager = sessionManager
+    }
+    
     func request(_ urlRequest: URLRequest, callback: @escaping (ServiceResult) -> Void) {
-        Alamofire.request(urlRequest).responseData { (response) in
+        sessionManager.request(urlRequest).responseData { (response) in
             callback(ServiceResult.make(from: response))
         }
-//        Alamofire.request(urlRequest).responseJSON { (response) in
-//            callback(ServiceResult.make(from: response))
-//        }
     }
 }

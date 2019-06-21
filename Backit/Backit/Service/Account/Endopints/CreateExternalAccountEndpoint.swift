@@ -33,6 +33,7 @@ struct CreateExternalAccountEndpoint: ServiceEndpoint {
     var type: ServiceRequestType = .post
     var httpBodyEncodingStrategy: HTTPBodyEncodingStrategy = .keyValue
     var endpoints: Endpoints = [
+        .dev: "https://127.0.0.1:8443/account/accounts/external",
         .qa: "https://api.qabackit.com/account/accounts/external"
     ]
     

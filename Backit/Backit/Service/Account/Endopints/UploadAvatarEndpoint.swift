@@ -27,6 +27,7 @@ struct UploadAvatarEndpoint: ServiceEndpoint {
     
     var type: ServiceRequestType = .get
     var endpoints: Endpoints = [
+        .dev: "https://127.0.0.1:8443/account/accounts/upload/avatar-url",
         .qa: "https://api.qabackit.com/account/accounts/upload/avatar-url"
     ]
     var plugins: [ServicePluginKey]? = [

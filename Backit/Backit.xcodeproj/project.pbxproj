@@ -32,6 +32,7 @@
 		073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073239272208A06E0034291C /* AnalyticsEvent.swift */; };
 		0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392B220912960034291C /* AnalyticsTransaction.swift */; };
 		0736DACC22BC4084001F7C08 /* HostReplacerServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0736DACB22BC4084001F7C08 /* HostReplacerServicePlugin.swift */; };
+		0736DACE22BC6107001F7C08 /* AccountHealthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0736DACD22BC6107001F7C08 /* AccountHealthEndpoint.swift */; };
 		073AE1A522BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */; };
 		073AE1A722BAE24E00BD1A30 /* AppBannerMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */; };
 		073AE1A922BB0E2C00BD1A30 /* ProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */; };
@@ -65,6 +66,7 @@
 		075D4D312211CB6F006EFF37 /* FlagValueMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */; };
 		075D4D322211CB6F006EFF37 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2E2211CB6F006EFF37 /* Flag.swift */; };
 		075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D4D2F2211CB6F006EFF37 /* FlagID.swift */; };
+		07684D1B22BD8F0E00D6F21D /* AlamofireSessionManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07684D1A22BD8F0E00D6F21D /* AlamofireSessionManagerFactory.swift */; };
 		076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C492286498A0075B56C /* Encodable+Backit.swift */; };
 		076A8C4D22864BA80075B56C /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C4C22864BA80075B56C /* TestAppDelegate.swift */; };
 		076A8C4F22864BB10075B56C /* TestApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C4E22864BB10075B56C /* TestApplication.swift */; };
@@ -204,6 +206,7 @@
 		073239272208A06E0034291C /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		0732392B220912960034291C /* AnalyticsTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransaction.swift; sourceTree = "<group>"; };
 		0736DACB22BC4084001F7C08 /* HostReplacerServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostReplacerServicePlugin.swift; sourceTree = "<group>"; };
+		0736DACD22BC6107001F7C08 /* AccountHealthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHealthEndpoint.swift; sourceTree = "<group>"; };
 		073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountProviderError+BannerErrorMessage.swift"; sourceTree = "<group>"; };
 		073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBannerMessageProvider.swift; sourceTree = "<group>"; };
 		073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlayProvider.swift; sourceTree = "<group>"; };
@@ -238,6 +241,7 @@
 		075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagValueMaker.swift; sourceTree = "<group>"; };
 		075D4D2E2211CB6F006EFF37 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		075D4D2F2211CB6F006EFF37 /* FlagID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagID.swift; sourceTree = "<group>"; };
+		07684D1A22BD8F0E00D6F21D /* AlamofireSessionManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireSessionManagerFactory.swift; sourceTree = "<group>"; };
 		076A8C492286498A0075B56C /* Encodable+Backit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Backit.swift"; sourceTree = "<group>"; };
 		076A8C4C22864BA80075B56C /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
 		076A8C4E22864BB10075B56C /* TestApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApplication.swift; sourceTree = "<group>"; };
@@ -492,6 +496,7 @@
 		0745C98A22B9BA5900E85948 /* Endopints */ = {
 			isa = PBXGroup;
 			children = (
+				0736DACD22BC6107001F7C08 /* AccountHealthEndpoint.swift */,
 				071B317C227953D600DB1561 /* CreateAccountEndpoint.swift */,
 				07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */,
 				AA0FD38922B1CFB5007DEEB6 /* ExternalLoginEndpoint.swift */,
@@ -561,7 +566,7 @@
 		0754B61521FF3D9600E2DECD /* ServiceRequesters */ = {
 			isa = PBXGroup;
 			children = (
-				0754B61321FF3A1000E2DECD /* AlamofireServiceRequester.swift */,
+				07684D1C22BD905900D6F21D /* Alamofire */,
 			);
 			path = ServiceRequesters;
 			sourceTree = "<group>";
@@ -592,6 +597,15 @@
 				075D4D2D2211CB6F006EFF37 /* FlagValueMaker.swift */,
 			);
 			path = Flags;
+			sourceTree = "<group>";
+		};
+		07684D1C22BD905900D6F21D /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				0754B61321FF3A1000E2DECD /* AlamofireServiceRequester.swift */,
+				07684D1A22BD8F0E00D6F21D /* AlamofireSessionManagerFactory.swift */,
+			);
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
 		076A8C4B22864B6C0075B56C /* Test */ = {
@@ -1150,6 +1164,7 @@
 				07F666BE2298C12100FBE6F7 /* PrimaryButton.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
 				AA0FD38622B08206007DEEB6 /* FacebookProvider.swift in Sources */,
+				07684D1B22BD8F0E00D6F21D /* AlamofireSessionManagerFactory.swift in Sources */,
 				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
 				07792B97229B0C9F0023D56C /* SecondaryButton.swift in Sources */,
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
@@ -1253,6 +1268,7 @@
 				AAE9171122A73F7900490A30 /* AmazonService.swift in Sources */,
 				071B317722794F0B00DB1561 /* AccountProvider.swift in Sources */,
 				0754B60D21FF32E900E2DECD /* URLRequestFactory.swift in Sources */,
+				0736DACE22BC6107001F7C08 /* AccountHealthEndpoint.swift in Sources */,
 				0754B5F421FA589B00E2DECD /* Project.swift in Sources */,
 				0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */,
 				073AE1A922BB0E2C00BD1A30 /* ProgressOverlayProvider.swift in Sources */,

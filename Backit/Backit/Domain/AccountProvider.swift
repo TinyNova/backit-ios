@@ -45,7 +45,14 @@ enum ExternalAccount {
     case newUser(signupToken: String, profile: ExternalUserProfile)
 }
 
+struct AccountServiceHealth {
+    let environment: String
+    let services: [String: Bool]
+}
+
 protocol AccountProvider {
+    func health() -> Future<AccountServiceHealth, AccountProviderError>
+    
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError>
     func logout() -> Future<IgnorableValue, AccountProviderError>
     

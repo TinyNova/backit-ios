@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         accountProvider = assembly.container.resolve(AccountProvider.self)!
         silentlyLoginUser()
         initializeGoogleSignIn()
+//        displayAccountServiceHealth()
 //        logout()
 
         // TODO: Display semi-transparent navigation bar
@@ -85,6 +86,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             .onFailure { error in
                 return log.i("Failed to get session. Skipping silent reauthentication.")
+            }
+    }
+    
+    private func displayAccountServiceHealth() {
+        accountProvider.health()
+            .onSuccess { health in
+                log.i(String(describing: health))
+            }
+            .onFailure { error in
+                log.e(error)
             }
     }
     

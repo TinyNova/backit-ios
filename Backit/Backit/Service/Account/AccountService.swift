@@ -21,6 +21,19 @@ class AccountService: AccountProvider {
         self.amazonService = amazonService
     }
     
+    func health() -> Future<AccountServiceHealth, AccountProviderError> {
+        let endpoint = AccountHealthEndpoint()
+        
+        return service.request(endpoint)
+            .mapError { (error) -> AccountProviderError in
+                return .generic(error)
+            }
+            .flatMap { (response) -> Future<AccountServiceHealth, AccountProviderError> in
+                let health = AccountServiceHealth(environment: response.env ?? "", services: response.services ?? [String: Bool]())
+                return Future(value: health)
+            }
+    }
+    
     func login(email: String, password: String) -> Future<UserSession, AccountProviderError> {
         let endpoint = LoginEndpoint(postBody: [
             .email(email),

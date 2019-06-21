@@ -38,6 +38,7 @@ struct UserAccountEndpoint: ServiceEndpoint {
     
     var type: ServiceRequestType = .get
     var endpoints: Endpoints = [
+        .dev: "https://127.0.0.1:8443/account/accounts/me",
         .qa: "https://api.qabackit.com/account/accounts/me"
     ]
     var plugins: [ServicePluginKey]? = [

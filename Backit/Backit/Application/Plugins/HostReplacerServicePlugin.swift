@@ -1,6 +1,8 @@
 /**
  * Replaces host of all requests to a specified IP address.
  *
+ * This was created as a proof of concept to change all QA hosts to a different host. The idea was abandoned in favor of adding `.dev` configurations to all `ServiceEndpoint`s.
+ *
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 

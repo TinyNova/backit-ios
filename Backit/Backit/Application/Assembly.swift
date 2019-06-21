@@ -8,6 +8,13 @@ import Foundation
 import Swinject
 import SwinjectStoryboard
 
+private enum Config {
+    static var environment: Environment {
+        // TODO: Always return .prod when delivering to the App Store to prevent Development or QA configuration from going to Production.
+        return .dev
+    }
+}
+
 class Assembly {
     
     let container: Container = SwinjectStoryboard.defaultContainer
@@ -18,7 +25,13 @@ class Assembly {
         }
         
         container.register(ServiceRequester.self) { _ in
-            return AlamofireServiceRequester()
+            if Config.environment == .dev {
+                let sessionManager = AlamofireSessionManagerFactory.makeDevelopment()
+                return AlamofireServiceRequester(sessionManager: sessionManager)
+            }
+            
+            let sessionManager = AlamofireSessionManagerFactory.makeProduction()
+            return AlamofireServiceRequester(sessionManager: sessionManager)
         }
         
         container.register(UserSessionStreamer.self) { resolver in
@@ -95,10 +108,6 @@ class Assembly {
             
             let pluginProvider = ServicePluginProvider()
             pluginProvider.registerPlugin(authorizationPlugin)
-            let rules: [HostRule] = [
-                HostRule(subject: "api.qabackit.com", replacement: "10.87.148.179:8443")
-            ]
-            pluginProvider.registerPlugin(HostReplacerServicePlugin(rules: rules))
             return pluginProvider
         }.inObjectScope(.container)
         
@@ -151,7 +160,7 @@ class Assembly {
         
         container.register(Service.self) { resolver in
             let requester = resolver.resolve(ServiceRequester.self)!
-            let service = Service(environment: .qa, requester: requester)
+            let service = Service(environment: Config.environment, requester: requester)
             service.debug = true
             return service
         }
