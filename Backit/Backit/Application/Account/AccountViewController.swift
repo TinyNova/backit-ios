@@ -52,7 +52,7 @@ class AccountViewController: UITableViewController {
     }
     
     private func emptyProfileImage() -> UIImage? {
-        let image = UIImage(named: "empty-profile")?
+        let image = UIImage(named: "avatar")?
             .fittedImage(to: 22.0)?
             .sd_tintedImage(with: UIColor.fromHex(0xffffff))?
             .withRenderingMode(.alwaysOriginal)
@@ -180,6 +180,7 @@ extension AccountViewController: UserStreamListener {
         tableView.reloadData()
         
         guard let avatarUrl = user?.avatarUrl else {
+            updateTabBar(with: emptyProfileImage())
             return
         }
         
