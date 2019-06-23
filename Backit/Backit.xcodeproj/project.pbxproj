@@ -103,6 +103,7 @@
 		07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */; };
 		07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B25B01228E0A1B002476D4 /* FeedProject.swift */; };
 		07B899C922B35845003F7597 /* CreateExternalAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */; };
+		07C96F6422BD9FBB00FD7EC7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */; };
 		07C9BD58227897A800E41F1D /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9BD57227897A800E41F1D /* AccountService.swift */; };
 		07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3B40E223175CC00959808 /* UIView+Backit.swift */; };
 		07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */; };
@@ -278,6 +279,7 @@
 		07A1C21521DEDFA100E5A5DA /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
 		07B25B01228E0A1B002476D4 /* FeedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedProject.swift; sourceTree = "<group>"; };
 		07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExternalAccountEndpoint.swift; sourceTree = "<group>"; };
+		07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		07C9BD57227897A800E41F1D /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		07E3B40E223175CC00959808 /* UIView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Backit.swift"; sourceTree = "<group>"; };
 		07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountEndpoint.swift; sourceTree = "<group>"; };
@@ -414,9 +416,10 @@
 		0722326C21D44028009D1912 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				073AE1A322BAE1E000BD1A30 /* BannerMessageErrors */,
 				07E9DD722264D314005DA147 /* Account */,
 				0732391C22089B4F0034291C /* Analytics */,
+				07684D1D22BD9E6A00D6F21D /* Banner */,
+				073AE1A322BAE1E000BD1A30 /* BannerMessageErrors */,
 				07E3B40D223175BD00959808 /* Extensions */,
 				07EC5A78227BFC1E00B67C05 /* Plugins */,
 				078BCA932253B01D003A03CA /* ProjectFeed */,
@@ -606,6 +609,14 @@
 				07684D1A22BD8F0E00D6F21D /* AlamofireSessionManagerFactory.swift */,
 			);
 			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		07684D1D22BD9E6A00D6F21D /* Banner */ = {
+			isa = PBXGroup;
+			children = (
+				07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */,
+			);
+			path = Banner;
 			sourceTree = "<group>";
 		};
 		076A8C4B22864B6C0075B56C /* Test */ = {
@@ -1221,6 +1232,7 @@
 				AAE9170822A7317C00490A30 /* PhotoAlbumProvider.swift in Sources */,
 				07820D6922BADD0100B44D86 /* AppBannerPresenterProvider.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
+				07C96F6422BD9FBB00FD7EC7 /* BannerView.swift in Sources */,
 				AAE9171722A880B400490A30 /* UploadAvatarEndpoint.swift in Sources */,
 				0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */,
 				077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */,

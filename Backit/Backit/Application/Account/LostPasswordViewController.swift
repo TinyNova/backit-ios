@@ -52,7 +52,7 @@ class LostPasswordViewController: UIViewController {
 
     @IBAction func didTapResetPasswordButton(_ sender: Any) {
         guard let email = emailField.text else {
-            bannerProvider?.present(type: .error, title: nil, message: "Please enter your email")
+            bannerProvider?.present(message: .error(title: nil, message: "Please enter your email"))
             return
         }
         

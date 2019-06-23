@@ -6,16 +6,23 @@
 import Foundation
 
 class AppBannerProvider: BannerProvider {
-    func present(error: Error) {
-        log.e(error.localizedDescription)
+    
+    let messageProvider: BannerMessageProvider
+    
+    init(messageProvider: BannerMessageProvider) {
+        self.messageProvider = messageProvider
     }
     
-    func present(type: BannerType, title: String?, message: String) {
-        switch type {
+    func present(error: Error) {
+        present(message: messageProvider.message(for: error))
+    }
+    
+    func present(message: BannerMessage) {
+        switch message.type {
         case .error:
-            log.e("\(title ?? "NA"): \(message)")
+            log.e("\(message.title ?? "NA"): \(message.message)")
         case .info:
-            log.i("\(title ?? "NA"): \(message)")
+            log.i("\(message.title ?? "NA"): \(message.message)")
         }
     }
 }

@@ -22,7 +22,7 @@ struct BannerMessage {
     let button1: BannerButton?
     let button2: BannerButton?
     
-    static func error(title: String, message: String) -> BannerMessage {
+    static func error(title: String?, message: String) -> BannerMessage {
         return BannerMessage(type: .error, title: title, message: message, button1: nil, button2: nil)
     }
 }
@@ -33,5 +33,5 @@ protocol BannerMessageProvider {
 
 protocol BannerProvider {
     func present(error: Error)
-    func present(type: BannerType, title: String?, message: String)
+    func present(message: BannerMessage)
 }

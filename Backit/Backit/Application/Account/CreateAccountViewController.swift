@@ -74,7 +74,7 @@ class CreateAccountViewController: UIViewController {
         guard let username = usernameField.text,
               let email = emailField.text,
               let password = passwordField.text else {
-            bannerProvider?.present(type: .error, title: nil, message: "Please provide a username and email")
+            bannerProvider?.present(message: .error(title: nil, message: "Please provide a username and email"))
             return
         }
 

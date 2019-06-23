@@ -9,10 +9,16 @@ import Swinject
 import SwinjectStoryboard
 
 private enum Config {
+    
+    /// The environment the app is configured to run in
     static var environment: Environment {
         // TODO: Always return .prod when delivering to the App Store to prevent Development or QA configuration from going to Production.
-        return .dev
+        
+        return .qa
     }
+    
+    /// Toggles debug logging for all services that support it
+    static var debug: Bool = false
 }
 
 class Assembly {
@@ -84,8 +90,13 @@ class Assembly {
             return AppPresenterProvider()
         }
         
+        container.register(BannerMessageProvider.self) { resolver in
+            return AppBannerMessageProvider()
+        }
+        
         container.register(BannerProvider.self) { resolver in
-            return AppBannerProvider()
+            let messageProvider = resolver.resolve(BannerMessageProvider.self)!
+            return AppBannerProvider(messageProvider: messageProvider)
         }
         
         container.register(ProgressOverlayProvider.self) { resolver in
@@ -161,7 +172,7 @@ class Assembly {
         container.register(Service.self) { resolver in
             let requester = resolver.resolve(ServiceRequester.self)!
             let service = Service(environment: Config.environment, requester: requester)
-            service.debug = true
+            service.debug = Config.debug
             return service
         }
         .initCompleted { (resolver, service) in

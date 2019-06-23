@@ -115,7 +115,7 @@ class SignInViewController: UIViewController {
     @IBAction func didTapLogin(_ sender: Any) {
         guard let email = emailTextField.text, email.count > 0,
               let password = passwordTextField.text, password.count > 0 else {
-            bannerProvider?.present(type: .error, title: nil, message: "Please enter your email and password")
+            bannerProvider?.present(message: .error(title: nil, message: "Please enter your email and password"))
             return
         }
 

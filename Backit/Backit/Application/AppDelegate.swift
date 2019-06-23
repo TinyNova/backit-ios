@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var accountProvider: AccountProvider!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // TODO: Set log level depending on environment (?)
+        log.level = .info
+        
         // FIXME: Make sure that no requests are made before NewRelic has a chance to start. This may require requests being deferred until NewRelic starts.
         startNewRelic()
         

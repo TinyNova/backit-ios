@@ -121,7 +121,7 @@ class FinalizeAccountCreationViewController: UIViewController {
         }
         guard let username = usernameField.text, username.count > 0,
               let email = emailField.text, email.count > 0 else {
-            bannerProvider?.present(type: .error, title: nil, message: "Please enter your username and email")
+            bannerProvider?.present(message: .error(title: nil, message: "Please enter your username and email"))
             return
         }
         
