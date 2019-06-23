@@ -10,6 +10,10 @@ enum LogLevel: Int {
     case warning
     case error
     case critical
+    
+    public static func < (a: LogLevel, b: LogLevel) -> Bool {
+        return a.rawValue < b.rawValue
+    }
 }
 
 class log {
@@ -46,8 +50,4 @@ class log {
     class func c(_ message: String) {
         print("CRITICAL: \(message)")
     }
-}
-
-private func <<T: RawRepresentable>(a: T, b: T) -> Bool where T.RawValue: Comparable {
-    return a.rawValue < b.rawValue
 }

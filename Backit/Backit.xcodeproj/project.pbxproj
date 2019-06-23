@@ -534,21 +534,10 @@
 		0754B5F221FA588700E2DECD /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				071B317622794F0B00DB1561 /* AccountProvider.swift */,
-				AAE9170322A62A4C00490A30 /* Credentials.swift */,
-				AA5168C422B2E30400F79DC9 /* ExternalSignInProvider.swift */,
-				AA0FD38522B08206007DEEB6 /* FacebookProvider.swift */,
-				0745C98422B9334400E85948 /* GoogleProvider.swift */,
+				07D78EEC22BFF67700FA0C3D /* Model */,
+				07C96F6522BFF64100FD7EC7 /* Providers */,
 				AAE9171422A867A600490A30 /* IgnorableValue.swift */,
-				AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */,
-				AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */,
-				0754B5F321FA589B00E2DECD /* Project.swift */,
-				071B317422794EE600DB1561 /* ProjectProvider.swift */,
-				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
-				077B172F227CE3EB003D5B17 /* SignInProvider.swift */,
-				071B317822794F3300DB1561 /* User.swift */,
 				07820D6222BA689200B44D86 /* UserAvatarStreamer.swift */,
-				0700753022937312005B9F28 /* UserProvider.swift */,
 				077B172D227CE3B1003D5B17 /* UserSession.swift */,
 				B9FB5983227FF94D00A03BDC /* UserSessionStreamer.swift */,
 				0785F02022936CCC006AD593 /* UserStreamer.swift */,
@@ -673,6 +662,22 @@
 			path = ImagePager;
 			sourceTree = "<group>";
 		};
+		07C96F6522BFF64100FD7EC7 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				071B317622794F0B00DB1561 /* AccountProvider.swift */,
+				AA5168C422B2E30400F79DC9 /* ExternalSignInProvider.swift */,
+				AA0FD38522B08206007DEEB6 /* FacebookProvider.swift */,
+				0745C98422B9334400E85948 /* GoogleProvider.swift */,
+				AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */,
+				AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */,
+				071B317422794EE600DB1561 /* ProjectProvider.swift */,
+				077B172F227CE3EB003D5B17 /* SignInProvider.swift */,
+				0700753022937312005B9F28 /* UserProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 		07C9BD562278979200E41F1D /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,6 +689,17 @@
 				0700752E22936ED4005B9F28 /* UserStream.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		07D78EEC22BFF67700FA0C3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AAE9170322A62A4C00490A30 /* Credentials.swift */,
+				0754B5F321FA589B00E2DECD /* Project.swift */,
+				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
+				071B317822794F3300DB1561 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		07E3B40D223175BD00959808 /* Extensions */ = {
