@@ -115,7 +115,7 @@ class SignInViewController: UIViewController {
     @IBAction func didTapLogin(_ sender: Any) {
         guard let email = emailTextField.text, email.count > 0,
               let password = passwordTextField.text, password.count > 0 else {
-            bannerProvider?.present(message: .error(title: nil, message: "Please enter your email and password"))
+            bannerProvider?.present(message: .error(title: nil, message: "Please enter your email and password"), in: self)
             return
         }
 
@@ -126,7 +126,7 @@ class SignInViewController: UIViewController {
                 self?.dismiss(animated: true, completion: nil)
             }
             .onFailure { [weak self] error in
-                self?.bannerProvider?.present(error: error)
+                self?.bannerProvider?.present(error: error, in: self)
             }
             .onComplete { [weak self] _ in
                 self?.overlay?.dismiss()
@@ -161,7 +161,7 @@ class SignInViewController: UIViewController {
                 self?.dismiss(animated: true, completion: nil)
             }
             .onFailure { [weak self] error in
-                self?.bannerProvider?.present(error: error)
+                self?.bannerProvider?.present(error: error, in: self)
             }
             .onComplete { [weak self] _ in
                 self?.overlay?.dismiss()
@@ -189,7 +189,7 @@ class SignInViewController: UIViewController {
                 self?.dismiss(animated: true, completion: nil)
             }
             .onFailure { [weak self] error in
-                self?.bannerProvider?.present(error: error)
+                self?.bannerProvider?.present(error: error, in: self)
             }
             .onComplete { [weak self] _ in
                 self?.overlay?.dismiss()

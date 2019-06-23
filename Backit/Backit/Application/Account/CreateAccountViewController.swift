@@ -74,7 +74,7 @@ class CreateAccountViewController: UIViewController {
         guard let username = usernameField.text,
               let email = emailField.text,
               let password = passwordField.text else {
-            bannerProvider?.present(message: .error(title: nil, message: "Please provide a username and email"))
+            bannerProvider?.present(message: .error(title: nil, message: "Please provide a username and email"), in: self)
             return
         }
 
@@ -87,7 +87,7 @@ class CreateAccountViewController: UIViewController {
                 self?.delegate?.didCreateAccount(credentials: Credentials(email: username, password: password), userSession: userSession)
             }
             .onFailure { [weak self] (error) in
-                self?.bannerProvider?.present(error: error)
+                self?.bannerProvider?.present(error: error, in: self)
             }
             .onComplete { [weak self] _ in
                 self?.overlay?.dismiss()

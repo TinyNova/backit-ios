@@ -105,6 +105,7 @@
 		07B899C922B35845003F7597 /* CreateExternalAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */; };
 		07C96F6422BD9FBB00FD7EC7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */; };
 		07C9BD58227897A800E41F1D /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9BD57227897A800E41F1D /* AccountService.swift */; };
+		07D78EEE22BFF87D00FA0C3D /* BannerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D78EED22BFF87D00FA0C3D /* BannerScene.swift */; };
 		07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3B40E223175CC00959808 /* UIView+Backit.swift */; };
 		07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */; };
 		07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61ED21D6ECD300FE283C /* Assembly.swift */; };
@@ -281,6 +282,7 @@
 		07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExternalAccountEndpoint.swift; sourceTree = "<group>"; };
 		07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		07C9BD57227897A800E41F1D /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		07D78EED22BFF87D00FA0C3D /* BannerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerScene.swift; sourceTree = "<group>"; };
 		07E3B40E223175CC00959808 /* UIView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Backit.swift"; sourceTree = "<group>"; };
 		07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountEndpoint.swift; sourceTree = "<group>"; };
 		07EC61ED21D6ECD300FE283C /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
@@ -536,7 +538,6 @@
 			children = (
 				07D78EEC22BFF67700FA0C3D /* Model */,
 				07C96F6522BFF64100FD7EC7 /* Providers */,
-				AAE9171422A867A600490A30 /* IgnorableValue.swift */,
 				07820D6222BA689200B44D86 /* UserAvatarStreamer.swift */,
 				077B172D227CE3B1003D5B17 /* UserSession.swift */,
 				B9FB5983227FF94D00A03BDC /* UserSessionStreamer.swift */,
@@ -604,6 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */,
+				07D78EED22BFF87D00FA0C3D /* BannerScene.swift */,
 			);
 			path = Banner;
 			sourceTree = "<group>";
@@ -777,6 +779,7 @@
 				076A8C492286498A0075B56C /* Encodable+Backit.swift */,
 				0754B60521FBDDC400E2DECD /* Environment.swift */,
 				077B1731227CE40E003D5B17 /* Errors.swift */,
+				AAE9171422A867A600490A30 /* IgnorableValue.swift */,
 				07820D6022BA639100B44D86 /* Logging.swift */,
 				07EC620A21D6F86D00FE283C /* UIColor+Backit.swift */,
 				B9A8E669228BD520003CF94B /* UIFont+Backit.swift */,
@@ -1280,6 +1283,7 @@
 				B9FB5986227FF97100A03BDC /* UserSessionStream.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
 				07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */,
+				07D78EEE22BFF87D00FA0C3D /* BannerScene.swift in Sources */,
 				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
 				07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */,
 				075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */,

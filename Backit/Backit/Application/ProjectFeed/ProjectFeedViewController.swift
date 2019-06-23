@@ -50,15 +50,17 @@ class ProjectFeedViewController: UIViewController {
     
     private var provider: ProjectFeedProvider!
     private var signInProvider: SignInProvider!
+    private var bannerProvider: BannerProvider?
     
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
     
-    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider) {
+    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider, bannerProvider: BannerProvider) {
         self.provider = provider
         self.provider.client = self
         userStreamer.listen(self)
         self.signInProvider = signInProvider
+        self.bannerProvider = bannerProvider
     }
     
     private let i18n = Localization<Appl10n>()
@@ -79,6 +81,11 @@ class ProjectFeedViewController: UIViewController {
         navigationItem.leftBarButtonItems = [backitButton]
         
         provider.loadProjects()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        bannerProvider?.present(message: BannerMessage(type: .error, title: "My title", message: "A message", button1: nil, button2: nil), in: self)
     }
     
     // MARK: Actions

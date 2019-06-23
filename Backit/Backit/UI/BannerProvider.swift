@@ -4,6 +4,7 @@
  */
 
 import Foundation
+import UIKit
 
 enum BannerType {
     case info
@@ -32,6 +33,6 @@ protocol BannerMessageProvider {
 }
 
 protocol BannerProvider {
-    func present(error: Error)
-    func present(message: BannerMessage)
+    func present(error: Error, in viewController: UIViewController?)
+    func present(message: BannerMessage, in viewController: UIViewController?)
 }
