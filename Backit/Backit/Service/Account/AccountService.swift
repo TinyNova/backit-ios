@@ -49,8 +49,7 @@ class AccountService: AccountProvider {
                       let csrfToken = response.csrfToken,
                       let token = response.token,
                       let refreshToken = response.refreshToken else {
-                    // TODO: Map `validation` errors
-                    return Future(error: .validation([:]))
+                    return Future(error: validationError(message: response.message, validation: response.validation))
                 }
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
@@ -102,8 +101,7 @@ class AccountService: AccountProvider {
                     return Future(value: .existingUser(userSession))
                 }
 
-                // TODO: Map `validation` errors
-                return Future(error: .validation([:]))
+                return Future(error: validationError(message: response.message, validation: response.validation))
             }
     }
     
@@ -124,8 +122,7 @@ class AccountService: AccountProvider {
                       let csrfToken = response.csrfToken,
                       let token = response.token,
                       let refreshToken = response.refreshToken else {
-                    // TODO: Map `validation` errors
-                    return Future(error: .validation([:]))
+                    return Future(error: validationError(message: response.message, validation: response.validation))
                 }
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
@@ -168,8 +165,7 @@ class AccountService: AccountProvider {
                       let csrfToken = response.csrfToken,
                       let token = response.token,
                       let refreshToken = response.refreshToken else {
-                    // TODO: Map `validation` errors
-                    return Future(error: .validation([:]))
+                    return Future(error: validationError(message: response.message, validation: response.validation))
                 }
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
@@ -208,8 +204,7 @@ class AccountService: AccountProvider {
                       let csrfToken = response.csrfToken,
                       let token = response.token,
                       let refreshToken = response.refreshToken else {
-                    // TODO: Map `validation` errors
-                    return Future(error: .validation([:]))
+                    return Future(error: validationError(message: response.message, validation: response.validation))
                 }
                 return Future(value: UserSession(accountId: accountId, csrfToken: csrfToken, token: token, refreshToken: refreshToken))
             }
@@ -265,6 +260,34 @@ class AccountService: AccountProvider {
             .onFailure { [weak self] _ in
                 self?.avatarStream.emit(image: image, state: .failed)
             }
+    }
+}
+
+func validationError(message: String?, validation: [String: [String]]?) -> AccountProviderError {
+    var fields = [AccountValidationField: [String]]()
+    validation?.forEach { (record: (key: String, value: [String])) in
+        fields[AccountValidationField.map(record.key)] = record.value
+    }
+    return .validation(message: message, fields: fields)
+}
+
+extension AccountValidationField {
+    static func map(_ value: String) -> AccountValidationField {
+        switch value.lowercased() {
+        case "username":
+            return .username
+        case "email":
+            return .email
+        case "firstname":
+            return .firstName
+        case "lastname":
+            return .lastName
+        case "password":
+            return .password
+        default:
+            log.w("Failed to map `AccountValidatedField` \(value)")
+            return .unknown
+        }
     }
 }
 

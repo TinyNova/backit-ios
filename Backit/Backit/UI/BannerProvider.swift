@@ -9,6 +9,7 @@ import UIKit
 enum BannerType {
     case info
     case error
+    case warning
 }
 
 struct BannerButton {

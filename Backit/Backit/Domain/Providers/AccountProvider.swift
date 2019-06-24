@@ -8,6 +8,7 @@ import CoreLocation
 import Foundation
 
 enum AccountValidationField {
+    case unknown
     case email
     case firstName
     case lastName
@@ -15,11 +16,9 @@ enum AccountValidationField {
     case password
 }
 
-typealias AccountValidationMessage = String
-
 enum AccountProviderError: Error {
     case generic(Error)
-    case validation([AccountValidationField: [AccountValidationMessage]])
+    case validation(message: String?, fields: [AccountValidationField: [String]])
     case failedToDecode(type: String)
     case thirdParty(Error)
 }

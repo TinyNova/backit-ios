@@ -32,3 +32,6 @@
 
 "mustHaveProvidedEmail" = "Unfortunately, if you have never given us your email, we will not be able to reset your password.";
 "finalizeCreatingYourAccount" = "Please create your username which your fellow Backers will refer to you as. Your email will not be shown to users.";
+"firstName" = "First Name";
+"lastName" = "Last Name";
+"unknownField" = "Uknown Field";

@@ -34,6 +34,10 @@ enum Appl10n {
     case resetPassword
     case passwordSuccessfullyReset
     case finalizeCreatingYourAccount
+    case field(AccountValidationField)
+    case firstName
+    case lastName
+    case unknownField
 }
 
 extension Appl10n: LocalizationType {
@@ -89,6 +93,27 @@ extension Appl10n: LocalizationType {
             return l(key: "passwordSuccessfullyReset")
         case .finalizeCreatingYourAccount:
             return l(key: "finalizeCreatingYourAccount")
+        case .field(let field):
+            switch field {
+            case .email:
+                return Appl10n.email.localize()
+            case .firstName:
+                return Appl10n.firstName.localize()
+            case .lastName:
+                return Appl10n.lastName.localize()
+            case .password:
+                return Appl10n.password.localize()
+            case .username:
+                return Appl10n.username.localize()
+            case .unknown:
+                return Appl10n.unknownField.localize()
+            }
+        case .firstName:
+            return l(key: "firstName")
+        case .lastName:
+            return l(key: "lastName")
+        case .unknownField:
+            return l(key: "unknownField")
         }
     }
 }

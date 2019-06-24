@@ -41,6 +41,8 @@ class AppBannerProvider: BannerProvider {
             log.e("\(message.title ?? "NA"): \(message.message)")
         case .info:
             log.i("\(message.title ?? "NA"): \(message.message)")
+        case .warning:
+            log.w("\(message.title ?? "NA"): \(message.message)")
         }
     }
     

@@ -107,13 +107,27 @@ class BannerScene: SKScene {
         
         let x: CGFloat = 60.0
         
-        let imageName = "info"
-        let image = UIImage(named: imageName)?
+        let messageType: BannerType = message?.type ?? .error
+        let messageColor: UIColor
+        let messageImage: String
+        switch messageType {
+        case .error:
+            messageImage = "warning"
+            messageColor = UIColor.fromHex(0xff0000)
+        case .info:
+            messageImage = "info"
+            messageColor = UIColor.fromHex(0x0000ff)
+        case .warning:
+            messageImage = "warning"
+            messageColor = UIColor.fromHex(0xffff00)
+        }
+        
+        let image = UIImage(named: messageImage)?
             .fittedImage(to: 38.0)?
-            .sd_tintedImage(with: UIColor.fromHex(0x0000ff))?
+            .sd_tintedImage(with: messageColor)?
             .withRenderingMode(.alwaysOriginal)
         if let image = image {
-            log.w("Failed to load image \(imageName)")
+            log.w("Failed to load image \(messageImage)")
             let imageNode = SKSpriteNode(texture: SKTexture(image: image))
             imageNode.position = CGPoint(x: 30.0, y: height - 30.0)
             bannerBg.addChild(imageNode)
@@ -130,11 +144,11 @@ class BannerScene: SKScene {
         let description = SKLabelNode(text: message?.message)
         description.fontColor = UIColor.fromHex(0x000000)
         description.fontName = "AcuminPro-Regular"
-        description.fontSize = 18.0
+        description.fontSize = 16.0
         description.numberOfLines = 0
         description.lineBreakMode = .byWordWrapping
         description.preferredMaxLayoutWidth = width - x - 10.0 // width of full box - x adjust - 10 for padding
-        description.position = CGPoint(x: x, y: title.position.y - 22.0)
+        description.position = CGPoint(x: x, y: title.position.y - 14.0)
         description.horizontalAlignmentMode = .left
         description.verticalAlignmentMode = .top
         bannerBg.addChild(description)
