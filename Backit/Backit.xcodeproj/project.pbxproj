@@ -106,6 +106,8 @@
 		07C96F6422BD9FBB00FD7EC7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */; };
 		07C9BD58227897A800E41F1D /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9BD57227897A800E41F1D /* AccountService.swift */; };
 		07D78EEE22BFF87D00FA0C3D /* BannerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D78EED22BFF87D00FA0C3D /* BannerScene.swift */; };
+		07D78EF122C171A900FA0C3D /* ActionSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D78EF022C171A900FA0C3D /* ActionSequencer.swift */; };
+		07D78EF322C171BC00FA0C3D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D78EF222C171BC00FA0C3D /* Action.swift */; };
 		07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3B40E223175CC00959808 /* UIView+Backit.swift */; };
 		07EC5A77227BF4BC00B67C05 /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */; };
 		07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC61ED21D6ECD300FE283C /* Assembly.swift */; };
@@ -283,6 +285,8 @@
 		07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		07C9BD57227897A800E41F1D /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		07D78EED22BFF87D00FA0C3D /* BannerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerScene.swift; sourceTree = "<group>"; };
+		07D78EF022C171A900FA0C3D /* ActionSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSequencer.swift; sourceTree = "<group>"; };
+		07D78EF222C171BC00FA0C3D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		07E3B40E223175CC00959808 /* UIView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Backit.swift"; sourceTree = "<group>"; };
 		07EC5A76227BF4BC00B67C05 /* UserAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountEndpoint.swift; sourceTree = "<group>"; };
 		07EC61ED21D6ECD300FE283C /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
@@ -445,6 +449,7 @@
 		072510D02283B10B00C02645 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				07D78EEF22C1719300FA0C3D /* SimpleAction */,
 				B905785C229A56EB00AD09C6 /* UnderlineButton */,
 				07F666BF2298C12500FBE6F7 /* PrimaryButton */,
 				B905785B229A56D400AD09C6 /* SecondaryButton */,
@@ -702,6 +707,15 @@
 				071B317822794F3300DB1561 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		07D78EEF22C1719300FA0C3D /* SimpleAction */ = {
+			isa = PBXGroup;
+			children = (
+				07D78EF222C171BC00FA0C3D /* Action.swift */,
+				07D78EF022C171A900FA0C3D /* ActionSequencer.swift */,
+			);
+			path = SimpleAction;
 			sourceTree = "<group>";
 		};
 		07E3B40D223175BD00959808 /* Extensions */ = {
@@ -1212,6 +1226,7 @@
 				0732392022089CD80034291C /* BIAnalyticsEvent.swift in Sources */,
 				0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */,
 				07820D6522BA696500B44D86 /* UserAvatarStream.swift in Sources */,
+				07D78EF122C171A900FA0C3D /* ActionSequencer.swift in Sources */,
 				077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */,
 				07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */,
 				07820D6122BA639100B44D86 /* Logging.swift in Sources */,
@@ -1258,6 +1273,7 @@
 				0747A42D226560F8006BE39A /* SignInViewController.swift in Sources */,
 				07EC61F321D6ED3800FE283C /* AnyUITheme.swift in Sources */,
 				078BCA9B2256D99A003A03CA /* ProjectTableViewCell.swift in Sources */,
+				07D78EF322C171BC00FA0C3D /* Action.swift in Sources */,
 				076A8C4F22864BB10075B56C /* TestApplication.swift in Sources */,
 				07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */,
 				AAE9171522A867A600490A30 /* IgnorableValue.swift in Sources */,

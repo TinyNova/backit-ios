@@ -7,7 +7,7 @@ protocol BannerViewDelegate: class {
 
 class BannerView: SKView {
     
-    private var showing: Bool = false
+    var bannerDelegate: BannerViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,19 +20,30 @@ class BannerView: SKView {
     }
     
     private func configure() {
-        self.ignoresSiblingOrder = false
+        ignoresSiblingOrder = false
+        backgroundColor = UIColor.clear
+        allowsTransparency = true
+    }
+    
+    @objc private func didTapBanner(_ sender: Any?) {
+        log.i("Did tap to dismiss the banner")
     }
     
     func show(message: BannerMessage) {
-        guard !showing else {
-            log.w("Showing `BannerView` more than once")
-            return
-        }
-        
-        showing = true
-        
         let scene = BannerScene(size: frame.size)
-        scene.configure(message: message)
+        scene.configure(message: message) { [weak self] (button: BannerButton?) in
+            guard let sself = self else {
+                return
+            }
+            if let button = button {
+                button.callback()
+            }
+            sself.bannerDelegate?.didDismissBanner(sself)
+        }
         presentScene(scene)
+    }
+    
+    func dismiss() {
+        
     }
 }

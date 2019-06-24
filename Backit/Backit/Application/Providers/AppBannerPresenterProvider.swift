@@ -4,11 +4,14 @@
  */
 
 import Foundation
+import SpriteKit
 import UIKit
 
 class AppBannerProvider: BannerProvider {
     
     let messageProvider: BannerMessageProvider
+    
+    private var isShowing: Bool = false
     
     init(messageProvider: BannerMessageProvider) {
         self.messageProvider = messageProvider
@@ -19,22 +22,18 @@ class AppBannerProvider: BannerProvider {
     }
     
     func present(message: BannerMessage, in viewController: UIViewController?) {
+        guard !isShowing else {
+            return log.i("Already showing the banner")
+        }
         guard let view = viewController?.view else {
             log.w("Attempting to display banner in a `UIViewController` that has no `view`")
             return
         }
         
-        // NOTE: This banner must be the entire size of the screen so that it can capture all taps.
-        // TODO: Add `TapGestureRecognizer` and dismiss the view.
-        let size = UIScreen.main.bounds.size
-        let bannerView = BannerView(frame: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
-        view.addSubview(bannerView)
-        view.bringSubviewToFront(bannerView)
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        bannerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        isShowing = true
+        
+        let bannerView = makeBannerView(in: view)
+        bannerView.bannerDelegate = self
         bannerView.show(message: message)
         
         switch message.type {
@@ -43,5 +42,29 @@ class AppBannerProvider: BannerProvider {
         case .info:
             log.i("\(message.title ?? "NA"): \(message.message)")
         }
+    }
+    
+    /// The size of the banner is the size of the screen. This ensures that all taps can be captured.
+    private func makeBannerView(in view: UIView) -> BannerView {
+        let size = UIScreen.main.bounds.size
+        let bannerView = BannerView(frame: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
+        view.addSubview(bannerView)
+        view.bringSubviewToFront(bannerView)
+
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        bannerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+
+        return bannerView
+    }
+}
+
+extension AppBannerProvider: BannerViewDelegate {
+    func didDismissBanner(_ bannerView: BannerView) {
+        // TODO: Animate out
+        bannerView.removeFromSuperview()
+        isShowing = false
     }
 }
