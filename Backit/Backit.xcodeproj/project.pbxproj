@@ -105,6 +105,9 @@
 		07B899C922B35845003F7597 /* CreateExternalAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */; };
 		07C96F6422BD9FBB00FD7EC7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */; };
 		07C9BD58227897A800E41F1D /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9BD57227897A800E41F1D /* AccountService.swift */; };
+		07D78A3922C1A415004764BC /* ProgressOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D78A3822C1A415004764BC /* ProgressOverlayViewController.swift */; };
+		07D78A3B22C1A473004764BC /* ProgressOverlayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D78A3A22C1A473004764BC /* ProgressOverlayViewController.storyboard */; };
+		07D78A3D22C1A5AF004764BC /* ProgressOverlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D78A3C22C1A5AF004764BC /* ProgressOverlayScene.swift */; };
 		07D78EEE22BFF87D00FA0C3D /* BannerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D78EED22BFF87D00FA0C3D /* BannerScene.swift */; };
 		07D78EF122C171A900FA0C3D /* ActionSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D78EF022C171A900FA0C3D /* ActionSequencer.swift */; };
 		07D78EF322C171BC00FA0C3D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D78EF222C171BC00FA0C3D /* Action.swift */; };
@@ -284,6 +287,9 @@
 		07B899C822B35845003F7597 /* CreateExternalAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExternalAccountEndpoint.swift; sourceTree = "<group>"; };
 		07C96F6322BD9FBB00FD7EC7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		07C9BD57227897A800E41F1D /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		07D78A3822C1A415004764BC /* ProgressOverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlayViewController.swift; sourceTree = "<group>"; };
+		07D78A3A22C1A473004764BC /* ProgressOverlayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressOverlayViewController.storyboard; sourceTree = "<group>"; };
+		07D78A3C22C1A5AF004764BC /* ProgressOverlayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlayScene.swift; sourceTree = "<group>"; };
 		07D78EED22BFF87D00FA0C3D /* BannerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerScene.swift; sourceTree = "<group>"; };
 		07D78EF022C171A900FA0C3D /* ActionSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSequencer.swift; sourceTree = "<group>"; };
 		07D78EF222C171BC00FA0C3D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -428,6 +434,7 @@
 				073AE1A322BAE1E000BD1A30 /* BannerMessageErrors */,
 				07E3B40D223175BD00959808 /* Extensions */,
 				07EC5A78227BFC1E00B67C05 /* Plugins */,
+				07D78EF422C1A3DF00FA0C3D /* ProgressOverlay */,
 				078BCA932253B01D003A03CA /* ProjectFeed */,
 				AA5168D022B2EA4D00F79DC9 /* Providers */,
 				07EC61F821D6EE1C00FE283C /* Resources */,
@@ -716,6 +723,16 @@
 				07D78EF022C171A900FA0C3D /* ActionSequencer.swift */,
 			);
 			path = SimpleAction;
+			sourceTree = "<group>";
+		};
+		07D78EF422C1A3DF00FA0C3D /* ProgressOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				07D78A3C22C1A5AF004764BC /* ProgressOverlayScene.swift */,
+				07D78A3822C1A415004764BC /* ProgressOverlayViewController.swift */,
+				07D78A3A22C1A473004764BC /* ProgressOverlayViewController.storyboard */,
+			);
+			path = ProgressOverlay;
 			sourceTree = "<group>";
 		};
 		07E3B40D223175BD00959808 /* Extensions */ = {
@@ -1029,6 +1046,7 @@
 				078BCA952253B032003A03CA /* ProjectFeed.storyboard in Resources */,
 				AA30D79122A596A20084D3F3 /* AvatarTabBarItem.xib in Resources */,
 				B9A8E666228BD4CF003CF94B /* Acumin Pro - Regular.otf in Resources */,
+				07D78A3B22C1A473004764BC /* ProgressOverlayViewController.storyboard in Resources */,
 				AA5168CD22B2E97700F79DC9 /* FinalizeAccountCreationViewController.storyboard in Resources */,
 				B9057861229A575400AD09C6 /* TextButton.xib in Resources */,
 				078BCA992256D980003A03CA /* ProjectTableViewCell.xib in Resources */,
@@ -1213,6 +1231,7 @@
 				07792B97229B0C9F0023D56C /* SecondaryButton.swift in Sources */,
 				075D4D322211CB6F006EFF37 /* Flag.swift in Sources */,
 				0754B6762203CB1F00E2DECD /* LoadingResultsCell.swift in Sources */,
+				07D78A3922C1A415004764BC /* ProgressOverlayViewController.swift in Sources */,
 				07EC61F421D6ED3800FE283C /* UITheme.swift in Sources */,
 				B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */,
 				076A8C5322864C070075B56C /* main.swift in Sources */,
@@ -1251,6 +1270,7 @@
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,
 				0754B66F2200EBA000E2DECD /* Appl10n.swift in Sources */,
 				B928627222AB32C00093FDAB /* LostPasswordViewController.swift in Sources */,
+				07D78A3D22C1A5AF004764BC /* ProgressOverlayScene.swift in Sources */,
 				072BB8762294BCC800265854 /* TextEntryField.swift in Sources */,
 				077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */,
 				AA30D78722A1CC3C0084D3F3 /* KeychainProvider.swift in Sources */,

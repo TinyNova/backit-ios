@@ -14,8 +14,7 @@ class AppPresenterProvider: PresenterProvider {
     
     func present(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let topViewController = UIApplication.topViewController() else {
-            log.w("Failed to present \(viewController) on the top UIViewController")
-            return
+            return log.w("Failed to present \(viewController) on the top UIViewController")
         }
         
         topViewController.present(viewController, animated: true, completion: completion)

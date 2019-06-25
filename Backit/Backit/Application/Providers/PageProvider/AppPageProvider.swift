@@ -47,4 +47,14 @@ class AppPageProvider: PageProvider {
 
         return vc
     }
+    
+    func progressOverlay() -> ProgressOverlayViewController? {
+        let storyboard = UIStoryboard(name: "ProgressOverlayViewController", bundle: Bundle(for: ProgressOverlayViewController.self))
+        guard let vc = storyboard.instantiateInitialViewController() as? ProgressOverlayViewController else {
+            log.c("Failed to inflate `ProgressOverlayViewController`")
+            return nil
+        }
+        
+        return vc
+    }
 }

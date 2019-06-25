@@ -100,7 +100,9 @@ class Assembly {
         }
         
         container.register(ProgressOverlayProvider.self) { resolver in
-            return AppProgressOverlayProvider()
+            let presenterProvider = resolver.resolve(PresenterProvider.self)!
+            let pageProvider = resolver.resolve(PageProvider.self)!
+            return AppProgressOverlayProvider(presenterProvider: presenterProvider, pageProvider: pageProvider)
         }
         
         container.register(PageProvider.self) { resolver in
@@ -248,7 +250,8 @@ class Assembly {
             let provider = resolver.resolve(ProjectFeedProvider.self)!
             let userStreamer = resolver.resolve(UserStreamer.self)!
             let signInProvider = resolver.resolve(SignInProvider.self)!
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer, signInProvider: signInProvider)
+            let progress = resolver.resolve(ProgressOverlayProvider.self)!
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer, signInProvider: signInProvider, progress: progress)
         }
 
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
@@ -275,5 +278,9 @@ class Assembly {
             let overlay = resolver.resolve(ProgressOverlayProvider.self)!
             controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, overlay: overlay)
         }
+        
+        container.storyboardInitCompleted(ProgressOverlayViewController.self) { resolver, controller in
+        }
+
     }
 }

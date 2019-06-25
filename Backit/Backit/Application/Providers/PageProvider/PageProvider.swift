@@ -11,4 +11,5 @@ protocol PageProvider {
     func lostPassword() -> LostPasswordViewController?
     func createAccount() -> CreateAccountViewController?
     func signIn() -> UINavigationController?
+    func progressOverlay() -> ProgressOverlayViewController?
 }
