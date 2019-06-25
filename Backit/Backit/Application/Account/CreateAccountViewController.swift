@@ -81,7 +81,7 @@ class CreateAccountViewController: UIViewController {
         // Validation:
         // - username `/^[a-zA-Z0-9_-]+$/` 3:20
 
-        overlay?.show(in: self)
+        overlay?.show()
         accountProvider?.createAccount(email: email, username: username, password: password, repeatPassword: password, firstName: nil, lastName: nil, subscribe: false)
             .onSuccess { [weak self] (userSession: UserSession) in
                 self?.delegate?.didCreateAccount(credentials: Credentials(email: username, password: password), userSession: userSession)

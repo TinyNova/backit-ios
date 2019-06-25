@@ -119,7 +119,7 @@ class SignInViewController: UIViewController {
             return
         }
 
-        overlay?.show(in: self)
+        overlay?.show()
         accountProvider?.login(email: email, password: password)
             .onSuccess { [weak self] (userSession) in
                 self?.delegate?.didSignIn(credentials: Credentials(email: email, password: password), userSession: userSession)

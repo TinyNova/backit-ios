@@ -140,7 +140,7 @@ extension AccountViewController {
                 return
             }
             
-            overlay?.show(in: self)
+            overlay?.show()
             albumProvider?.requestImage { [weak self] (image, error) in
                 guard let image = image else {
                     return log.e(String(describing: error))
@@ -160,7 +160,7 @@ extension AccountViewController {
         case 1:
             // `UserStreamListener` will handle the login/logout events.
             if isLoggedIn {
-                overlay?.show(in: self)
+                overlay?.show()
                 signInProvider?.logout().onComplete { [weak self] _ in
                     self?.overlay?.dismiss()
                 }

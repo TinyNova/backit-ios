@@ -56,7 +56,7 @@ class LostPasswordViewController: UIViewController {
             return
         }
         
-        overlay?.show(in: self)
+        overlay?.show()
         accountProvider?.resetPassword(email: email)
             .onSuccess { [weak self] _ in
                 UIView.animate(withDuration: 0.3, animations: {

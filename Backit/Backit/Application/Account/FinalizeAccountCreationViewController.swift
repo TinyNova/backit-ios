@@ -125,7 +125,7 @@ class FinalizeAccountCreationViewController: UIViewController {
             return
         }
         
-        overlay?.show(in: self)
+        overlay?.show()
         accountProvider?.createExternalAccount(email: email, username: username, subscribe: false, signupToken: signupToken)
             .onSuccess { [weak self] (userSession) in
                 self?.delegate?.didCreateAccount(userSession: userSession)

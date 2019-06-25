@@ -44,6 +44,7 @@ class AppProgressOverlayProvider: ProgressOverlayProvider {
             return log.c("Failed to get the progress overlay")
         }
         
+        // FIXME: Is this not working? It didn't seem to be showing the overlay.
         vc.prepareForModalPresentation(fullScreen: false)
         viewController.modalTransitionStyle = .coverVertical
         viewController.present(vc, animated: true, completion: nil)
@@ -56,7 +57,7 @@ class AppProgressOverlayProvider: ProgressOverlayProvider {
         }
         
         // TODO: Finish the animation and then dismiss.
-        viewController.dismiss(animated: false, completion: nil)
+        viewController.dismiss(animated: true, completion: nil)
         self.viewController = nil
     }
 }
