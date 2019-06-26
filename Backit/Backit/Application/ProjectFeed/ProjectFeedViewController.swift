@@ -8,6 +8,13 @@ import AVKit
 import Foundation
 import MediaPlayer
 import UIKit
+import SDWebImage
+
+// This defines the image (cell) size for all views that display an image/video.
+var ProjectImageSize: CGSize = .zero
+
+private let MainScreenSizeWidth = UIScreen.main.bounds.size.width
+private let iPhone5sImageSize = CGSize(width: MainScreenSizeWidth, height: 180.0)
 
 protocol ProjectFeedClient: class {
     func didReceiveProjects(_ projects: [FeedProject])
@@ -139,6 +146,44 @@ class ProjectFeedViewController: UIViewController {
 
 extension ProjectFeedViewController: ProjectFeedClient {
     func didReceiveProjects(_ projects: [FeedProject]) {
+        if ProjectImageSize.height < 1 {
+            // TODO: Make this logic a dependency.
+            let asset = projects.first?.assets.first(where: { (asset) -> Bool in
+                switch asset {
+                case .image:
+                    return true
+                case .video:
+                    return false
+                }
+            })
+            
+            guard case .image(let imageUrl)? = asset else {
+                log.e("The first project has no image!")
+                ProjectImageSize = iPhone5sImageSize
+                addProjects(projects)
+                return
+            }
+            
+            let manager = SDWebImageManager.shared
+            manager.loadImage(with: imageUrl, options: [], progress: nil) { [weak self] (image, data, error, cacheType, finished, imageURL) in
+                guard let image = image else {
+                    // FIXME: Retry this operation
+                    log.e("Failed to download the first image!")
+                    ProjectImageSize = iPhone5sImageSize
+                    self?.addProjects(projects)
+                    return
+                }
+
+                ProjectImageSize = image.proportionalScaledSize(using: MainScreenSizeWidth)
+                self?.addProjects(projects)
+            }
+        }
+        else {
+            addProjects(projects)
+        }
+    }
+    
+    private func addProjects(_ projects: [FeedProject]) {
         if !errorView.isHidden {
             errorView.isHidden = true
             view.bringSubviewToFront(tableView)

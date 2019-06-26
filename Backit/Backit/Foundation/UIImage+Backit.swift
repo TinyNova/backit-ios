@@ -29,7 +29,7 @@ extension UIImage {
     }
     
     /**
-     Given a `width` constraint, return a proportioan `CGSize`.
+     Given a `width` constraint, return a proportional `CGSize`.
      
      - parameter width: width constraint
      - returns: `CGSize` with proportional height
@@ -38,10 +38,10 @@ extension UIImage {
         let oldWidth = self.size.width
         let scaleFactor = width / oldWidth
         
-        let newHeight = self.size.height * scaleFactor
-        let newWidth = oldWidth * scaleFactor
+        let oldHeight = self.size.height
+        let newHeight = oldHeight * scaleFactor
         
-        return CGSize(width: newWidth, height: newHeight)
+        return CGSize(width: width, height: newHeight)
     }
     
     /**

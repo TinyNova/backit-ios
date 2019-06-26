@@ -18,7 +18,16 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var imagePagerView: ImagePagerView!
     
-    @IBOutlet private weak var projectImageCollectionView: ProjectImageCollectionView!
+    @IBOutlet private weak var projectImageCollectionView: ProjectImageCollectionView! {
+        didSet {
+            projectImageCollectionView.projectDelegate = self
+        }
+    }
+    @IBOutlet private weak var collectionViewHeightConstraint: NSLayoutConstraint! {
+        didSet {
+            collectionViewHeightConstraint.constant = ProjectImageSize.height
+        }
+    }
     
     @IBOutlet private weak var projectNameLabel: UILabel! {
         didSet {
@@ -115,8 +124,8 @@ class ProjectTableViewCell: UITableViewCell {
     
     weak var delegate: ProjectTableViewCellDelegate?
     
-    let theme: UIThemeApplier<AppTheme> = AppTheme.default
-    let i18n = Localization<Appl10n>()
+    private let theme: UIThemeApplier<AppTheme> = AppTheme.default
+    private let i18n = Localization<Appl10n>()
     
     private(set) var project: FeedProject? {
         didSet {
@@ -162,5 +171,15 @@ class ProjectTableViewCell: UITableViewCell {
     
     @objc private func didTapUpVote(gesture: UITapGestureRecognizer) {
         log.i("did tap up vote")
+    }
+}
+
+extension ProjectTableViewCell: ProjectImageCollectionViewDelegate {
+    func didSelectProjectAsset(_ asset: ProjectAsset) {
+        log.i("did select asset: \(asset)")
+    }
+    
+    func didScrollToProjectAsset(_ asset: ProjectAsset, at index: Int) {
+        log.i("Did scroll to asset: \(asset)")
     }
 }

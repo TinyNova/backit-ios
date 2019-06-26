@@ -17,9 +17,16 @@ private enum Constant {
 }
 
 protocol ProjectImageCollectionViewDelegate: class {
-    func didSelectProject(_ project: ProjectAsset)
-    func didScrollToProject(_ project: ProjectAsset, at index: Int)
+    func didSelectProjectAsset(_ asset: ProjectAsset)
+    func didScrollToProjectAsset(_ asset: ProjectAsset, at index: Int)
 }
+
+private struct CellSizeCache {
+    var size: CGSize
+    var cached: Bool
+}
+
+private var cache = CellSizeCache(size: CGSize(width: 100.0, height: 100.0), cached: false)
 
 class ProjectImageCollectionView: UICollectionView {
 
@@ -27,7 +34,14 @@ class ProjectImageCollectionView: UICollectionView {
     
     private var currentCellIndex = 0
     private var indexOfCellBeforeDragging = 0
-    private var collectionViewFlowLayout: UICollectionViewFlowLayout!
+    private lazy var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 0
+        layout.itemSize = ProjectImageSize
+        layout.scrollDirection = .horizontal
+        return layout
+    }()
     
     var assets: [ProjectAsset] = [] {
         didSet {
@@ -44,20 +58,14 @@ class ProjectImageCollectionView: UICollectionView {
         register(UINib(nibName: "ProjectImageCell", bundle: nil), forCellWithReuseIdentifier: Constant.CellIdentifier)
         register(UINib(nibName: "ProjectImageAnimatedCell", bundle: nil), forCellWithReuseIdentifier: Constant.AnimatedCellIdentifier)
 
-        collectionViewFlowLayout = UICollectionViewFlowLayout()
-        collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        collectionViewFlowLayout.minimumLineSpacing = 0
-        let screenWidth = UIScreen.main.bounds.size.width
-        collectionViewFlowLayout.itemSize = CGSize(width: screenWidth, height: 240.0)
-        collectionViewFlowLayout.scrollDirection = .horizontal
-        collectionViewLayout = collectionViewFlowLayout
+        collectionViewLayout = layout
         
         delegate = self
         dataSource = self
     }
     
     private func indexOfMajorCell() -> Int {
-        let itemWidth = collectionViewFlowLayout.itemSize.width
+        let itemWidth = layout.itemSize.width
         let proportionalOffset = collectionViewLayout.collectionView!.contentOffset.x / itemWidth
         let index = Int(round(proportionalOffset))
         let numItems = numberOfItems(inSection: 0)
@@ -96,7 +104,7 @@ extension ProjectImageCollectionView: UICollectionViewDataSource {
 
 extension ProjectImageCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        projectDelegate?.didSelectProject(assets[indexPath.row])
+        projectDelegate?.didSelectProjectAsset(assets[indexPath.row])
     }
 }
 
@@ -118,7 +126,7 @@ extension ProjectImageCollectionView: UIScrollViewDelegate {
         
         if didUseSwipeToSkipCell {
             let snapToIndex = indexOfCellBeforeDragging + (hasEnoughVelocityToSlideToTheNextCell ? 1 : -1)
-            let toValue = collectionViewFlowLayout.itemSize.width * CGFloat(snapToIndex)
+            let toValue = layout.itemSize.width * CGFloat(snapToIndex)
             
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: { [weak self] in
                 scrollView.contentOffset = CGPoint(x: toValue, y: 0)
@@ -139,7 +147,7 @@ extension ProjectImageCollectionView: UIScrollViewDelegate {
             return
         }
         currentCellIndex = index
-        projectDelegate?.didScrollToProject(assets[index], at: index)
+        projectDelegate?.didScrollToProjectAsset(assets[index], at: index)
     }
 }
 
@@ -159,14 +167,11 @@ class ProjectImageCell: UICollectionViewCell, ProjectCardCell {
         // FIXME: Move this into a dependency. First version should return only the image.
         let manager = SDWebImageManager.shared
         manager.loadImage(with: url, options: [], progress: nil) { [weak self] (image, data, error, cacheType, finished, imageURL) in
-            guard let strongSelf = self, let image = image else {
+            guard let sself = self, let image = image else {
                 self?.imageView.image = nil
                 return
             }
-            // FIXME: Move this into a dependency.
-            let screenWidth = UIScreen.main.bounds.size.width
-            let imageSize = image.proportionalScaledSize(using: screenWidth)
-            strongSelf.imageView.image = image.resizedImage(using: imageSize)
+            sself.imageView.image = image.resizedImage(using: ProjectImageSize)
         }
     }
 }

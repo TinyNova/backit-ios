@@ -231,6 +231,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="bottomSpacerView" destination="5WB-3s-ydu" id="bhm-Io-TkN"/>
+                <outlet property="collectionViewHeightConstraint" destination="Daf-2W-amY" id="DZb-pd-oPt"/>
                 <outlet property="daysLeftLabel" destination="kFa-42-EgD" id="00Q-fb-8jx"/>
                 <outlet property="earlyBirdLabel" destination="9gy-kX-J6f" id="v27-95-Fjk"/>
                 <outlet property="favoriteImageView" destination="pXv-Xm-efG" id="0fv-e7-h4H"/>
