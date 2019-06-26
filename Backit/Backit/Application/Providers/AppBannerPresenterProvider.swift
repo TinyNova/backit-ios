@@ -34,7 +34,7 @@ class AppBannerProvider: BannerProvider {
         
         let bannerView = makeBannerView(in: view)
         bannerView.bannerDelegate = self
-        bannerView.show(message: message)
+        bannerView.show(message: message, paddingTop: view.frame.origin.y)
         
         switch message.type {
         case .error:

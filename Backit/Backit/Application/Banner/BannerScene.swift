@@ -24,6 +24,8 @@ class BannerScene: SKScene {
     private var startPosition: CGPoint?
     private var finalPosition: CGPoint?
     
+    var paddingTop: CGFloat = 0.0
+    
     public func configure(message: BannerMessage, callback: @escaping BannerSceneCallback) {
         self.message = message
         self.callback = callback
@@ -89,7 +91,7 @@ class BannerScene: SKScene {
         }
         
         let screenWidth = UIScreen.main.bounds.size.width
-        let width = screenWidth > 750 ? 750 : screenWidth - 20.0 // This value / 2 = amount of space on each side
+        let width = screenWidth > 720 ? 700 : screenWidth - 20.0
         
         let banner = SKNode()
 
@@ -160,7 +162,7 @@ class BannerScene: SKScene {
         self.banner = banner
         
         let bannerX: CGFloat = ceil((screenWidth - width) / 2.0)
-        let screenHeight = UIScreen.main.bounds.size.height - 60.0
+        let screenHeight = UIScreen.main.bounds.size.height - paddingTop
         self.startPosition = CGPoint(x: bannerX, y: screenHeight - height)
         self.finalPosition = CGPoint(x: bannerX, y: screenHeight - height - 10.0)
     }

@@ -29,8 +29,9 @@ class BannerView: SKView {
         log.i("Did tap to dismiss the banner")
     }
     
-    func show(message: BannerMessage) {
+    func show(message: BannerMessage, paddingTop: CGFloat) {
         let scene = BannerScene(size: frame.size)
+        scene.paddingTop = paddingTop
         scene.configure(message: message) { [weak self] (button: BannerButton?) in
             guard let sself = self else {
                 return
