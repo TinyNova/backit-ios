@@ -48,17 +48,21 @@ class ProjectFeedViewController: UIViewController {
         }
     }
     
-    private var provider: ProjectFeedProvider!
-    private var signInProvider: SignInProvider!
+    private var provider: ProjectFeedProvider?
+    private var signInProvider: SignInProvider?
+    private var overlay: ProgressOverlayProvider?
+    private var banner: BannerProvider?
     
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
     
-    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider) {
+    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider) {
         self.provider = provider
-        self.provider.client = self
+        self.provider?.client = self
         userStreamer.listen(self)
         self.signInProvider = signInProvider
+        self.overlay = overlay
+        self.banner = banner
     }
     
     private let i18n = Localization<Appl10n>()
@@ -78,8 +82,12 @@ class ProjectFeedViewController: UIViewController {
         let backitButton = makeBackitLogoButton()
         navigationItem.leftBarButtonItems = [backitButton]
         
-        provider.loadProjects()
+//        provider?.loadProjects()
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//    }
     
     // MARK: Actions
     
@@ -173,7 +181,7 @@ extension ProjectFeedViewController: UITableViewDataSource {
             let cell = loadingResultsCell(tableView)
             cell.state = loadingState
             if canLoadNextPageOfResults {
-                provider.didReachEndOfProjectList()
+                provider?.didReachEndOfProjectList()
             }
             return cell
         }
@@ -228,7 +236,7 @@ extension ProjectFeedViewController: ProjectTableViewCellDelegate {
 
 extension ProjectFeedViewController: ProjectFeedErrorViewDelegate {
     func didRequestToReloadData() {
-        provider.loadProjects()
+        provider?.loadProjects()
     }
 }
 

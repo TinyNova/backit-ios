@@ -51,7 +51,12 @@ private class MessageQueue {
 
 class FinalizeAccountCreationViewController: UIViewController {
     
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text = i18n.t(.createAnAccount)
+            theme.apply(.loginHeader, toLabel: titleLabel)
+        }
+    }
     @IBOutlet private weak var usernameField: TextEntryField! {
         didSet {
             usernameField.configure(title: i18n.t(.username), type: .username)
@@ -111,7 +116,6 @@ class FinalizeAccountCreationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.fromHex(0x130a33)
-        title = i18n.t(.createAccount)
         emailField.text = profile?.email
     }
     

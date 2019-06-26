@@ -250,7 +250,9 @@ class Assembly {
             let provider = resolver.resolve(ProjectFeedProvider.self)!
             let userStreamer = resolver.resolve(UserStreamer.self)!
             let signInProvider = resolver.resolve(SignInProvider.self)!
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer, signInProvider: signInProvider)
+            let overlay = resolver.resolve(ProgressOverlayProvider.self)!
+            let banner = resolver.resolve(BannerProvider.self)!
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer, signInProvider: signInProvider, overlay: overlay, banner: banner)
         }
 
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in

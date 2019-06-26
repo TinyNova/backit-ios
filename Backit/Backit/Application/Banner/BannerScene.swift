@@ -89,11 +89,29 @@ class BannerScene: SKScene {
         }
         
         let screenWidth = UIScreen.main.bounds.size.width
-        let width = screenWidth - 80.0 // This value / 2 = amount of space on each side
-        let height = width / 2.0 // TODO
+        let width = screenWidth > 750 ? 750 : screenWidth - 20.0 // This value / 2 = amount of space on each side
         
         let banner = SKNode()
 
+        let title = SKLabelNode(text: message?.title)
+        title.fontColor = UIColor.fromHex(0x000000)
+        title.fontName = "AcuminPro-Bold"
+        title.fontSize = 18.0
+        title.horizontalAlignmentMode = .left
+
+        let description = SKLabelNode(text: message?.message)
+        description.fontColor = UIColor.fromHex(0x000000)
+        description.fontName = "AcuminPro-Regular"
+        description.fontSize = 16.0
+        description.numberOfLines = 0
+        description.lineBreakMode = .byWordWrapping
+        description.preferredMaxLayoutWidth = width - 30.0
+        description.horizontalAlignmentMode = .left
+        description.verticalAlignmentMode = .top
+        log.i("description height: \(description.frame.size.height)")
+
+        let height: CGFloat = 60.0 + description.frame.size.height + 10.0
+        
         let shadow = SKShapeNode(rect: CGRect(x: 5, y: -5, width: width, height: height), cornerRadius: 10.0)
         shadow.fillColor = .black
         shadow.strokeColor = .clear
@@ -104,8 +122,6 @@ class BannerScene: SKScene {
         bannerBg.fillColor = UIColor.fromHex(0xffffff)
         bannerBg.strokeColor = .gray
         banner.addChild(bannerBg)
-        
-        let x: CGFloat = 60.0
         
         let messageType: BannerType = message?.type ?? .error
         let messageColor: UIColor
@@ -133,24 +149,10 @@ class BannerScene: SKScene {
             bannerBg.addChild(imageNode)
         }
         
-        let title = SKLabelNode(text: message?.title)
-        title.fontColor = UIColor.fromHex(0x000000)
-        title.fontName = "AcuminPro-Bold"
-        title.fontSize = 20.0
-        title.position = CGPoint(x: x, y: height - 38.0)
-        title.horizontalAlignmentMode = .left
+        title.position = CGPoint(x: 60.0, y: height - 38.0)
         bannerBg.addChild(title)
         
-        let description = SKLabelNode(text: message?.message)
-        description.fontColor = UIColor.fromHex(0x000000)
-        description.fontName = "AcuminPro-Regular"
-        description.fontSize = 16.0
-        description.numberOfLines = 0
-        description.lineBreakMode = .byWordWrapping
-        description.preferredMaxLayoutWidth = width - x - 10.0 // width of full box - x adjust - 10 for padding
-        description.position = CGPoint(x: x, y: title.position.y - 14.0)
-        description.horizontalAlignmentMode = .left
-        description.verticalAlignmentMode = .top
+        description.position = CGPoint(x: 20.0, y: title.position.y - 20.0)
         bannerBg.addChild(description)
 
         addChild(banner)
