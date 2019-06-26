@@ -15,8 +15,13 @@ extension AccountProviderError: BannerMessageError {
         case .thirdParty,
              .failedToDecode,
              .generic:
-            return BannerMessage.error(title: "My goodness!", message: "Something funky is going on! Don't worry. We're on it!")
+            return BannerMessage.error(title: "My goodness!", message: "Something funky is going on here! But don't you worry. We're on it!")
         case .validation(let message, let fields):
+            guard fields.count > 0 else {
+                // TODO: Better messaging...
+                return BannerMessage.error(title: "My gawd, man!", message: message ?? "We don't know what the problem is...")
+            }
+            
             var errors = [String]()
             fields.forEach { (record: (key: AccountValidationField, value: [String])) in
                 errors.append("Field: \(AccountProviderError.i18n.t(.field(record.key)))")
