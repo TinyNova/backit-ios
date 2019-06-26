@@ -131,14 +131,14 @@ class FinalizeAccountCreationViewController: UIViewController {
         }
         
         overlay?.show()
-        accountProvider?.createExternalAccount(email: email, username: username, subscribe: false, signupToken: signupToken)
+        _ = accountProvider?.createExternalAccount(email: email, username: username, subscribe: false, signupToken: signupToken)
             .onSuccess { [weak self] (userSession) in
                 self?.delegate?.didCreateAccount(userSession: userSession)
             }
             .onFailure { [weak self] (error) in
                 self?.bannerProvider?.present(error: error, in: self)
             }
-            .onComplete { [weak self] _ in
+            .andThen { [weak self] _ in
                 self?.overlay?.dismiss()
             }
     }

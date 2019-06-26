@@ -79,7 +79,7 @@ extension LostPasswordViewController: TextEntryFieldDelegate {
     }
     
     func didSubmit(field: TextEntryField) {
-        field.resignFirstResponder()
+        _ = field.resignFirstResponder()
         didTapResetPasswordButton(self)
     }
 }

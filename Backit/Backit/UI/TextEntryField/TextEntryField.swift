@@ -77,6 +77,14 @@ class TextEntryField: UIView {
         setup()
     }
 
+    override var isFirstResponder: Bool {
+        return textField.isFirstResponder
+    }
+    
+    override func becomeFirstResponder() -> Bool {
+        return textField.becomeFirstResponder()
+    }
+    
     override func resignFirstResponder() -> Bool {
         return textField.resignFirstResponder()
     }

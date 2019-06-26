@@ -72,6 +72,16 @@ class Service {
         }
 
         let promise = Promise<T.ResponseType, ServiceError>()
+
+        DispatchQueue.main.async { [weak self] in
+            self?.request(endpoint, urlRequest, with: plugins, promise: promise)
+        }
+        
+        return promise.future
+    }
+    
+    func request<T: ServiceEndpoint>(_ endpoint: T, _ urlRequest: URLRequest, with plugins: [ServicePlugin], promise: Promise<T.ResponseType, ServiceError>) {
+
         var sendPromise: Promise<URLRequest, ServicePluginError>?
         var resultPromise: Promise<ServiceResult, ServicePluginError>?
         
@@ -142,8 +152,6 @@ class Service {
             }            
         }
         handleRequest()
-        
-        return promise.future
     }
 }
 

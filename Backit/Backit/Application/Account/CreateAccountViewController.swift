@@ -83,14 +83,14 @@ class CreateAccountViewController: UIViewController {
         // - username `/^[a-zA-Z0-9_-]+$/` 3:20
 
         overlay?.show()
-        accountProvider?.createAccount(email: email, username: username, password: password, repeatPassword: password, firstName: nil, lastName: nil, subscribe: false)
+        _ = accountProvider?.createAccount(email: email, username: username, password: password, repeatPassword: password, firstName: nil, lastName: nil, subscribe: false)
             .onSuccess { [weak self] (userSession: UserSession) in
                 self?.delegate?.didCreateAccount(credentials: Credentials(email: username, password: password), userSession: userSession)
             }
             .onFailure { [weak self] (error) in
                 self?.bannerProvider?.present(error: error, in: self)
             }
-            .onComplete { [weak self] _ in
+            .andThen { [weak self] _ in
                 self?.overlay?.dismiss()
             }
     }

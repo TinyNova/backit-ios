@@ -100,12 +100,12 @@ extension AccountViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "ReuseIdentifier") {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "AccountCell") {
             configureCell(cell, at: indexPath)
             return cell
         }
         
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "ReuseIdentifier")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "AccountCell")
         configureCell(cell, at: indexPath)
         return cell
     }
