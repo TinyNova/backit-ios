@@ -37,7 +37,7 @@ class AppProgressOverlayProvider: ProgressOverlayProvider {
     }
     
     func show(in viewController: UIViewController) {
-        guard viewController.presentingViewController == nil else {
+        guard viewController.presentedViewController == nil else {
             return log.w("Overlay has already been presented")
         }
         guard let vc = pageProvider.progressOverlay() else {
@@ -53,7 +53,7 @@ class AppProgressOverlayProvider: ProgressOverlayProvider {
     
     func dismiss() {
         guard let viewController = viewController else {
-            return log.w("Attempting to dismiss progress overlay when not previosly shown")
+            return log.w("Attempting to dismiss progress overlay when not previously shown")
         }
         
         // TODO: Finish the animation and then dismiss.

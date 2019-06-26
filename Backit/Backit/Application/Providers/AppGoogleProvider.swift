@@ -45,8 +45,10 @@ import GoogleSignIn
         let promise = Promise<GoogleAuthenticationToken, GoogleProviderError>()
         self.promise = promise
         
-        signIn?.uiDelegate = self
-        signIn?.signIn()
+        DispatchQueue.main.async { [weak self] in
+            self?.signIn?.uiDelegate = self
+            self?.signIn?.signIn()
+        }
         
         _ = promise.future.andThen { [weak self] (result) in
             self?.promise = nil

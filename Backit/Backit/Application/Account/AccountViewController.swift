@@ -143,6 +143,7 @@ extension AccountViewController {
             overlay?.show()
             albumProvider?.requestImage { [weak self] (image, error) in
                 guard let image = image else {
+                    self?.overlay?.dismiss()
                     return log.e(String(describing: error))
                 }
 

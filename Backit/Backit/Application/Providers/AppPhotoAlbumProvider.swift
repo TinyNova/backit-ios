@@ -23,12 +23,14 @@ import UIKit
         
         self.callback = callback
         
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .savedPhotosAlbum
-        imagePicker.allowsEditing = false
-        
-        presenterProvider.present(imagePicker, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            self?.presenterProvider.present(imagePicker, completion: nil)
+        }
     }
 }
 

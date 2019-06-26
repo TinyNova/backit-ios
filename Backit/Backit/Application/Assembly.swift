@@ -26,6 +26,10 @@ class Assembly {
     let container: Container = SwinjectStoryboard.defaultContainer
     
     init() {
+        container.register(DispatchQueue.self) { _ in
+            return DispatchQueue.main
+        }
+        
         container.register(URLSession.self) { _ in
             return URLSession(configuration: URLSessionConfiguration.default)
         }

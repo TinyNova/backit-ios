@@ -284,6 +284,8 @@ extension AccountValidationField {
             return .lastName
         case "password":
             return .password
+        case "refreshtoken":
+            return .refreshToken
         default:
             log.w("Failed to map `AccountValidatedField` \(value)")
             return .unknown

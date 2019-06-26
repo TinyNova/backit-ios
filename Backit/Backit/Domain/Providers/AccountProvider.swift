@@ -14,6 +14,7 @@ enum AccountValidationField {
     case lastName
     case username
     case password
+    case refreshToken
 }
 
 enum AccountProviderError: Error {

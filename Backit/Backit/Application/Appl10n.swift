@@ -37,6 +37,7 @@ enum Appl10n {
     case field(AccountValidationField)
     case firstName
     case lastName
+    case refreshToken
     case unknownField
 }
 
@@ -105,6 +106,8 @@ extension Appl10n: LocalizationType {
                 return Appl10n.password.localize()
             case .username:
                 return Appl10n.username.localize()
+            case .refreshToken:
+                return Appl10n.refreshToken.localize()
             case .unknown:
                 return Appl10n.unknownField.localize()
             }
@@ -112,6 +115,8 @@ extension Appl10n: LocalizationType {
             return l(key: "firstName")
         case .lastName:
             return l(key: "lastName")
+        case .refreshToken:
+            return l(key: "refreshToken")
         case .unknownField:
             return l(key: "unknownField")
         }
