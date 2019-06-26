@@ -82,12 +82,15 @@ class ProjectFeedViewController: UIViewController {
         let backitButton = makeBackitLogoButton()
         navigationItem.leftBarButtonItems = [backitButton]
         
-//        provider?.loadProjects()
+        provider?.loadProjects()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        overlay?.show()
+//        banner?.present(message: BannerMessage(type: .error, title: "A title", message: "A very long message which should make the box grow. This should go way beyond the height of the box! My goodness this is a long message! The last one wasn't long enough!? Well this should do it now!", button1: nil, button2: nil), in: self)
+//        banner?.present(message: BannerMessage(type: .error, title: "An Error Occurred", message: "An unexplained error occurred.", button1: nil, button2: nil), in: self)
+    }
     
     // MARK: Actions
     

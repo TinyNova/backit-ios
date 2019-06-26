@@ -37,7 +37,7 @@ class ProjectService: ProjectProvider {
                 return ProjectResponse(from: response, cursor: nextCursor)
             }
             .mapError { error -> ProjectProviderError in
-                return .failedToLoadProject
+                return .generic(error)
             }
     }
 }
