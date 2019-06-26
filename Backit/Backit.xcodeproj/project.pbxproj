@@ -10,6 +10,7 @@
 		0700752F22936ED4005B9F28 /* UserStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700752E22936ED4005B9F28 /* UserStream.swift */; };
 		0700753122937312005B9F28 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700753022937312005B9F28 /* UserProvider.swift */; };
 		0700753322937377005B9F28 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700753222937377005B9F28 /* UserService.swift */; };
+		0716EA3422C3A71C002D259E /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0716EA3322C3A71C002D259E /* KeyboardLayoutConstraint.swift */; };
 		0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */; };
 		071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317422794EE600DB1561 /* ProjectProvider.swift */; };
 		071B317722794F0B00DB1561 /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B317622794F0B00DB1561 /* AccountProvider.swift */; };
@@ -188,6 +189,7 @@
 		070F84D621D457B200C11799 /* UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		070F84DA21D4584F00C11799 /* KIF+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Backit.swift"; sourceTree = "<group>"; };
 		070F84DC21D4598E00C11799 /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
+		0716EA3322C3A71C002D259E /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		0717397E21E57AAD00EA17DC /* UIStackView+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Backit.swift"; sourceTree = "<group>"; };
 		071B317422794EE600DB1561 /* ProjectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectProvider.swift; sourceTree = "<group>"; };
 		071B317622794F0B00DB1561 /* AccountProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProvider.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				072BB8742294BCB400265854 /* TextEntryField */,
 				07820D6622BADC6500B44D86 /* BannerProvider.swift */,
 				07792B94229B09B80023D56C /* CustomButton.swift */,
+				0716EA3322C3A71C002D259E /* KeyboardLayoutConstraint.swift */,
 				072510D12283B12100C02645 /* PresenterProvider.swift */,
 				073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */,
 			);
@@ -1224,6 +1227,7 @@
 				0745C98522B9334400E85948 /* GoogleProvider.swift in Sources */,
 				AAE9170A22A731AF00490A30 /* AppPhotoAlbumProvider.swift in Sources */,
 				07F666BE2298C12100FBE6F7 /* PrimaryButton.swift in Sources */,
+				0716EA3422C3A71C002D259E /* KeyboardLayoutConstraint.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
 				AA0FD38622B08206007DEEB6 /* FacebookProvider.swift in Sources */,
 				07684D1B22BD8F0E00D6F21D /* AlamofireSessionManagerFactory.swift in Sources */,
