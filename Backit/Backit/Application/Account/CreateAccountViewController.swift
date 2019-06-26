@@ -33,7 +33,8 @@ class CreateAccountViewController: UIViewController {
     }
     @IBOutlet weak var passwordField: TextEntryField! {
         didSet {
-            passwordField.configure(title: i18n.t(.password), type: .password)
+            passwordField.configure(title: i18n.t(.password), type: .password, returnKeyType: .done)
+            passwordField.delegate = self
         }
     }
     @IBOutlet weak var legalTextView: UITextView! {
@@ -100,5 +101,15 @@ extension CreateAccountViewController: UITextViewDelegate {
     /// Required in order for links in text view to be opened in the browser
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         return true
+    }
+}
+
+extension CreateAccountViewController: TextEntryFieldDelegate {
+    func didChangeText(field: TextEntryField, text: String?) {
+        
+    }
+    
+    func didSubmit(field: TextEntryField) {
+        didTapCreateAccount(self)
     }
 }

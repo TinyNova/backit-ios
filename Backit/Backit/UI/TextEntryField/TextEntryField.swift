@@ -12,6 +12,7 @@ import UIKit
 
 protocol TextEntryFieldDelegate: class {
     func didChangeText(field: TextEntryField, text: String?)
+    func didSubmit(field: TextEntryField)
 }
 
 enum TextEntryFieldType {
@@ -76,14 +77,20 @@ class TextEntryField: UIView {
         setup()
     }
 
+    override func resignFirstResponder() -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
     /**
      * Configure how the text field accepts data input.
      *
      * This should only be called once.
      */
-    public func configure(title: String, type: TextEntryFieldType) {
+    public func configure(title: String, type: TextEntryFieldType, returnKeyType: UIReturnKeyType = .default) {
         titleLabel.text = title
 
+        textField.returnKeyType = returnKeyType
+        
         switch type {
         case .default:
             break
@@ -185,5 +192,13 @@ extension TextEntryField: UITextFieldDelegate {
         }
 
         makeLabelLarge()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.returnKeyType == .done {
+            delegate?.didSubmit(field: self)
+            return true
+        }
+        return false
     }
 }

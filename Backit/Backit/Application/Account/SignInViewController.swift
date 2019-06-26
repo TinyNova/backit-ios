@@ -37,7 +37,8 @@ class SignInViewController: UIViewController {
     }
     @IBOutlet private weak var passwordTextField: TextEntryField! {
         didSet {
-            passwordTextField.configure(title: i18n.t(.password), type: .password)
+            passwordTextField.configure(title: i18n.t(.password), type: .password, returnKeyType: .done)
+            passwordTextField.delegate = self
         }
     }
 
@@ -213,5 +214,15 @@ extension SignInViewController: CreateAccountViewControllerDelegate {
 
     func userCancelled() {
 
+    }
+}
+
+extension SignInViewController: TextEntryFieldDelegate {
+    func didChangeText(field: TextEntryField, text: String?) {
+        
+    }
+    
+    func didSubmit(field: TextEntryField) {
+        didTapLogin(self)
     }
 }

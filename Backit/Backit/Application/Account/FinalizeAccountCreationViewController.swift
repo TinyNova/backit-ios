@@ -59,7 +59,7 @@ class FinalizeAccountCreationViewController: UIViewController {
     }
     @IBOutlet private weak var usernameField: TextEntryField! {
         didSet {
-            usernameField.configure(title: i18n.t(.username), type: .username)
+            usernameField.configure(title: i18n.t(.username), type: .username, returnKeyType: .done)
             usernameField.delegate = self
         }
     }
@@ -71,7 +71,8 @@ class FinalizeAccountCreationViewController: UIViewController {
     }
     @IBOutlet private weak var emailField: TextEntryField! {
         didSet {
-            emailField.configure(title: i18n.t(.email), type: .email)
+            emailField.configure(title: i18n.t(.email), type: .email, returnKeyType: .done)
+            emailField.delegate = self
         }
     }
     @IBOutlet private weak var informationalTextView: UITextView! {
@@ -188,6 +189,10 @@ class FinalizeAccountCreationViewController: UIViewController {
 
 extension FinalizeAccountCreationViewController: TextEntryFieldDelegate {
     func didChangeText(field: TextEntryField, text: String?) {
+        guard field == usernameField else {
+            return
+        }
+        
         // FIXME: This method could cause overflow or reset
         requestCounter += 1
 
@@ -220,5 +225,9 @@ extension FinalizeAccountCreationViewController: TextEntryFieldDelegate {
             .onFailure { [weak self] (error) in
                 self?.bannerProvider?.present(error: error, in: self)
             }
+    }
+    
+    func didSubmit(field: TextEntryField) {
+        didTapCreateAccount(self)
     }
 }

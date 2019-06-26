@@ -16,7 +16,8 @@ class LostPasswordViewController: UIViewController {
     }
     @IBOutlet weak var emailField: TextEntryField! {
         didSet {
-            emailField.configure(title: i18n.t(.email), type: .email)
+            emailField.configure(title: i18n.t(.email), type: .email, returnKeyType: .done)
+            emailField.delegate = self
         }
     }
     @IBOutlet weak var informationTextView: UITextView! {
@@ -60,7 +61,7 @@ class LostPasswordViewController: UIViewController {
         accountProvider?.resetPassword(email: email)
             .onSuccess { [weak self] _ in
                 UIView.animate(withDuration: 0.3, animations: {
-                    self?.informationTextView.text = self?.i18n.t(.passwordSuccessfullyReset)
+                    self?.bannerProvider?.present(message: BannerMessage(type: .info, title: nil, message: self?.i18n.t(.passwordSuccessfullyReset) ?? "", button1: nil, button2: nil), in: self)
                 })
             }
             .onFailure { [weak self] (error) in
@@ -69,5 +70,16 @@ class LostPasswordViewController: UIViewController {
             .onComplete { [weak self] _ in
                 self?.overlay?.dismiss()
             }
+    }
+}
+
+extension LostPasswordViewController: TextEntryFieldDelegate {
+    func didChangeText(field: TextEntryField, text: String?) {
+        
+    }
+    
+    func didSubmit(field: TextEntryField) {
+        field.resignFirstResponder()
+        didTapResetPasswordButton(self)
     }
 }
