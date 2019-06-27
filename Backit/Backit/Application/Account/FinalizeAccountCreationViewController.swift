@@ -4,6 +4,7 @@
  */
 
 import Foundation
+import BrightFutures
 import UIKit
 
 protocol FinalizeAccountCreationViewControllerDelegate: class {
@@ -94,6 +95,7 @@ class FinalizeAccountCreationViewController: UIViewController {
     private let i18n = Localization<Appl10n>()
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
+    private var urlSession: URLSession?
     private var accountProvider: AccountProvider?
     private var bannerProvider: BannerProvider?
     private var overlay: ProgressOverlayProvider?
@@ -108,7 +110,8 @@ class FinalizeAccountCreationViewController: UIViewController {
         self.profile = profile
     }
     
-    func inject(accountProvider: AccountProvider, bannerProvider: BannerProvider, overlay: ProgressOverlayProvider) {
+    func inject(urlSession: URLSession, accountProvider: AccountProvider, bannerProvider: BannerProvider, overlay: ProgressOverlayProvider) {
+        self.urlSession = urlSession
         self.accountProvider = accountProvider
         self.bannerProvider = bannerProvider
         self.overlay = overlay
@@ -131,16 +134,52 @@ class FinalizeAccountCreationViewController: UIViewController {
         }
         
         overlay?.show()
-        _ = accountProvider?.createExternalAccount(email: email, username: username, subscribe: false, signupToken: signupToken)
+        accountProvider?.createExternalAccount(email: email, username: username, subscribe: false, signupToken: signupToken)
             .onSuccess { [weak self] (userSession) in
-                self?.delegate?.didCreateAccount(userSession: userSession)
+                self?.uploadAvatar()
+                    .onComplete { [weak self] _ in
+                        self?.overlay?.dismiss()
+                        self?.delegate?.didCreateAccount(userSession: userSession)
+                    }
             }
             .onFailure { [weak self] (error) in
+                self?.overlay?.dismiss()
                 self?.bannerProvider?.present(error: error, in: self)
             }
-            .andThen { [weak self] _ in
-                self?.overlay?.dismiss()
+    }
+    
+    private func uploadAvatar() -> Future<IgnorableValue, Error> {
+        guard let urlSession = urlSession,
+              let avatarUrl = profile?.avatarUrl else {
+            log.i("No profile to upload")
+            return Future(value: IgnorableValue())
+        }
+
+        log.i("Uploading avatar")
+        let promise = Promise<IgnorableValue, Error>()
+        
+        let task = urlSession.dataTask(with: avatarUrl) { [weak self] (data, response, error) in
+            guard error == nil,
+                  let imageData = data,
+                  let image = UIImage(data: imageData) else {
+                log.e("Failed to upload avatar \(String(describing: error)) bytes \(data?.count ?? 0)")
+                return promise.success(IgnorableValue())
             }
+            
+            self?.accountProvider?.uploadAvatar(image: image)
+                .onSuccess { _ in
+                    log.i("Successfully uploaded the avatar")
+                }
+                .onFailure { (error) in
+                    log.e("Failed to upload the avatar: \(String(describing: error))")
+                }
+                .onComplete { (result) in
+                    promise.success(IgnorableValue())
+                }
+        }
+        task.resume()
+
+        return promise.future
     }
     
     private func usernameResetMessage() {

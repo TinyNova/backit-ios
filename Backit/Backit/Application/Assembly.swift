@@ -77,10 +77,9 @@ class Assembly {
         .inObjectScope(.container)
         
         container.register(ExternalSignInProvider.self) { resolver in
-            let urlSession = resolver.resolve(URLSession.self)!
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let pageProvider = resolver.resolve(PageProvider.self)!
-            return AppExternalSignInProvider(urlSession: urlSession, accountProvider: accountProvider, pageProvider: pageProvider)
+            return AppExternalSignInProvider(accountProvider: accountProvider, pageProvider: pageProvider)
         }
         .inObjectScope(.container)
         
@@ -231,10 +230,11 @@ class Assembly {
         }
         
         container.storyboardInitCompleted(FinalizeAccountCreationViewController.self) { (resolver, controller) in
+            let urlSession = resolver.resolve(URLSession.self)!
             let accountProvider = resolver.resolve(AccountProvider.self)!
             let bannerProvider = resolver.resolve(BannerProvider.self)!
             let overlay = resolver.resolve(ProgressOverlayProvider.self)!
-            controller.inject(accountProvider: accountProvider, bannerProvider: bannerProvider, overlay: overlay)
+            controller.inject(urlSession: urlSession, accountProvider: accountProvider, bannerProvider: bannerProvider, overlay: overlay)
         }
         
         container.storyboardInitCompleted(AccountViewController.self) { (resolver, controller) in
