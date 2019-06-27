@@ -56,9 +56,29 @@ struct ProjectsEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter {
-        case funding(Bool)
-        case backerCountMin(Int)
+        case category(String)
+        case subCategory(String)
+
         case country(String)
+        case creatorId(String)
+        case currency(String)
+        case backerCountMin(Int)
+        case backerCountMax(Int)
+        case exclude([String])
+        case funded(Bool)
+        case funding(Bool)
+        case fundStart(Date)
+        case fundEnd(Date)
+        case goalMin(Int)
+        case goalMax(Int)
+        case hasEarlyBirdRewards(Bool)
+        case language(String)
+        case pledgeMin(Int)
+        case pledgeMax(Int)
+        case query(String) // ?
+        case site(String)
+        case visible(Bool)
+
         case sort(String)
         case sortDirection(String)
         case offset(Int)
