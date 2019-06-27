@@ -97,6 +97,7 @@ class SignInViewController: UIViewController {
         self.overlay = overlay
         self.pageProvider = pageProvider
         self.externalProvider = externalProvider
+        self.externalProvider?.delegate = self
         self.facebookProvider = facebookProvider
         self.googleProvider = googleProvider
     }
@@ -183,7 +184,7 @@ class SignInViewController: UIViewController {
                     .mapError { (error) -> Error in
                         // TODO: if the reason for the failure is because we failed to login (bad network connection) display a banner and allow the user to try again.
                         return error
-                }
+                    }
             }
             .onSuccess { [weak self] (userSession) in
                 self?.delegate?.didSignIn(credentials: nil, userSession: userSession)
@@ -224,5 +225,12 @@ extension SignInViewController: TextEntryFieldDelegate {
     
     func didSubmit(field: TextEntryField) {
         didTapLogin(self)
+    }
+}
+
+extension SignInViewController: ExternalSignInProviderDelegate {
+    func present(_ viewController: UIViewController) {
+        overlay?.dismiss()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

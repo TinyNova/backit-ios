@@ -8,19 +8,19 @@ import Foundation
 
 class AppExternalSignInProvider: ExternalSignInProvider {
     
-    let urlSession: URLSession
-    let accountProvider: AccountProvider
-    let pageProvider: PageProvider
-    let presenterProvider: PresenterProvider
+    weak var delegate: ExternalSignInProviderDelegate?
     
-    var promise: Promise<UserSession, ExternalSignInProviderError>?
-    var profile: ExternalUserProfile?
+    private let urlSession: URLSession
+    private let accountProvider: AccountProvider
+    private let pageProvider: PageProvider
     
-    init(urlSession: URLSession, accountProvider: AccountProvider, pageProvider: PageProvider, presenterProvider: PresenterProvider) {
+    private var promise: Promise<UserSession, ExternalSignInProviderError>?
+    private var profile: ExternalUserProfile?
+    
+    init(urlSession: URLSession, accountProvider: AccountProvider, pageProvider: PageProvider) {
         self.urlSession = urlSession
         self.accountProvider = accountProvider
         self.pageProvider = pageProvider
-        self.presenterProvider = presenterProvider
     }
     
     func login(with accessToken: String, provider: ExternalSignInProviderType) -> Future<UserSession, ExternalSignInProviderError> {
@@ -39,7 +39,10 @@ class AppExternalSignInProvider: ExternalSignInProvider {
                     guard let sself = self else {
                         return promise.failure(.generic(WeakReferenceError()))
                     }
-                    
+                    guard let delegate = sself.delegate else {
+                        log.e("Can not finish account creation. `ExternalSignInProvider.delegate` has not been set!")
+                        return promise.failure(.failedToFinishAccountCreation)
+                    }
                     guard let vc = sself.pageProvider.finalizeAccountCreation() else {
                         return promise.failure(.generic(StoryboardError()))
                     }
@@ -49,7 +52,8 @@ class AppExternalSignInProvider: ExternalSignInProvider {
                     
                     vc.delegate = sself
                     vc.configure(signupToken: signupToken, profile: profile)
-                    sself.presenterProvider.push(vc)
+                    
+                    delegate.present(vc)
                 }
             }
             .onFailure { (error) in

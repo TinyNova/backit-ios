@@ -27,15 +27,6 @@ class AppPresenterProvider: PresenterProvider {
 
         topViewController.dismiss(animated: true, completion: completion)
     }
-    
-    func push(_ viewController: UIViewController) {
-        guard let navigationController = UIApplication.topViewController()?.navigationController else {
-            log.w("Failed to push \(viewController) on to a UINavigationController")
-            return
-        }
-        
-        navigationController.pushViewController(viewController, animated: true)
-    }
 }
 
 private extension UIApplication {
