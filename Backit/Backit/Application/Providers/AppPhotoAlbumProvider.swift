@@ -17,13 +17,13 @@ import UIKit
     var callback: ((UIImage?, PhotoAlbumProviderError?) -> Void)?
     
     func requestImage(callback: @escaping (UIImage?, PhotoAlbumProviderError?) -> Void) {
-        guard UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) else {
-            return callback(nil, .noPermission)
-        }
-        
-        self.callback = callback
-        
         DispatchQueue.main.async { [weak self] in
+            guard UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) else {
+                return callback(nil, .noPermission)
+            }
+            
+            self?.callback = callback
+        
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum
