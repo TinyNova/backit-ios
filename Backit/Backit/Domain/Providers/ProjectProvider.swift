@@ -10,6 +10,28 @@ enum ProjectProviderError: Error {
     case generic(Error)
 }
 
+struct Filter {
+    
+}
+
 protocol ProjectProvider {
+    /// Get all projects for a creator
+    /// Get all this user's favorited projects
+    /// Get a specific project by project ID - passed via notification or other marketing avenue
+    /// Get personalized projects for this user
+    
+    /**
+     Perform an advanced search for projects.
+     */
     func projects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError>
+    
+    /**
+     Get the latest projects for a given filter.
+     */
+    func projects(filter: Filter, offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError>
+    
+    /**
+     Get the most popular projects which are currently funding.
+     */
+    func popularProjects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError>    
 }

@@ -15,6 +15,14 @@ class ProjectService: ProjectProvider {
     }
     
     func projects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError> {
+        return Future(error: .generic(NotImplementedError()))
+    }
+    
+    func projects(filter: Filter, offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError> {
+        return Future(error: .generic(NotImplementedError()))
+    }
+    
+    func popularProjects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError> {
         let nextCursor: Int
         if let offset = offset as? Int {
             nextCursor = offset + limit

@@ -85,7 +85,7 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
         pageRequested()
         
         queryState = .loading
-        provider.projects(offset: offset, limit: 10)
+        provider.popularProjects(offset: offset, limit: 10)
             .onSuccess { [weak self] (response) in
                 guard let self = self else {
                     return
