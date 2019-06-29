@@ -57,4 +57,14 @@ class AppPageProvider: PageProvider {
         
         return vc
     }
+    
+    func projectDetails() -> ProjectDetailsViewController? {
+        let storyboard = UIStoryboard(name: "ProjectDetailsViewController", bundle: Bundle(for: ProjectDetailsViewController.self))
+        guard let vc = storyboard.instantiateInitialViewController() as? ProjectDetailsViewController else {
+            log.c("Failed to inflate `ProjectDetailsViewController`")
+            return nil
+        }
+        
+        return vc
+    }
 }

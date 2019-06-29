@@ -12,4 +12,5 @@ protocol PageProvider {
     func createAccount() -> CreateAccountViewController?
     func signIn() -> UINavigationController?
     func progressOverlay() -> ProgressOverlayViewController?
+    func projectDetails() -> ProjectDetailsViewController?
 }

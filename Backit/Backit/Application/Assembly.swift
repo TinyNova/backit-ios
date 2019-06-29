@@ -250,12 +250,17 @@ class Assembly {
 
         container.storyboardInitCompleted(ProjectFeedViewController.self) { resolver, controller in
             let theme = resolver.resolve(AppTheme.self)!
+            let pageProvider = resolver.resolve(PageProvider.self)!
+            let projectProvider = resolver.resolve(ProjectProvider.self)!
             let provider = resolver.resolve(ProjectFeedProvider.self)!
             let userStreamer = resolver.resolve(UserStreamer.self)!
             let signInProvider = resolver.resolve(SignInProvider.self)!
             let overlay = resolver.resolve(ProgressOverlayProvider.self)!
             let banner = resolver.resolve(BannerProvider.self)!
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), provider: provider, userStreamer: userStreamer, signInProvider: signInProvider, overlay: overlay, banner: banner)
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), pageProvider: pageProvider, projectProvider: projectProvider, provider: provider, userStreamer: userStreamer, signInProvider: signInProvider, overlay: overlay, banner: banner)
+        }
+        
+        container.storyboardInitCompleted(ProjectDetailsViewController.self) { resolver, controller in
         }
 
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in

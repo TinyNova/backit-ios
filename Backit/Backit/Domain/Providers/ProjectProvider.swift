@@ -20,6 +20,8 @@ protocol ProjectProvider {
     /// Get a specific project by project ID - passed via notification or other marketing avenue
     /// Get personalized projects for this user
     
+    func project(id: Any) -> Future<Project, ProjectProviderError>
+    
     /**
      Perform an advanced search for projects.
      */
@@ -33,5 +35,5 @@ protocol ProjectProvider {
     /**
      Get the most popular projects which are currently funding.
      */
-    func popularProjects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError>    
+    func popularProjects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError>
 }

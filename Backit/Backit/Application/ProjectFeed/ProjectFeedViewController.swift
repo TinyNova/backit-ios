@@ -44,7 +44,7 @@ class ProjectFeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
-//            tableView.delegate = self
+            tableView.delegate = self
             tableView.estimatedRowHeight = 582
             tableView.estimatedSectionHeaderHeight = 0
             tableView.estimatedSectionFooterHeight = 0
@@ -56,6 +56,8 @@ class ProjectFeedViewController: UIViewController {
     }
     
     private var provider: ProjectFeedProvider?
+    private var pageProvider: PageProvider?
+    private var projectProvider: ProjectProvider?
     private var signInProvider: SignInProvider?
     private var overlay: ProgressOverlayProvider?
     private var banner: BannerProvider?
@@ -63,9 +65,11 @@ class ProjectFeedViewController: UIViewController {
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
     
-    func inject(theme: AnyUITheme<AppTheme>, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider) {
+    func inject(theme: AnyUITheme<AppTheme>, pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider) {
         self.provider = provider
         self.provider?.client = self
+        self.pageProvider = pageProvider
+        self.projectProvider = projectProvider
         userStreamer.listen(self)
         self.signInProvider = signInProvider
         self.overlay = overlay
@@ -141,6 +145,20 @@ class ProjectFeedViewController: UIViewController {
             .fittedImage(to: 40.0)?
             .sd_tintedImage(with: UIColor.white)
         return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didTapLogo))
+    }
+    
+    private func displayProjectDetails(_ project: FeedProject?) {
+        guard let project = project else {
+            return log.w("`FeedProject` is not known")
+        }
+        guard let future = projectProvider?.project(id: project.id) else {
+            return log.c("`ProjectFeedViewController.inject` not called")
+        }
+        guard let viewController = pageProvider?.projectDetails() else {
+            return log.c("Failed to display Project Details")
+        }
+        viewController.configure(with: future)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -259,9 +277,15 @@ extension ProjectFeedViewController: UITableViewDataSource {
     }
 }
 
+extension ProjectFeedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        displayProjectDetails(projects[safe: indexPath.row])
+    }
+}
+
 extension ProjectFeedViewController: ProjectTableViewCellDelegate {
     func didTapProject(_ project: FeedProject) {
-        log.i("Did tap project title")
+        displayProjectDetails(project)
     }
     
     func didTapComments(_ project: FeedProject) {

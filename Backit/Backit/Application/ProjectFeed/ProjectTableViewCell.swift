@@ -176,7 +176,17 @@ class ProjectTableViewCell: UITableViewCell {
 
 extension ProjectTableViewCell: ProjectImageCollectionViewDelegate {
     func didSelectProjectAsset(_ asset: ProjectAsset) {
-        log.i("did select asset: \(asset)")
+        switch asset {
+        case .image:
+            // Images are not "Played", therefore, they behave as if the user tapped the cell.
+            guard let project = project else {
+                return log.c("`ProjectTableViewCell` not configured")
+            }
+            delegate?.didTapProject(project)
+        case .video:
+            log.i("did tap video asset: \(asset)")
+            break
+        }
     }
     
     func didScrollToProjectAsset(_ asset: ProjectAsset, at index: Int) {

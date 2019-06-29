@@ -23,6 +23,9 @@
 		0722325721D4375F009D1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0722325521D4375F009D1912 /* LaunchScreen.storyboard */; };
 		072510CF2283B0C300C02645 /* AppPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072510CE2283B0C300C02645 /* AppPresenterProvider.swift */; };
 		072510D22283B12100C02645 /* PresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072510D12283B12100C02645 /* PresenterProvider.swift */; };
+		072A4EC822C6D9F600D4B972 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A4EC722C6D9F600D4B972 /* ProjectDetailsViewController.swift */; };
+		072A4ECA22C6DA1300D4B972 /* ProjectDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 072A4EC922C6DA1300D4B972 /* ProjectDetailsViewController.storyboard */; };
+		072A4ECC22C6E94200D4B972 /* Collection+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A4ECB22C6E94200D4B972 /* Collection+Backit.swift */; };
 		072BB8762294BCC800265854 /* TextEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072BB8752294BCC800265854 /* TextEntryField.swift */; };
 		072BB8782294BCEC00265854 /* TextEntryField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072BB8772294BCEC00265854 /* TextEntryField.xib */; };
 		0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391A22089B3E0034291C /* AnalyticsService.swift */; };
@@ -204,6 +207,9 @@
 		0722325821D43760009D1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		072510CE2283B0C300C02645 /* AppPresenterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresenterProvider.swift; sourceTree = "<group>"; };
 		072510D12283B12100C02645 /* PresenterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProvider.swift; sourceTree = "<group>"; };
+		072A4EC722C6D9F600D4B972 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
+		072A4EC922C6DA1300D4B972 /* ProjectDetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectDetailsViewController.storyboard; sourceTree = "<group>"; };
+		072A4ECB22C6E94200D4B972 /* Collection+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Backit.swift"; sourceTree = "<group>"; };
 		072BB8752294BCC800265854 /* TextEntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryField.swift; sourceTree = "<group>"; };
 		072BB8772294BCEC00265854 /* TextEntryField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEntryField.xib; sourceTree = "<group>"; };
 		0732391A22089B3E0034291C /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
@@ -437,6 +443,7 @@
 				07E3B40D223175BD00959808 /* Extensions */,
 				07EC5A78227BFC1E00B67C05 /* Plugins */,
 				07D78EF422C1A3DF00FA0C3D /* ProgressOverlay */,
+				0750E54E22C6D9BC00C99EBC /* ProjectDetails */,
 				078BCA932253B01D003A03CA /* ProjectFeed */,
 				AA5168D022B2EA4D00F79DC9 /* Providers */,
 				07EC61F821D6EE1C00FE283C /* Resources */,
@@ -528,6 +535,15 @@
 				0745C98822B99C5500E85948 /* UsernameAvailabilityEndpoint.swift */,
 			);
 			path = Endopints;
+			sourceTree = "<group>";
+		};
+		0750E54E22C6D9BC00C99EBC /* ProjectDetails */ = {
+			isa = PBXGroup;
+			children = (
+				072A4EC722C6D9F600D4B972 /* ProjectDetailsViewController.swift */,
+				072A4EC922C6DA1300D4B972 /* ProjectDetailsViewController.storyboard */,
+			);
+			path = ProjectDetails;
 			sourceTree = "<group>";
 		};
 		0754B5ED21F6229400E2DECD /* Service */ = {
@@ -810,6 +826,7 @@
 				0754B67022027B3300E2DECD /* Localization */,
 				07EC61EF21D6ECFB00FE283C /* UITheme */,
 				07EC61F921D6EF1400FE283C /* ViewIdentifiable */,
+				072A4ECB22C6E94200D4B972 /* Collection+Backit.swift */,
 				076A8C492286498A0075B56C /* Encodable+Backit.swift */,
 				0754B60521FBDDC400E2DECD /* Environment.swift */,
 				077B1731227CE40E003D5B17 /* Errors.swift */,
@@ -1043,6 +1060,7 @@
 				B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */,
 				B90054C32285B61900C06087 /* ProjectImageCollectionView.xib in Resources */,
 				B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */,
+				072A4ECA22C6DA1300D4B972 /* ProjectDetailsViewController.storyboard in Resources */,
 				AA30D78B22A5894F0084D3F3 /* Account.storyboard in Resources */,
 				B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */,
 				0754B6782203CB3000E2DECD /* LoadingResultsCell.xib in Resources */,
@@ -1215,6 +1233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				073239242208A0250034291C /* AnalyticsListener.swift in Sources */,
+				072A4ECC22C6E94200D4B972 /* Collection+Backit.swift in Sources */,
 				0754B67422027BA600E2DECD /* LocalizationType.swift in Sources */,
 				0754B5EA21F0DC2000E2DECD /* UIImage+Backit.swift in Sources */,
 				AA5168CF22B2E9CE00F79DC9 /* AppPageProvider.swift in Sources */,
@@ -1255,6 +1274,7 @@
 				07820D6122BA639100B44D86 /* Logger.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				AA30D78D22A589870084D3F3 /* AccountViewController.swift in Sources */,
+				072A4EC822C6D9F600D4B972 /* ProjectDetailsViewController.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				AA5168CB22B2E96C00F79DC9 /* FinalizeAccountCreationViewController.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,

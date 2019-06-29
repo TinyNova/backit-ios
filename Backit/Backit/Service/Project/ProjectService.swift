@@ -14,6 +14,10 @@ class ProjectService: ProjectProvider {
         self.service = service
     }
     
+    func project(id: Any) -> Future<Project, ProjectProviderError> {
+        return Future(error: .generic(NotImplementedError()))
+    }
+    
     func projects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError> {
         return Future(error: .generic(NotImplementedError()))
     }
