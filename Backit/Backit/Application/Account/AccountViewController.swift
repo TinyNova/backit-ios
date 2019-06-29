@@ -25,7 +25,7 @@ class AccountViewController: UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        updateTabBar(with: emptyProfileImage())
+        setEmptyAvatar()
     }
     
     func inject(urlSession: URLSession, userStream: UserStreamer, avatarStream: UserAvatarStreamer, signInProvider: SignInProvider, albumProvider: PhotoAlbumProvider, accountProvider: AccountProvider, overlay: ProgressOverlayProvider) {
@@ -45,8 +45,8 @@ class AccountViewController: UITableViewController {
         tabBarItem?.title = nil
     }
 
-    private func updateTabBar(with image: UIImage?) {
-        let item = UITabBarItem(title: nil, image: image, tag: 9999)
+    private func updateTabBar(image: UIImage?, selectedImage: UIImage?) {
+        let item = UITabBarItem(title: nil, image: image, selectedImage: selectedImage)
         item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         tabBarItem = item
     }
@@ -63,32 +63,37 @@ class AccountViewController: UITableViewController {
     private func setAvatar(with image: UIImage?) {
         guard let image = image else {
             log.i("Attempt to set an avatar with a `nil` `UIImage`")
-            return nil
+            return
         }
-        
+
+        let icon = ellipticalImage(with: image, color: UIColor.fromHex(0xa7a9bc))
+        let selectedIcon = ellipticalImage(with: image, color: UIColor.fromHex(0x130a33))
+        updateTabBar(image: icon, selectedImage: selectedIcon)
+    }
+
+    func ellipticalImage(with image: UIImage, color: UIColor) -> UIImage? {
         let points: CGFloat = 32.0
-        
+
         let size = CGSize(width: points, height: points)
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
-        
+
         // Background circle
         let bgRect = CGRect(x: 0, y: 0, width: points, height: points)
-        context?.setFillColor(UIColor.fromHex(0xa7a9bc).cgColor)
+        context?.setFillColor(color.cgColor)
         context?.addEllipse(in: bgRect)
         context?.drawPath(using: .fill)
-        
+
         // Clip avatar image as circle to fit inside the background circle
         let avatarRect = CGRect(x: 2, y: 2, width: 28, height: 28)
         let bezierPath = UIBezierPath(roundedRect: avatarRect, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 14.0, height: 14.0))
         context?.addPath(bezierPath.cgPath)
         context?.clip()
         image.draw(in: avatarRect)
-        
+
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        // Set (un)selected image
+
         return newImage?.withRenderingMode(.alwaysOriginal)
     }
 }
@@ -184,7 +189,7 @@ extension AccountViewController: UserStreamListener {
         tableView.reloadData()
         
         guard let avatarUrl = user?.avatarUrl else {
-            return setEmptyProfileImage()
+            return setEmptyAvatar()
         }
         
         let task = urlSession?.dataTask(with: avatarUrl) { [weak self] (data, response, error) in
@@ -195,8 +200,7 @@ extension AccountViewController: UserStreamListener {
             }
             
             DispatchQueue.main.async { [weak self] in
-                let avatarImage = self?.ellipticalAvatar(with: image)
-                self?.updateTabBar(with: avatarImage)
+                self?.setAvatar(with: image)
             }
         }
         task?.resume()
@@ -216,7 +220,7 @@ extension AccountViewController: UserAvatarStreamListener {
         
         // TODO: Animate the image.
         DispatchQueue.main.async { [weak self] in
-            setAvatar(with: image)
+            self?.setAvatar(with: image)
         }
     }
 }
