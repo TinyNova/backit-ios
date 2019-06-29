@@ -51,17 +51,18 @@ class AccountViewController: UITableViewController {
         tabBarItem = item
     }
     
-    private func emptyProfileImage() -> UIImage? {
+    private func setEmptyAvatar() {
         let image = UIImage(named: "avatar")?
             .fittedImage(to: 22.0)?
             .sd_tintedImage(with: UIColor.fromHex(0xffffff))?
             .withRenderingMode(.alwaysOriginal)
 
-        return ellipticalAvatar(with: image)
+        setAvatar(with: image)
     }
     
-    private func ellipticalAvatar(with image: UIImage?) -> UIImage? {
+    private func setAvatar(with image: UIImage?) {
         guard let image = image else {
+            log.i("Attempt to set an avatar with a `nil` `UIImage`")
             return nil
         }
         
@@ -86,6 +87,8 @@ class AccountViewController: UITableViewController {
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
+        // Set (un)selected image
         return newImage?.withRenderingMode(.alwaysOriginal)
     }
 }
@@ -181,19 +184,18 @@ extension AccountViewController: UserStreamListener {
         tableView.reloadData()
         
         guard let avatarUrl = user?.avatarUrl else {
-            updateTabBar(with: emptyProfileImage())
-            return
+            return setEmptyProfileImage()
         }
         
         let task = urlSession?.dataTask(with: avatarUrl) { [weak self] (data, response, error) in
             guard error == nil,
                 let data = data,
-                let image = UIImage(data: data),
-                let avatarImage = self?.ellipticalAvatar(with: image) else {
+                let image = UIImage(data: data) else {
                 return
             }
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                let avatarImage = self?.ellipticalAvatar(with: image)
                 self?.updateTabBar(with: avatarImage)
             }
         }
@@ -211,13 +213,10 @@ extension AccountViewController: UserAvatarStreamListener {
         guard state == .uploading || state == .cached else {
             return log.i("Ignoring any avatar state except `uploading` and `cached`")
         }
-        guard let avatarImage = ellipticalAvatar(with: image) else {
-            return log.i("Failed to create elliptical avatar")
-        }
         
         // TODO: Animate the image.
         DispatchQueue.main.async { [weak self] in
-            self?.updateTabBar(with: avatarImage)
+            setAvatar(with: image)
         }
     }
 }
