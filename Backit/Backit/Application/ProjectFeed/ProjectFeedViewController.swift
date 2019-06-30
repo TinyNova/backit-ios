@@ -61,11 +61,12 @@ class ProjectFeedViewController: UIViewController {
     private var signInProvider: SignInProvider?
     private var overlay: ProgressOverlayProvider?
     private var banner: BannerProvider?
+    private var shareProvider: ShareProvider?
     
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
     
-    func inject(theme: AnyUITheme<AppTheme>, pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider) {
+    func inject(theme: AnyUITheme<AppTheme>, pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider, shareProvider: ShareProvider) {
         self.provider = provider
         self.provider?.client = self
         self.pageProvider = pageProvider
@@ -74,6 +75,7 @@ class ProjectFeedViewController: UIViewController {
         self.signInProvider = signInProvider
         self.overlay = overlay
         self.banner = banner
+        self.shareProvider = shareProvider
     }
     
     private let i18n = Localization<Appl10n>()
@@ -287,6 +289,18 @@ extension ProjectFeedViewController: ProjectTableViewCellDelegate {
     
     func didTapComments(_ project: FeedProject) {
         log.i("Did tap comments")
+    }
+    
+    func didTapShare(_ project: FeedProject, from view: UIView) {
+        guard let project = project.context as? Project,
+              let url = project.backitUrl else {
+            // TODO: Display an error
+            return log.e("There is no Backit URL to share")
+        }
+        shareProvider?.shareUrl(url, from: view)
+            .onSuccess { _ in
+                // TODO: Show some type of feedback
+            }
     }
     
     func didTapAsset(_ project: ProjectAsset) {

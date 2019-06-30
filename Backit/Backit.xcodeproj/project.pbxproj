@@ -26,6 +26,8 @@
 		072A4EC822C6D9F600D4B972 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A4EC722C6D9F600D4B972 /* ProjectDetailsViewController.swift */; };
 		072A4ECA22C6DA1300D4B972 /* ProjectDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 072A4EC922C6DA1300D4B972 /* ProjectDetailsViewController.storyboard */; };
 		072A4ECC22C6E94200D4B972 /* Collection+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A4ECB22C6E94200D4B972 /* Collection+Backit.swift */; };
+		072A4ECE22C95BED00D4B972 /* ShareProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A4ECD22C95BED00D4B972 /* ShareProvider.swift */; };
+		072A4ED022C95D5900D4B972 /* AppShareProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A4ECF22C95D5900D4B972 /* AppShareProvider.swift */; };
 		072BB8762294BCC800265854 /* TextEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072BB8752294BCC800265854 /* TextEntryField.swift */; };
 		072BB8782294BCEC00265854 /* TextEntryField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072BB8772294BCEC00265854 /* TextEntryField.xib */; };
 		0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732391A22089B3E0034291C /* AnalyticsService.swift */; };
@@ -210,6 +212,8 @@
 		072A4EC722C6D9F600D4B972 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		072A4EC922C6DA1300D4B972 /* ProjectDetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectDetailsViewController.storyboard; sourceTree = "<group>"; };
 		072A4ECB22C6E94200D4B972 /* Collection+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Backit.swift"; sourceTree = "<group>"; };
+		072A4ECD22C95BED00D4B972 /* ShareProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareProvider.swift; sourceTree = "<group>"; };
+		072A4ECF22C95D5900D4B972 /* AppShareProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShareProvider.swift; sourceTree = "<group>"; };
 		072BB8752294BCC800265854 /* TextEntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryField.swift; sourceTree = "<group>"; };
 		072BB8772294BCEC00265854 /* TextEntryField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEntryField.xib; sourceTree = "<group>"; };
 		0732391A22089B3E0034291C /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
@@ -705,6 +709,7 @@
 				AA30D78622A1CC3C0084D3F3 /* KeychainProvider.swift */,
 				AAE9170722A7317C00490A30 /* PhotoAlbumProvider.swift */,
 				071B317422794EE600DB1561 /* ProjectProvider.swift */,
+				072A4ECD22C95BED00D4B972 /* ShareProvider.swift */,
 				077B172F227CE3EB003D5B17 /* SignInProvider.swift */,
 				0700753022937312005B9F28 /* UserProvider.swift */,
 			);
@@ -893,6 +898,7 @@
 				0745C98622B933A500E85948 /* AppGoogleProvider.swift */,
 				AA30D78822A1D2780084D3F3 /* AppKeychainProvider.swift */,
 				072510CE2283B0C300C02645 /* AppPresenterProvider.swift */,
+				072A4ECF22C95D5900D4B972 /* AppShareProvider.swift */,
 				B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */,
 				AAE9170922A731AF00490A30 /* AppPhotoAlbumProvider.swift */,
 				073AE1AA22BBD58200BD1A30 /* AppProgressOverlayProvider.swift */,
@@ -1269,6 +1275,7 @@
 				0785F02122936CCD006AD593 /* UserStreamer.swift in Sources */,
 				07820D6522BA696500B44D86 /* UserAvatarStream.swift in Sources */,
 				07D78EF122C171A900FA0C3D /* ActionSequencer.swift in Sources */,
+				072A4ECE22C95BED00D4B972 /* ShareProvider.swift in Sources */,
 				077B1730227CE3EB003D5B17 /* SignInProvider.swift in Sources */,
 				07862CAE220BBE6900C666E7 /* ServicePluginKey.swift in Sources */,
 				07820D6122BA639100B44D86 /* Logger.swift in Sources */,
@@ -1347,6 +1354,7 @@
 				07862CB0220BBE7D00C666E7 /* ServicePluginProvider.swift in Sources */,
 				07B25B02228E0A1B002476D4 /* FeedProject.swift in Sources */,
 				075D4D332211CB6F006EFF37 /* FlagID.swift in Sources */,
+				072A4ED022C95D5900D4B972 /* AppShareProvider.swift in Sources */,
 				AA5168C322B2E23300F79DC9 /* AppExternalSignInProvider.swift in Sources */,
 				073AE1A722BAE24E00BD1A30 /* AppBannerMessageProvider.swift in Sources */,
 				B905785F229A574600AD09C6 /* TextButton.swift in Sources */,

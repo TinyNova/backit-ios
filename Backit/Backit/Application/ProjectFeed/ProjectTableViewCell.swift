@@ -10,6 +10,7 @@ protocol ProjectTableViewCellDelegate: class {
     func didTapProject(_ project: FeedProject)
     func didTapAsset(_ asset: ProjectAsset)
     func didTapComments(_ project: FeedProject)
+    func didTapShare(_ project: FeedProject, from view: UIView)
 }
 
 class ProjectTableViewCell: UITableViewCell {
@@ -162,7 +163,10 @@ class ProjectTableViewCell: UITableViewCell {
     // MARK: Private functions
     
     @objc private func didTapShare(gesture: UITapGestureRecognizer) {
-        log.i("did tap share")
+        guard let project = project else {
+            return log.c(notConfigured())
+        }
+        delegate?.didTapShare(project, from: shareView)
     }
     
     @objc private func didTapComments(gesture: UITapGestureRecognizer) {
@@ -180,7 +184,7 @@ extension ProjectTableViewCell: ProjectImageCollectionViewDelegate {
         case .image:
             // Images are not "Played", therefore, they behave as if the user tapped the cell.
             guard let project = project else {
-                return log.c("`ProjectTableViewCell` not configured")
+                return log.c(notConfigured())
             }
             delegate?.didTapProject(project)
         case .video:
@@ -192,4 +196,8 @@ extension ProjectTableViewCell: ProjectImageCollectionViewDelegate {
     func didScrollToProjectAsset(_ asset: ProjectAsset, at index: Int) {
         log.i("Did scroll to asset: \(asset)")
     }
+}
+
+private func notConfigured() -> String {
+    return "`ProjectTableViewCell` not configured"
 }

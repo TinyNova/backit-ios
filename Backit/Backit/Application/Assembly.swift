@@ -92,6 +92,11 @@ class Assembly {
             return AppPresenterProvider()
         }
         
+        container.register(ShareProvider.self) { resolver in
+            let presenterProvider = resolver.resolve(PresenterProvider.self)!
+            return AppShareProvider(presenterProvider: presenterProvider)
+        }
+        
         container.register(BannerMessageProvider.self) { resolver in
             return AppBannerMessageProvider()
         }
@@ -257,7 +262,8 @@ class Assembly {
             let signInProvider = resolver.resolve(SignInProvider.self)!
             let overlay = resolver.resolve(ProgressOverlayProvider.self)!
             let banner = resolver.resolve(BannerProvider.self)!
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), pageProvider: pageProvider, projectProvider: projectProvider, provider: provider, userStreamer: userStreamer, signInProvider: signInProvider, overlay: overlay, banner: banner)
+            let shareProvider = resolver.resolve(ShareProvider.self)!
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), pageProvider: pageProvider, projectProvider: projectProvider, provider: provider, userStreamer: userStreamer, signInProvider: signInProvider, overlay: overlay, banner: banner, shareProvider: shareProvider)
         }
         
         container.storyboardInitCompleted(ProjectDetailsViewController.self) { resolver, controller in
