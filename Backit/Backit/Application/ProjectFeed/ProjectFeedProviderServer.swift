@@ -97,11 +97,11 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
                     return
                 }
                 
-                let homepageProjects = response.projects.map { (project) -> FeedProject in
+                let projects = response.projects.map { (project) -> FeedProject in
                     return FeedProject.make(from: project)
                 }
                 self.queryState = .loaded(cursor: response.cursor)
-                self.client?.didReceiveProjects(homepageProjects)
+                self.client?.didReceiveProjects(projects)
             }
             .onFailure { [weak self] (error) in
                 self?.queryState = .error(cursor: offset)

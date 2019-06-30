@@ -6,12 +6,27 @@
 import Foundation
 import BrightFutures
 import UIKit
+import WebKit
 
 class ProjectDetailsViewController: UIViewController {
     
-    private var future: Future<Project, ProjectProviderError>?
+    @IBOutlet weak var webView: WKWebView!
     
-    func configure(with future: Future<Project, ProjectProviderError>) {
-        self.future = future
+    private var context: Any?
+    
+    func configure(with context: Any?) {
+        self.context = context
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard let project = context as? Project,
+              let url = project.backitUrl else {
+            return log.e("Could not get project URL at backit.com")
+        }
+        
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 }

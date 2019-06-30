@@ -16,7 +16,7 @@ enum ProjectAsset {
 }
 
 struct FeedProject {
-    let id: Any
+    let context: Any
     let source: ProjectSource
     let assets: [ProjectAsset]
     let name: String
@@ -37,7 +37,7 @@ struct FeedProject {
             : 0
         
         return FeedProject(
-            id: project.id,
+            context: project,
             source: project.source,
             assets: assets,
             name: project.name,

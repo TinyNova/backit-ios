@@ -19,6 +19,7 @@ protocol ProjectProvider {
     /// Get all this user's favorited projects
     /// Get a specific project by project ID - passed via notification or other marketing avenue
     /// Get personalized projects for this user
+    /// Get projects that are about to fund (optional: category, subcategory)
     
     func project(id: Any) -> Future<Project, ProjectProviderError>
     

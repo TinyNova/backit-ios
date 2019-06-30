@@ -28,8 +28,9 @@ extension ProjectResponse {
             }
             
             return Project(
-                id: 1,
+                id: Int(project.projectId) ?? 0,
                 source: source,
+                slug: project.slug,
                 url: URL(string: project.url),
                 name: project.name,
                 goal: goal,

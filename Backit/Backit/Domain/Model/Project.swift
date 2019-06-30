@@ -13,7 +13,8 @@ struct ProjectResponse {
 struct Project {
     let id: Any
     let source: ProjectSource
-    let url: URL? // Internal Backit URL
+    let slug: String
+    let url: URL? // External URL
     let name: String
     let goal: Int
     let pledged: Int
@@ -23,4 +24,8 @@ struct Project {
     let videoURL: URL?
     let hasEarlyBirdRewards: Bool
     let funded: Bool
+    
+    var backitUrl: URL? {
+        return URL(string: "https://backit.com/project/\(id)/\(slug)")
+    }
 }

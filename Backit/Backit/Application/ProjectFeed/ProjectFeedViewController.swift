@@ -151,13 +151,10 @@ class ProjectFeedViewController: UIViewController {
         guard let project = project else {
             return log.w("`FeedProject` is not known")
         }
-        guard let future = projectProvider?.project(id: project.id) else {
-            return log.c("`ProjectFeedViewController.inject` not called")
-        }
         guard let viewController = pageProvider?.projectDetails() else {
             return log.c("Failed to display Project Details")
         }
-        viewController.configure(with: future)
+        viewController.configure(with: project.context)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
