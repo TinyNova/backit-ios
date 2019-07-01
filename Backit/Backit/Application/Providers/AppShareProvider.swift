@@ -31,9 +31,8 @@ class AppShareProvider: ShareProvider {
         }
         
         let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-        activityViewController.completionWithItemsHandler = { [weak self] (actvityType: UIActivity.ActivityType?, shared: Bool, returnedItems: [Any]?, error: Error?) -> Void in
+        activityViewController.completionWithItemsHandler = { (actvityType: UIActivity.ActivityType?, shared: Bool, returnedItems: [Any]?, error: Error?) -> Void in
             promise.success(IgnorableValue())
-            self?.presenterProvider.dismiss(activityViewController, completion: nil)
         }
         activityViewController.popoverPresentationController?.sourceView = sender
         presenterProvider.present(activityViewController, completion: nil)
