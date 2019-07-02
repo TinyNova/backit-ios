@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct ProjectCommentCountEndpoint: ServiceEndpoint {    
+struct ProjectCommentCountEndpoint: ServiceEndpoint {
     
     struct Error: Decodable {
         let message: String?
@@ -29,9 +29,6 @@ struct ProjectCommentCountEndpoint: ServiceEndpoint {
     var endpoints: Endpoints = [
         .dev: "https://127.0.0.1:8443/hub/comments/{projectId}/count",
         .qa: "https://api.qabackit.com/hub/comments/{projectId}/count"
-    ]
-    var plugins: [ServicePluginKey]? = [
-        .authorization
     ]
     
     var pathParameters: [PathParameter]?

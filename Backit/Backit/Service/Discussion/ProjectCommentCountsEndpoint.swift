@@ -28,9 +28,6 @@ struct ProjectCommentCountsEndpoint: ServiceEndpoint {
         .dev: "https://127.0.0.1:8443/hub/comments/count",
         .qa: "https://api.qabackit.com/hub/comments/count"
     ]
-    var plugins: [ServicePluginKey]? = [
-        .authorization
-    ]
     
     var queryParameters: [ProjectCommentCountsEndpoint.QueryParameter]?
     

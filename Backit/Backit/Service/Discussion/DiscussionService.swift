@@ -16,39 +16,33 @@ class DiscussionService: DiscussionProvider {
     
     func commentCount(for project: Project) -> Future<ProjectId, DiscussionProviderError> {
         let endpoint = ProjectCommentCountEndpoint(projectId: project.id)
-        return Future(error: .generic(NotImplementedError()))
-//        service.debug = true
         return service.request(endpoint)
-//            .recover { (error) -> CommentCountEndpoint.ResponseType in
-//                return Data()
-//            }
             .mapError { (error) -> DiscussionProviderError in
                 return .generic(error)
             }
             .flatMap { (response) -> Future<Int, DiscussionProviderError> in
-//                if let message = response.message {
-//                    return Future(error: validationError(
-//                        message: message,
-//                        validation: response.validation
-//                    ))
-//                }
+                if let alternate = response.alternate {
+                    return Future(error: .server(message: alternate.message, metadata: alternate.validation))
+                }
                 return Future(value: response.value ?? 0)
             }
     }
     
-    func commentCount(forAll projects: [Project]) -> Future<[ProjectId : Int], DiscussionProviderError> {
-        return Future(error: .generic(NotImplementedError()))
+    func commentCount(for projects: [Project]) -> Future<[ProjectId : Int], DiscussionProviderError> {
+        let projectIds = projects.map { (project) -> ProjectId in
+            return project.id
+        }
+        let endpoint = ProjectCommentCountsEndpoint(projectIds: projectIds)
+        return service.request(endpoint)
+            .mapError { (error) -> DiscussionProviderError in
+                return .generic(error)
+            }
+            .flatMap { (response) -> Future<[ProjectId: Int], DiscussionProviderError> in
+                return Future(value: response.projects ?? [ProjectId: Int]())
+            }
     }
     
     func comments(for project: Project) -> Future<[UserComment], DiscussionProviderError> {
         return Future(error: .generic(NotImplementedError()))
     }
-}
-
-private func validationError(message: String, validation: [String: [String]]?) -> DiscussionProviderError {
-    var metadata = [String]()
-    validation?.forEach { (record: (key: String, value: [String])) in
-        metadata.append("\(record.key): \(record.value)")
-    }
-    return .validation(message: message, metadata: metadata)
 }

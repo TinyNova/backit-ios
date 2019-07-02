@@ -99,8 +99,9 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
                     return
                 }
                 
+                let future = sself.comments(for: response.projects)
                 let projects = response.projects.map { (project) -> FeedProject in
-                    return sself.feedProject(from: project)
+                    return sself.feedProject(from: project, commentsFuture: future)
                 }
                 sself.queryState = .loaded(cursor: response.cursor)
                 sself.client?.didReceiveProjects(projects)
@@ -114,7 +115,7 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
             }
     }
     
-    private func feedProject(from project: Project) -> FeedProject {
+    private func feedProject(from project: Project, commentsFuture: Future<[ProjectId: Int], Error>) -> FeedProject {
         var assets: [ProjectAsset] = []
         assets.append(.image(project.imageURLs[0]))
         if let previewURL = project.videoPreviewURL, let videoURL = project.videoURL {
@@ -125,6 +126,11 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
             ? Float(project.pledged) / Float(project.goal)
             : 0
         
+        let future = commentsFuture.flatMap { (response) -> Future<Int, Error> in
+            let count = response[project.id] ?? 0
+            return Future<Int, Error>(value: count)
+        }
+        
         return FeedProject(
             context: project,
             source: project.source,
@@ -134,8 +140,15 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
             comment: .comment,
             isEarlyBird: project.hasEarlyBirdRewards,
             fundedPercent: fundedPercent,
-            commentCount: comments(for: project)
+            commentCount: future
         )
+    }
+    
+    private func comments(for projects: [Project]) -> Future<[ProjectId: Int], Error> {
+        return discussionProvider.commentCount(for: projects)
+            .mapError { (error) -> Error in
+                return error
+            }
     }
     
     private func comments(for project: Project) -> Future<Int, Error> {
