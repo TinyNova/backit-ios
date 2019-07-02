@@ -8,7 +8,8 @@ import Foundation
 
 class ProjectFeedProviderServer: ProjectFeedProvider {
     
-    let provider: ProjectProvider
+    let projectProvider: ProjectProvider
+    let discussionProvider: DiscussionProvider
     let metrics: AnalyticsPublisher<MetricAnalyticsEvent>
     
     weak var client: ProjectFeedClient?
@@ -22,8 +23,9 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
     }
     private var queryState: QueryState = .notLoaded
     
-    init(provider: ProjectProvider, metrics: AnalyticsPublisher<MetricAnalyticsEvent>) {
-        self.provider = provider
+    init(projectProvider: ProjectProvider, discussionProvider: DiscussionProvider, metrics: AnalyticsPublisher<MetricAnalyticsEvent>) {
+        self.projectProvider = projectProvider
+        self.discussionProvider = discussionProvider
         self.metrics = metrics
     }
     
@@ -85,30 +87,62 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
         pageRequested()
         
         queryState = .loading
-        provider.popularProjects(offset: offset, limit: 10)
+        projectProvider.popularProjects(offset: offset, limit: 10)
             .onSuccess { [weak self] (response) in
-                guard let self = self else {
+                guard let sself = self else {
                     return
                 }
                 
                 guard response.projects.count > 0 else {
-                    self.queryState = .noMoreResults
-                    self.client?.didReachEndOfProjects()
+                    sself.queryState = .noMoreResults
+                    sself.client?.didReachEndOfProjects()
                     return
                 }
                 
                 let projects = response.projects.map { (project) -> FeedProject in
-                    return FeedProject.make(from: project)
+                    return sself.feedProject(from: project)
                 }
-                self.queryState = .loaded(cursor: response.cursor)
-                self.client?.didReceiveProjects(projects)
+                sself.queryState = .loaded(cursor: response.cursor)
+                sself.client?.didReceiveProjects(projects)
             }
             .onFailure { [weak self] (error) in
                 self?.queryState = .error(cursor: offset)
                 self?.client?.didReceiveError(error)
             }
-            .onComplete { _ in
-                self.metrics.stop(.appColdLaunch)
+            .onComplete { [weak self] _ in
+                self?.metrics.stop(.appColdLaunch)
+            }
+    }
+    
+    private func feedProject(from project: Project) -> FeedProject {
+        var assets: [ProjectAsset] = []
+        assets.append(.image(project.imageURLs[0]))
+        if let previewURL = project.videoPreviewURL, let videoURL = project.videoURL {
+            assets.append(.video(previewURL: previewURL, videoURL: videoURL))
         }
+        
+        let fundedPercent = project.pledged > 0
+            ? Float(project.pledged) / Float(project.goal)
+            : 0
+        
+        return FeedProject(
+            context: project,
+            source: project.source,
+            assets: assets,
+            name: project.name,
+            numberOfBackers: project.numBackers,
+            comment: .comment,
+            isEarlyBird: project.hasEarlyBirdRewards,
+            fundedPercent: fundedPercent,
+            commentCount: comments(for: project)
+        )
+    }
+    
+    private func comments(for project: Project) -> Future<Int, Error> {
+        return discussionProvider.commentCount(for: project)
+            .mapError { (error) -> Error in
+                return error
+            }
     }
 }
+

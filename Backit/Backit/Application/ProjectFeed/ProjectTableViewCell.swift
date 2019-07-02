@@ -153,6 +153,14 @@ class ProjectTableViewCell: UITableViewCell {
             case .comments(let amount):
                 totalCommentsLabel.text = i18n.t(.comments(amount: amount))
             }
+            
+            project.commentCount
+                .onComplete { [weak self] (result) in
+                    guard let count = result.value, count > 0 else {
+                        return
+                    }
+                    self?.totalCommentsLabel.text = self?.i18n.t(.comments(amount: count))
+                }
         }
     }
     

@@ -144,8 +144,9 @@ class Assembly {
             let service = resolver.resolve(AnalyticsService.self)!
             let metrics: AnalyticsPublisher<MetricAnalyticsEvent> = service.publisher()
             
-            let provider = resolver.resolve(ProjectProvider.self)!
-            return ProjectFeedProviderServer(provider: provider, metrics: metrics)
+            let projectProvider = resolver.resolve(ProjectProvider.self)!
+            let discussionProvider = resolver.resolve(DiscussionProvider.self)!
+            return ProjectFeedProviderServer(projectProvider: projectProvider, discussionProvider: discussionProvider, metrics: metrics)
         }
         
         container.register(UIThemeApplier<AppTheme>.self) { resolver in
@@ -197,6 +198,11 @@ class Assembly {
             return AccountService(service: service, sessionStream: sessionStream, avatarStream: avatarStream, amazonService: amazoneService)
         }
         
+        container.register(DiscussionProvider.self) { resolver in
+            let service = resolver.resolve(Service.self)!
+            return DiscussionService(service: service)
+        }
+
         container.register(UserProvider.self) { resolver in
             let service = resolver.resolve(Service.self)!
             return UserService(service: service)

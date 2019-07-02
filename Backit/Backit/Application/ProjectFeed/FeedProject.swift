@@ -4,6 +4,7 @@
  */
 
 import Foundation
+import BrightFutures
 
 enum ProjectComment {
     case comments(Int)
@@ -24,27 +25,5 @@ struct FeedProject {
     let comment: ProjectComment
     let isEarlyBird: Bool
     let fundedPercent: Float
-    
-    static func make(from project: Project) -> FeedProject {
-        var assets: [ProjectAsset] = []
-        assets.append(.image(project.imageURLs[0]))
-        if let previewURL = project.videoPreviewURL, let videoURL = project.videoURL {
-            assets.append(.video(previewURL: previewURL, videoURL: videoURL))
-        }
-        
-        let fundedPercent = project.pledged > 0
-            ? Float(project.pledged) / Float(project.goal)
-            : 0
-        
-        return FeedProject(
-            context: project,
-            source: project.source,
-            assets: assets,
-            name: project.name,
-            numberOfBackers: project.numBackers,
-            comment: .comment,
-            isEarlyBird: project.hasEarlyBirdRewards,
-            fundedPercent: fundedPercent
-        )
-    }
+    let commentCount: Future<Int, Error>
 }

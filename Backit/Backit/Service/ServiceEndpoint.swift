@@ -56,6 +56,8 @@ protocol ServiceEndpoint {
      */
     var postBody: PostBody? { get }
     var httpBodyEncodingStrategy: HTTPBodyEncodingStrategy { get }
+    
+    var decoder: ((Data?) -> ResponseType)? { get }
 }
 
 /// Default implementations
@@ -77,5 +79,8 @@ extension ServiceEndpoint {
     }
     var httpBodyEncodingStrategy: HTTPBodyEncodingStrategy {
         return .json
+    }
+    var decoder: ((Data?) -> ResponseType)? {
+        return nil
     }
 }

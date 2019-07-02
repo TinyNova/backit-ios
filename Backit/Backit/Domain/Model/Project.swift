@@ -5,13 +5,15 @@
 
 import Foundation
 
+typealias ProjectId = Int
+
 struct ProjectResponse {
     let cursor: Any?
     let projects: [Project]
 }
 
 struct Project {
-    let id: Any
+    let id: ProjectId
     let source: ProjectSource
     let slug: String
     let url: URL? // External URL

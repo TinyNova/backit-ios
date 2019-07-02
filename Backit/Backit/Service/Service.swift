@@ -134,6 +134,9 @@ class Service {
                         guard let data = result.data else {
                             return promise.failure(.emptyResponse)
                         }
+                        if let decoder = endpoint.decoder {
+                            return promise.success(decoder(data))
+                        }
                         // Return the raw data of the response. This is usually used during testing.
                         if let data = data as? T.ResponseType, data is Data {
                             return promise.success(data)
@@ -158,14 +161,15 @@ class Service {
 // MARK: - Request Debug Tools
 
 func prettyPrint(_ data: Data) {
-    guard let object = try? JSONSerialization.jsonObject(with: data, options: []),
-          let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
-          let prettyPrintedString = String(data: data, encoding: .utf8) else {
-        log.e("Failed to pretty print Data!")
-        return
+    if let object = try? JSONSerialization.jsonObject(with: data, options: []),
+       let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
+       let prettyPrintedString = String(data: data, encoding: .utf8) {
+        return print(prettyPrintedString)
     }
-    
-    print(prettyPrintedString)
+    if let str = String(data: data, encoding: .utf8) {
+        return print(str)
+    }
+    log.e("Failed to pretty print Data!")
 }
 
 enum HTTPBodyDataType {

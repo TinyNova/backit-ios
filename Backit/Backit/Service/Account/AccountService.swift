@@ -263,7 +263,7 @@ class AccountService: AccountProvider {
     }
 }
 
-func validationError(message: String?, validation: [String: [String]]?) -> AccountProviderError {
+private func validationError(message: String?, validation: [String: [String]]?) -> AccountProviderError {
     var fields = [AccountValidationField: [String]]()
     validation?.forEach { (record: (key: String, value: [String])) in
         fields[AccountValidationField.map(record.key)] = record.value

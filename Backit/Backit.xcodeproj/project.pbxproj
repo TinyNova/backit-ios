@@ -141,6 +141,11 @@
 		AA30D78D22A589870084D3F3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78C22A589870084D3F3 /* AccountViewController.swift */; };
 		AA30D78F22A596930084D3F3 /* AvatarTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30D78E22A596930084D3F3 /* AvatarTabBarItem.swift */; };
 		AA30D79122A596A20084D3F3 /* AvatarTabBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */; };
+		AA3D20FF22CA392000228D0F /* DiscussionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D20FE22CA392000228D0F /* DiscussionProvider.swift */; };
+		AA3D210422CA3A5700228D0F /* DiscussionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D210322CA3A5700228D0F /* DiscussionService.swift */; };
+		AA3D210622CA3B4300228D0F /* ProjectCommentCountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D210522CA3B4300228D0F /* ProjectCommentCountEndpoint.swift */; };
+		AA3D210822CAC58400228D0F /* ProjectCommentCountsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D210722CAC58400228D0F /* ProjectCommentCountsEndpoint.swift */; };
+		AA3D214422CBDBE700228D0F /* TopLevelServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D214322CBDBE700228D0F /* TopLevelServiceResponse.swift */; };
 		AA5168C322B2E23300F79DC9 /* AppExternalSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5168C222B2E23300F79DC9 /* AppExternalSignInProvider.swift */; };
 		AA5168C522B2E30400F79DC9 /* ExternalSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5168C422B2E30400F79DC9 /* ExternalSignInProvider.swift */; };
 		AA5168C922B2E93D00F79DC9 /* PageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5168C822B2E93D00F79DC9 /* PageProvider.swift */; };
@@ -334,6 +339,11 @@
 		AA30D78C22A589870084D3F3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		AA30D78E22A596930084D3F3 /* AvatarTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarTabBarItem.swift; sourceTree = "<group>"; };
 		AA30D79022A596A20084D3F3 /* AvatarTabBarItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarTabBarItem.xib; sourceTree = "<group>"; };
+		AA3D20FE22CA392000228D0F /* DiscussionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionProvider.swift; sourceTree = "<group>"; };
+		AA3D210322CA3A5700228D0F /* DiscussionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionService.swift; sourceTree = "<group>"; };
+		AA3D210522CA3B4300228D0F /* ProjectCommentCountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCommentCountEndpoint.swift; sourceTree = "<group>"; };
+		AA3D210722CAC58400228D0F /* ProjectCommentCountsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCommentCountsEndpoint.swift; sourceTree = "<group>"; };
+		AA3D214322CBDBE700228D0F /* TopLevelServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLevelServiceResponse.swift; sourceTree = "<group>"; };
 		AA5168C222B2E23300F79DC9 /* AppExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExternalSignInProvider.swift; sourceTree = "<group>"; };
 		AA5168C422B2E30400F79DC9 /* ExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSignInProvider.swift; sourceTree = "<group>"; };
 		AA5168C822B2E93D00F79DC9 /* PageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageProvider.swift; sourceTree = "<group>"; };
@@ -555,6 +565,7 @@
 			children = (
 				07C9BD562278979200E41F1D /* Account */,
 				AAE9170F22A73F5900490A30 /* Amazon */,
+				AA3D210022CA3A3700228D0F /* Discussion */,
 				0754B60721FC0FA400E2DECD /* Project */,
 				077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */,
 				0754B5F721FA590600E2DECD /* Service.swift */,
@@ -563,6 +574,7 @@
 				0754B60E21FF39A100E2DECD /* ServiceRequester.swift */,
 				07862CAD220BBE6900C666E7 /* ServicePluginKey.swift */,
 				07862CAF220BBE7D00C666E7 /* ServicePluginProvider.swift */,
+				AA3D214322CBDBE700228D0F /* TopLevelServiceResponse.swift */,
 				0754B60C21FF32E900E2DECD /* URLRequestFactory.swift */,
 			);
 			path = Service;
@@ -703,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				071B317622794F0B00DB1561 /* AccountProvider.swift */,
+				AA3D20FE22CA392000228D0F /* DiscussionProvider.swift */,
 				AA5168C422B2E30400F79DC9 /* ExternalSignInProvider.swift */,
 				AA0FD38522B08206007DEEB6 /* FacebookProvider.swift */,
 				0745C98422B9334400E85948 /* GoogleProvider.swift */,
@@ -876,6 +889,16 @@
 				69F51B125C0218073ED859C4 /* Pods-BackitTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA3D210022CA3A3700228D0F /* Discussion */ = {
+			isa = PBXGroup;
+			children = (
+				AA3D210322CA3A5700228D0F /* DiscussionService.swift */,
+				AA3D210522CA3B4300228D0F /* ProjectCommentCountEndpoint.swift */,
+				AA3D210722CAC58400228D0F /* ProjectCommentCountsEndpoint.swift */,
+			);
+			path = Discussion;
 			sourceTree = "<group>";
 		};
 		AA5168C722B2E93100F79DC9 /* PageProvider */ = {
@@ -1285,6 +1308,7 @@
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				AA5168CB22B2E96C00F79DC9 /* FinalizeAccountCreationViewController.swift in Sources */,
 				0754B60B21FF322700E2DECD /* ServiceEndpoint.swift in Sources */,
+				AA3D210422CA3A5700228D0F /* DiscussionService.swift in Sources */,
 				072510D22283B12100C02645 /* PresenterProvider.swift in Sources */,
 				076A8C4A2286498A0075B56C /* Encodable+Backit.swift in Sources */,
 				073AE1A522BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift in Sources */,
@@ -1315,6 +1339,8 @@
 				0700753122937312005B9F28 /* UserProvider.swift in Sources */,
 				07A1C21621DEDFA100E5A5DA /* ImagePagerView.swift in Sources */,
 				AAE9170822A7317C00490A30 /* PhotoAlbumProvider.swift in Sources */,
+				AA3D210822CAC58400228D0F /* ProjectCommentCountsEndpoint.swift in Sources */,
+				AA3D20FF22CA392000228D0F /* DiscussionProvider.swift in Sources */,
 				07820D6922BADD0100B44D86 /* AppBannerPresenterProvider.swift in Sources */,
 				07EC61F721D6ED4600FE283C /* AppTheme.swift in Sources */,
 				07C96F6422BD9FBB00FD7EC7 /* BannerView.swift in Sources */,
@@ -1331,6 +1357,7 @@
 				0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */,
 				0732392222089D640034291C /* MetricAnalyticsEvent.swift in Sources */,
 				AAE9170622A62E5E00490A30 /* RefreshTokenEndpoint.swift in Sources */,
+				AA3D210622CA3B4300228D0F /* ProjectCommentCountEndpoint.swift in Sources */,
 				077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */,
 				0754B5F121F625DC00E2DECD /* ProjectService.swift in Sources */,
 				AAE9170422A62A4C00490A30 /* Credentials.swift in Sources */,
@@ -1365,6 +1392,7 @@
 				071B317D227953D700DB1561 /* CreateAccountEndpoint.swift in Sources */,
 				071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */,
 				073239282208A06E0034291C /* AnalyticsEvent.swift in Sources */,
+				AA3D214422CBDBE700228D0F /* TopLevelServiceResponse.swift in Sources */,
 				AAE9171122A73F7900490A30 /* AmazonService.swift in Sources */,
 				071B317722794F0B00DB1561 /* AccountProvider.swift in Sources */,
 				0754B60D21FF32E900E2DECD /* URLRequestFactory.swift in Sources */,
