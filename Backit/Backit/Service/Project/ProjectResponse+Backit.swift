@@ -70,7 +70,7 @@ extension ProjectResponse {
                 numEarlyBirdRewards: project.earlyBirdRewardCount ?? 0,
                 funded: project.funded ?? false,
                 numDaysLeft: daysLeft,
-                numVotes: 0
+                numVotes: project.votes ?? 0
             )
         }
     }
