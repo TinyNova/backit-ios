@@ -6,6 +6,8 @@
 
 "comment" = "Comentario";
 "comments(amount)" = "%@ comentarios";
+"earlyBirds(amount)" = "%@ early birds";
+"earlyBirds(amount)" = "%@ days left";
 "funded" =  "%@%% fundado";
 "loadingProjects" = "Loading projects, please wait...";
 "youreUpToDate" = "You're up to date!";

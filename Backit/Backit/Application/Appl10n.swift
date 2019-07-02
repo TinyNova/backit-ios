@@ -11,6 +11,8 @@ import Foundation
 enum Appl10n {
     case comment
     case comments(amount: Int)
+    case earlyBirds(amount: Int)
+    case daysLeft(amount: Int)
     case funded(amount: Int)
     case loadingProjects
     case loginToBackit
@@ -48,6 +50,10 @@ extension Appl10n: LocalizationType {
             return l(key: "comment")
         case .comments(let amount):
             return l(key: "comments(amount)", arguments: number(amount))
+        case .earlyBirds(let amount):
+            return l(key: "earlyBirds(amount)", arguments: number(amount))
+        case .daysLeft(let amount):
+            return l(key: "daysLeft(amount)", arguments: number(amount))
         case .funded(let amount):
             return l(key: "funded", arguments: number(amount))
         case .loadingProjects:

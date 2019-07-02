@@ -15,41 +15,49 @@ struct ProjectsEndpoint: ServiceEndpoint {
      - More project images?
      */
     
-    /**
-     Image extension info:
-     p = portrait
-     t = thumb
-     c = card
-     */
     struct ProjectImages: Decodable {
-        let p: String
-        let t: String
-        let c: String
+        let project: String?
+        let thumbnail: String?
+        let card: String?
+    }
+    struct Creator: Decodable {
+        let creatorId: Int?
+        let name: String?
     }
     struct Project: Decodable {
-        let projectId: String
-        let site: String
-        let externalId: String
-        let url: String
-        let internalUrl: String
-        let slug: String
-        let country: String
-        let category: String
-        let subCategory: String?
-        let currency: String
-        let name: String
-        let goal: String
-        let pledged: String
-        let backerCount: String
-        let blurb: String
-        let image: ProjectImages
+        let projectId: Int?
+        let site: String?
+        let name: String?
+        let blurb: String?
+        let url: String? // URL to external site
+        let internalUrl: String?
+        let creator: Creator?
+        let image: ProjectImages?
+        let backerCount: Int?
+        let country: String?
+        let category: String?
+        let language: String?
+        let funding: Bool?
+        let funded: Bool?
         let video: String?
-        let visible: Bool
-        let funding: Bool
-        let hasEarlyBirdRewards: Bool
+        let visible: Bool?
+        let votes: Int?
+        let earlyBirdRewardCount: Int?
+        let goal: Int?
+        let pledged: Int?
+        let fundStart: String?
+        let fundEnd: String?
+        let createdAt: String?
+        let updatedAt: String?
     }
-    
+    struct Sort: Decodable {
+        let relevance: String
+    }
     struct ResponseType: Decodable {
+//        let total: Int
+//        let offset: Int
+//        let limit: Int
+//        let sort: Sort
         let projects: [ProjectsEndpoint.Project]
     }
     
@@ -88,7 +96,7 @@ struct ProjectsEndpoint: ServiceEndpoint {
         
     var type: ServiceRequestType = .get
     var endpoints: Endpoints = [
-        .qa: "https://collect.backit.com/projects"
+        .qa: "https://api.qabackit.com/projects"
     ]
     var queryParameters: [QueryParameter]?
     

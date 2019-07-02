@@ -5,20 +5,27 @@
 
 import Foundation
 
+private func url(for string: String?) -> URL? {
+    guard let string = string else {
+        return nil
+    }
+    return URL(string: string)
+}
+
 extension ProjectResponse {
     init(from response: ProjectsEndpoint.ResponseType, cursor: Int) {
         self.cursor = cursor
         self.projects = response.projects.map { (project) -> Project in
             // FIXME: This should be an image local to the project
             var imageURL: URL = URL(string: "http://placekitten.com/200/300")!
-            if let thumbnailURL = URL(string: project.image.t) {
+            if let thumbnailURL = url(for: project.image?.thumbnail) {
                 imageURL = thumbnailURL
             }
-            let goal = Int(project.goal) ?? 0
-            let pledged = Int(project.pledged) ?? 0
+            let goal = project.goal
+            let pledged = project.pledged
             
             let source: ProjectSource
-            switch project.site.lowercased() {
+            switch project.site?.lowercased() {
             case "kickstarter":
                 source = .kickstarter
             case "indiegogo":
@@ -28,19 +35,21 @@ extension ProjectResponse {
             }
             
             return Project(
-                id: Int(project.projectId) ?? 0,
+                id: project.projectId ?? 0,
                 source: source,
-                slug: project.slug,
-                url: URL(string: project.url),
-                name: project.name,
-                goal: goal,
-                pledged: pledged,
-                numBackers: Int(project.backerCount) ?? 0,
+                externalUrl: url(for: project.url),
+                internalUrl: url(for: project.internalUrl),
+                name: project.name ?? "",
+                goal: goal ?? 0,
+                pledged: pledged ?? 0,
+                numBackers: project.backerCount ?? 0,
                 imageURLs: [imageURL],
                 videoPreviewURL: nil,
-                videoURL: URL(string: project.url),
-                hasEarlyBirdRewards: project.hasEarlyBirdRewards,
-                funded: pledged > 0 && pledged >= goal
+                videoURL: url(for: project.url),
+                numEarlyBirdRewards: project.earlyBirdRewardCount ?? 0,
+                funded: project.funded ?? false,
+                numDaysLeft: 0,
+                numVotes: 0
             )
         }
     }

@@ -45,7 +45,7 @@ class ProjectService: ProjectProvider {
             .limit(limit)
         ])
         return service.request(request)
-            .map { response -> ProjectResponse in
+            .map { (response) -> ProjectResponse in
                 return ProjectResponse(from: response, cursor: nextCursor)
             }
             .mapError { error -> ProjectProviderError in

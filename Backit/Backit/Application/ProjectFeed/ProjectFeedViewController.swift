@@ -293,7 +293,7 @@ extension ProjectFeedViewController: ProjectTableViewCellDelegate {
     
     func didTapShare(_ project: FeedProject, from view: UIView) {
         guard let project = project.context as? Project,
-              let url = project.backitUrl else {
+              let url = project.internalUrl else {
             // TODO: Display an error
             return log.e("There is no Backit URL to share")
         }

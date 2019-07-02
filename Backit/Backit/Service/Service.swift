@@ -134,6 +134,7 @@ class Service {
                         guard let data = result.data else {
                             return promise.failure(.emptyResponse)
                         }
+                        prettyPrint(data)
                         if let decoder = endpoint.decoder {
                             return promise.success(decoder(data))
                         }
@@ -141,11 +142,15 @@ class Service {
                         if let data = data as? T.ResponseType, data is Data {
                             return promise.success(data)
                         }
-                        guard let decodedResponse = try? decoder.decode(T.ResponseType.self, from: data) else {
-                            return promise.failure(.failedToDecode)
+                        do {
+                            let decodedResponse = try decoder.decode(T.ResponseType.self, from: data)
+                            promise.success(decodedResponse)
+
                         }
-                        
-                        promise.success(decodedResponse)
+                        catch {
+                            print(error)
+                            promise.failure(.failedToDecode)
+                        }
                     }
                 }
                 

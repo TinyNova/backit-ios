@@ -143,10 +143,11 @@ class ProjectTableViewCell: UITableViewCell {
             
             let fundedPercent = Int(project.fundedPercent * 100)
             percentFundedLabel.text = i18n.t(.funded(amount: fundedPercent))
-            earlyBirdLabel.text = "XX early birds"
-            daysLeftLabel.text = "XX days left"
+            earlyBirdLabel.text = i18n.t(.earlyBirds(amount: project.numEarlyBirdRewards))
+            daysLeftLabel.text = i18n.t(.daysLeft(amount: project.numDaysLeft))
             
-            totalVotesLabel.text = "XX.XXk"
+            // TODO: condense > 1k `XX.XXk`
+            totalVotesLabel.text = String(project.numVotes)
             switch project.comment {
             case .comment:
                 totalCommentsLabel.text = i18n.t(.comment)

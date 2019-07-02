@@ -23,7 +23,9 @@ struct FeedProject {
     let name: String
     let numberOfBackers: Int
     let comment: ProjectComment
-    let isEarlyBird: Bool
+    let numEarlyBirdRewards: Int
     let fundedPercent: Float
     let commentCount: Future<Int, Error>
+    let numDaysLeft: Int
+    let numVotes: Int
 }

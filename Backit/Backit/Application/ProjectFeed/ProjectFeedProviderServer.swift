@@ -138,9 +138,11 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
             name: project.name,
             numberOfBackers: project.numBackers,
             comment: .comment,
-            isEarlyBird: project.hasEarlyBirdRewards,
+            numEarlyBirdRewards: project.numEarlyBirdRewards,
             fundedPercent: fundedPercent,
-            commentCount: future
+            commentCount: future,
+            numDaysLeft: project.numDaysLeft,
+            numVotes: project.numVotes
         )
     }
     

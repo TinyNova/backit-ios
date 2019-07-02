@@ -22,7 +22,7 @@ class ProjectDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         guard let project = context as? Project,
-              let url = project.backitUrl else {
+              let url = project.internalUrl else {
             return log.e("Could not get project URL at backit.com")
         }
         
