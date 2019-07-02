@@ -12,7 +12,17 @@ private func url(for string: String?) -> URL? {
     return URL(string: string)
 }
 
+
 extension ProjectResponse {
+    
+    static private var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        // "2019-04-23T19:00:05.000Z"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateFormatter
+    }()
+    
     init(from response: ProjectsEndpoint.ResponseType, cursor: Int) {
         self.cursor = cursor
         self.projects = response.projects.map { (project) -> Project in
@@ -34,6 +44,17 @@ extension ProjectResponse {
                 source = .unknown
             }
             
+            let dateFormatter = ProjectResponse.dateFormatter
+            var daysLeft: Int = 0
+            if let fundEnd = project.fundEnd,
+               let fundingEndDate = dateFormatter.date(from: fundEnd) {
+                let calendar = NSCalendar.current
+                let components = calendar.dateComponents([.day], from: Date(), to: fundingEndDate)
+                if let day = components.day, day > -1 {
+                    daysLeft = day
+                }
+            }
+            
             return Project(
                 id: project.projectId ?? 0,
                 source: source,
@@ -48,7 +69,7 @@ extension ProjectResponse {
                 videoURL: url(for: project.url),
                 numEarlyBirdRewards: project.earlyBirdRewardCount ?? 0,
                 funded: project.funded ?? false,
-                numDaysLeft: 0,
+                numDaysLeft: daysLeft,
                 numVotes: 0
             )
         }

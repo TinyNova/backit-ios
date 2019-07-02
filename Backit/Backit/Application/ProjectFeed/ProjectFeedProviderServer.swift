@@ -122,9 +122,11 @@ class ProjectFeedProviderServer: ProjectFeedProvider {
             assets.append(.video(previewURL: previewURL, videoURL: videoURL))
         }
         
-        let fundedPercent = project.pledged > 0
+        var fundedPercent = project.pledged > 0
             ? Float(project.pledged) / Float(project.goal)
             : 0
+        // clamp to 100%
+        fundedPercent = fundedPercent > 1 ? 1 : fundedPercent
         
         let future = commentsFuture.flatMap { (response) -> Future<Int, Error> in
             let count = response[project.id] ?? 0
