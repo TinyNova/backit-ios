@@ -131,6 +131,11 @@
 		07FBAD35228A39D2009E5189 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD34228A39D2009E5189 /* TabBarController.swift */; };
 		07FBAD37228B615C009E5189 /* UITabBarItem+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBAD36228B615C009E5189 /* UITabBarItem+Backit.swift */; };
 		24996010E901858F46A105AA /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38443BD7B9543AB4810C699 /* Pods_BackitTests.framework */; };
+		AA00861C22CCFF8F000B0580 /* ProjectFeedCompositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00861B22CCFF8F000B0580 /* ProjectFeedCompositionService.swift */; };
+		AA00861F22CD0330000B0580 /* ProjectVoteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00861E22CD0330000B0580 /* ProjectVoteProvider.swift */; };
+		AA00862222CD0368000B0580 /* ProjectFeedCompositionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00862122CD0368000B0580 /* ProjectFeedCompositionProvider.swift */; };
+		AA00862422CD03CB000B0580 /* ProjectVoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00862322CD03CB000B0580 /* ProjectVoteService.swift */; };
+		AA00862722CD0428000B0580 /* ProjectFeedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00862622CD0428000B0580 /* ProjectFeedProvider.swift */; };
 		AA0FD38422AC387E007DEEB6 /* RecoverPasswordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */; };
 		AA0FD38622B08206007DEEB6 /* FacebookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0FD38522B08206007DEEB6 /* FacebookProvider.swift */; };
 		AA0FD38822B08258007DEEB6 /* AppFacebookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0FD38722B08258007DEEB6 /* AppFacebookProvider.swift */; };
@@ -174,7 +179,7 @@
 		B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */; };
 		B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */; };
 		B9A8E66A228BD520003CF94B /* UIFont+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8E669228BD520003CF94B /* UIFont+Backit.swift */; };
-		B9F827A12287D30D009D6220 /* ProjectFeedServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A02287D30D009D6220 /* ProjectFeedServer.swift */; };
+		B9F827A12287D30D009D6220 /* ProjectFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A02287D30D009D6220 /* ProjectFeedService.swift */; };
 		B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */; };
 		B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */; };
 		B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */; };
@@ -329,6 +334,11 @@
 		7F2B6739E553A343CD9CA6F2 /* Pods_Backit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891985785F12EE1898FB7718 /* Pods-Backit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Backit/Pods-Backit.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9D58A8F66DA53B79EE7A18 /* Pods-BackitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackitUITests/Pods-BackitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AA00861B22CCFF8F000B0580 /* ProjectFeedCompositionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedCompositionService.swift; sourceTree = "<group>"; };
+		AA00861E22CD0330000B0580 /* ProjectVoteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectVoteProvider.swift; sourceTree = "<group>"; };
+		AA00862122CD0368000B0580 /* ProjectFeedCompositionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedCompositionProvider.swift; sourceTree = "<group>"; };
+		AA00862322CD03CB000B0580 /* ProjectVoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectVoteService.swift; sourceTree = "<group>"; };
+		AA00862622CD0428000B0580 /* ProjectFeedProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedProvider.swift; sourceTree = "<group>"; };
 		AA0FD38322AC387E007DEEB6 /* RecoverPasswordEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordEndpoint.swift; sourceTree = "<group>"; };
 		AA0FD38522B08206007DEEB6 /* FacebookProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookProvider.swift; sourceTree = "<group>"; };
 		AA0FD38722B08258007DEEB6 /* AppFacebookProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFacebookProvider.swift; sourceTree = "<group>"; };
@@ -371,7 +381,7 @@
 		B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
 		B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
 		B9A8E669228BD520003CF94B /* UIFont+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Backit.swift"; sourceTree = "<group>"; };
-		B9F827A02287D30D009D6220 /* ProjectFeedServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedServer.swift; sourceTree = "<group>"; };
+		B9F827A02287D30D009D6220 /* ProjectFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedService.swift; sourceTree = "<group>"; };
 		B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectFeedErrorView.xib; sourceTree = "<group>"; };
 		B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFeedErrorView.swift; sourceTree = "<group>"; };
 		B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignInProvider.swift; sourceTree = "<group>"; };
@@ -677,7 +687,6 @@
 				078BCA962253B047003A03CA /* ProjectFeedViewController.swift */,
 				078BCA9A2256D99A003A03CA /* ProjectTableViewCell.swift */,
 				078BCA982256D980003A03CA /* ProjectTableViewCell.xib */,
-				B9F827A02287D30D009D6220 /* ProjectFeedServer.swift */,
 				07B25B01228E0A1B002476D4 /* FeedProject.swift */,
 			);
 			path = ProjectFeed;
@@ -891,6 +900,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AA00861D22CD031B000B0580 /* ProjectVoteProvider */ = {
+			isa = PBXGroup;
+			children = (
+				AA00861E22CD0330000B0580 /* ProjectVoteProvider.swift */,
+				AA00862322CD03CB000B0580 /* ProjectVoteService.swift */,
+			);
+			path = ProjectVoteProvider;
+			sourceTree = "<group>";
+		};
+		AA00862022CD034D000B0580 /* ProjectFeedCompositionProvider */ = {
+			isa = PBXGroup;
+			children = (
+				AA00862122CD0368000B0580 /* ProjectFeedCompositionProvider.swift */,
+				AA00861B22CCFF8F000B0580 /* ProjectFeedCompositionService.swift */,
+			);
+			path = ProjectFeedCompositionProvider;
+			sourceTree = "<group>";
+		};
+		AA00862522CD0418000B0580 /* ProjectFeedProvider */ = {
+			isa = PBXGroup;
+			children = (
+				AA00862622CD0428000B0580 /* ProjectFeedProvider.swift */,
+				B9F827A02287D30D009D6220 /* ProjectFeedService.swift */,
+			);
+			path = ProjectFeedProvider;
+			sourceTree = "<group>";
+		};
 		AA3D210022CA3A3700228D0F /* Discussion */ = {
 			isa = PBXGroup;
 			children = (
@@ -913,6 +949,9 @@
 		AA5168D022B2EA4D00F79DC9 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				AA00862522CD0418000B0580 /* ProjectFeedProvider */,
+				AA00862022CD034D000B0580 /* ProjectFeedCompositionProvider */,
+				AA00861D22CD031B000B0580 /* ProjectVoteProvider */,
 				AA5168C722B2E93100F79DC9 /* PageProvider */,
 				073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */,
 				07820D6822BADD0100B44D86 /* AppBannerPresenterProvider.swift */,
@@ -1268,6 +1307,7 @@
 				AA5168CF22B2E9CE00F79DC9 /* AppPageProvider.swift in Sources */,
 				AA5168C922B2E93D00F79DC9 /* PageProvider.swift in Sources */,
 				075D4D312211CB6F006EFF37 /* FlagValueMaker.swift in Sources */,
+				AA00861F22CD0330000B0580 /* ProjectVoteProvider.swift in Sources */,
 				075D4D302211CB6F006EFF37 /* Flags.swift in Sources */,
 				0732391B22089B3E0034291C /* AnalyticsService.swift in Sources */,
 				077B1732227CE40E003D5B17 /* Errors.swift in Sources */,
@@ -1315,6 +1355,7 @@
 				076A8C4D22864BA80075B56C /* TestAppDelegate.swift in Sources */,
 				0700752F22936ED4005B9F28 /* UserStream.swift in Sources */,
 				0700753322937377005B9F28 /* UserService.swift in Sources */,
+				AA00862422CD03CB000B0580 /* ProjectVoteService.swift in Sources */,
 				AA30D78F22A596930084D3F3 /* AvatarTabBarItem.swift in Sources */,
 				AA5168C522B2E30400F79DC9 /* ExternalSignInProvider.swift in Sources */,
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
@@ -1365,16 +1406,19 @@
 				07820D6322BA689200B44D86 /* UserAvatarStreamer.swift in Sources */,
 				B9A72BF822AB0790006AA239 /* CreateAccountViewController.swift in Sources */,
 				07E3B40F223175CC00959808 /* UIView+Backit.swift in Sources */,
+				AA00862722CD0428000B0580 /* ProjectFeedProvider.swift in Sources */,
 				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
 				07FBAD35228A39D2009E5189 /* TabBarController.swift in Sources */,
 				071B317B22794FAB00DB1561 /* LoginEndpoint.swift in Sources */,
 				076A8C5122864BE50075B56C /* Application.swift in Sources */,
+				AA00862222CD0368000B0580 /* ProjectFeedCompositionProvider.swift in Sources */,
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
 				07792B95229B09B80023D56C /* CustomButton.swift in Sources */,
 				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
-				B9F827A12287D30D009D6220 /* ProjectFeedServer.swift in Sources */,
+				B9F827A12287D30D009D6220 /* ProjectFeedService.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
 				B9FB5986227FF97100A03BDC /* UserSessionStream.swift in Sources */,
+				AA00861C22CCFF8F000B0580 /* ProjectFeedCompositionService.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
 				07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */,
 				07D78EEE22BFF87D00FA0C3D /* BannerScene.swift in Sources */,

@@ -16,22 +16,6 @@ var ProjectImageSize: CGSize = .zero
 private let MainScreenSizeWidth = UIScreen.main.bounds.size.width
 private let iPhone5sImageSize = CGSize(width: MainScreenSizeWidth, height: 180.0)
 
-protocol ProjectFeedClient: class {
-    func didReceiveProjects(_ projects: [FeedProject])
-    func didReachEndOfProjects()
-    func didReceiveError(_ error: Error)
-}
-
-protocol ProjectFeedProvider {
-    var client: ProjectFeedClient? { get set }
-    
-    func loadProjects()
-    func didTapAsset(project: FeedProject)
-    func didTapBackit(project: FeedProject)
-    func didTapComment(project: FeedProject)
-    func didReachEndOfProjectList()
-}
-
 class ProjectFeedViewController: UIViewController {
     
     @IBOutlet weak var errorView: ProjectFeedErrorView! {

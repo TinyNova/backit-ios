@@ -140,13 +140,23 @@ class Assembly {
             return AnyUITheme<AppTheme>(theme: theme)
         }
         
+        container.register(ProjectVoteProvider.self) { resolver in
+            return ProjectVoteService()
+        }
+        
+        container.register(ProjectFeedCompositionProvider.self) { resolver in
+            let discussionProvider = resolver.resolve(DiscussionProvider.self)!
+            let voteProvider = resolver.resolve(ProjectVoteProvider.self)!
+            return ProjectFeedCompositionService(discussionProvider: discussionProvider, voteProvider: voteProvider)
+        }
+        
         container.register(ProjectFeedProvider.self) { resolver in
             let service = resolver.resolve(AnalyticsService.self)!
             let metrics: AnalyticsPublisher<MetricAnalyticsEvent> = service.publisher()
             
             let projectProvider = resolver.resolve(ProjectProvider.self)!
-            let discussionProvider = resolver.resolve(DiscussionProvider.self)!
-            return ProjectFeedServer(projectProvider: projectProvider, discussionProvider: discussionProvider, metrics: metrics)
+            let projectComposition = resolver.resolve(ProjectFeedCompositionProvider.self)!
+            return ProjectFeedService(projectProvider: projectProvider, projectComposition: projectComposition, metrics: metrics)
         }
         
         container.register(UIThemeApplier<AppTheme>.self) { resolver in
