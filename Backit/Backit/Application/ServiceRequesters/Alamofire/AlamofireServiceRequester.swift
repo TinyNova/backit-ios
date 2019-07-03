@@ -19,14 +19,31 @@ extension ServiceResult {
 class AlamofireServiceRequester: ServiceRequester {
     
     let sessionManager: SessionManager
+    let future: Future<IgnorableValue, NoError>
+    let exclusions: [String]
     
-    init(sessionManager: SessionManager) {
+    init(sessionManager: SessionManager, start future: Future<IgnorableValue, NoError>, exclude endpoints: [String]) {
         self.sessionManager = sessionManager
+        self.future = future
+        self.exclusions = endpoints
     }
     
     func request(_ urlRequest: URLRequest, callback: @escaping (ServiceResult) -> Void) {
-        sessionManager.request(urlRequest).responseData { (response) in
-            callback(ServiceResult.make(from: response))
+        if let url = urlRequest.url, exclusions.contains(url.absoluteString) {
+            sessionManager.request(urlRequest).responseData { (response) in
+                callback(ServiceResult.make(from: response))
+            }
+            return
+        }
+
+        future.onSuccess { [weak self] _ in
+            guard let sself = self else {
+                log.c("Failed to get strong self for AlamofireServiceRequester - no calls can be made")
+                return
+            }
+            sself.sessionManager.request(urlRequest).responseData { (response) in
+                callback(ServiceResult.make(from: response))
+            }
         }
     }
 }

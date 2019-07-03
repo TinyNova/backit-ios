@@ -3,6 +3,7 @@
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
+import BrightFutures
 import Foundation
 //import Mixpanel
 import Swinject
@@ -22,7 +23,9 @@ private enum Config {
 }
 
 class Assembly {
-    
+
+    static let AppStartPromise = "AppInitializePromise"
+
     let container: Container = SwinjectStoryboard.defaultContainer
     
     init() {
@@ -33,15 +36,25 @@ class Assembly {
         container.register(URLSession.self) { _ in
             return URLSession(configuration: URLSessionConfiguration.default)
         }
-        
-        container.register(ServiceRequester.self) { _ in
+
+        container.register(Promise<IgnorableValue, NoError>.self, name: Assembly.AppStartPromise) { resolver in
+            return Promise<IgnorableValue, NoError>()
+        }
+
+        container.register(ServiceRequester.self) { resolver in
+            let promise = resolver.resolve(Promise<IgnorableValue, NoError>.self, name: Assembly.AppStartPromise)!
+
+            let exclude: [String] = [
+                RefreshTokenEndpoint(postBody: []).endpoints[Config.environment] ?? ""
+            ]
+
             if Config.environment == .dev {
                 let sessionManager = AlamofireSessionManagerFactory.makeDevelopment()
-                return AlamofireServiceRequester(sessionManager: sessionManager)
+                return AlamofireServiceRequester(sessionManager: sessionManager, start: promise.future, exclude: exclude)
             }
             
             let sessionManager = AlamofireSessionManagerFactory.makeProduction()
-            return AlamofireServiceRequester(sessionManager: sessionManager)
+            return AlamofireServiceRequester(sessionManager: sessionManager, start: promise.future, exclude: exclude)
         }
         
         container.register(UserSessionStreamer.self) { resolver in
