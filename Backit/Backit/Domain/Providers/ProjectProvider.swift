@@ -37,4 +37,14 @@ protocol ProjectProvider {
      Get the most popular projects which are currently funding.
      */
     func popularProjects(offset: Any?, limit: Int) -> Future<ProjectResponse, ProjectProviderError>
+    
+    /**
+     Up vote a project.
+     */
+    func upVote(project: Project) -> Future<IgnorableValue, ProjectProviderError>
+    
+    /**
+     Remove a vote from a project.
+     */
+    func removeVote(from project: Project) -> Future<IgnorableValue, ProjectProviderError>
 }
