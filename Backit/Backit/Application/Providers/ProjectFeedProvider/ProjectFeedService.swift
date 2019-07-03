@@ -11,8 +11,8 @@ class ProjectFeedService: ProjectFeedProvider {
     private let projectProvider: ProjectProvider
     private let projectComposition: ProjectFeedCompositionProvider
     private let metrics: AnalyticsPublisher<MetricAnalyticsEvent>
-    private let database: DatabaseProvider
-    
+    private let voteProvider: ProjectVoteProvider
+
     weak var client: ProjectFeedClient?
     
     private var user: User?
@@ -26,11 +26,11 @@ class ProjectFeedService: ProjectFeedProvider {
     }
     private var queryState: QueryState = .notLoaded
     
-    init(projectProvider: ProjectProvider, projectComposition: ProjectFeedCompositionProvider,  metrics: AnalyticsPublisher<MetricAnalyticsEvent>, userStream: UserStreamer, database: DatabaseProvider) {
+    init(projectProvider: ProjectProvider, projectComposition: ProjectFeedCompositionProvider,  metrics: AnalyticsPublisher<MetricAnalyticsEvent>, userStream: UserStreamer, voteProvider: ProjectVoteProvider) {
         self.projectProvider = projectProvider
         self.projectComposition = projectComposition
         self.metrics = metrics
-        self.database = database
+        self.voteProvider = voteProvider
         
         // TODO: Do not send a request until the app has finished loading
         userStream.listen(self)
@@ -60,9 +60,9 @@ class ProjectFeedService: ProjectFeedProvider {
         
         switch action {
         case .add:
-            _ = database.didVoteForProject(project: project)
+            _ = voteProvider.voteFor(project: project)
         case .remove:
-            _ = database.removeVoteFromProject(project: project)
+            _ = voteProvider.removeVoteFor(project: project)
         }
     }
     

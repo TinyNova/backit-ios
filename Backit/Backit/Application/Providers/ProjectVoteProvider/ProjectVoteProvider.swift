@@ -13,5 +13,6 @@ enum ProjectVoteProviderError: Error {
 
 protocol ProjectVoteProvider {
     func votedFor(project: Project) -> Future<Bool, NoError>
-    func voteFor(project: Project) -> Future<IgnorableValue, ProjectVoteProviderError>
+    func voteFor(project: Project) -> Future<IgnorableValue, NoError>
+    func removeVoteFor(project: Project) -> Future<IgnorableValue, NoError>
 }

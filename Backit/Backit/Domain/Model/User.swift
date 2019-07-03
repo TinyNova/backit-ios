@@ -5,7 +5,10 @@
 
 import Foundation
 
+typealias UserId = String
+
 struct User {
+    let id: UserId
     let avatarUrl: URL?
     let username: String
 }

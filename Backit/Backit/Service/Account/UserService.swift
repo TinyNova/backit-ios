@@ -25,7 +25,7 @@ class UserService: UserProvider {
                 guard response.message == nil else {
                     return Future(error: .notLoggedIn)
                 }
-                return Future(value: User(avatarUrl: response.avatar, username: response.userName))
+                return Future(value: User(id: response.accountId, avatarUrl: response.avatar, username: response.userName))
             }
     }
 }

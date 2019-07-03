@@ -11,10 +11,10 @@ target 'Backit' do
     pod 'FMDB'
     pod 'GoogleSignIn'
     pod 'KeychainAccess'
-#    pod 'Mixpanel'
+#   pod 'Mixpanel'
     pod 'NewRelicAgent'
     pod 'SDWebImage'
-    pod 'SwiftProtobuf'
+#   pod 'SwiftProtobuf'
     pod 'Swinject'
     pod 'SwinjectStoryboard', '~> 2.2.0'
 end

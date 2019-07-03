@@ -6,7 +6,7 @@
 import Foundation
 
 protocol DatabaseProvider {
-    func didVoteForProject(project: Project) -> Bool
-    func voteForProject(project: Project) -> Bool
-    func removeVoteFromProject(project: Project) -> Bool
+    func didVoteForProject(_ project: Project) -> Bool
+    func voteForProject(_ project: Project)
+    func removeVoteFromProject(_ project: Project)
 }

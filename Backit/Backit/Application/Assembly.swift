@@ -164,8 +164,8 @@ class Assembly {
 
             let projectProvider = resolver.resolve(ProjectProvider.self)!
             let projectComposition = resolver.resolve(ProjectFeedCompositionProvider.self)!
-            let database = resolver.resolve(DatabaseProvider.self)!
-            return ProjectFeedService(projectProvider: projectProvider, projectComposition: projectComposition, metrics: metrics, userStream: userStream, database: database)
+            let voteProvider = resolver.resolve(ProjectVoteProvider.self)!
+            return ProjectFeedService(projectProvider: projectProvider, projectComposition: projectComposition, metrics: metrics, userStream: userStream, voteProvider: voteProvider)
         }
         
         container.register(UIThemeApplier<AppTheme>.self) { resolver in

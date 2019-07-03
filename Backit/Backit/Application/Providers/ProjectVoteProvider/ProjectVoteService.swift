@@ -22,13 +22,19 @@ class ProjectVoteService: ProjectVoteProvider {
             guard let sself = self else {
                 return promise.success(false)
             }
-            let didVote = sself.database.didVoteForProject(project: project)
+            let didVote = sself.database.didVoteForProject(project)
             promise.success(didVote)
         }
         return promise.future
     }
     
-    func voteFor(project: Project) -> Future<IgnorableValue, ProjectVoteProviderError> {
-        return Future(error: .generic(NotImplementedError()))
+    func voteFor(project: Project) -> Future<IgnorableValue, NoError> {
+        database.voteForProject(project)
+        return Future(value: IgnorableValue())
+    }
+    
+    func removeVoteFor(project: Project) -> Future<IgnorableValue, NoError> {
+        database.removeVoteFromProject(project)
+        return Future(value: IgnorableValue())
     }
 }
