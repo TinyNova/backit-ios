@@ -6,7 +6,7 @@
 import BrightFutures
 import Foundation
 
-class ProjectFeedProviderServer: ProjectFeedProvider {
+class ProjectFeedServer: ProjectFeedProvider {
     
     let projectProvider: ProjectProvider
     let discussionProvider: DiscussionProvider

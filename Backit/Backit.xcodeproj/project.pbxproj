@@ -174,7 +174,7 @@
 		B9A8E667228BD4CF003CF94B /* Acumin Pro - Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */; };
 		B9A8E668228BD4CF003CF94B /* Acumin Pro - Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */; };
 		B9A8E66A228BD520003CF94B /* UIFont+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8E669228BD520003CF94B /* UIFont+Backit.swift */; };
-		B9F827A12287D30D009D6220 /* ProjectFeedProviderServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A02287D30D009D6220 /* ProjectFeedProviderServer.swift */; };
+		B9F827A12287D30D009D6220 /* ProjectFeedServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A02287D30D009D6220 /* ProjectFeedServer.swift */; };
 		B9F827A52287D58B009D6220 /* ProjectFeedErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */; };
 		B9F827A62287D58B009D6220 /* ProjectFeedErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */; };
 		B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */; };
@@ -371,7 +371,7 @@
 		B9A8E664228BD4CF003CF94B /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
 		B9A8E665228BD4CF003CF94B /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
 		B9A8E669228BD520003CF94B /* UIFont+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Backit.swift"; sourceTree = "<group>"; };
-		B9F827A02287D30D009D6220 /* ProjectFeedProviderServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedProviderServer.swift; sourceTree = "<group>"; };
+		B9F827A02287D30D009D6220 /* ProjectFeedServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedServer.swift; sourceTree = "<group>"; };
 		B9F827A32287D58B009D6220 /* ProjectFeedErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectFeedErrorView.xib; sourceTree = "<group>"; };
 		B9F827A42287D58B009D6220 /* ProjectFeedErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFeedErrorView.swift; sourceTree = "<group>"; };
 		B9FB4213227D4F3D009F9900 /* AppSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignInProvider.swift; sourceTree = "<group>"; };
@@ -677,7 +677,7 @@
 				078BCA962253B047003A03CA /* ProjectFeedViewController.swift */,
 				078BCA9A2256D99A003A03CA /* ProjectTableViewCell.swift */,
 				078BCA982256D980003A03CA /* ProjectTableViewCell.xib */,
-				B9F827A02287D30D009D6220 /* ProjectFeedProviderServer.swift */,
+				B9F827A02287D30D009D6220 /* ProjectFeedServer.swift */,
 				07B25B01228E0A1B002476D4 /* FeedProject.swift */,
 			);
 			path = ProjectFeed;
@@ -1372,7 +1372,7 @@
 				07EC61FC21D6EF4800FE283C /* ViewIdentifiable.swift in Sources */,
 				07792B95229B09B80023D56C /* CustomButton.swift in Sources */,
 				07862CA5220B6C9F00C666E7 /* NewRelicAnalyticsListener.swift in Sources */,
-				B9F827A12287D30D009D6220 /* ProjectFeedProviderServer.swift in Sources */,
+				B9F827A12287D30D009D6220 /* ProjectFeedServer.swift in Sources */,
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
 				B9FB5986227FF97100A03BDC /* UserSessionStream.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
