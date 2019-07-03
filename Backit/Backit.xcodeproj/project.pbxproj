@@ -172,6 +172,7 @@
 		B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C52285B72000C06087 /* ProjectImageCell.xib */; };
 		B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */; };
 		B900A07322CD4A12002A78F0 /* GuestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900A07222CD4A12002A78F0 /* GuestUser.swift */; };
+		B900A07622CD4E44002A78F0 /* UpVoteProjectEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900A07522CD4E44002A78F0 /* UpVoteProjectEndpoint.swift */; };
 		B905785F229A574600AD09C6 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905785E229A574600AD09C6 /* TextButton.swift */; };
 		B9057861229A575400AD09C6 /* TextButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9057860229A575400AD09C6 /* TextButton.xib */; };
 		B928626E22AB28560093FDAB /* CreateAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B928626D22AB28560093FDAB /* CreateAccountViewController.storyboard */; };
@@ -377,6 +378,7 @@
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
 		B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageAnimatedCell.xib; sourceTree = "<group>"; };
 		B900A07222CD4A12002A78F0 /* GuestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestUser.swift; sourceTree = "<group>"; };
+		B900A07522CD4E44002A78F0 /* UpVoteProjectEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpVoteProjectEndpoint.swift; sourceTree = "<group>"; };
 		B905785E229A574600AD09C6 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		B9057860229A575400AD09C6 /* TextButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextButton.xib; sourceTree = "<group>"; };
 		B928626D22AB28560093FDAB /* CreateAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccountViewController.storyboard; sourceTree = "<group>"; };
@@ -611,7 +613,7 @@
 		0754B60721FC0FA400E2DECD /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				0754B5FC21FA64CB00E2DECD /* ProjectsEndpoint.swift */,
+				B900A07422CD4E2F002A78F0 /* Endpoints */,
 				0754B5F921FA60B500E2DECD /* ProjectResponse+Backit.swift */,
 				0754B5F021F625DC00E2DECD /* ProjectService.swift */,
 			);
@@ -1014,6 +1016,15 @@
 			path = ImageCarousel;
 			sourceTree = "<group>";
 		};
+		B900A07422CD4E2F002A78F0 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				0754B5FC21FA64CB00E2DECD /* ProjectsEndpoint.swift */,
+				B900A07522CD4E44002A78F0 /* UpVoteProjectEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		B905785B229A56D400AD09C6 /* SecondaryButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1380,6 +1391,7 @@
 				07EC61EE21D6ECD300FE283C /* Assembly.swift in Sources */,
 				B9A8E66A228BD520003CF94B /* UIFont+Backit.swift in Sources */,
 				0754B66D2200E9BF00E2DECD /* with.swift in Sources */,
+				B900A07622CD4E44002A78F0 /* UpVoteProjectEndpoint.swift in Sources */,
 				AA0FD38822B08258007DEEB6 /* AppFacebookProvider.swift in Sources */,
 				B9FB4214227D4F3D009F9900 /* AppSignInProvider.swift in Sources */,
 				0717397F21E57AAD00EA17DC /* UIStackView+Backit.swift in Sources */,

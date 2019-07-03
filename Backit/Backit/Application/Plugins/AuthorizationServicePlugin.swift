@@ -36,7 +36,7 @@ class AuthorizationServicePlugin: ServicePlugin {
     func willSendRequest(_ request: URLRequest) -> Future<URLRequest, ServicePluginError> {
         let promise = Promise<URLRequest, ServicePluginError>()
 
-        // Login, if the user has not yet logged in.
+        // Login if the user has not yet logged in.
         guard let token = sessionStream.token else {
             signInProvider.login()
                 .onSuccess { [weak self] (userSession) in

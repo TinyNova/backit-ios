@@ -61,8 +61,9 @@ class Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(KeychainProvider.self) { _ in
-            return AppKeychainProvider()
+        container.register(KeychainProvider.self) { resolver in
+            let dispatchQueue = resolver.resolve(DispatchQueue.self)!
+            return AppKeychainProvider(dispatchQueue: dispatchQueue)
         }
         
         container.register(SignInProvider.self) { resolver in

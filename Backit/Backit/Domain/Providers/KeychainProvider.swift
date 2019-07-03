@@ -10,8 +10,9 @@ enum KeychainProviderError: Error {
     case unknown(Error)
     case credentialsCorrupted
     case credentialsNotProvided
-    case failedToEncodeCredentials
-    case failedToDecodeCredentials
+    case failedToEncode
+    case failedToDecode
+    case noStoredCredentials
 }
 
 protocol KeychainProvider {

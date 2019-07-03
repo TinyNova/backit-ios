@@ -47,7 +47,7 @@ class AppDatabaseProvider: DatabaseProvider {
     func voteForProject(_ project: Project) {
         let exists = likes[project.id] ?? false
         guard !exists else {
-            return log.i("Will not create like - project exists")
+            return log.i("Will not like - like already exists")
         }
         
         guard let database = database else {
@@ -56,7 +56,7 @@ class AppDatabaseProvider: DatabaseProvider {
         
         likes[project.id] = true
 
-        let statement = "INSERT TABLE likes VALUES (project_id) VALUES (?);"
+        let statement = "INSERT INTO likes (project_id) VALUES (?);"
         do {
             try database.executeUpdate(statement, values: [project.id])
             log.i("Created like for project \(project.id)")
@@ -69,7 +69,7 @@ class AppDatabaseProvider: DatabaseProvider {
     func removeVoteFromProject(_ project: Project) {
         let exists = likes[project.id] ?? false
         guard exists else {
-            return log.i("Will not delete like - project does not exist")
+            return log.i("Will not delete - like does not exist")
         }
         
         guard let database = database else {

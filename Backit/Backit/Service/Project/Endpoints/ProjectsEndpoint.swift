@@ -8,10 +8,8 @@ import Foundation
 struct ProjectsEndpoint: ServiceEndpoint {
     
     /**
-     Needed:
-     - Comments (number of comments)
-     - Video Preview URL
-     - Video URL (can I use `video`?)
+     TODO:
+     - Video URL (Is `video` what should be used for the preview?)
      - More project images?
      */
     

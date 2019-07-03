@@ -83,9 +83,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     .onFailure { (error) in
                         keychainProvider.removeAll().onComplete { _ in
-                            log.i("Removed credentials")
+                            log.i("Removed credentials \(error)")
+                        }
                     }
-                }
             }
             .onFailure { error in
                 return log.i("Failed to get session. Skipping silent reauthentication.")
