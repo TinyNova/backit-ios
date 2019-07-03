@@ -52,4 +52,12 @@ class ProjectService: ProjectProvider {
                 return .generic(error)
             }
     }
+
+    func upVote(project: Project) -> Future<IgnorableValue, ProjectProviderError> {
+        return Future(error: .generic(NotImplementedError()))
+    }
+
+    func removeVote(from project: Project) -> Future<IgnorableValue, ProjectProviderError> {
+        return Future(error: .generic(NotImplementedError()))
+    }
 }

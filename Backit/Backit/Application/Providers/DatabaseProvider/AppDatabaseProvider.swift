@@ -14,26 +14,6 @@
 import Foundation
 import FMDB
 
-private typealias GuestUser = User
-
-private enum Constant {
-    static let guestId = "com.backit.backers.user.guest"
-}
-
-extension User {
-    init() {
-        self.id = Constant.guestId
-        self.avatarUrl = nil
-        self.username = "Guest"
-    }
-}
-
-extension User {
-    var isGuest: Bool {
-        return id == Constant.guestId
-    }
-}
-
 class AppDatabaseProvider: DatabaseProvider {
     
     private var database: FMDatabase?
@@ -50,16 +30,16 @@ class AppDatabaseProvider: DatabaseProvider {
         return url
     }
 
-    init(userStream: UserStreamer) {
-        userStream.listen(self)
-    }
-    
     deinit {
         database?.close()
     }
-    
-    // TODO: Make sure all create/delete of a "like", attempts to re-upload in the event of a failure. The operation _may_ happen many times. Cancel the operation appropriately.
-    
+
+    func load(for user: User) {
+        self.user = user
+        createDatabaseIfNeeded()
+        cacheLikes()
+    }
+
     func didVoteForProject(_ project: Project) -> Bool {
         return likes[project.id] ?? false
     }
@@ -156,14 +136,5 @@ class AppDatabaseProvider: DatabaseProvider {
         catch {
             log.e(error)
         }
-    }
-}
-
-extension AppDatabaseProvider: UserStreamListener {
-    func didChangeUser(_ user: User?) {
-        self.user = user ?? GuestUser()
-        createDatabaseIfNeeded()
-        synchronizeLikes()
-        cacheLikes()
     }
 }

@@ -6,6 +6,7 @@
 import Foundation
 
 protocol DatabaseProvider {
+    func load(for user: User)
     func didVoteForProject(_ project: Project) -> Bool
     func voteForProject(_ project: Project)
     func removeVoteFromProject(_ project: Project)

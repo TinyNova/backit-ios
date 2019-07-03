@@ -141,14 +141,14 @@ class Assembly {
         }
         
         container.register(DatabaseProvider.self) { resolver in
-            let userStream = resolver.resolve(UserStreamer.self)!
-            return AppDatabaseProvider(userStream: userStream)
+            return AppDatabaseProvider()
         }
         
         container.register(ProjectVoteProvider.self) { resolver in
-            let queue = resolver.resolve(DispatchQueue.self)!
             let database = resolver.resolve(DatabaseProvider.self)!
-            return ProjectVoteService(queue: queue, database: database)
+            let projectProvider = resolver.resolve(ProjectProvider.self)!
+            let userStream = resolver.resolve(UserStreamer.self)!
+            return ProjectVoteService(database: database, projectProvider: projectProvider, userStream: userStream)
         }
         
         container.register(ProjectFeedCompositionProvider.self) { resolver in

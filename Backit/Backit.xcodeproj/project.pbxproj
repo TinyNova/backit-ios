@@ -171,6 +171,7 @@
 		B90054C42285B61900C06087 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */; };
 		B90054C72285B72000C06087 /* ProjectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C52285B72000C06087 /* ProjectImageCell.xib */; };
 		B90054C82285B72000C06087 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */; };
+		B900A07322CD4A12002A78F0 /* GuestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900A07222CD4A12002A78F0 /* GuestUser.swift */; };
 		B905785F229A574600AD09C6 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905785E229A574600AD09C6 /* TextButton.swift */; };
 		B9057861229A575400AD09C6 /* TextButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9057860229A575400AD09C6 /* TextButton.xib */; };
 		B928626E22AB28560093FDAB /* CreateAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B928626D22AB28560093FDAB /* CreateAccountViewController.storyboard */; };
@@ -375,6 +376,7 @@
 		B90054C22285B61900C06087 /* ProjectImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectImageCollectionView.swift; sourceTree = "<group>"; };
 		B90054C52285B72000C06087 /* ProjectImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageCell.xib; sourceTree = "<group>"; };
 		B90054C62285B72000C06087 /* ProjectImageAnimatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectImageAnimatedCell.xib; sourceTree = "<group>"; };
+		B900A07222CD4A12002A78F0 /* GuestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestUser.swift; sourceTree = "<group>"; };
 		B905785E229A574600AD09C6 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		B9057860229A575400AD09C6 /* TextButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextButton.xib; sourceTree = "<group>"; };
 		B928626D22AB28560093FDAB /* CreateAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccountViewController.storyboard; sourceTree = "<group>"; };
@@ -758,6 +760,7 @@
 			isa = PBXGroup;
 			children = (
 				AAE9170322A62A4C00490A30 /* Credentials.swift */,
+				B900A07222CD4A12002A78F0 /* GuestUser.swift */,
 				0754B5F321FA589B00E2DECD /* Project.swift */,
 				0754B5F521FA58CF00E2DECD /* ProjectSource.swift */,
 				071B317822794F3300DB1561 /* User.swift */,
@@ -1436,6 +1439,7 @@
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
 				B9FB5986227FF97100A03BDC /* UserSessionStream.swift in Sources */,
 				AA00861C22CCFF8F000B0580 /* ProjectFeedCompositionService.swift in Sources */,
+				B900A07322CD4A12002A78F0 /* GuestUser.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
 				07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */,
 				07D78EEE22BFF87D00FA0C3D /* BannerScene.swift in Sources */,

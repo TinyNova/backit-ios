@@ -31,6 +31,6 @@ struct StoryboardError: Error {
     
 }
 
-enum NoError: Error {
+struct NoError: Error {
     
 }
