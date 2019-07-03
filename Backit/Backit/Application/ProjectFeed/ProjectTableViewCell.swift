@@ -6,11 +6,18 @@
 import Foundation
 import UIKit
 
+enum VoteAction {
+    case add
+    case remove
+}
+
 protocol ProjectTableViewCellDelegate: class {
+    
     func didTapProject(_ project: FeedProject)
     func didTapAsset(_ asset: ProjectAsset)
     func didTapComments(_ project: FeedProject)
     func didTapShare(_ project: FeedProject, from view: UIView)
+    func didTapVote(_ project: FeedProject, action: VoteAction)
 }
 
 class ProjectTableViewCell: UITableViewCell {
@@ -127,6 +134,7 @@ class ProjectTableViewCell: UITableViewCell {
     
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
     private let i18n = Localization<Appl10n>()
+    private var didVote: Bool = false
     
     private(set) var project: FeedProject? {
         didSet {
@@ -162,6 +170,13 @@ class ProjectTableViewCell: UITableViewCell {
                     }
                     self?.totalCommentsLabel.text = self?.i18n.t(.comments(amount: count))
                 }
+            
+            project.voted
+                .onSuccess { [weak self] (didVote) in
+                    self?.didVote = didVote
+                    let color: UIColor = didVote ? UIColor.fromHex(0x130a33) : UIColor.fromHex(0x657786)
+                    self?.totalVotesImage.tintColor = color
+                }
         }
     }
     
@@ -179,11 +194,32 @@ class ProjectTableViewCell: UITableViewCell {
     }
     
     @objc private func didTapComments(gesture: UITapGestureRecognizer) {
-        log.i("did tap comment")
+        log.i("Did tap comment")
     }
     
     @objc private func didTapUpVote(gesture: UITapGestureRecognizer) {
-        log.i("did tap up vote")
+        guard let project = project else {
+            return log.i("tapped vote - did not configure table view cell")
+        }
+        
+        // NOTE: There could be a weird issue where `project.voted` doesn't return until after the tap. There is no plan to "fix" this.
+        // NOTE: This value will _not_ change from `project.voted`. The value selected here will "stick" permanently, regardless if there is a network issue. This simplifies this logic greatly as no PubSub is needed on this action.
+        if didVote {
+            didVote = false
+            totalVotesImage.tintColor = UIColor.fromHex(0x657786)
+            let numVotes: Int = max(project.numVotes - 1, 0)
+            totalVotesLabel.text = String(numVotes)
+            delegate?.didTapVote(project, action: .remove)
+            log.i("Removed vote")
+        }
+        else {
+            didVote = true
+            totalVotesImage.tintColor = UIColor.fromHex(0x130a33)
+            totalVotesLabel.text = String(project.numVotes + 1)
+            delegate?.didTapVote(project, action: .add)
+            log.i("Added vote")
+        }
+        
     }
 }
 

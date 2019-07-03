@@ -26,7 +26,7 @@ struct FeedProject {
     let numEarlyBirdRewards: Int
     let fundedPercent: Float
     let commentCount: Future<Int, Error>
-    let voted: Future<Bool, Error>
+    let voted: Future<Bool, NoError>
     let numDaysLeft: Int
     let numVotes: Int
 }

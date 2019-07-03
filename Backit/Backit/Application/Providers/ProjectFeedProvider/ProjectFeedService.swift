@@ -8,11 +8,14 @@ import Foundation
 
 class ProjectFeedService: ProjectFeedProvider {
     
-    let projectProvider: ProjectProvider
-    let projectComposition: ProjectFeedCompositionProvider
-    let metrics: AnalyticsPublisher<MetricAnalyticsEvent>
+    private let projectProvider: ProjectProvider
+    private let projectComposition: ProjectFeedCompositionProvider
+    private let metrics: AnalyticsPublisher<MetricAnalyticsEvent>
+    private let database: DatabaseProvider
     
     weak var client: ProjectFeedClient?
+    
+    private var user: User?
     
     private enum QueryState {
         case notLoaded
@@ -23,10 +26,14 @@ class ProjectFeedService: ProjectFeedProvider {
     }
     private var queryState: QueryState = .notLoaded
     
-    init(projectProvider: ProjectProvider, projectComposition: ProjectFeedCompositionProvider,  metrics: AnalyticsPublisher<MetricAnalyticsEvent>) {
+    init(projectProvider: ProjectProvider, projectComposition: ProjectFeedCompositionProvider,  metrics: AnalyticsPublisher<MetricAnalyticsEvent>, userStream: UserStreamer, database: DatabaseProvider) {
         self.projectProvider = projectProvider
         self.projectComposition = projectComposition
         self.metrics = metrics
+        self.database = database
+        
+        // TODO: Do not send a request until the app has finished loading
+        userStream.listen(self)
     }
     
     func loadProjects() {
@@ -39,18 +46,24 @@ class ProjectFeedService: ProjectFeedProvider {
         }
     }
     
+    func reloadProjects() {
+        queryState = .notLoaded
+        loadProjects()
+    }
+    
     // MARK: - HomepageProvider
-    
-    func didTapAsset(project: FeedProject) {
+
+    func didVoteFor(project: FeedProject, action: VoteAction) {
+        guard let project = project.context as? Project else {
+            return log.w("Failed to cast `FeedProject.context` to `Project`")
+        }
         
-    }
-    
-    func didTapBackit(project: FeedProject) {
-        
-    }
-    
-    func didTapComment(project: FeedProject) {
-        
+        switch action {
+        case .add:
+            _ = database.didVoteForProject(project: project)
+        case .remove:
+            _ = database.removeVoteFromProject(project: project)
+        }
     }
     
     func didReachEndOfProjectList() {
@@ -87,6 +100,8 @@ class ProjectFeedService: ProjectFeedProvider {
         pageRequested()
         
         queryState = .loading
+        
+        // TODO: Determine which query to use depending on the user status
         let future = projectProvider.popularProjects(offset: offset, limit: 10)
         projectComposition.projects(from: future)
             .onSuccess { [weak self] (response) in
@@ -109,3 +124,9 @@ class ProjectFeedService: ProjectFeedProvider {
     }
 }
 
+extension ProjectFeedService: UserStreamListener {
+    func didChangeUser(_ user: User?) {
+        self.user = user
+        reloadProjects()
+    }
+}

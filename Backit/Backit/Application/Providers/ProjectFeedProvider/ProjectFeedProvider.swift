@@ -15,8 +15,7 @@ protocol ProjectFeedProvider {
     var client: ProjectFeedClient? { get set }
     
     func loadProjects()
-    func didTapAsset(project: FeedProject)
-    func didTapBackit(project: FeedProject)
-    func didTapComment(project: FeedProject)
+    func reloadProjects()
     func didReachEndOfProjectList()
+    func didVoteFor(project: FeedProject, action: VoteAction)
 }

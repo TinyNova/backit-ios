@@ -30,3 +30,7 @@ struct WeakReferenceError: Error {
 struct StoryboardError: Error {
     
 }
+
+enum NoError: Error {
+    
+}

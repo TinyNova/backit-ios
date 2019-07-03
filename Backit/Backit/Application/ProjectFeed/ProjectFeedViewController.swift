@@ -50,12 +50,11 @@ class ProjectFeedViewController: UIViewController {
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
     
-    func inject(theme: AnyUITheme<AppTheme>, pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, userStreamer: UserStreamer, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider, shareProvider: ShareProvider) {
+    func inject(theme: AnyUITheme<AppTheme>, pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider, shareProvider: ShareProvider) {
         self.provider = provider
         self.provider?.client = self
         self.pageProvider = pageProvider
         self.projectProvider = projectProvider
-        userStreamer.listen(self)
         self.signInProvider = signInProvider
         self.overlay = overlay
         self.banner = banner
@@ -299,16 +298,14 @@ extension ProjectFeedViewController: ProjectTableViewCellDelegate {
             player.play()
         }
     }
+    
+    func didTapVote(_ project: FeedProject, action: VoteAction) {
+        provider?.didVoteFor(project: project, action: action)
+    }
 }
 
 extension ProjectFeedViewController: ProjectFeedErrorViewDelegate {
     func didRequestToReloadData() {
         provider?.loadProjects()
-    }
-}
-
-extension ProjectFeedViewController: UserStreamListener {
-    func didChangeUser(_ user: User?) {
-        // TODO: Query user's preferred projects.
     }
 }

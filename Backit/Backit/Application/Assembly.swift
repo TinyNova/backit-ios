@@ -140,8 +140,15 @@ class Assembly {
             return AnyUITheme<AppTheme>(theme: theme)
         }
         
+        container.register(DatabaseProvider.self) { resolver in
+            let userStream = resolver.resolve(UserStreamer.self)!
+            return AppDatabaseProvider(userStream: userStream)
+        }
+        
         container.register(ProjectVoteProvider.self) { resolver in
-            return ProjectVoteService()
+            let queue = resolver.resolve(DispatchQueue.self)!
+            let database = resolver.resolve(DatabaseProvider.self)!
+            return ProjectVoteService(queue: queue, database: database)
         }
         
         container.register(ProjectFeedCompositionProvider.self) { resolver in
@@ -153,10 +160,12 @@ class Assembly {
         container.register(ProjectFeedProvider.self) { resolver in
             let service = resolver.resolve(AnalyticsService.self)!
             let metrics: AnalyticsPublisher<MetricAnalyticsEvent> = service.publisher()
-            
+            let userStream = resolver.resolve(UserStreamer.self)!
+
             let projectProvider = resolver.resolve(ProjectProvider.self)!
             let projectComposition = resolver.resolve(ProjectFeedCompositionProvider.self)!
-            return ProjectFeedService(projectProvider: projectProvider, projectComposition: projectComposition, metrics: metrics)
+            let database = resolver.resolve(DatabaseProvider.self)!
+            return ProjectFeedService(projectProvider: projectProvider, projectComposition: projectComposition, metrics: metrics, userStream: userStream, database: database)
         }
         
         container.register(UIThemeApplier<AppTheme>.self) { resolver in
@@ -274,12 +283,11 @@ class Assembly {
             let pageProvider = resolver.resolve(PageProvider.self)!
             let projectProvider = resolver.resolve(ProjectProvider.self)!
             let provider = resolver.resolve(ProjectFeedProvider.self)!
-            let userStreamer = resolver.resolve(UserStreamer.self)!
             let signInProvider = resolver.resolve(SignInProvider.self)!
             let overlay = resolver.resolve(ProgressOverlayProvider.self)!
             let banner = resolver.resolve(BannerProvider.self)!
             let shareProvider = resolver.resolve(ShareProvider.self)!
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), pageProvider: pageProvider, projectProvider: projectProvider, provider: provider, userStreamer: userStreamer, signInProvider: signInProvider, overlay: overlay, banner: banner, shareProvider: shareProvider)
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), pageProvider: pageProvider, projectProvider: projectProvider, provider: provider, signInProvider: signInProvider, overlay: overlay, banner: banner, shareProvider: shareProvider)
         }
         
         container.storyboardInitCompleted(ProjectDetailsViewController.self) { resolver, controller in

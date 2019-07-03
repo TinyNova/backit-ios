@@ -6,12 +6,29 @@
 import BrightFutures
 import Foundation
 
-class ProjectVoteService: ProjectVoteProvider {
-    func votedFor(project: Project) -> Future<Bool, Error> {
-        return Future(value: false)
+class ProjectVoteService: ProjectVoteProvider {    
+    
+    let queue: DispatchQueue
+    let database: DatabaseProvider
+    
+    init(queue: DispatchQueue, database: DatabaseProvider) {
+        self.queue = queue
+        self.database = database
     }
     
-    func voteFor(project: Project) -> Future<IgnorableValue, Error> {
-        return Future(error: NotImplementedError())
+    func votedFor(project: Project) -> Future<Bool, NoError> {
+        let promise = Promise<Bool, NoError>()
+        queue.async { [weak self] in
+            guard let sself = self else {
+                return promise.success(false)
+            }
+            let didVote = sself.database.didVoteForProject(project: project)
+            promise.success(didVote)
+        }
+        return promise.future
+    }
+    
+    func voteFor(project: Project) -> Future<IgnorableValue, ProjectVoteProviderError> {
+        return Future(error: .generic(NotImplementedError()))
     }
 }
