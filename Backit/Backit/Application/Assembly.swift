@@ -40,12 +40,13 @@ class Assembly {
         container.register(Promise<IgnorableValue, NoError>.self, name: Assembly.AppStartPromise) { resolver in
             return Promise<IgnorableValue, NoError>()
         }
+        .inObjectScope(.container)
 
         container.register(ServiceRequester.self) { resolver in
             let promise = resolver.resolve(Promise<IgnorableValue, NoError>.self, name: Assembly.AppStartPromise)!
 
-            let exclude: [String] = [
-                RefreshTokenEndpoint(postBody: []).endpoints[Config.environment] ?? ""
+            let exclude: [EndpointKey] = [
+                RefreshTokenEndpoint.key
             ]
 
             if Config.environment == .dev {

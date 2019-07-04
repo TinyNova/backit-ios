@@ -11,6 +11,7 @@ import Foundation
 
 enum ServiceError: Error {
     case strongSelf
+    case initialization
     case unknown(Error?)
     case noURLForEnvironment(Environment)
     case invalidURLForEnvironment(Environment)
@@ -47,8 +48,22 @@ class Service {
         self.requester = requester
 //        self.pluginProvider = pluginProvider
     }
-    
+
     func request<T: ServiceEndpoint>(_ endpoint: T) -> Future<T.ResponseType, ServiceError> {
+        return requester.initialized(endpoint)
+            .mapError { _ -> ServiceError in
+                return .initialization
+            }
+            .flatMap { [weak self] _ -> Future<T.ResponseType, ServiceError> in
+                guard let sself = self else {
+                    log.c("Failed to make strong self after initialization")
+                    return Future(error: .strongSelf)
+                }
+                return sself._request(endpoint)
+            }
+    }
+
+    private func _request<T: ServiceEndpoint>(_ endpoint: T) -> Future<T.ResponseType, ServiceError> {
         var urlRequest: URLRequest
         do {
             urlRequest = try urlRequestFactory.make(from: endpoint, in: environment)
@@ -80,8 +95,7 @@ class Service {
         return promise.future
     }
     
-    func request<T: ServiceEndpoint>(_ endpoint: T, _ urlRequest: URLRequest, with plugins: [ServicePlugin], promise: Promise<T.ResponseType, ServiceError>) {
-
+    private func request<T: ServiceEndpoint>(_ endpoint: T, _ urlRequest: URLRequest, with plugins: [ServicePlugin], promise: Promise<T.ResponseType, ServiceError>) {
         var sendPromise: Promise<URLRequest, ServicePluginError>?
         var resultPromise: Promise<ServiceResult, ServicePluginError>?
         

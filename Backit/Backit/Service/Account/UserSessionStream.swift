@@ -44,7 +44,7 @@ class UserSessionStream: UserSessionStreamer {
         self.userSession = userSession
         
         listeners.forEach { (listener) in
-            if let listener = listener as? UserSessionListener {
+            if let listener = listener.value as? UserSessionListener {
                 listener.didChangeUserSession(userSession)
             }
         }

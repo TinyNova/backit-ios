@@ -20,30 +20,24 @@ class AlamofireServiceRequester: ServiceRequester {
     
     let sessionManager: SessionManager
     let future: Future<IgnorableValue, NoError>
-    let exclusions: [String]
-    
-    init(sessionManager: SessionManager, start future: Future<IgnorableValue, NoError>, exclude endpoints: [String]) {
+    let exclusions: [EndpointKey]
+
+    init(sessionManager: SessionManager, start future: Future<IgnorableValue, NoError>, exclude endpoints: [EndpointKey]) {
         self.sessionManager = sessionManager
         self.future = future
         self.exclusions = endpoints
     }
-    
-    func request(_ urlRequest: URLRequest, callback: @escaping (ServiceResult) -> Void) {
-        if let url = urlRequest.url, exclusions.contains(url.absoluteString) {
-            sessionManager.request(urlRequest).responseData { (response) in
-                callback(ServiceResult.make(from: response))
-            }
-            return
-        }
 
-        future.onSuccess { [weak self] _ in
-            guard let sself = self else {
-                log.c("Failed to get strong self for AlamofireServiceRequester - no calls can be made")
-                return
-            }
-            sself.sessionManager.request(urlRequest).responseData { (response) in
-                callback(ServiceResult.make(from: response))
-            }
+    func initialized<T: ServiceEndpoint>(_ endpoint: T) -> Future<IgnorableValue, NoError> {
+        if exclusions.contains(endpoint.key) {
+            return Future(value: IgnorableValue())
+        }
+        return future
+    }
+
+    func request(_ urlRequest: URLRequest, callback: @escaping (ServiceResult) -> Void) {
+        sessionManager.request(urlRequest).responseData { (response) in
+            callback(ServiceResult.make(from: response))
         }
     }
 }

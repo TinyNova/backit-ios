@@ -11,6 +11,11 @@ private enum Constant {
     static let appIdKey = "ApplicationUniqueIdentifier"
 }
 
+enum AppStartupError: Error {
+    case generic(Error)
+    case sessionDoesNotExist
+}
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -69,47 +74,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func silentlyLoginUser() {
         let keychainProvider = assembly.container.resolve(KeychainProvider.self)!
-        let promise = assembly.container.resolve(Promise<IgnorableValue, NoError>.self, name: Assembly.AppStartPromise)
+        let promise = assembly.container.resolve(Promise<IgnorableValue, NoError>.self, name: Assembly.AppStartPromise)!
         keychainProvider.userSession()
-//            .onSuccess { [weak self] userSession in
-//                self?.accountProvider.silentlyReauthenticate(accountId: userSession.accountId, refreshToken: userSession.refreshToken)
-//                    .onSuccess { (userSession) in
-//                        keychainProvider.saveUserSession(userSession)
-//                            .onSuccess { _ in
-//                                log.i("Successfully silently reauthenticated")
-//                            }
-//                            .onFailure { error in
-//                                log.e("Failed to save credentials \(error)")
-//                            }
-//                    }
-//                    .onFailure { (error) in
-//                        keychainProvider.removeAll().onComplete { _ in
-//                            log.i("Removed credentials \(error)")
-//                        }
-//                    }
-//                    .onComplete { _ in
-//                        promise?.success(IgnorableValue())
-//                    }
-//            }
-//
-            .mapError { (error) -> Error in
-                log.i("Failed to get session. Skipping silent reauthentication. \(error)")
-                return error
+            .mapError { (error) -> AppStartupError in
+                return .sessionDoesNotExist
             }
-            .flatMap { [weak self] (userSession) -> Future<UserSession, AccountProviderError> in
+            .flatMap { [weak self] (userSession) -> Future<UserSession, AppStartupError> in
                 guard let accountProvider = self?.accountProvider else {
                     return Future(error: .generic(WeakReferenceError()))
                 }
 
                 return accountProvider.silentlyReauthenticate(accountId: userSession.accountId, refreshToken: userSession.refreshToken)
-//                    .onSuccess { (userSession) in
-//
-//                    }
-//                    .onFailure { (error) in
-//                        keychainProvider.removeAll().onComplete { _ in
-//                            log.i("Removed credentials \(error)")
-//                        }
-//                    }
+                    .mapError { (error) -> AppStartupError in
+                        return .generic(error)
+                    }
             }
             .onSuccess { (userSession) in
                 keychainProvider.saveUserSession(userSession)
@@ -121,12 +99,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
             }
             .onFailure { (error) in
+                if case .sessionDoesNotExist = error {
+                    log.i("Failed to get session. Skipping silent reauthentication. \(error)")
+                    return
+                }
+
                 keychainProvider.removeAll().onComplete { _ in
                     log.i("Removed credentials \(error)")
                 }
             }
             .onComplete { _ in
-                promise?.success(IgnorableValue())
+                promise.success(IgnorableValue())
             }
     }
     

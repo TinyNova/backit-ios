@@ -14,6 +14,7 @@ enum ServiceRequestType {
 }
 
 typealias Endpoints = [Environment: String]
+typealias EndpointKey = String
 
 enum HTTPBodyEncodingStrategy {
     /// Encode data as JSON object
@@ -36,7 +37,9 @@ protocol ServiceEndpoint {
     associatedtype PathParameter
     associatedtype QueryParameter
     associatedtype PostBody
-    
+
+    static var key: EndpointKey { get }
+    var key: EndpointKey { get }
     var type: ServiceRequestType { get }
     var plugins: [ServicePluginKey]? { get }
     var endpoints: Endpoints { get }
@@ -62,6 +65,12 @@ protocol ServiceEndpoint {
 
 /// Default implementations
 extension ServiceEndpoint {
+    static var key: EndpointKey {
+        return String(describing: self)
+    }
+    var key: EndpointKey {
+        return Self.key
+    }
     var plugins: [ServicePluginKey]? {
         return nil
     }

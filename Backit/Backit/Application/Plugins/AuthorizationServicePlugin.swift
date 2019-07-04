@@ -11,6 +11,8 @@
  * - If success, continue request
  * - If failed, display login modal
  *
+ * NOTE: The reason the error .strongSelf is consistently returned is to prevent a possible loop.
+ *
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
@@ -39,8 +41,12 @@ class AuthorizationServicePlugin: ServicePlugin {
         guard let token = userSession?.token else {
             signInProvider.login()
                 .onSuccess { [weak self] (userSession) in
-                    self?.userSession = userSession
-                    self?.updateRequest(request, with: userSession.token, on: promise)
+                    guard let sself = self else {
+                        return promise.failure(.strongSelf)
+                    }
+
+                    sself.userSession = userSession
+                    sself.updateRequest(request, with: userSession.token, on: promise)
                 }
                 .onFailure { (error) in
                     promise.failure(.failedToLogin)

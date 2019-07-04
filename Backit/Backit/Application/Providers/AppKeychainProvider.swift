@@ -65,7 +65,7 @@ class AppKeychainProvider: KeychainProvider {
                 }
 
                 promise.success(userSession)
-                log.i("Successfull retrieved session")
+                log.i("Successfully retrieved session")
             } catch let error {
                 promise.failure(.unknown(error))
                 log.e(error)
