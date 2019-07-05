@@ -61,7 +61,10 @@ class AuthorizationServicePlugin: ServicePlugin {
     func didSendRequest(_ request: URLRequest) {
     }
     
-    func didReceiveResponse(_ response: ServiceResult) -> Future<ServiceResult, ServicePluginError> {
+    func didReceiveResponse(_ response: ServiceResult, history: RequestHistory) -> Future<ServiceResult, ServicePluginError> {
+        guard history.responses.last?.statusCode != 401 else {
+            return Future(error: .requestFailed)
+        }
         // This is NOT a refresh token issue
         guard let statusCode = response.statusCode, statusCode == 401 else {
             return Future(value: response)

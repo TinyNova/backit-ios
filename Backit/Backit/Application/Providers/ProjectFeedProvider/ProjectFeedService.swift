@@ -126,6 +126,7 @@ class ProjectFeedService: ProjectFeedProvider {
 
 extension ProjectFeedService: UserStreamListener {
     func didChangeUser(_ user: User?) {
+        // If there is a pending request to download projects, cancel it. This may happen when the app first starts.
         self.user = user
         reloadProjects()
     }

@@ -59,7 +59,7 @@ class HostReplacerServicePlugin: ServicePlugin {
         
     }
     
-    func didReceiveResponse(_ response: ServiceResult) -> Future<ServiceResult, ServicePluginError> {
+    func didReceiveResponse(_ response: ServiceResult, history: RequestHistory) -> Future<ServiceResult, ServicePluginError> {
         return Future(value: response)
     }
 }

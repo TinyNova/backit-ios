@@ -29,6 +29,21 @@ struct ServiceResult {
     var error: Error?
 }
 
+struct ServiceResponse {
+    let statusCode: Int
+}
+
+struct RequestHistory {
+    let urlRequest: URLRequest
+    let responses: [ServiceResponse]
+    
+    func add(response: ServiceResponse) -> RequestHistory {
+        var responses = self.responses
+        responses.append(response)
+        return RequestHistory(urlRequest: urlRequest, responses: responses)
+    }
+}
+
 class Service {
     
     /// Will print the `URLRequest`
@@ -98,6 +113,7 @@ class Service {
     private func request<T: ServiceEndpoint>(_ endpoint: T, _ urlRequest: URLRequest, with plugins: [ServicePlugin], promise: Promise<T.ResponseType, ServiceError>) {
         var sendPromise: Promise<URLRequest, ServicePluginError>?
         var resultPromise: Promise<ServiceResult, ServicePluginError>?
+        var history = RequestHistory(urlRequest: urlRequest, responses: [])
         
         func handleRequest() {
             sendPromise = Promise<URLRequest, ServicePluginError>()
@@ -116,12 +132,13 @@ class Service {
                 sself.requester.request(urlRequest) { [weak self] (result) in
                     resultPromise = Promise<ServiceResult, ServicePluginError>()
                     resultPromise?.reduce(result, plugins) { (result, plugin) in
-                        return plugin.didReceiveResponse(result)
+                        return plugin.didReceiveResponse(result, history: history)
                     }
                     .onFailure { (error) in
                         guard error == .retryRequest else {
                             return promise.failure(.pluginError(error))
                         }
+                        history = history.add(response: ServiceResponse(statusCode: result.statusCode ?? 0))
                         handleRequest()
                     }
                     .onSuccess { [weak self] (result) in
