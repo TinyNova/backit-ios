@@ -18,26 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjf-9V-4C8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bIg-BN-h9h">
+                                <rect key="frame" x="0.0" y="84" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="DUb-XF-BQ5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ2-dx-bU4">
+                                <rect key="frame" x="20" y="294" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="PNP-aO-ZIp">
+                                <rect key="frame" x="380" y="49" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="8cN-JJ-gYH"/>
+                                    <constraint firstAttribute="height" constant="24" id="GWT-ls-JcB"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Qjf-9V-4C8" firstAttribute="leading" secondItem="oim-on-lWv" secondAttribute="leading" id="RMe-qi-Q0O"/>
-                            <constraint firstItem="Qjf-9V-4C8" firstAttribute="top" secondItem="oim-on-lWv" secondAttribute="top" id="an4-aR-ZWf"/>
-                            <constraint firstItem="oim-on-lWv" firstAttribute="bottom" secondItem="Qjf-9V-4C8" secondAttribute="bottom" id="mDQ-1D-Rev"/>
-                            <constraint firstItem="oim-on-lWv" firstAttribute="trailing" secondItem="Qjf-9V-4C8" secondAttribute="trailing" id="sqL-Py-6Wl"/>
+                            <constraint firstItem="PNP-aO-ZIp" firstAttribute="top" secondItem="oim-on-lWv" secondAttribute="top" constant="5" id="1F9-Hl-sin"/>
+                            <constraint firstItem="oim-on-lWv" firstAttribute="trailing" secondItem="bIg-BN-h9h" secondAttribute="trailing" id="8wG-cq-W3f"/>
+                            <constraint firstItem="RQ2-dx-bU4" firstAttribute="top" secondItem="bIg-BN-h9h" secondAttribute="bottom" constant="10" id="Nuh-gh-3qG"/>
+                            <constraint firstItem="bIg-BN-h9h" firstAttribute="top" secondItem="oim-on-lWv" secondAttribute="top" constant="40" id="ZOe-Gj-xac"/>
+                            <constraint firstItem="oim-on-lWv" firstAttribute="trailing" secondItem="PNP-aO-ZIp" secondAttribute="trailing" constant="10" id="hhC-IB-F1e"/>
+                            <constraint firstItem="RQ2-dx-bU4" firstAttribute="leading" secondItem="oim-on-lWv" secondAttribute="leading" constant="20" id="pus-lD-TeF"/>
+                            <constraint firstItem="bIg-BN-h9h" firstAttribute="leading" secondItem="oim-on-lWv" secondAttribute="leading" id="vgT-Fk-gWM"/>
+                            <constraint firstItem="oim-on-lWv" firstAttribute="trailing" secondItem="RQ2-dx-bU4" secondAttribute="trailing" constant="20" id="xJg-qG-sGu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oim-on-lWv"/>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="Qjf-9V-4C8" id="YKN-RU-aEW"/>
+                        <outlet property="closeImageView" destination="PNP-aO-ZIp" id="Fbp-er-8xS"/>
+                        <outlet property="imageView" destination="bIg-BN-h9h" id="5ga-uK-FqY"/>
+                        <outlet property="titleLabel" destination="RQ2-dx-bU4" id="hza-vn-MuJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9lO-Lz-xan" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -45,4 +62,7 @@
             <point key="canvasLocation" x="-371" y="40"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="21" height="21"/>
+    </resources>
 </document>

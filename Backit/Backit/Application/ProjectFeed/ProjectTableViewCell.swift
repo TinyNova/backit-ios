@@ -12,8 +12,7 @@ enum VoteAction {
 }
 
 protocol ProjectTableViewCellDelegate: class {
-    
-    func didTapProject(_ project: FeedProject)
+    func didTapProjectCell(_ cell: ProjectTableViewCell)
     func didTapAsset(_ asset: ProjectAsset)
     func didTapComments(_ project: FeedProject)
     func didTapShare(_ project: FeedProject, from view: UIView)
@@ -142,6 +141,9 @@ class ProjectTableViewCell: UITableViewCell {
                 return
             }
             
+            projectImageCollectionView.hero.id = ProjectFeedModule.HeroId.projectImage(project.id)
+            projectNameLabel.hero.id = ProjectFeedModule.HeroId.projectName(project.id)
+
             projectImageCollectionView.assets = project.assets
             imagePagerView.configure(assets: project.assets, selectedIndex: 0)
             
@@ -231,7 +233,7 @@ extension ProjectTableViewCell: ProjectImageCollectionViewDelegate {
             guard let project = project else {
                 return log.c(notConfigured())
             }
-            delegate?.didTapProject(project)
+            delegate?.didTapProjectCell(self)
         case .video:
             log.i("did tap video asset: \(asset)")
             break

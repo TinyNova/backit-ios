@@ -5,28 +5,61 @@
 
 import Foundation
 import BrightFutures
+import Hero
+import SDWebImage
 import UIKit
-import WebKit
 
 class ProjectDetailsViewController: UIViewController {
     
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet private weak var closeImageView: UIImageView! {
+        didSet {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCloseButton))
+            closeImageView.tintColor = UIColor.fromHex(0x000000)
+            closeImageView.addGestureRecognizer(tap)
+            closeImageView.isUserInteractionEnabled = true
+            closeImageView.alpha = 0.7
+            closeImageView.hero.modifiers = [.fade]
+        }
+    }
     
-    private var context: Any?
+    @IBOutlet private weak var imageView: UIImageView!
     
-    func configure(with context: Any?) {
-        self.context = context
+    @IBOutlet private weak var titleLabel: UILabel! {
+        didSet {
+            theme.apply(.feedProjectName, toLabel: titleLabel)
+        }
+    }
+    
+    private let theme: UIThemeApplier<AppTheme> = AppTheme.default
+
+    private var project: FeedProject?
+    
+    func configure(with project: FeedProject) {
+        self.project = project
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let project = context as? Project,
-              let url = project.internalUrl else {
-            return log.e("Could not get project URL at backit.com")
+        guard let context = project?.context as? Project else {
+            return log.e("Call ProjectDetailsViewController.configure(with:)")
         }
+
+        titleLabel.hero.id = ProjectFeedModule.HeroId.projectName(project?.id)
+        imageView.hero.id = ProjectFeedModule.HeroId.projectImage(project?.id)
+
+        titleLabel.text = project?.name
         
-        let request = URLRequest(url: url)
-        webView.load(request)
+        let manager = SDWebImageManager.shared
+        manager.loadImage(with: context.imageURLs.first, options: [], progress: nil) { [weak self] (image, data, error, cachType, finished, url) in
+            guard let size = image?.proportionalScaledSize(using: UIScreen.main.bounds.size.width) else {
+                return log.w("Failed to get proportional image size")
+            }
+            self?.imageView.image = image?.resizedImage(using: size)
+        }
+    }
+    
+    @objc func didTapCloseButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }

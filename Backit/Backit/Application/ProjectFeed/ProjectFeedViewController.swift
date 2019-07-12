@@ -6,9 +6,10 @@
 
 import AVKit
 import Foundation
+import Hero
 import MediaPlayer
-import UIKit
 import SDWebImage
+import UIKit
 
 // This defines the image (cell) size for all views that display an image/video.
 var ProjectImageSize: CGSize = .zero
@@ -132,15 +133,18 @@ class ProjectFeedViewController: UIViewController {
         return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didTapLogo))
     }
     
-    private func displayProjectDetails(_ project: FeedProject?) {
-        guard let project = project else {
+    private func displayProjectDetails(from cell: ProjectTableViewCell?) {
+        guard let project = cell?.project else {
             return log.w("`FeedProject` is not known")
         }
         guard let viewController = pageProvider?.projectDetails() else {
             return log.c("Failed to display Project Details")
         }
-        viewController.configure(with: project.context)
-        navigationController?.pushViewController(viewController, animated: true)
+        viewController.configure(with: project)
+        viewController.hero.isEnabled = true
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.present(viewController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -261,13 +265,14 @@ extension ProjectFeedViewController: UITableViewDataSource {
 
 extension ProjectFeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        displayProjectDetails(projects[safe: indexPath.row])
+        let cell = tableView.cellForRow(at: indexPath) as? ProjectTableViewCell
+        displayProjectDetails(from: cell)
     }
 }
 
 extension ProjectFeedViewController: ProjectTableViewCellDelegate {
-    func didTapProject(_ project: FeedProject) {
-        displayProjectDetails(project)
+    func didTapProjectCell(_ cell: ProjectTableViewCell) {
+        displayProjectDetails(from: cell)
     }
     
     func didTapComments(_ project: FeedProject) {

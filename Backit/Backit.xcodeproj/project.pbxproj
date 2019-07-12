@@ -78,6 +78,7 @@
 		076A8C4F22864BB10075B56C /* TestApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C4E22864BB10075B56C /* TestApplication.swift */; };
 		076A8C5122864BE50075B56C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C5022864BE50075B56C /* Application.swift */; };
 		076A8C5322864C070075B56C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A8C5222864C070075B56C /* main.swift */; };
+		076D34D022D8B19400C25C4E /* ProjectFeedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D34CF22D8B19400C25C4E /* ProjectFeedModule.swift */; };
 		07792B95229B09B80023D56C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07792B94229B09B80023D56C /* CustomButton.swift */; };
 		07792B97229B0C9F0023D56C /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07792B96229B0C9E0023D56C /* SecondaryButton.swift */; };
 		07792B99229B0CA80023D56C /* SecondaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07792B98229B0CA80023D56C /* SecondaryButton.xib */; };
@@ -280,6 +281,7 @@
 		076A8C4E22864BB10075B56C /* TestApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApplication.swift; sourceTree = "<group>"; };
 		076A8C5022864BE50075B56C /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		076A8C5222864C070075B56C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		076D34CF22D8B19400C25C4E /* ProjectFeedModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedModule.swift; sourceTree = "<group>"; };
 		07792B94229B09B80023D56C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		07792B96229B0C9E0023D56C /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondaryButton.swift; path = Backit/UI/SecondaryButton.swift; sourceTree = SOURCE_ROOT; };
 		07792B98229B0CA80023D56C /* SecondaryButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SecondaryButton.xib; path = Backit/UI/SecondaryButton.xib; sourceTree = SOURCE_ROOT; };
@@ -690,11 +692,12 @@
 				07B25B00228E08EC002476D4 /* ImagePager */,
 				07B25AFF228E08C1002476D4 /* LoadingResults */,
 				B90054C92285B7E800C06087 /* ImageCarousel */,
+				07B25B01228E0A1B002476D4 /* FeedProject.swift */,
 				078BCA942253B032003A03CA /* ProjectFeed.storyboard */,
+				076D34CF22D8B19400C25C4E /* ProjectFeedModule.swift */,
 				078BCA962253B047003A03CA /* ProjectFeedViewController.swift */,
 				078BCA9A2256D99A003A03CA /* ProjectTableViewCell.swift */,
 				078BCA982256D980003A03CA /* ProjectTableViewCell.xib */,
-				07B25B01228E0A1B002476D4 /* FeedProject.swift */,
 			);
 			path = ProjectFeed;
 			sourceTree = "<group>";
@@ -1225,6 +1228,7 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
@@ -1241,6 +1245,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
@@ -1374,6 +1379,7 @@
 				07820D6122BA639100B44D86 /* Logger.swift in Sources */,
 				0722324B21D4375C009D1912 /* AppDelegate.swift in Sources */,
 				AA30D78D22A589870084D3F3 /* AccountViewController.swift in Sources */,
+				076D34D022D8B19400C25C4E /* ProjectFeedModule.swift in Sources */,
 				072A4EC822C6D9F600D4B972 /* ProjectDetailsViewController.swift in Sources */,
 				0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */,
 				AA5168CB22B2E96C00F79DC9 /* FinalizeAccountCreationViewController.swift in Sources */,

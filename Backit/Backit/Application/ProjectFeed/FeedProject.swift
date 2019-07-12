@@ -18,6 +18,7 @@ enum ProjectAsset {
 
 struct FeedProject {
     let context: Any
+    let id: String
     let source: ProjectSource
     let assets: [ProjectAsset]
     let name: String

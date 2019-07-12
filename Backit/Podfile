@@ -10,6 +10,7 @@ target 'Backit' do
     pod 'FacebookLogin'
     pod 'FMDB'
     pod 'GoogleSignIn'
+    pod 'Hero'
     pod 'KeychainAccess'
 #   pod 'Mixpanel'
     pod 'NewRelicAgent'

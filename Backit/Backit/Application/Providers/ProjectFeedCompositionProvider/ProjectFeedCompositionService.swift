@@ -58,6 +58,7 @@ class ProjectFeedCompositionService: ProjectFeedCompositionProvider {
         
         return FeedProject(
             context: project,
+            id: String(project.id),
             source: project.source,
             assets: assets,
             name: project.name,
