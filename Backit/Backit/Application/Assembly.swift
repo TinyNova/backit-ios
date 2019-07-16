@@ -119,7 +119,7 @@ class Assembly {
         container.register(BannerProvider.self) { resolver in
             let messageProvider = resolver.resolve(BannerMessageProvider.self)!
             return AppBannerProvider(messageProvider: messageProvider)
-        }
+        }.inObjectScope(.container)
         
         container.register(ProgressOverlayProvider.self) { resolver in
             let presenterProvider = resolver.resolve(PresenterProvider.self)!

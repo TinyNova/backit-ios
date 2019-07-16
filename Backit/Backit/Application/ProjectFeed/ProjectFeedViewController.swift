@@ -135,6 +135,7 @@ class ProjectFeedViewController: UIViewController {
     
     private func displayProjectDetails(from cell: ProjectTableViewCell?) {
         guard let project = cell?.project else {
+            // NOTE: It could also be that the "Loading cell" was tapped
             return log.w("`FeedProject` is not known")
         }
         guard let viewController = pageProvider?.projectDetails() else {

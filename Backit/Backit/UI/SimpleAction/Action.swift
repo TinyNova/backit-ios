@@ -45,6 +45,10 @@ class Action {
         return Action().wait(duration: duration)
     }
     
+    static func animate(with textures: [SKTexture], timePerFrame: TimeInterval) -> Action {
+        return Action().animate(with: textures, timePerFrame: timePerFrame)
+    }
+    
     static func run(_ callback: @escaping () -> Void) -> Action {
         return Action().run(callback)
     }
@@ -103,6 +107,12 @@ class Action {
         return self
     }
     
+    func animate(with textures: [SKTexture], timePerFrame: TimeInterval) -> Action {
+        let action = SKAction.animate(with: textures, timePerFrame: timePerFrame)
+        actions.append(action)
+        return self
+    }
+    
     func run(_ callback: @escaping () -> Void) -> Action {
         let action = SKAction.run(callback)
         actions.append(action)
@@ -127,6 +137,12 @@ class Action {
             allActions.append(contentsOf: action.actions)
         }
         let action = SKAction.group(allActions)
+        self.actions.append(action)
+        return self
+    }
+    
+    func group(_ actions: [SKAction]) -> Action {
+        let action = SKAction.group(actions)
         self.actions.append(action)
         return self
     }

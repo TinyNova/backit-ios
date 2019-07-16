@@ -32,6 +32,7 @@ class AppBannerProvider: BannerProvider {
         
         isShowing = true
         
+        // TODO: Create one banner per UIViewController? It seems like this should be smarter.
         let bannerView = makeBannerView(in: view)
         bannerView.bannerDelegate = self
         bannerView.show(message: message, paddingTop: view.frame.origin.y)

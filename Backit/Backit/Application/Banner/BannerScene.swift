@@ -20,9 +20,8 @@ class BannerScene: SKScene {
         return ActionSequencer(root: self)
     }()
     
-    private var banner: SKNode?
-    private var startPosition: CGPoint?
-    private var finalPosition: CGPoint?
+    private var playBannerAnimation: (() -> Void)?
+    private var playArmAnimation: (() -> Void)?
     
     var paddingTop: CGFloat = 0.0
     
@@ -37,7 +36,7 @@ class BannerScene: SKScene {
 //        backgroundColor = .gray
         scaleMode = .aspectFill
         
-        createBannerIfNeeded()
+        createSpritesIfNeeded()
         animateBanner()
     }
     
@@ -68,28 +67,85 @@ class BannerScene: SKScene {
         }
     }
     
-    private func animateBanner() {
-        guard let banner = banner,
-              let startPosition = startPosition,
-              let finalPosition = finalPosition else {
-            return log.w("Failed to animate `banner`")
-        }
-        
-        banner.alpha = 0.0
-        banner.position = startPosition
-        
-        let fadeIn = Action.fadeIn(duration: 0.3)
-        let move = Action.move(to: finalPosition, duration: 0.3)
-        let group = Action.group(fadeIn, move)
-        sequencer.addAction(group, to: banner)
-        sequencer.play()
-    }
-    
-    private func createBannerIfNeeded() {
-        guard banner == nil else {
+    private func createSpritesIfNeeded() {
+        guard playArmAnimation == nil else {
             return
         }
         
+        let banner = makeBanner()
+        // TODO: Eventually put the banner behind the fingers.
+        addChild(banner)
+        
+        let atlas = SKTextureAtlas(named: "robot-arm")
+        func sprite(for name: String, at position: CGPoint) -> SKSpriteNode {
+            let texture = atlas.textureNamed(name)
+            return SKSpriteNode(texture: texture)
+        }
+        func textures(for name: String, _ numFrames: Int) -> [SKTexture] {
+            var textures = [SKTexture]()
+            for i in 0..<numFrames {
+                let textureName = "\(name)-\(i)"
+                let texture = atlas.textureNamed(textureName)
+                textures.append(texture)
+            }
+            return textures
+        }
+        
+        let arm = SKNode()
+        // 0-3 grab, 4-6 "loose" grab
+        let fingerFrames = textures(for: "lhand", 7)
+        let thumbFrames = textures(for: "rhand", 7)
+        let thumb = SKSpriteNode(texture: thumbFrames.first)
+        thumb.position = CGPoint(x: -3.0, y: -150.0)
+        arm.addChild(thumb)
+        arm.addChild(SKSpriteNode(texture: atlas.textureNamed("arm")))
+//        arm.addChild(banner)
+        let fingers = SKSpriteNode(texture: fingerFrames.first)
+        fingers.position = CGPoint(x: -1.0, y: -150.0)
+        arm.addChild(fingers)
+        
+        arm.xScale = 0.25
+        arm.yScale = 0.25
+        let top = UIScreen.main.bounds.size.height
+        arm.position = CGPoint(x: 150.0, y: top - 10)
+        let moveDown = SKAction.move(to: CGPoint(x: 150.0, y: top - 40.0), duration: 0.1)
+        let moveUp = SKAction.move(to: CGPoint(x: 150.0, y: top), duration: 0.1)
+        let openFrames: [SKTexture] = [
+            fingerFrames[5],
+            fingerFrames[4],
+            fingerFrames[3]
+        ]
+        let openFrames2: [SKTexture] = [
+            thumbFrames[5],
+            thumbFrames[4],
+            thumbFrames[3]
+        ]
+        let fingersAnim = SKAction.animate(with: openFrames, timePerFrame: 0.1)
+        let thumbAnim = SKAction.animate(with: openFrames2, timePerFrame: 0.1)
+        
+        addChild(arm)
+        
+        playArmAnimation = {
+            let sequencer = ActionSequencer(root: self)
+            sequencer.addAction(moveDown, to: arm)
+            sequencer.groupAction(fingersAnim, to: fingers)
+            sequencer.groupAction(thumbAnim, to: thumb)
+            sequencer.addAction(moveUp, to: arm)
+            sequencer.play()
+        }
+    }
+    
+    private func animateBanner() {
+        guard let animateBanner = playBannerAnimation,
+              let animateArm = playArmAnimation else {
+            return log.w("Failed to animate `banner`")
+        }
+        
+        animateBanner()
+        animateArm()
+    }
+    
+    private func makeBanner() -> SKNode {
         let screenWidth = UIScreen.main.bounds.size.width
         let width = screenWidth > 720 ? 700 : screenWidth - 20.0
         
@@ -156,14 +212,24 @@ class BannerScene: SKScene {
         
         description.position = CGPoint(x: 20.0, y: title.position.y - 20.0)
         bannerBg.addChild(description)
-
-        addChild(banner)
-        
-        self.banner = banner
         
         let bannerX: CGFloat = ceil((screenWidth - width) / 2.0)
         let screenHeight = UIScreen.main.bounds.size.height - paddingTop
-        self.startPosition = CGPoint(x: bannerX, y: screenHeight - height)
-        self.finalPosition = CGPoint(x: bannerX, y: screenHeight - height - 10.0)
+        let startPosition = CGPoint(x: bannerX, y: screenHeight - height)
+        let finalPosition = CGPoint(x: bannerX, y: screenHeight - height - 10.0)
+        
+        playBannerAnimation = {
+            banner.alpha = 0.0
+            banner.position = startPosition
+            
+            let fadeIn = Action.fadeIn(duration: 0.3)
+            let move = Action.move(to: finalPosition, duration: 0.3)
+            let group = Action.group(fadeIn, move)
+            let seq = ActionSequencer(root: self)
+            seq.addAction(group, to: banner)
+            seq.play()
+        }
+
+        return banner
     }
 }
