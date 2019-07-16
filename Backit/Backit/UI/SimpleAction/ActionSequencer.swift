@@ -23,6 +23,7 @@ class ActionSequencer {
     
     func addAction(_ action: Action, to node: SKNode) {
         finalizeGroupActions()
+
         addAction(action.make(), to: node)
     }
     
