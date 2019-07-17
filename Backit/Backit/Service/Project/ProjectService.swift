@@ -72,6 +72,20 @@ class ProjectService: ProjectProvider {
     }
 
     func removeVote(from project: Project) -> Future<IgnorableValue, ProjectProviderError> {
-        return Future(error: .generic(NotImplementedError()))
+        let endpoint = UpVoteProjectEndpoint(postBody: [
+            .projectId(project.id),
+            .vote("down")
+        ])
+        
+        service.debug = true
+        return service.request(endpoint)
+            .map { (data) -> IgnorableValue in
+                prettyPrint(data)
+                return IgnorableValue()
+            }
+            .mapError { (error) -> ProjectProviderError in
+                print(error)
+                return .generic(error)
+            }
     }
 }

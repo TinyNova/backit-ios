@@ -14,7 +14,7 @@ struct UpVoteProjectEndpoint: ServiceEndpoint {
     enum QueryParameter { }
     enum PostParameter: ServiceParameter {
         case projectId(Int)
-        case vote(String)
+        case vote(String) // `up` or `down`
     }
     typealias PostBody = [PostParameter]
 
