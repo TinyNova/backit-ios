@@ -59,14 +59,11 @@ class ProjectService: ProjectProvider {
             .vote("up")
         ])
 
-        service.debug = true
         return service.request(endpoint)
             .map { (data) -> IgnorableValue in
-                prettyPrint(data)
                 return IgnorableValue()
             }
             .mapError { (error) -> ProjectProviderError in
-                print(error)
                 return .generic(error)
             }
     }
@@ -77,14 +74,11 @@ class ProjectService: ProjectProvider {
             .vote("down")
         ])
         
-        service.debug = true
         return service.request(endpoint)
             .map { (data) -> IgnorableValue in
-                prettyPrint(data)
                 return IgnorableValue()
             }
             .mapError { (error) -> ProjectProviderError in
-                print(error)
                 return .generic(error)
             }
     }

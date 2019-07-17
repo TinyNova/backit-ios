@@ -64,7 +64,7 @@ class Service {
 //        self.pluginProvider = pluginProvider
     }
 
-    func request<T: ServiceEndpoint>(_ endpoint: T) -> Future<T.ResponseType, ServiceError> {
+    func request<T: ServiceEndpoint>(_ endpoint: T, debug: Bool = false) -> Future<T.ResponseType, ServiceError> {
         return requester.initialized(endpoint)
             .mapError { _ -> ServiceError in
                 return .initialization
@@ -74,11 +74,11 @@ class Service {
                     log.c("Failed to make strong self after initialization")
                     return Future(error: .strongSelf)
                 }
-                return sself._request(endpoint)
+                return sself._request(endpoint, debug: debug)
             }
     }
 
-    private func _request<T: ServiceEndpoint>(_ endpoint: T) -> Future<T.ResponseType, ServiceError> {
+    private func _request<T: ServiceEndpoint>(_ endpoint: T, debug: Bool) -> Future<T.ResponseType, ServiceError> {
         var urlRequest: URLRequest
         do {
             urlRequest = try urlRequestFactory.make(from: endpoint, in: environment)
@@ -104,16 +104,18 @@ class Service {
         let promise = Promise<T.ResponseType, ServiceError>()
 
         DispatchQueue.main.async { [weak self] in
-            self?.request(endpoint, urlRequest, with: plugins, promise: promise)
+            self?.request(endpoint, urlRequest, with: plugins, promise: promise, debug: debug)
         }
         
         return promise.future
     }
     
-    private func request<T: ServiceEndpoint>(_ endpoint: T, _ urlRequest: URLRequest, with plugins: [ServicePlugin], promise: Promise<T.ResponseType, ServiceError>) {
+    private func request<T: ServiceEndpoint>(_ endpoint: T, _ urlRequest: URLRequest, with plugins: [ServicePlugin], promise: Promise<T.ResponseType, ServiceError>, debug: Bool) {
         var sendPromise: Promise<URLRequest, ServicePluginError>?
         var resultPromise: Promise<ServiceResult, ServicePluginError>?
         var history = RequestHistory(urlRequest: urlRequest, responses: [])
+        
+        let debug = debug || self.debug
         
         func handleRequest() {
             sendPromise = Promise<URLRequest, ServicePluginError>()
@@ -125,7 +127,7 @@ class Service {
                     return promise.failure(.strongSelf)
                 }
                 
-                if sself.debug {
+                if debug {
                     printRequest(urlRequest)
                 }
                 
@@ -165,6 +167,11 @@ class Service {
                         guard let data = result.data else {
                             return promise.failure(.emptyResponse)
                         }
+                        
+                        if debug {
+                            prettyPrint(data)
+                        }
+                        
                         if let decoder = endpoint.decoder {
                             return promise.success(decoder(data))
                         }
