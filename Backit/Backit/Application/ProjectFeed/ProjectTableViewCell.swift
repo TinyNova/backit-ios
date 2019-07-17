@@ -134,6 +134,7 @@ class ProjectTableViewCell: UITableViewCell {
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
     private let i18n = Localization<Appl10n>()
     private var didVote: Bool = false
+    private var voteCount: Int = 0
     
     private(set) var project: FeedProject? {
         didSet {
@@ -209,19 +210,20 @@ class ProjectTableViewCell: UITableViewCell {
         if didVote {
             didVote = false
             totalVotesImage.tintColor = UIColor.fromHex(0x657786)
-            let numVotes: Int = max(project.numVotes - 1, 0)
+            let numVotes: Int = max(project.numVotes + voteCount - 1, 0)
             totalVotesLabel.text = String(numVotes)
             delegate?.didTapVote(project, action: .remove)
             log.i("Removed vote")
+            voteCount = 0
         }
         else {
+            voteCount = 1
             didVote = true
             totalVotesImage.tintColor = UIColor.fromHex(0x130a33)
-            totalVotesLabel.text = String(project.numVotes + 1)
+            totalVotesLabel.text = String(project.numVotes + voteCount)
             delegate?.didTapVote(project, action: .add)
             log.i("Added vote")
         }
-        
     }
 }
 

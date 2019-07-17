@@ -19,7 +19,10 @@ class AccountViewController: UITableViewController {
     private var user: User?
 
     private var isLoggedIn: Bool {
-        return user != nil
+        guard let user = user else {
+            return false
+        }
+        return !user.isGuest
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -124,7 +127,7 @@ extension AccountViewController {
             cell.textLabel?.text = "Upload a picture"
             cell.detailTextLabel?.text = isLoggedIn ? nil : "Sign in to upload your avatar"
         case 1:
-            guard let user = user else {
+            guard let user = user, isLoggedIn else {
                 cell.textLabel?.text = "Sign In"
                 cell.detailTextLabel?.text = nil
                 return

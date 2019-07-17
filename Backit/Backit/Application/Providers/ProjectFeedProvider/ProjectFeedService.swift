@@ -1,8 +1,5 @@
 /**
  *
- * TODO:
- * - Only requery projects if the user is on the page _and_ the user has changed.
- *
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
@@ -56,16 +53,22 @@ class ProjectFeedService: ProjectFeedProvider {
     
     // MARK: - HomepageProvider
 
+    var isPerformingAction: Bool = false
     func didVoteFor(project: FeedProject, action: VoteAction) {
         guard let project = project.context as? Project else {
             return log.w("Failed to cast `FeedProject.context` to `Project`")
         }
         
+        isPerformingAction = true
         switch action {
         case .add:
-            _ = voteProvider.voteFor(project: project)
+            voteProvider.voteFor(project: project).onComplete { [weak self] _ in
+                self?.isPerformingAction = false
+            }
         case .remove:
-            _ = voteProvider.removeVoteFor(project: project)
+            voteProvider.removeVoteFor(project: project).onComplete { [weak self] _ in
+                self?.isPerformingAction = false
+            }
         }
     }
     
@@ -132,12 +135,18 @@ class ProjectFeedService: ProjectFeedProvider {
 
 extension ProjectFeedService: UserStreamListener {
     func didChangeUser(_ user: User) {
-        // The user didn't change
+        // The user hasn't changed. Do not reload projects.
         guard self.user != user else {
             return
         }
         
         self.user = user
+
+        // Do not reload projects if we are currently performing an action on the page. This means the content on the page is relevant to the user.
+        if isPerformingAction {
+            return
+        }
+        
         reloadProjects()
     }
 }

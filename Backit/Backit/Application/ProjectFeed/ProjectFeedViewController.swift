@@ -78,8 +78,6 @@ class ProjectFeedViewController: UIViewController {
         // Left navigation buttons
         let backitButton = makeBackitLogoButton()
         navigationItem.leftBarButtonItems = [backitButton]
-        
-        provider?.loadProjects()
     }
     
     override func viewDidAppear(_ animated: Bool) {
