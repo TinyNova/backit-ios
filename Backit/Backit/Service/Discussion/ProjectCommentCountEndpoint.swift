@@ -19,7 +19,7 @@ struct ProjectCommentCountEndpoint: ServiceEndpoint {
     }
     
     enum Header { }
-    enum PathParameter {
+    enum PathParameter: ServiceParameter {
         case projectId(String)
     }
     enum QueryParameter { }

@@ -12,7 +12,7 @@ struct RecoverPasswordEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    enum PostParameter {
+    enum PostParameter: ServiceParameter {
         case email(String)
     }
     typealias PostBody = [PostParameter]

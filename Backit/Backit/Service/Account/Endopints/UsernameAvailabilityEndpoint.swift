@@ -12,7 +12,7 @@ struct UsernameAvailabilityEndpoint: ServiceEndpoint {
     }
     
     enum Header { }
-    enum PathParameter {
+    enum PathParameter: ServiceParameter {
         case userName(String)
     }
     enum QueryParameter { }

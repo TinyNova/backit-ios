@@ -35,7 +35,7 @@ struct ExternalLoginEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    enum PostParameter {
+    enum PostParameter: ServiceParameter {
         case accessToken(String)
         /// `provider` options are: `facebook`, `google`
         case provider(String)

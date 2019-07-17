@@ -61,7 +61,7 @@ struct ProjectsEndpoint: ServiceEndpoint {
     
     enum Header { }
     enum PathParameter { }
-    enum QueryParameter {
+    enum QueryParameter: ServiceParameter {
         case category(String)
         case subCategory(String)
 

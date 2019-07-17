@@ -28,6 +28,26 @@ enum HTTPBodyEncodingStrategy {
 }
 
 /**
+ Provides a mechansim where parameters defined as `enum` cases can have their associated values returned.
+ */
+protocol ServiceParameter {
+    
+}
+
+extension ServiceParameter {
+    var param: (name: String, value: Any)? {
+        let mirror = Mirror(reflecting: self)
+        guard let child = mirror.children.first else {
+            return nil
+        }
+        guard let name = child.label else {
+            return nil
+        }
+        return (name, child.value)
+    }
+}
+
+/**
  Notes:
  `Header`, `PathParameter`, `GetParameter`, and `PostParameter` must be enums with a single associated value for every case.
  */

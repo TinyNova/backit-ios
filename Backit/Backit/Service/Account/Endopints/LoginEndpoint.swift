@@ -24,7 +24,7 @@ struct LoginEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    enum PostParameter {
+    enum PostParameter: ServiceParameter {
         case email(String)
         case password(String)
     }

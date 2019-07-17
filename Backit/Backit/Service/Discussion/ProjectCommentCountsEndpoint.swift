@@ -17,7 +17,7 @@ struct ProjectCommentCountsEndpoint: ServiceEndpoint {
     
     enum Header { }
     enum PathParameter { }
-    enum QueryParameter {
+    enum QueryParameter: ServiceParameter {
         /// List of ProjectIDs separated by a comma
         case projectIds(String)
     }

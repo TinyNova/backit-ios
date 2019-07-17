@@ -38,7 +38,7 @@ class AuthorizationServicePlugin: ServicePlugin {
         let promise = Promise<URLRequest, ServicePluginError>()
 
         // Login if the user has not yet logged in.
-        guard let token = userSession?.token else {
+        guard let userSession = userSession else {
             signInProvider.login()
                 .onSuccess { [weak self] (userSession) in
                     guard let sself = self else {
@@ -46,7 +46,7 @@ class AuthorizationServicePlugin: ServicePlugin {
                     }
 
                     sself.userSession = userSession
-                    sself.updateRequest(request, with: userSession.token, on: promise)
+                    sself.updateRequest(request, with: userSession, on: promise)
                 }
                 .onFailure { (error) in
                     promise.failure(.failedToLogin)
@@ -54,7 +54,7 @@ class AuthorizationServicePlugin: ServicePlugin {
             return promise.future
         }
         
-        updateRequest(request, with: token, on: promise)
+        updateRequest(request, with: userSession, on: promise)
         return promise.future
     }
     
@@ -124,9 +124,10 @@ class AuthorizationServicePlugin: ServicePlugin {
 
     // MARK: - Private Methods
     
-    private func updateRequest(_ request: URLRequest, with token: String, on promise: Promise<URLRequest, ServicePluginError>) {
+    private func updateRequest(_ request: URLRequest, with userSession: UserSession, on promise: Promise<URLRequest, ServicePluginError>) {
         var headerFields = request.allHTTPHeaderFields ?? [String: String]()
-        headerFields["Authorization"] = "Bearer \(token)"
+        headerFields["Authorization"] = "Bearer \(userSession.token)"
+        headerFields["X-Csrf-Token"] = userSession.csrfToken
         var newRequest = request
         newRequest.allHTTPHeaderFields = headerFields
         promise.success(newRequest)

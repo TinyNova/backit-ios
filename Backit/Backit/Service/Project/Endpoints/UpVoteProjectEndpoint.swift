@@ -12,14 +12,14 @@ struct UpVoteProjectEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    enum PostParameter {
+    enum PostParameter: ServiceParameter {
         case projectId(Int)
         case vote(String)
     }
     typealias PostBody = [PostParameter]
 
     var type: ServiceRequestType = .post
-    var httpBodyEncodingStrategy: HTTPBodyEncodingStrategy = .json
+    var httpBodyEncodingStrategy: HTTPBodyEncodingStrategy = .keyValue
     var endpoints: Endpoints = [
         .qa: "https://api.qabackit.com/project/account/votes"
     ]

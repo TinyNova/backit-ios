@@ -24,7 +24,7 @@ struct RefreshTokenEndpoint: ServiceEndpoint {
     enum Header { }
     enum PathParameter { }
     enum QueryParameter { }
-    enum PostParameter {
+    enum PostParameter: ServiceParameter {
         case accountId(String)
         case refreshToken(String)
     }
