@@ -83,10 +83,18 @@ class URLRequestFactory {
     
     private func httpMethod<T: ServiceEndpoint>(for request: T) -> String {
         switch request.type {
+        case .delete:
+            return "DELETE"
         case .get:
             return "GET"
+        case .options:
+            return "OPTIONS"
+        case .patch:
+            return "PATCH"
         case .post:
             return "POST"
+        case .put:
+            return "PUT"
         }
     }
     

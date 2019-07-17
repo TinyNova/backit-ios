@@ -52,8 +52,7 @@ class ProjectVoteService: ProjectVoteProvider {
 }
 
 extension ProjectVoteService: UserStreamListener {
-    func didChangeUser(_ user: User?) {
-        let user = user ?? GuestUser()
+    func didChangeUser(_ user: User) {
         database.load(for: user)
         synchronizeVotes()
     }

@@ -184,11 +184,11 @@ extension AccountViewController {
 }
 
 extension AccountViewController: UserStreamListener {
-    func didChangeUser(_ user: User?) {
+    func didChangeUser(_ user: User) {
         self.user = user
         tableView.reloadData()
         
-        guard let avatarUrl = user?.avatarUrl else {
+        guard let avatarUrl = user.avatarUrl else {
             return setEmptyAvatar()
         }
         

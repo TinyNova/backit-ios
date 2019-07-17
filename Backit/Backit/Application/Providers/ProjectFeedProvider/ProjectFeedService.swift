@@ -1,5 +1,8 @@
 /**
  *
+ * TODO:
+ * - Only requery projects if the user is on the page _and_ the user has changed.
+ *
  * Copyright © 2019 Backit Inc. All rights reserved.
  */
 
@@ -83,6 +86,9 @@ class ProjectFeedService: ProjectFeedProvider {
     }
     
     private func _loadProjects() {
+        guard user != nil else {
+            return
+        }
         let offset: Any?
         switch queryState {
         case .error(let _offset):
@@ -112,7 +118,7 @@ class ProjectFeedService: ProjectFeedProvider {
                 }
 
                 self?.queryState = .loaded(cursor: response.cursor)
-                self?.client?.didReceiveProjects(response.projects)
+                self?.client?.didReceiveProjects(response.projects, reset: offset == nil)
             }
             .onFailure { [weak self] (error) in
                 self?.queryState = .error(cursor: offset)
@@ -125,8 +131,12 @@ class ProjectFeedService: ProjectFeedProvider {
 }
 
 extension ProjectFeedService: UserStreamListener {
-    func didChangeUser(_ user: User?) {
-        // If there is a pending request to download projects, cancel it. This may happen when the app first starts.
+    func didChangeUser(_ user: User) {
+        // The user didn't change
+        guard self.user != user else {
+            return
+        }
+        
         self.user = user
         reloadProjects()
     }

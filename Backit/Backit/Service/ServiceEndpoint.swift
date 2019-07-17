@@ -9,8 +9,12 @@
 import Foundation
 
 enum ServiceRequestType {
+    case delete
     case get
+    case options
+    case patch
     case post
+    case put
 }
 
 typealias Endpoints = [Environment: String]

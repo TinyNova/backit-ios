@@ -6,7 +6,7 @@
 import Foundation
 
 protocol ProjectFeedClient: class {
-    func didReceiveProjects(_ projects: [FeedProject])
+    func didReceiveProjects(_ projects: [FeedProject], reset: Bool)
     func didReachEndOfProjects()
     func didReceiveError(_ error: Error)
 }

@@ -5,8 +5,6 @@
 
 import Foundation
 
-typealias GuestUser = User
-
 private enum Constant {
     static let guestId = "com.backit.backers.user.guest"
 }
@@ -16,10 +14,8 @@ extension User {
         return id == Constant.guestId
     }
 
-    init() {
-        self.id = Constant.guestId
-        self.avatarUrl = nil
-        self.username = "Guest"
+    static func guest() -> User {
+        return User(id: Constant.guestId, avatarUrl: nil, username: "Guest")
     }
 }
 

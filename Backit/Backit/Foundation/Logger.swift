@@ -6,6 +6,7 @@
 import Foundation
 
 enum LogLevel: Int {
+    case debug
     case info
     case warning
     case error
@@ -20,7 +21,14 @@ var log = Logger()
 
 class Logger {
     
-    var level: LogLevel = .info
+    var level: LogLevel = .debug
+    
+    func d(_ message: String) {
+        guard log.level < .info else {
+            return
+        }
+        print("DEBUG: \(message)")
+    }
     
     func i(_ message: String) {
         guard log.level < .warning else {

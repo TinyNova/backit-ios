@@ -85,6 +85,7 @@
 		07792B99229B0CA80023D56C /* SecondaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07792B98229B0CA80023D56C /* SecondaryButton.xib */; };
 		07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07792B9A229B3A7B0023D56C /* UnderlineButton.swift */; };
 		07792B9D229B3AA10023D56C /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07792B9C229B3AA10023D56C /* UnderlineButton.xib */; };
+		077ACF7122DFC6A200900968 /* RemoveVoteEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077ACF7022DFC6A200900968 /* RemoveVoteEndpoint.swift */; };
 		077B172A227BFCEB003D5B17 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */; };
 		077B172C227CDE1E003D5B17 /* BrightFutures+Upstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */; };
 		077B172E227CE3B1003D5B17 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B172D227CE3B1003D5B17 /* UserSession.swift */; };
@@ -289,6 +290,7 @@
 		07792B98229B0CA80023D56C /* SecondaryButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SecondaryButton.xib; path = Backit/UI/SecondaryButton.xib; sourceTree = SOURCE_ROOT; };
 		07792B9A229B3A7B0023D56C /* UnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlineButton.swift; path = Backit/UI/UnderlineButton.swift; sourceTree = SOURCE_ROOT; };
 		07792B9C229B3AA10023D56C /* UnderlineButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UnderlineButton.xib; path = Backit/UI/UnderlineButton.xib; sourceTree = SOURCE_ROOT; };
+		077ACF7022DFC6A200900968 /* RemoveVoteEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveVoteEndpoint.swift; sourceTree = "<group>"; };
 		077B1729227BFCEB003D5B17 /* AuthorizationServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServicePlugin.swift; sourceTree = "<group>"; };
 		077B172B227CDE1E003D5B17 /* BrightFutures+Upstart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrightFutures+Upstart.swift"; sourceTree = "<group>"; };
 		077B172D227CE3B1003D5B17 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -1027,6 +1029,7 @@
 			children = (
 				0754B5FC21FA64CB00E2DECD /* ProjectsEndpoint.swift */,
 				B900A07522CD4E44002A78F0 /* UpVoteProjectEndpoint.swift */,
+				077ACF7022DFC6A200900968 /* RemoveVoteEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -1451,6 +1454,7 @@
 				AA00862722CD0428000B0580 /* ProjectFeedProvider.swift in Sources */,
 				0754B67222027B5A00E2DECD /* Localization.swift in Sources */,
 				07FBAD35228A39D2009E5189 /* TabBarController.swift in Sources */,
+				077ACF7122DFC6A200900968 /* RemoveVoteEndpoint.swift in Sources */,
 				071B317B22794FAB00DB1561 /* LoginEndpoint.swift in Sources */,
 				076A8C5122864BE50075B56C /* Application.swift in Sources */,
 				AA00862222CD0368000B0580 /* ProjectFeedCompositionProvider.swift in Sources */,

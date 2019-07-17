@@ -74,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func silentlyLoginUser() {
         let keychainProvider = assembly.container.resolve(KeychainProvider.self)!
+        let userStream = assembly.container.resolve(UserStreamer.self)!
         let promise = assembly.container.resolve(Promise<IgnorableValue, NoError>.self, name: Assembly.AppStartPromise)!
         keychainProvider.userSession()
             .mapError { (error) -> AppStartupError in
@@ -99,6 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
             }
             .onFailure { (error) in
+                userStream.emit(user: .guest())
+                
                 if case .sessionDoesNotExist = error {
                     log.i("Failed to get session. Skipping silent reauthentication. \(error)")
                     return

@@ -50,7 +50,7 @@ class UserSessionStream: UserSessionStreamer {
         }
         
         guard userSession != nil else {
-            userStreamer.emit(user: nil)
+            userStreamer.emit(user: .guest())
             return
         }
         

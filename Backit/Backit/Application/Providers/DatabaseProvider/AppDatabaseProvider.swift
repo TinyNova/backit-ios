@@ -17,7 +17,7 @@ import FMDB
 class AppDatabaseProvider: DatabaseProvider {
     
     private var database: FMDatabase?
-    private var user: User = GuestUser()
+    private var user: User = .guest()
     private var likes: [ProjectId: Bool] = [:] // O(1) access w/ Dictionary
     
     private var databaseName: String {

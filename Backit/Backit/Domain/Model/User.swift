@@ -7,7 +7,7 @@ import Foundation
 
 typealias UserId = String
 
-struct User {
+struct User: Equatable {
     let id: UserId
     let avatarUrl: URL?
     let username: String

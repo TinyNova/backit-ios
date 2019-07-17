@@ -69,12 +69,11 @@ class ProjectService: ProjectProvider {
     }
 
     func removeVote(from project: Project) -> Future<IgnorableValue, ProjectProviderError> {
-        let endpoint = UpVoteProjectEndpoint(postBody: [
-            .projectId(project.id),
-            .vote("down")
+        let endpoint = RemoveVoteEndpoint(pathParameters: [
+            .projectId(project.id)
         ])
         
-        return service.request(endpoint)
+        return service.request(endpoint, debug: true)
             .map { (data) -> IgnorableValue in
                 return IgnorableValue()
             }

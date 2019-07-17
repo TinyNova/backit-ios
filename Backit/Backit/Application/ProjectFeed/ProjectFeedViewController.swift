@@ -150,7 +150,11 @@ class ProjectFeedViewController: UIViewController {
 }
 
 extension ProjectFeedViewController: ProjectFeedClient {
-    func didReceiveProjects(_ projects: [FeedProject]) {
+    func didReceiveProjects(_ projects: [FeedProject], reset: Bool) {
+        if reset {
+            clearProjects()
+        }
+        
         if ProjectImageSize.height < 1 {
             // TODO: Make this logic a dependency.
             let asset = projects.first?.assets.first(where: { (asset) -> Bool in
@@ -195,6 +199,11 @@ extension ProjectFeedViewController: ProjectFeedClient {
         }
         self.projects.append(contentsOf: projects)
         tableView.reloadData()
+    }
+    
+    private func clearProjects() {
+        self.projects = []
+        // We don't reload the table data as we are assuming that we will be adding projects directly after this.
     }
     
     func didReachEndOfProjects() {
