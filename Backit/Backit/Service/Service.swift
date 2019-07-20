@@ -16,7 +16,7 @@ enum ServiceError: Error {
     case noURLForEnvironment(Environment)
     case invalidURLForEnvironment(Environment)
     case emptyResponse
-    case failedToDecode
+    case failedToDecode(Error)
     case noInternetConnection
     case server(Error)
     case requiredPluginsNotFound([ServicePluginKey])
@@ -115,6 +115,14 @@ class Service {
         var resultPromise: Promise<ServiceResult, ServicePluginError>?
         var history = RequestHistory(urlRequest: urlRequest, responses: [])
         
+        promise.future
+            .onSuccess { _ in
+                log.i("\(urlRequest.hashValue) - success")
+            }
+            .onFailure { error in
+                log.e("\(urlRequest.hashValue) - error \(error)")
+            }
+        
         let debug = debug || self.debug
         
         func handleRequest() {
@@ -129,6 +137,9 @@ class Service {
                 
                 if debug {
                     printRequest(urlRequest)
+                }
+                else {
+                    log.i("\(urlRequest.hashValue) - \(urlRequest.httpMethod ?? "") \(urlRequest.url?.absoluteString ?? "")")
                 }
                 
                 sself.requester.request(urlRequest) { [weak self] (result) in
@@ -185,8 +196,7 @@ class Service {
 
                         }
                         catch {
-                            log.e(error)
-                            promise.failure(.failedToDecode)
+                            promise.failure(.failedToDecode(error))
                         }
                     }
                 }
@@ -224,7 +234,7 @@ func printRequest(_ request: URLRequest, encoding: HTTPBodyDataType = .string) {
     guard let url = request.url else {
         return log.e("Could not get URL")
     }
-    log.i("\(request.httpMethod?.uppercased() ?? "UK") \(url)")
+    log.i("\(request.hashValue) - \(request.httpMethod ?? "") \(url)")
     if let headers = request.allHTTPHeaderFields {
         log.i("Headers:")
         headers.forEach { (tuple) in

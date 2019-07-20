@@ -57,6 +57,22 @@ class ProjectDetailsViewController: UIViewController {
             }
             self?.imageView.image = image?.resizedImage(using: size)
         }
+        
+        // Video
+        // Title
+        // from Author
+        // Location
+        // Category / Subcategory
+        // Back It
+        // Pledged of Goal
+        // # Backers
+        // Project funding information
+        // Last updated
+        
+        // - Toggle
+        // The entire project's information (as a web view?)
+        // Rewards
+        // Community (Newest | Oldest | Popular)
     }
     
     @objc func didTapCloseButton(_ sender: Any) {
