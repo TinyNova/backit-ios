@@ -8,6 +8,7 @@ import BrightFutures
 
 enum ProjectProviderError: Error {
     case generic(Error)
+    case invalidParameter(String)
 }
 
 struct Filter {
@@ -21,7 +22,7 @@ protocol ProjectProvider {
     /// Get personalized projects for this user
     /// Get projects that are about to fund (optional: category, subcategory)
     
-    func project(id: Any) -> Future<Project, ProjectProviderError>
+    func project(id: Any) -> Future<DetailedProject, ProjectProviderError>
     
     /**
      Perform an advanced search for projects.

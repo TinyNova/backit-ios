@@ -14,7 +14,11 @@ class ProjectService: ProjectProvider {
         self.service = service
     }
     
-    func project(id: Any) -> Future<Project, ProjectProviderError> {
+    func project(id: Any) -> Future<DetailedProject, ProjectProviderError> {
+        guard let id = id as? Int else {
+            return Future(error: .invalidParameter("`id` must be an `Int`"))
+        }
+        let endpoint = DetailedProjectInfoEndpoint(projectId: id)
         return Future(error: .generic(NotImplementedError()))
     }
     

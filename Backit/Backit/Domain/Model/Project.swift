@@ -29,3 +29,27 @@ struct Project {
     let numDaysLeft: Int
     let numVotes: Int
 }
+
+struct Reward {
+    let name: String
+    let cost: String
+    let numberOfBackers: Int
+    let total: Int
+}
+
+struct DetailedProject {
+    let id: ProjectId
+    let source: ProjectSource
+    let name: String
+    let goal: Int
+    let pledged: Int
+    let numBackers: Int
+    let author: String
+    let category: String
+    let country: String
+    let blurb: String
+    let rewards: [Reward]
+    let details: String
+    let imageUrl: URL?
+    let videoUrl: URL?
+}

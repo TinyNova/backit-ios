@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct ProjectsEndpoint: ServiceEndpoint {
+struct DetailedProjectInfoEndpoint: ServiceEndpoint {
     
     /**
      TODO:
@@ -48,57 +48,26 @@ struct ProjectsEndpoint: ServiceEndpoint {
         let createdAt: String?
         let updatedAt: String?
     }
-    struct Sort: Decodable {
-        let relevance: String
-    }
     struct ResponseType: Decodable {
-//        let total: Int
-//        let offset: Int
-//        let limit: Int
-//        let sort: Sort
         let projects: [ProjectsEndpoint.Project]
     }
     
     enum Header { }
-    enum PathParameter { }
-    enum QueryParameter: ServiceParameter {
-        case category(String)
-        case subCategory(String)
-
-        case country(String)
-        case creatorId(String)
-        case currency(String)
-        case backerCountMin(Int)
-        case backerCountMax(Int)
-        case exclude([String])
-        case funded(Bool)
-        case funding(Bool)
-        case fundStart(Date)
-        case fundEnd(Date)
-        case goalMin(Int)
-        case goalMax(Int)
-        case hasEarlyBirdRewards(Bool)
-        case language(String)
-        case pledgeMin(Int)
-        case pledgeMax(Int)
-        case query(String) // ?
-        case site(String)
-        case visible(Bool)
-
-        case sort(String)
-        case sortDirection(String)
-        case offset(Int)
-        case limit(Int)
+    enum PathParameter: ServiceParameter {
+        case projectId(Int)
     }
+    enum QueryParameter { }
     enum PostBody { }
-        
+    
     var type: ServiceRequestType = .get
     var endpoints: Endpoints = [
-        .qa: "https://api.qabackit.com/project/projects"
+        .qa: "https://api.qabackit.com/project/projects/{projectId}"
     ]
-    var queryParameters: [QueryParameter]?
+    var pathParameters: [PathParameter]?
     
-    init(queryParameters: [QueryParameter]) {
-        self.queryParameters = queryParameters
+    init(projectId: Int) {
+        self.pathParameters = [
+            .projectId(projectId)
+        ]
     }
 }

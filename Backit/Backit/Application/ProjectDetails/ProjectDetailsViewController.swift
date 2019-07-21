@@ -23,19 +23,54 @@ class ProjectDetailsViewController: UIViewController {
     }
     
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet weak var playVideoButton: UIImageView! {
+        didSet {
+            playVideoButton.isHidden = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapPlayVideoButton))
+            playVideoButton.addGestureRecognizer(tap)
+            playVideoButton.isUserInteractionEnabled = true
+        }
+    }
     
     @IBOutlet private weak var titleLabel: UILabel! {
         didSet {
             theme.apply(.feedProjectName, toLabel: titleLabel)
         }
     }
+    @IBOutlet weak var authorLabel: UILabel! {
+        didSet {
+            theme.apply(.info, toLabel: authorLabel)
+        }
+    }
+    @IBOutlet weak var progressView: UIProgressView! {
+        didSet {
+            theme.apply(.fundedPercent, toProgressView: progressView)
+        }
+    }
+    @IBOutlet weak var blurbLabel: UILabel! {
+        didSet {
+            theme.apply(.info, toLabel: blurbLabel)
+        }
+    }
+    @IBOutlet weak var locationLabel: UILabel! {
+        didSet {
+            theme.apply(.info, toLabel: locationLabel)
+        }
+    }
+    @IBOutlet weak var categoryLabel: UILabel! {
+        didSet {
+            theme.apply(.info, toLabel: categoryLabel)
+        }
+    }
     
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
     private var project: FeedProject?
+    private var projectFuture: Future<DetailedProject, ProjectProviderError>?
     
-    func configure(with project: FeedProject) {
+    func configure(with project: FeedProject, projectFuture: Future<DetailedProject, ProjectProviderError>) {
         self.project = project
+        self.projectFuture = projectFuture
     }
     
     override func viewDidLoad() {
@@ -58,11 +93,8 @@ class ProjectDetailsViewController: UIViewController {
             self?.imageView.image = image?.resizedImage(using: size)
         }
         
-        // Video
-        // Title
-        // from Author
-        // Location
-        // Category / Subcategory
+        projectFuture?.onSuccess(callback: updateProject(with:))
+
         // Back It
         // Pledged of Goal
         // # Backers
@@ -77,5 +109,30 @@ class ProjectDetailsViewController: UIViewController {
     
     @objc func didTapCloseButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func didTapPlayVideoButton(_ sender: Any) {
+        log.i("Did tap play video button")
+    }
+    
+    private func updateProject(with project: DetailedProject) {
+        var fundedPercent = project.pledged > 0
+            ? Float(project.pledged) / Float(project.goal)
+            : 0
+        // clamp to 100%
+        fundedPercent = fundedPercent > 1 ? 1 : fundedPercent
+        categoryLabel.text = project.category
+        authorLabel.text = project.author
+        progressView.progress = fundedPercent
+        locationLabel.text = project.country
+        blurbLabel.text = project.blurb
+        if project.videoUrl != nil {
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                self?.playVideoButton.isHidden = false
+            }
+        }
+        else {
+            playVideoButton.isHidden = true
+        }
     }
 }

@@ -139,7 +139,10 @@ class ProjectFeedViewController: UIViewController {
         guard let viewController = pageProvider?.projectDetails() else {
             return log.c("Failed to display Project Details")
         }
-        viewController.configure(with: project)
+        guard let future = projectProvider?.project(id: project.id) else {
+            return log.c("Failed to configure ProjectFeedViewController")
+        }
+        viewController.configure(with: project, projectFuture: future)
         viewController.hero.isEnabled = true
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.present(viewController, animated: true, completion: nil)

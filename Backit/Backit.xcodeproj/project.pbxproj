@@ -39,6 +39,8 @@
 		0732392C220912960034291C /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732392B220912960034291C /* AnalyticsTransaction.swift */; };
 		0736DACC22BC4084001F7C08 /* HostReplacerServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0736DACB22BC4084001F7C08 /* HostReplacerServicePlugin.swift */; };
 		0736DACE22BC6107001F7C08 /* AccountHealthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0736DACD22BC6107001F7C08 /* AccountHealthEndpoint.swift */; };
+		073891DB22E5000B006B9684 /* ProjectResponse+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F921FA60B500E2DECD /* ProjectResponse+Backit.swift */; };
+		073891DD22E509D3006B9684 /* DetailedProjectInfoEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073891DC22E509D3006B9684 /* DetailedProjectInfoEndpoint.swift */; };
 		073AE1A522BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */; };
 		073AE1A722BAE24E00BD1A30 /* AppBannerMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */; };
 		073AE1A922BB0E2C00BD1A30 /* ProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */; };
@@ -53,7 +55,6 @@
 		0754B5F421FA589B00E2DECD /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F321FA589B00E2DECD /* Project.swift */; };
 		0754B5F621FA58CF00E2DECD /* ProjectSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F521FA58CF00E2DECD /* ProjectSource.swift */; };
 		0754B5F821FA590600E2DECD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F721FA590600E2DECD /* Service.swift */; };
-		0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5F921FA60B500E2DECD /* ProjectResponse+Backit.swift */; };
 		0754B5FD21FA64CB00E2DECD /* ProjectsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B5FC21FA64CB00E2DECD /* ProjectsEndpoint.swift */; };
 		0754B60621FBDDC400E2DECD /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60521FBDDC400E2DECD /* Environment.swift */; };
 		0754B60921FC0FCC00E2DECD /* ServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B60821FC0FCC00E2DECD /* ServicePlugin.swift */; };
@@ -243,6 +244,7 @@
 		0732392B220912960034291C /* AnalyticsTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransaction.swift; sourceTree = "<group>"; };
 		0736DACB22BC4084001F7C08 /* HostReplacerServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostReplacerServicePlugin.swift; sourceTree = "<group>"; };
 		0736DACD22BC6107001F7C08 /* AccountHealthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHealthEndpoint.swift; sourceTree = "<group>"; };
+		073891DC22E509D3006B9684 /* DetailedProjectInfoEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedProjectInfoEndpoint.swift; sourceTree = "<group>"; };
 		073AE1A422BAE20D00BD1A30 /* AccountProviderError+BannerErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountProviderError+BannerErrorMessage.swift"; sourceTree = "<group>"; };
 		073AE1A622BAE24E00BD1A30 /* AppBannerMessageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBannerMessageProvider.swift; sourceTree = "<group>"; };
 		073AE1A822BB0E2C00BD1A30 /* ProgressOverlayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlayProvider.swift; sourceTree = "<group>"; };
@@ -1027,6 +1029,7 @@
 		B900A07422CD4E2F002A78F0 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				073891DC22E509D3006B9684 /* DetailedProjectInfoEndpoint.swift */,
 				0754B5FC21FA64CB00E2DECD /* ProjectsEndpoint.swift */,
 				B900A07522CD4E44002A78F0 /* UpVoteProjectEndpoint.swift */,
 				077ACF7022DFC6A200900968 /* RemoveVoteEndpoint.swift */,
@@ -1360,6 +1363,7 @@
 				0716EA3422C3A71C002D259E /* KeyboardLayoutConstraint.swift in Sources */,
 				071B317922794F3300DB1561 /* User.swift in Sources */,
 				AA0FD38622B08206007DEEB6 /* FacebookProvider.swift in Sources */,
+				073891DB22E5000B006B9684 /* ProjectResponse+Backit.swift in Sources */,
 				07684D1B22BD8F0E00D6F21D /* AlamofireSessionManagerFactory.swift in Sources */,
 				078BCA972253B047003A03CA /* ProjectFeedViewController.swift in Sources */,
 				07792B97229B0C9F0023D56C /* SecondaryButton.swift in Sources */,
@@ -1465,6 +1469,7 @@
 				0754B60F21FF39A100E2DECD /* ServiceRequester.swift in Sources */,
 				B9FB5986227FF97100A03BDC /* UserSessionStream.swift in Sources */,
 				AA00861C22CCFF8F000B0580 /* ProjectFeedCompositionService.swift in Sources */,
+				073891DD22E509D3006B9684 /* DetailedProjectInfoEndpoint.swift in Sources */,
 				B900A07322CD4A12002A78F0 /* GuestUser.swift in Sources */,
 				0754B60621FBDDC400E2DECD /* Environment.swift in Sources */,
 				07792B9B229B3A7B0023D56C /* UnderlineButton.swift in Sources */,
@@ -1478,7 +1483,6 @@
 				B905785F229A574600AD09C6 /* TextButton.swift in Sources */,
 				07C9BD58227897A800E41F1D /* AccountService.swift in Sources */,
 				0754B5F821FA590600E2DECD /* Service.swift in Sources */,
-				0754B5FA21FA60B500E2DECD /* ProjectResponse+Backit.swift in Sources */,
 				07B899C922B35845003F7597 /* CreateExternalAccountEndpoint.swift in Sources */,
 				071B317D227953D700DB1561 /* CreateAccountEndpoint.swift in Sources */,
 				071B317522794EE600DB1561 /* ProjectProvider.swift in Sources */,
