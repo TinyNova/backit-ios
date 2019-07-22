@@ -8,6 +8,7 @@
 import Foundation
 import BrightFutures
 import GoogleSignIn
+import UIKit
 
 @objc class AppGoogleProvider: NSObject, GoogleProvider {
     

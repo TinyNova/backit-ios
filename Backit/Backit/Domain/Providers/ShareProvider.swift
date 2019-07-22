@@ -5,6 +5,7 @@
 
 import BrightFutures
 import Foundation
+import UIKit
 
 enum ShareProviderError: Error {
     case generic(Error)

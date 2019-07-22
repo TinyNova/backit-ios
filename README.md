@@ -30,3 +30,15 @@ Press Ctrl+C to stop the video.
 ## TODO
 
 Load a different `AppDelegate` at test time so that network calls, etc. are not incurred at test time.
+
+# Building the Project
+
+Install dependencies
+```
+$ brew install carthage xcodegen
+```
+
+Build iOS dependencies using Carthage
+```
+$ carthage update --platform iOS
+```
