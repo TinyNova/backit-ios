@@ -232,7 +232,7 @@ extension ProjectTableViewCell: ProjectImageCollectionViewDelegate {
         switch asset {
         case .image:
             // Images are not "Played", therefore, they behave as if the user tapped the cell.
-            guard let project = project else {
+            guard project != nil else {
                 return log.c(notConfigured())
             }
             delegate?.didTapProjectCell(self)
