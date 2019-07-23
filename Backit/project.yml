@@ -24,6 +24,10 @@ targets:
       - framework: SDK/NewRelicAgent/NewRelicAgent.framework
       - carthage: Alamofire
       - carthage: BrightFutures
+      - carthage: FacebookCore
+      - carthage: FacebookLogin
+      - carthage: FBSDKCoreKit
+      - carthage: FBSDKLoginKit
       - carthage: FMDB
       - carthage: Hero
       - carthage: KeychainAccess
