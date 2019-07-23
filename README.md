@@ -36,6 +36,7 @@ Load a different `AppDelegate` at test time so that network calls, etc. are not 
 Install dependencies
 ```
 $ brew install carthage xcodegen
+$ gem install synx
 ```
 
 Dependencies that are not in source control and should be placed in `Backit/SDK/`:
@@ -72,3 +73,7 @@ $ open Backit.xcworkspace
 - Tap the `Backit` project
 - General
 - Select a Team to build the project as
+
+# Carthage
+
+For spec information please refer to: https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#options
