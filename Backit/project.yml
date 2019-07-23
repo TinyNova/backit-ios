@@ -1,16 +1,19 @@
 name: Backit
 options:
    minimumXcodeGenVersion: 2.6.0
-  #  configFiles: Debug: configs/Debug.xcconfig
-    #  Release: configs/Release.xcconfig
+   #  configFiles: Debug: configs/Debug.xcconfig
+   #  Release: configs/Release.xcconfig
 targets:
   Backit:
     platform: iOS
     type: application
     sources:
-      - path: Backit/
+      - path: Backit/Application
         excludes:
           - "MixpanelAnalyticsListener.swift"
+      - path: Backit/Domain
+      - path: Backit/Service
+      - path: Backit/UI
         #    configFiles:
         #        Debug: configs/BitriseClient-Debug.xcconfig
         #        Release: configs/BitriseClient-Release.xcconfig
@@ -34,6 +37,7 @@ targets:
       - carthage: SDWebImage
       - carthage: Swinject
       - carthage: SwinjectStoryboard
+      - target: BKFoundation
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.backit.ios.backer
@@ -48,7 +52,7 @@ targets:
     platform: iOS
     type: bundle.unit-test
     #    configFiles:
-        #      Debug: configs/BitriseClientTests-Debug.xcconfig
+    #    Debug: configs/BitriseClientTests-Debug.xcconfig
     sources:
       - BackitTests/
     dependencies:
@@ -57,3 +61,10 @@ targets:
       testTargets:
         - BackitTests
       gatherCoverageData: true
+  BKFoundation:
+    platform: iOS
+    type: framework
+    sources:
+      - Backit/Foundation
+    dependencies:
+      - carthage: BrightFutures
