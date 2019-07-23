@@ -50,6 +50,8 @@ targets:
     scheme:
       environmentVariables:
         ENABLE_SIGNPOST: YES
+      testTargets:
+        - BackitTests
   BackitTests:
     platform: iOS
     type: bundle.unit-test
@@ -58,8 +60,6 @@ targets:
     dependencies:
       - target: Backit
     scheme:
-      testTargets:
-        - BackitTests
       gatherCoverageData: true
   BKFoundation:
     platform: iOS
