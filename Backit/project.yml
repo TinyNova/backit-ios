@@ -1,17 +1,16 @@
 name: Backit
 options:
-  bundleId: com.backit.backer
-  minimumXcodeGenVersion: 2.6.0
-  #  configFiles:
-    #  Debug: configs/Debug.xcconfig
+   minimumXcodeGenVersion: 2.6.0
+  #  configFiles: Debug: configs/Debug.xcconfig
     #  Release: configs/Release.xcconfig
 targets:
   Backit:
     platform: iOS
     type: application
     sources:
-        - path: Backit/
-          exclude: MixpanelAnalyticsListener.swift
+      - path: Backit/
+        excludes:
+          - "MixpanelAnalyticsListener.swift"
         #    configFiles:
         #        Debug: configs/BitriseClient-Debug.xcconfig
         #        Release: configs/BitriseClient-Release.xcconfig
@@ -31,6 +30,13 @@ targets:
       - carthage: SDWebImage
       - carthage: Swinject
       - carthage: SwinjectStoryboard
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.backit.ios.backer
+        SWIFT_OBJC_BRIDGING_HEADER: Backit/Backit-Bridging-Header.h
+    configs:
+        Debug:
+          CODE_SIGN_IDENTITY: "iPhone Developer"
     scheme:
       environmentVariables:
         ENABLE_SIGNPOST: YES
