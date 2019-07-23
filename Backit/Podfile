@@ -6,10 +6,7 @@ use_frameworks!
 
 target 'BackitTests' do
     pod 'AutoEquatable'
-    pod 'KIF'
-    pod 'KIF-Quick'
-    pod 'Nimble'
-    pod 'Quick'
+#    pod 'KIF/IdentifierTests'
     pod 'Spry'
-    pod 'Spry+Nimble'
+#    pod 'Spry+Nimble'
 end

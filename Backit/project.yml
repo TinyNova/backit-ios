@@ -60,6 +60,9 @@ targets:
       - BackitTests/
     dependencies:
       - target: Backit
+      - carthage: KIF
+      - carthage: Nimble
+      - carthage: Quick
     scheme:
       gatherCoverageData: true
   BKFoundation:
