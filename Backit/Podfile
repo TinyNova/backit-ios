@@ -8,7 +8,6 @@ target 'Backit' do
     pod 'FacebookLogin'
     pod 'GoogleSignIn'
 #   pod 'Mixpanel'
-    pod 'NewRelicAgent'
 #   pod 'SwiftProtobuf'
 end
 

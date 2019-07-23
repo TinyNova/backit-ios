@@ -1,5 +1,6 @@
 name: Backit
 options:
+  bundleId: com.backit.backer
   minimumXcodeGenVersion: 2.6.0
   #  configFiles:
     #  Debug: configs/Debug.xcconfig
@@ -16,6 +17,11 @@ targets:
         #    settings:
         #      FRAMEWORK_SEARCH_PATHS: "$(inherited) $(PROJECT_DIR)/SDK/NewRelicAgent/ $(PROJECT_DIR)/SDK/google_signin_sdk_4_4_0/"
     dependencies:
+      - sdk: CoreTelephony.framework
+      - sdk: SystemConfiguration.framework
+      - sdk: libc++.tbd
+      - sdk: libz.tbd
+      - framework: SDK/NewRelicAgent/NewRelicAgent.framework
       - carthage: Alamofire
       - carthage: BrightFutures
       - carthage: FMDB
