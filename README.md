@@ -38,7 +38,17 @@ Install dependencies
 $ brew install carthage xcodegen
 ```
 
+Dependencies that are not in source control and should be placed in `Backit/SDK/`:
+- NewRelic v6.7.0
+
 Build iOS dependencies using Carthage
 ```
 $ carthage update --platform iOS
+```
+
+Create the project files
+```
+$ xcodegen
+$ pod install
+$ open Backit.xcworkspace
 ```
