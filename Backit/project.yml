@@ -50,6 +50,7 @@ targets:
     scheme:
       environmentVariables:
         ENABLE_SIGNPOST: YES
+        OS_ACTIVITY_MODE: "disable"
       testTargets:
         - BackitTests
   BackitTests:
