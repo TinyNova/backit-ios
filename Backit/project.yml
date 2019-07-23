@@ -1,8 +1,6 @@
 name: Backit
 options:
-   minimumXcodeGenVersion: 2.6.0
-   #  configFiles: Debug: configs/Debug.xcconfig
-   #  Release: configs/Release.xcconfig
+  minimumXcodeGenVersion: 2.6.0
 targets:
   Backit:
     platform: iOS
@@ -16,11 +14,6 @@ targets:
       - path: Domain
       - path: Service
       - path: UI
-        #    configFiles:
-        #        Debug: configs/BitriseClient-Debug.xcconfig
-        #        Release: configs/BitriseClient-Release.xcconfig
-        #    settings:
-        #      FRAMEWORK_SEARCH_PATHS: "$(inherited) $(PROJECT_DIR)/SDK/NewRelicAgent/ $(PROJECT_DIR)/SDK/google_signin_sdk_4_4_0/"
     dependencies:
       - sdk: CoreTelephony.framework
       - sdk: SystemConfiguration.framework
@@ -53,8 +46,6 @@ targets:
   BackitTests:
     platform: iOS
     type: bundle.unit-test
-    #    configFiles:
-    #    Debug: configs/BitriseClientTests-Debug.xcconfig
     sources:
       - BackitTests/
     dependencies:
