@@ -6,6 +6,8 @@
 import Foundation
 import UIKit
 
+import BKFoundation
+
 class LostPasswordViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel! {

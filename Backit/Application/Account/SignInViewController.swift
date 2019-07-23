@@ -7,6 +7,8 @@ import BrightFutures
 import Foundation
 import UIKit
 
+import BKFoundation
+
 protocol SignInViewControllerDelegate: class {
     /**
      * The user successfully signed in.

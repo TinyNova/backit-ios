@@ -8,6 +8,8 @@ import CoreLocation
 import Foundation
 import UIKit
 
+import BKFoundation
+
 class AccountService: AccountProvider {
     
     private let service: Service

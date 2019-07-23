@@ -5,32 +5,28 @@
 
 import Foundation
 
-struct GenericError: Error {
-    
+public struct GenericError: Error {
+    public init() { }
 }
 
-struct StringError: Error {
+public struct StringError: Error {
     
     let error: String
     
     var localizedDescription: String {
         return error
     }
-}
 
-struct NotImplementedError: Error {
-    
+    public init(error: String) {
+        self.error = error
+    }
 }
 
 // Emit when we fail to create a strong self from a weak self.
-struct WeakReferenceError: Error {
-    
+public struct WeakReferenceError: Error {
+    public init() { }
 }
 
-struct StoryboardError: Error {
-    
-}
-
-struct NoError: Error {
-    
+public struct StoryboardError: Error {
+    public init() { }
 }

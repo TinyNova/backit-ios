@@ -9,6 +9,8 @@
 import BrightFutures
 import Foundation
 
+import BKFoundation
+
 enum ServiceError: Error {
     case strongSelf
     case initialization

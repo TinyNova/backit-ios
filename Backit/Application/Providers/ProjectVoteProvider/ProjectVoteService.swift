@@ -6,6 +6,8 @@
 import BrightFutures
 import Foundation
 
+import BKFoundation
+
 class ProjectVoteService: ProjectVoteProvider {    
 
     let database: DatabaseProvider

@@ -9,6 +9,8 @@ import Foundation
 import Swinject
 import SwinjectStoryboard
 
+import BKFoundation
+
 private enum Config {
     
     /// The environment the app is configured to run in

@@ -12,7 +12,7 @@ public protocol LocalizationType {
     func localize() -> String
 }
 
-extension LocalizationType {
+public extension LocalizationType {
     func l(key: String, comment: String = "", arguments: CVarArg...) -> String {
         let string = NSLocalizedString(key, comment: comment)
         return String(format: string, arguments: arguments)

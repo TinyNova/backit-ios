@@ -5,7 +5,7 @@
 
 import Foundation
 
-enum LogLevel: Int {
+public enum LogLevel: Int {
     case debug
     case info
     case warning
@@ -17,47 +17,47 @@ enum LogLevel: Int {
     }
 }
 
-var log = Logger()
+public var log = Logger()
 
-class Logger {
+public class Logger {
     
     var level: LogLevel = .debug
     
-    func d(_ message: String) {
+    public func d(_ message: String) {
         guard log.level < .info else {
             return
         }
         print("DEBUG: \(message)")
     }
     
-    func i(_ message: String) {
+    public func i(_ message: String) {
         guard log.level < .warning else {
             return
         }
         print("INFO: \(message)")
     }
 
-    func w(_ message: String) {
+    public func w(_ message: String) {
         guard log.level < .error else {
             return
         }
         print("WARN: \(message)")
     }
 
-    func e(_ message: String) {
+    public func e(_ message: String) {
         guard log.level < .critical else {
             return
         }
         print("ERROR: \(message)")
     }
-    func e(_ error: Error) {
+    public func e(_ error: Error) {
         guard log.level < .critical else {
             return
         }
         print("ERROR: \(error)")
     }
     
-    func c(_ message: String) {
+    public func c(_ message: String) {
         print("CRITICAL: \(message)")
     }
 }

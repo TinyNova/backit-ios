@@ -12,4 +12,6 @@ public class Localization<T: LocalizationType> {
     public func t(_ token: T) -> String {
         return token.localize()
     }
+
+    public init() { }
 }

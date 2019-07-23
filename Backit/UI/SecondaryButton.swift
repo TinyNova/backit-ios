@@ -6,6 +6,8 @@
 import Foundation
 import UIKit
 
+import BKFoundation
+
 class SecondaryButton: UIControl, CustomButton {
     
     @IBOutlet private weak var textLabel: UILabel! {

@@ -11,7 +11,7 @@
 import Foundation
 import UIKit
 
-protocol UIStyle {
+public protocol UIStyle {
     associatedtype ButtonStyle
     associatedtype ImageStyle
     associatedtype LabelStyle
@@ -22,7 +22,7 @@ protocol UIStyle {
     associatedtype ProgressViewStyle
 }
 
-protocol UITheme {
+public protocol UITheme {
     associatedtype Style: UIStyle
     
     func apply(_ styles: [Style.ButtonStyle], toButton button: UIButton)

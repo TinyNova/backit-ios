@@ -6,6 +6,8 @@
 import Foundation
 import UIKit
 
+import BKFoundation
+
 protocol CreateAccountViewControllerDelegate: class {
     func didCreateAccount(credentials: Credentials, userSession: UserSession)
     func userCancelled()

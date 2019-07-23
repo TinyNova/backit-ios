@@ -10,6 +10,8 @@
 import Foundation
 import UIKit
 
+import BKFoundation
+
 protocol TextEntryFieldDelegate: class {
     func didChangeText(field: TextEntryField, text: String?)
     func didSubmit(field: TextEntryField)

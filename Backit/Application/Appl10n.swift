@@ -8,6 +8,8 @@
 
 import Foundation
 
+import BKFoundation
+
 enum Appl10n {
     case comment
     case comments(amount: Int)

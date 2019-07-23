@@ -7,6 +7,8 @@ import BrightFutures
 import Foundation
 import UIKit
 
+import BKFoundation
+
 class AppSignInProvider: SignInProvider {
     
     let keychainProvider: KeychainProvider

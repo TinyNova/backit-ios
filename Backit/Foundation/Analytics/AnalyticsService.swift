@@ -6,23 +6,23 @@
 
 import Foundation
 
-class AnalyticsService {
+public class AnalyticsService {
     
     private let listeners: [AnalyticsListener]
     
     private var transactions = [String /* Event location */: DispatchTime /* Time started */]()
     
-    init(listeners: [AnalyticsListener]) {
+    public init(listeners: [AnalyticsListener]) {
         self.listeners = listeners
     }
     
-    func send(_ event: AnalyticsEvent) {
+    public func send(_ event: AnalyticsEvent) {
         listeners.forEach { (listener) in
             listener.receive(event)
         }
     }
     
-    func start( _ event: AnalyticsEvent) {
+    public func start( _ event: AnalyticsEvent) {
         let id = eventId(for: event)
         guard transactions[id] == nil else {
             log.i("Attempting to start a transaction event for \(event) which has already been started")
@@ -39,15 +39,15 @@ class AnalyticsService {
         }
     }
     
-    func cancel( _ event: AnalyticsEvent) {
+    public func cancel( _ event: AnalyticsEvent) {
         finishTransaction(event, status: .stopped)
     }
 
-    func stop( _ event: AnalyticsEvent) {
+    public func stop( _ event: AnalyticsEvent) {
         finishTransaction(event, status: .stopped)
     }
     
-    func publisher<T: AnalyticsEvent>() -> AnalyticsPublisher<T> {
+    public func publisher<T: AnalyticsEvent>() -> AnalyticsPublisher<T> {
         return AnalyticsPublisher<T>(service: self)
     }
     

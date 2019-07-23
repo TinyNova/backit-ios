@@ -65,6 +65,6 @@ targets:
     platform: iOS
     type: framework
     sources:
-      - path: Foundation
+      - Foundation/
     dependencies:
       - carthage: BrightFutures

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UIThemeApplier<T: UIStyle> {
+public class UIThemeApplier<T: UIStyle> {
     
     var buttonThemes: [([T.ButtonStyle], UIButton)] = []
     var imageThemes: [([T.ImageStyle], UIImageView)] = []

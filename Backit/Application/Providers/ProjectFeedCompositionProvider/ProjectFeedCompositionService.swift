@@ -11,6 +11,8 @@
 import BrightFutures
 import Foundation
 
+import BKFoundation
+
 class ProjectFeedCompositionService: ProjectFeedCompositionProvider {
     
     let discussionProvider: DiscussionProvider

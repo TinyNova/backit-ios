@@ -10,20 +10,37 @@
 
 import Foundation
 
-struct Environment: OptionSet, Hashable {
-    let rawValue: Int
+public struct Environment: OptionSet, Hashable {
+    public init(rawValue: Int) {
+        switch rawValue {
+        case 1 << 0:
+            self = Environment.dev
+        case 1 << 1:
+            self = Environment.qa
+        case 1 << 2:
+            self = Environment.prod
+        default:
+            self = Environment.all
+        }
+    }
+
+    public init() {
+        self = Environment.all
+    }
+
+    public let rawValue: Int
     
-    var hashValue: Int {
+    public var hashValue: Int {
         return self.rawValue
     }
     
-    static let dev = Environment(rawValue: 1 << 0)
-    static let qa = Environment(rawValue: 1 << 1)
-    static let prod = Environment(rawValue: 1 << 2)
+    public static let dev = Environment(rawValue: 1 << 0)
+    public static let qa = Environment(rawValue: 1 << 1)
+    public static let prod = Environment(rawValue: 1 << 2)
     
-    static let all: Environment = [.dev, .qa, .prod]
+    public static let all: Environment = [.dev, .qa, .prod]
     
-    static func ==(lhs: Environment, rhs: Environment) -> Bool {
+    public static func ==(lhs: Environment, rhs: Environment) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
 }

@@ -6,8 +6,8 @@
 
 import Foundation
 
-enum AnalyticsTransaction {
-    enum Status {
+public enum AnalyticsTransaction {
+    public enum Status {
         case started
         case cancelled
         case stopped
@@ -17,16 +17,16 @@ enum AnalyticsTransaction {
     case finish(AnalyticsFinishedTransaction)
 }
 
-struct AnalyticsStartedTransaction {
+public struct AnalyticsStartedTransaction {
     let status: AnalyticsTransaction.Status = .started
     let startTime: Double // UNIX time in seconds
     
-    init(startTime: Double) {
+    public init(startTime: Double) {
         self.startTime = startTime
     }
 }
 
-struct AnalyticsFinishedTransaction {
+public struct AnalyticsFinishedTransaction {
     let status: AnalyticsTransaction.Status
     let startTime: Double // UNIX time in seconds
     let stopTime: Double // UNIX time in seconds

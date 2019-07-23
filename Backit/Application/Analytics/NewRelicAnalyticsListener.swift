@@ -6,6 +6,8 @@
 
 import Foundation
 
+import BKFoundation
+
 private enum Constant {
     static let event = "MobileEvent"
     static let transaction = "MobileTransaction"

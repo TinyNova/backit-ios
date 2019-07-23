@@ -6,6 +6,8 @@
 import Foundation
 import UIKit
 
+import BKFoundation
+
 protocol ProjectFeedErrorViewDelegate: class {
     func didRequestToReloadData()
 }

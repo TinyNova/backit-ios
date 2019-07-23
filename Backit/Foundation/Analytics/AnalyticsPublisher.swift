@@ -5,27 +5,27 @@
 
 import Foundation
 
-class AnalyticsPublisher<T: AnalyticsEvent> {
+public class AnalyticsPublisher<T: AnalyticsEvent> {
     
     private let service: AnalyticsService
     
-    init(service: AnalyticsService) {
+    public init(service: AnalyticsService) {
         self.service = service
     }
     
-    func send(_ type: T) {
+    public func send(_ type: T) {
         service.send(type)
     }
     
-    func start(_ type: T) {
+    public func start(_ type: T) {
         service.start(type)
     }
     
-    func cancel(_ type: T) {
+    public func cancel(_ type: T) {
         service.cancel(type)
     }
     
-    func stop(_ type: T) {
+    public func stop(_ type: T) {
         service.stop(type)
     }
 }
