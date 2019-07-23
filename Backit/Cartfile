@@ -1,0 +1,12 @@
+github "Alamofire/Alamofire"
+github "Thomvis/BrightFutures"
+github "facebook/facebook-swift-sdk" "master"
+github "ccgus/fmdb"
+#github 'GoogleSignIn' - not supported
+github "HeroTransitions/Hero"
+github "kishikawakatsumi/KeychainAccess"
+#github 'Mixpanel' - unknown
+#github 'NewRelicAgent' - not supported
+github "SDWebImage/SDWebImage"
+github "Swinject/Swinject"
+github "Swinject/SwinjectStoryboard"

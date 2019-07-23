@@ -6,6 +6,7 @@
 import BrightFutures
 import CoreLocation
 import Foundation
+import UIKit
 
 enum AccountValidationField {
     case unknown

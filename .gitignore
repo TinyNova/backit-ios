@@ -2,3 +2,7 @@ Pods
 *.lock
 xcuserdata
 .DS_Store
+Carthage/
+SDK/
+*.swp
+Backit.xc*

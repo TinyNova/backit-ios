@@ -5,28 +5,17 @@ platform :ios, '11.0'
 use_frameworks!
 
 target 'Backit' do
-    pod 'Alamofire'
-    pod 'BrightFutures'
-    pod 'FacebookLogin'
-    pod 'FMDB'
     pod 'GoogleSignIn'
-    pod 'Hero'
-    pod 'KeychainAccess'
 #   pod 'Mixpanel'
-    pod 'NewRelicAgent'
-    pod 'SDWebImage'
 #   pod 'SwiftProtobuf'
-    pod 'Swinject'
-    pod 'SwinjectStoryboard', '~> 2.2.0'
 end
 
 target 'BackitTests' do
-    pod 'BrightFutures'
-    pod 'Quick'
-    pod 'Nimble'
+    pod 'AutoEquatable'
     pod 'KIF'
     pod 'KIF-Quick'
+    pod 'Nimble'
+    pod 'Quick'
     pod 'Spry'
     pod 'Spry+Nimble'
-    pod 'AutoEquatable'
 end
