@@ -11,6 +11,8 @@ import MediaPlayer
 import SDWebImage
 import UIKit
 
+import BKFoundation
+
 // This defines the image (cell) size for all views that display an image/video.
 var ProjectImageSize: CGSize = .zero
 

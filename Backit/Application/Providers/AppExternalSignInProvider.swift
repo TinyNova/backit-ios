@@ -6,6 +6,8 @@
 import BrightFutures
 import Foundation
 
+import BKFoundation
+
 class AppExternalSignInProvider: ExternalSignInProvider {
     
     weak var delegate: ExternalSignInProviderDelegate?

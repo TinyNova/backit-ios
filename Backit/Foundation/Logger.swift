@@ -21,7 +21,7 @@ public var log = Logger()
 
 public class Logger {
     
-    var level: LogLevel = .debug
+    public var level: LogLevel = .debug
     
     public func d(_ message: String) {
         guard log.level < .info else {

@@ -18,8 +18,8 @@ public enum AnalyticsTransaction {
 }
 
 public struct AnalyticsStartedTransaction {
-    let status: AnalyticsTransaction.Status = .started
-    let startTime: Double // UNIX time in seconds
+    public let status: AnalyticsTransaction.Status = .started
+    public let startTime: Double // UNIX time in seconds
     
     public init(startTime: Double) {
         self.startTime = startTime
@@ -27,8 +27,8 @@ public struct AnalyticsStartedTransaction {
 }
 
 public struct AnalyticsFinishedTransaction {
-    let status: AnalyticsTransaction.Status
-    let startTime: Double // UNIX time in seconds
-    let stopTime: Double // UNIX time in seconds
-    let totalTime: Double // Seconds elapsed from start to end
+    public let status: AnalyticsTransaction.Status
+    public let startTime: Double // UNIX time in seconds
+    public let stopTime: Double // UNIX time in seconds
+    public let totalTime: Double // Seconds elapsed from start to end
 }

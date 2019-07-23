@@ -9,6 +9,8 @@
 import Foundation
 import BrightFutures
 
+import BKFoundation
+
 struct HostRule {
     let subject: String
     

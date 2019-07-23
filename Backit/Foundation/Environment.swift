@@ -12,16 +12,7 @@ import Foundation
 
 public struct Environment: OptionSet, Hashable {
     public init(rawValue: Int) {
-        switch rawValue {
-        case 1 << 0:
-            self = Environment.dev
-        case 1 << 1:
-            self = Environment.qa
-        case 1 << 2:
-            self = Environment.prod
-        default:
-            self = Environment.all
-        }
+        self.rawValue = rawValue
     }
 
     public init() {

@@ -1,6 +1,8 @@
 import Foundation
 import SpriteKit
 
+import BKFoundation
+
 protocol BannerViewDelegate: class {
     func didDismissBanner(_ bannerView: BannerView)
 }

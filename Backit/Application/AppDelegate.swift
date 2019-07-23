@@ -7,6 +7,8 @@ import BrightFutures
 //import Mixpanel
 import UIKit
 
+import BKFoundation
+
 private enum Constant {
     static let appIdKey = "ApplicationUniqueIdentifier"
 }

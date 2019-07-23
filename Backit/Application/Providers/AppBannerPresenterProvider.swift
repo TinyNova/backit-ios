@@ -7,6 +7,8 @@ import Foundation
 import SpriteKit
 import UIKit
 
+import BKFoundation
+
 class AppBannerProvider: BannerProvider {
     
     let messageProvider: BannerMessageProvider
@@ -23,7 +25,7 @@ class AppBannerProvider: BannerProvider {
     
     func present(message: BannerMessage, in viewController: UIViewController?) {
         guard !isShowing else {
-            return log.i("Already showing the banner")
+            return log.d("Already showing the banner")
         }
         guard let view = viewController?.view else {
             log.w("Attempting to display banner in a `UIViewController` that has no `view`")

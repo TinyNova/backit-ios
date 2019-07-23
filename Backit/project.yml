@@ -8,9 +8,11 @@ targets:
     platform: iOS
     type: application
     sources:
+      - path: main.swift
+      - path: Info.plist
       - path: Application
         excludes:
-          - "MixpanelAnalyticsListener.swift"
+          - "Analytics/MixpanelAnalyticsListener.swift"
       - path: Domain
       - path: Service
       - path: UI
