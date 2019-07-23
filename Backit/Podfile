@@ -4,12 +4,6 @@ platform :ios, '11.0'
 
 use_frameworks!
 
-target 'Backit' do
-    pod 'GoogleSignIn'
-#   pod 'Mixpanel'
-#   pod 'SwiftProtobuf'
-end
-
 target 'BackitTests' do
     pod 'AutoEquatable'
     pod 'KIF'
