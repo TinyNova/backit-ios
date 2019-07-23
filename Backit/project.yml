@@ -8,12 +8,12 @@ targets:
     platform: iOS
     type: application
     sources:
-      - path: Backit/Application
+      - path: Application
         excludes:
           - "MixpanelAnalyticsListener.swift"
-      - path: Backit/Domain
-      - path: Backit/Service
-      - path: Backit/UI
+      - path: Domain
+      - path: Service
+      - path: UI
         #    configFiles:
         #        Debug: configs/BitriseClient-Debug.xcconfig
         #        Release: configs/BitriseClient-Release.xcconfig
@@ -41,7 +41,7 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.backit.ios.backer
-        SWIFT_OBJC_BRIDGING_HEADER: Backit/Backit-Bridging-Header.h
+        SWIFT_OBJC_BRIDGING_HEADER: Backit-Bridging-Header.h
     configs:
         Debug:
           CODE_SIGN_IDENTITY: "iPhone Developer"
@@ -65,6 +65,6 @@ targets:
     platform: iOS
     type: framework
     sources:
-      - Backit/Foundation
+      - Foundation
     dependencies:
       - carthage: BrightFutures
