@@ -10,7 +10,8 @@ targets:
     platform: iOS
     type: application
     sources:
-      - Backit/
+        - path: Backit/
+          exclude: MixpanelAnalyticsListener.swift
         #    configFiles:
         #        Debug: configs/BitriseClient-Debug.xcconfig
         #        Release: configs/BitriseClient-Release.xcconfig
