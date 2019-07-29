@@ -36,7 +36,7 @@ Load a different `AppDelegate` at test time so that network calls, etc. are not 
 Install dependencies
 ```
 $ brew install carthage xcodegen
-$ gem install synx
+$ gem install synx cocoapods
 ```
 
 Dependencies that are not in source control and should be placed in `Backit/SDK/`:
@@ -64,12 +64,7 @@ $ open Backit.xcworkspace
 - Embed Frameworks Group
 - (x) Copy only when installing
 
-2. Disable Mixpanel
-- Find `MixpanelAnalyticsListener.swift`
-- Open Inspector pane
-- Remove from Backit target membership
-
-3. Select a Team (not necessary except for build machine)
+2. Select a Team (not necessary except for build machine)
 - Tap the `Backit` project
 - General
 - Select a Team to build the project as
