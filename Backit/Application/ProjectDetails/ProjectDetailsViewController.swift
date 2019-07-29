@@ -124,7 +124,7 @@ class ProjectDetailsViewController: UIViewController {
         // clamp to 100%
         fundedPercent = fundedPercent > 1 ? 1 : fundedPercent
         categoryLabel.text = project.category
-        authorLabel.text = project.author
+        authorLabel.text = project.author.name
         progressView.progress = fundedPercent
         locationLabel.text = project.country
         blurbLabel.text = project.blurb

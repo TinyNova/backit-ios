@@ -22,7 +22,7 @@ protocol ProjectProvider {
     /// Get personalized projects for this user
     /// Get projects that are about to fund (optional: category, subcategory)
     
-    func project(id: Any) -> Future<DetailedProject, ProjectProviderError>
+    func project(id: ProjectId) -> Future<DetailedProject, ProjectProviderError>
     
     /**
      Perform an advanced search for projects.

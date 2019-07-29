@@ -21,10 +21,42 @@ struct DetailedProjectInfoEndpoint: ServiceEndpoint {
     struct Creator: Decodable {
         let creatorId: Int?
         let name: String?
+        let avatar: URL?
+        let siteId: Int?
+        let externalId: String?
+        let createdAt: String?
+        let updatedAt: String?
+    }
+    struct Reward: Decodable {
+        let amount: Int?
+        let description: String?
+        let numberAvailable: Int?
+    }
+    struct Currency: Decodable {
+        let currencyId: Int?
+        let name: String?
+    }
+    struct Country: Decodable {
+        let countryId: Int?
+        let name: String?
+        let twoDigitCode: String?
+        let threeDigitCode: String?
+    }
+    struct Site: Decodable {
+        let siteId: Int?
+        let name: String?
+    }
+    struct Category: Decodable {
+        let categoryId: Int?
+        let name: String?
+    }
+    struct Language: Decodable {
+        let languageId: Int?
+        let name: String?
     }
     struct Project: Decodable {
         let projectId: Int?
-        let site: String?
+        let site: Site?
         let name: String?
         let blurb: String?
         let url: String? // URL to external site
@@ -32,14 +64,15 @@ struct DetailedProjectInfoEndpoint: ServiceEndpoint {
         let creator: Creator?
         let image: ProjectImages?
         let backerCount: Int?
-        let country: String?
-        let category: String?
-        let language: String?
+        let country: Country?
+        let category: Category?
+        let language: Language?
         let funding: Bool?
         let funded: Bool?
         let video: String?
         let visible: Bool?
         let votes: Int?
+        let voteCount: Int?
         let earlyBirdRewardCount: Int?
         let goal: Int?
         let pledged: Int?
@@ -47,10 +80,11 @@ struct DetailedProjectInfoEndpoint: ServiceEndpoint {
         let fundEnd: String?
         let createdAt: String?
         let updatedAt: String?
+        let projectText: String?
+        let rewards: [DetailedProjectInfoEndpoint.Reward]?
+        let currency: Currency?
     }
-    struct ResponseType: Decodable {
-        let projects: [ProjectsEndpoint.Project]
-    }
+    typealias ResponseType = DetailedProjectInfoEndpoint.Project
     
     enum Header { }
     enum PathParameter: ServiceParameter {

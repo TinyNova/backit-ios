@@ -12,7 +12,6 @@ private func url(for string: String?) -> URL? {
     return URL(string: string)
 }
 
-
 extension ProjectResponse {
     
     static private var dateFormatter: DateFormatter = {

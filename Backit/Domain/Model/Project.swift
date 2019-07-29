@@ -30,26 +30,31 @@ struct Project {
     let numVotes: Int
 }
 
+struct Author {
+    let name: String
+    let avatarUrl: URL?
+}
 struct Reward {
     let name: String
     let cost: String
     let numberOfBackers: Int
     let total: Int
 }
-
 struct DetailedProject {
     let id: ProjectId
     let source: ProjectSource
+    let externalUrl: URL?
+    let internalUrl: URL?
     let name: String
     let goal: Int
     let pledged: Int
     let numBackers: Int
-    let author: String
+    let author: Author
     let category: String
     let country: String
     let blurb: String
+    let text: String
     let rewards: [Reward]
-    let details: String
     let imageUrl: URL?
     let videoUrl: URL?
 }
