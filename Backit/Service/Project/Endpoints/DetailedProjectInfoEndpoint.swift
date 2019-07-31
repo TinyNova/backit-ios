@@ -59,8 +59,8 @@ struct DetailedProjectInfoEndpoint: ServiceEndpoint {
         let site: Site?
         let name: String?
         let blurb: String?
-        let url: String? // URL to external site
-        let internalUrl: String?
+        let url: URL? // URL to external site
+        let internalUrl: URL?
         let creator: Creator?
         let image: ProjectImages?
         let backerCount: Int?

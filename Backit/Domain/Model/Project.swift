@@ -36,7 +36,7 @@ struct Author {
 }
 struct Reward {
     let name: String
-    let cost: String
+    let cost: Double
     let numberOfBackers: Int
     let total: Int
 }

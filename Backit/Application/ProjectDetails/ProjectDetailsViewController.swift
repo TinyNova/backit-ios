@@ -41,7 +41,7 @@ class ProjectDetailsViewController: UIViewController {
     }
     @IBOutlet weak var authorLabel: UILabel! {
         didSet {
-            theme.apply(.info, toLabel: authorLabel)
+            theme.apply(.smallInfo, toLabel: authorLabel)
         }
     }
     @IBOutlet weak var progressView: UIProgressView! {
@@ -51,17 +51,18 @@ class ProjectDetailsViewController: UIViewController {
     }
     @IBOutlet weak var blurbLabel: UILabel! {
         didSet {
-            theme.apply(.info, toLabel: blurbLabel)
+            // TODO: Add more padding on top and bottom. Make this 40pt. Add chevron. If text is > N chars, add 'more...' button. The more button will simply expand the text.
+            theme.apply(.blurb, toLabel: blurbLabel)
         }
     }
     @IBOutlet weak var locationLabel: UILabel! {
         didSet {
-            theme.apply(.info, toLabel: locationLabel)
+            theme.apply(.smallInfo, toLabel: locationLabel)
         }
     }
     @IBOutlet weak var categoryLabel: UILabel! {
         didSet {
-            theme.apply(.info, toLabel: categoryLabel)
+            theme.apply(.smallInfo, toLabel: categoryLabel)
         }
     }
     
@@ -84,7 +85,7 @@ class ProjectDetailsViewController: UIViewController {
 
         titleLabel.hero.id = ProjectFeedModule.HeroId.projectName(project?.id)
         imageView.hero.id = ProjectFeedModule.HeroId.projectImage(project?.id)
-
+        categoryLabel.text = "STUFF"
         titleLabel.text = project?.name
         
         let manager = SDWebImageManager.shared
@@ -136,5 +137,6 @@ class ProjectDetailsViewController: UIViewController {
         else {
             playVideoButton.isHidden = true
         }
+        // TODO: Change the color of the progress bar to the respective source's brand color.
     }
 }

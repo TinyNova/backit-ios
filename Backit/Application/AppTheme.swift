@@ -39,6 +39,7 @@ class AppTheme: UIStyle {
         case feedProjectName
         case smallInfo
         case info
+        case blurb
         case title
         case primaryButton
         case secondaryButton
@@ -130,6 +131,10 @@ extension AppTheme: UITheme {
             case .info:
                 label.font = FontCache.default.regular16
                 label.textColor = UIColor.fromHex(0xffffff)
+                label.numberOfLines = 0
+            case .blurb:
+                label.font = FontCache.default.regular12
+                label.textColor = UIColor.fromHex(0x000000)
                 label.numberOfLines = 0
             case .title:
                 label.font = FontCache.default.regular18
