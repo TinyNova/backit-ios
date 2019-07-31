@@ -7,8 +7,9 @@
   ldflags = -Xlinker -objc_abi_version -Xlinker 2 -fobjc-arc -fobjc-link-runtime $(config custom.other_cxxflags)
 
 [swift]
-  version = 5.0
+  version = 5
   compiler_flags = -whole-module-optimization $(config custom.optimization) $(config custom.config_swift_compiler_flags) $(config custom.other_swift_compiler_flags)
+  project_wmo = true
 
 [apple]
   use_swift_delegate = false
@@ -25,7 +26,7 @@
   default_build_file_syntax = SKYLARK
 
 [project]
-  ide_force_kill = always
+  ide_force_kill = never
   project_schemes = true
   ide = xcode
   allow_symlinks = forbid

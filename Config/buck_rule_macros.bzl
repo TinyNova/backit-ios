@@ -1,4 +1,3 @@
-
 load("//Config:configs.bzl", "test_configs", "library_configs", "pod_library_configs", "DEVELOPMENT_LANGUAGE")
 
 # This is just a regular lib that was warnings not set to error

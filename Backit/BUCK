@@ -1,5 +1,5 @@
-load("//Config:configs.bzl", "app_binary_configs", "library_configs", "watch_binary_configs", "message_binary_configs", "pretty", "info_plist_substitutions", "bundle_identifier", "DEVELOPMENT_LANGUAGE")
-load("//Config:buck_rule_macros.bzl", "apple_lib", "apple_test_lib", "apple_test_all")
+load('//Config:configs.bzl', 'app_binary_configs', 'library_configs', 'watch_binary_configs', 'message_binary_configs', 'pretty', 'info_plist_substitutions', 'bundle_identifier', 'DEVELOPMENT_LANGUAGE')
+load('//Config:buck_rule_macros.bzl', 'apple_lib', 'apple_test_lib', 'apple_test_all')
 
 # Application Binary
 
@@ -13,7 +13,13 @@ apple_bundle(
     binary = ':BackitAppBinary',
     extension = 'app',
     info_plist = 'Info.plist',
-    tests = [':BackitAppTests']
+    info_plist_substitutions = {
+        "DEVELOPMENT_LANGUAGE": DEVELOPMENT_LANGUAGE,
+        "EXECUTABLE_NAME": "Backit",
+        "PRODUCT_BUNDLE_IDENTIFIER": bundle_identifier("ios.backer"),
+        "PRODUCT_NAME": "Backit",
+    }
+#    tests = [':BackitAppTests']
 )
 
 # Application Files
@@ -36,21 +42,26 @@ apple_resource(
 
 apple_binary(
     name = 'BackitAppBinary',
-    swift_version = "5.0",
+    swift_version = '5',
+    bridging_header = 'Backit-Bridging-Header.h',
+    linker_flags = ['-lc++', '-lz'],
+    #exported_linker_flags = ['-ObjC'],
     deps = [
         ':BackitAssetCatalogs',
         ':BackitResources',
 
         ':BKFoundation',
 
-        '//Pods:NewRelic',
+        '//SDK:GoogleSignIn',
+        '//SDK:GoogleSignInDependencies',
+        '//SDK:NewRelicAgent',
 
         '//Carthage:Alamofire',
         '//Carthage:BrightFutures',
         '//Carthage:FacebookCore',
         '//Carthage:FacebookLogin',
-        '//Carthage:FBSDCoreKit',
-        '//Carthage:FBSDLoginKit',
+        '//Carthage:FBSDKCoreKit',
+        '//Carthage:FBSDKLoginKit',
         '//Carthage:FMDB',
         '//Carthage:Hero',
         '//Carthage:KeychainAccess',
@@ -58,15 +69,25 @@ apple_binary(
         '//Carthage:Swinject',
         '//Carthage:SwinjectStoryboard'
     ],
-    srcs = glob([
-        'Application/**/*.swift',
-        'Domain/**/*.swift',
-        'Services/**/*.swift',
-        'UI/**/*.swift'
-    ]),
+    srcs = glob(
+        [
+            'main.swift',
+            'Application/**/*.swift',
+            'Domain/**/*.swift',
+            'Service/**/*.swift',
+            'UI/**/*.swift'
+        ],
+        exclude = ['Application/Analytics/MixpanelAnalyticsListener.swift']
+    ),
     frameworks = [
         '$SDKROOT/System/Library/Frameworks/Foundation.framework',
-        '$SDKROOT/System/Library/Frameworks/UIKit.framework'
+        '$SDKROOT/System/Library/Frameworks/UIKit.framework',
+
+        '$SDKROOT/System/Library/Frameworks/CoreTelephony.framework',
+        '$SDKROOT/System/Library/Frameworks/SystemConfiguration.framework',
+        '$SDKROOT/System/Library/Frameworks/LocalAuthentication.framework',
+        '$SDKROOT/System/Library/Frameworks/SafariServices.framework',
+        '$SDKROOT/System/Library/Frameworks/SystemConfiguration.framework'
     ]
 )
 
@@ -74,7 +95,7 @@ apple_binary(
 
 apple_library(
     name = 'BKFoundation',
-    swift_version = "5.0",
+    swift_version = '5',
     visibility = ['PUBLIC'],
     srcs = glob([
         'Foundation/**/*.swift'

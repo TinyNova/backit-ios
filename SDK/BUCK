@@ -1,0 +1,35 @@
+load('//Config:buck_rule_macros.bzl', 'apple_lib')
+
+#apple_resource(
+#    name = 'GoogleSignInResources',
+#    dirs = 'google_signin_sdk_4_4_0/GoogleSignIn.bundle'
+#)
+
+prebuilt_apple_framework(
+    name = 'GoogleSignInDependencies',
+    framework = 'google_signin_sdk_4_4_0/GoogleSignInDependencies.framework',
+    preferred_linkage = 'shared',
+    visibility = ['PUBLIC']
+)
+
+prebuilt_apple_framework(
+    name = 'GoogleSignIn',
+    framework = 'google_signin_sdk_4_4_0/GoogleSignIn.framework',
+    preferred_linkage = 'shared',
+    visibility = ['PUBLIC']
+)
+
+prebuilt_apple_framework(
+    name = 'NewRelicAgent',
+    framework = 'NewRelicAgent/NewRelicAgent.framework',
+    preferred_linkage = 'shared',
+    visibility = ['PUBLIC']
+)
+
+# Every BUCK file needs at least one library with source.
+apple_lib(
+    name = 'SDKLibrary',
+    srcs = glob([
+        'BuckSupportFiles/**/*.swift',
+    ]),
+)

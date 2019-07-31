@@ -8,7 +8,8 @@ platform :ios, '11.0'
 install! 'cocoapods', integrate_targets: false
 
 target 'Backit' do
-    pod 'NewRelic'
+    pod 'NewRelicAgent'
+    pod 'GoogleSignIn'
 end
 
 target 'BackitTests' do

@@ -1,16 +1,16 @@
-load("//Config:buck_rule_macros.bzl", "apple_lib")
+load('//Config:buck_rule_macros.bzl', 'apple_lib')
 
 prebuilt_apple_framework(
-    name = "NewRelic",
-    framework = "NewRelic/NewRelic.framework",
-    preferred_linkage = "shared",
-    visibility = ["PUBLIC"]
+    name = 'NewRelicAgent',
+    framework = 'NewRelicAgent/NewRelicAgent/NewRelicAgent.framework',
+    preferred_linkage = 'shared',
+    visibility = ['PUBLIC']
 )
 
 # Every BUCK file needs at least one library with source.
 apple_lib(
-    name = "PodsLibrary",
+    name = 'PodsLibrary',
     srcs = glob([
-        "BuckSupportFiles/**/*.swift",
+        'BuckSupportFiles/**/*.swift',
     ]),
 )
