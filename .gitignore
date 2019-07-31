@@ -6,3 +6,5 @@ Carthage/
 SDK/
 *.swp
 Backit.xc*
+buck-out
+.buckd

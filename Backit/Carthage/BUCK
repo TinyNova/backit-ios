@@ -1,0 +1,93 @@
+load("//Config:buck_rule_macros.bzl", "apple_lib")
+
+prebuilt_apple_framework(
+    name = "Alamofire",
+    framework = "Build/iOS/Alamofire.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "BrightFutures",
+    framework = "Build/iOS/BrightFutures.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "FacebookCore",
+    framework = "Build/iOS/FacebookCore.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "FacebookLogin",
+    framework = "Build/iOS/FacebookLogin.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "FBSDCoreKit",
+    framework = "Build/iOS/FBSDCoreKit.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "FBSDLoginKit",
+    framework = "Build/iOS/FBSDLoginKit.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "FMDB",
+    framework = "Build/iOS/FMDB.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "Hero",
+    framework = "Build/iOS/Hero.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "KeychainAccess",
+    framework = "Build/iOS/KeychainAccess.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "SDWebImage",
+    framework = "Build/iOS/SDWebImage.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "Swinject",
+    framework = "Build/iOS/Swinject.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+prebuilt_apple_framework(
+    name = "SwinjectStoryboard",
+    framework = "Build/iOS/SwinjectStoryboard.framework",
+    preferred_linkage = "shared",
+    visibility = ["PUBLIC"]
+)
+
+# Every BUCK file needs at least one library with source.
+apple_lib(
+    name = "CarthageLibrary",
+    srcs = glob([
+        "BuckSupportFiles/**/*.swift",
+    ]),
+)

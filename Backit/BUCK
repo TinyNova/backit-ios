@@ -1,0 +1,82 @@
+load("//Config:configs.bzl", "app_binary_configs", "library_configs", "watch_binary_configs", "message_binary_configs", "pretty", "info_plist_substitutions", "bundle_identifier", "DEVELOPMENT_LANGUAGE")
+load("//Config:buck_rule_macros.bzl", "apple_lib", "apple_test_lib", "apple_test_all")
+
+# Application Binary
+
+apple_package(
+    name = 'BackitPackage',
+    bundle = 'Backit'
+)
+
+apple_bundle(
+    name = 'Backit',
+    binary = ':BackitAppBinary',
+    extension = 'app',
+    info_plist = 'Info.plist',
+    tests = [':BackitAppTests']
+)
+
+# Application Files
+
+apple_asset_catalog(
+    name = 'BackitAssetCatalogs',
+    dirs = [
+        'Application/Resources/Assets.xcassets'
+    ],
+    app_icon = 'AppIcon'
+)
+
+apple_resource(
+    name = 'BackitResources',
+    dirs = [
+        'Application/Resources/Fonts',
+        'Application/Resources/robot-arm.atlasc'
+    ]
+)
+
+apple_binary(
+    name = 'BackitAppBinary',
+    swift_version = "5.0",
+    deps = [
+        ':BackitAssetCatalogs',
+        ':BackitResources',
+
+        ':BKFoundation',
+
+        '//Pods:NewRelic',
+
+        '//Carthage:Alamofire',
+        '//Carthage:BrightFutures',
+        '//Carthage:FacebookCore',
+        '//Carthage:FacebookLogin',
+        '//Carthage:FBSDCoreKit',
+        '//Carthage:FBSDLoginKit',
+        '//Carthage:FMDB',
+        '//Carthage:Hero',
+        '//Carthage:KeychainAccess',
+        '//Carthage:SDWebImage',
+        '//Carthage:Swinject',
+        '//Carthage:SwinjectStoryboard'
+    ],
+    srcs = glob([
+        'Application/**/*.swift',
+        'Domain/**/*.swift',
+        'Services/**/*.swift',
+        'UI/**/*.swift'
+    ]),
+    frameworks = [
+        '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+        '$SDKROOT/System/Library/Frameworks/UIKit.framework'
+    ]
+)
+
+# Foundation
+
+apple_library(
+    name = 'BKFoundation',
+    swift_version = "5.0",
+    visibility = ['PUBLIC'],
+    srcs = glob([
+        'Foundation/**/*.swift'
+    ])
+)
