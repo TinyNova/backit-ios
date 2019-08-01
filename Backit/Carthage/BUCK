@@ -83,11 +83,3 @@ prebuilt_apple_framework(
     preferred_linkage = 'static',
     visibility = ['PUBLIC']
 )
-
-# Every BUCK file needs at least one library with source.
-apple_lib(
-    name = 'CarthageLibrary',
-    srcs = glob([
-        'BuckSupportFiles/**/*.swift',
-    ]),
-)
