@@ -1,4 +1,3 @@
-
 load("//Config:utils.bzl", "config_with_updated_linker_flags", "configs_with_config")
 
 DEVELOPMENT_LANGUAGE = "en"

@@ -15,14 +15,6 @@ targets:
       - path: Service
       - path: UI
     dependencies:
-      - sdk: CoreTelephony.framework
-      - sdk: SystemConfiguration.framework
-      - sdk: libc++.tbd
-      - sdk: libz.tbd
-      - sdk: LocalAuthentication.framework
-      - sdk: SafariServices.framework
-      - sdk: SystemConfiguration.framework
-      - framework: SDK/NewRelicAgent/NewRelicAgent.framework
       - framework: SDK/google_signin_sdk_4_4_0/GoogleSignIn.bundle
       - framework: SDK/google_signin_sdk_4_4_0/GoogleSignIn.framework
       - framework: SDK/google_signin_sdk_4_4_0/GoogleSignInDependencies.framework

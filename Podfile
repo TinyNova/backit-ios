@@ -13,7 +13,7 @@ target 'Backit' do
 end
 
 target 'BackitTests' do
-    pod 'AutoEquatable'
+#    pod 'AutoEquatable'
 #    pod 'KIF/IdentifierTests'
     pod 'Spry'
     pod 'Spry+Nimble'

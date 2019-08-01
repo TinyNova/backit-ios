@@ -10,6 +10,7 @@ apple_package(
 
 apple_bundle(
     name = 'Backit',
+    visibility = ['//...'],
     binary = ':BackitAppBinary',
     extension = 'app',
     info_plist = 'Info.plist',
@@ -18,7 +19,13 @@ apple_bundle(
         "EXECUTABLE_NAME": "Backit",
         "PRODUCT_BUNDLE_IDENTIFIER": bundle_identifier("ios.backer"),
         "PRODUCT_NAME": "Backit",
-    }
+    },
+    deps = [
+        # Hack projects to allow Xcode projects to build
+        '//Carthage:CarthageLibrary',
+        '//Pods:PodsLibrary',
+        '//SDK:SDKLibrary',
+    ]
 #    tests = [':BackitAppTests']
 )
 
@@ -43,18 +50,38 @@ apple_resource(
 apple_binary(
     name = 'BackitAppBinary',
     swift_version = '5',
-    bridging_header = 'Backit-Bridging-Header.h',
     linker_flags = ['-lc++', '-lz'],
-    #exported_linker_flags = ['-ObjC'],
+    configs = app_binary_configs("Backit"),
+    deps = [':BackitAppLibrary'],
+    frameworks = [
+        '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+        '$SDKROOT/System/Library/Frameworks/UIKit.framework',
+
+        '$SDKROOT/System/Library/Frameworks/CoreTelephony.framework',
+        '$SDKROOT/System/Library/Frameworks/SystemConfiguration.framework',
+        '$SDKROOT/System/Library/Frameworks/LocalAuthentication.framework',
+        '$SDKROOT/System/Library/Frameworks/SafariServices.framework',
+        '$SDKROOT/System/Library/Frameworks/SystemConfiguration.framework',
+
+        '$SDKROOT/System/Library/Frameworks/CFNetwork.framework',
+    ]
+)
+
+apple_library(
+    name = 'BackitAppLibrary',
+    visibility = ['//Application/...'],
+    configs = library_configs(),
+    bridging_header = 'Backit-Bridging-Header.h',
     deps = [
         ':BackitAssetCatalogs',
         ':BackitResources',
 
         ':BKFoundation',
 
+        '//Pods:NewRelicAgent',
+
         '//SDK:GoogleSignIn',
         '//SDK:GoogleSignInDependencies',
-        '//SDK:NewRelicAgent',
 
         '//Carthage:Alamofire',
         '//Carthage:BrightFutures',
@@ -78,17 +105,7 @@ apple_binary(
             'UI/**/*.swift'
         ],
         exclude = ['Application/Analytics/MixpanelAnalyticsListener.swift']
-    ),
-    frameworks = [
-        '$SDKROOT/System/Library/Frameworks/Foundation.framework',
-        '$SDKROOT/System/Library/Frameworks/UIKit.framework',
-
-        '$SDKROOT/System/Library/Frameworks/CoreTelephony.framework',
-        '$SDKROOT/System/Library/Frameworks/SystemConfiguration.framework',
-        '$SDKROOT/System/Library/Frameworks/LocalAuthentication.framework',
-        '$SDKROOT/System/Library/Frameworks/SafariServices.framework',
-        '$SDKROOT/System/Library/Frameworks/SystemConfiguration.framework'
-    ]
+    )
 )
 
 # Foundation

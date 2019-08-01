@@ -45,5 +45,21 @@
   code_coverage_ldflags = -fprofile-instr-generate
   code_coverage_swift_compiler_flags = -profile-generate -profile-coverage-mapping
 
+
+#xcode_workspace_config(
+#    name = "workspace",
+#    workspace_name = "ExampleApp",
+#    src_target = ":ExampleApp",
+#    additional_scheme_actions = {
+#        "Build": {
+#            "PRE_SCHEME_ACTIONS": ["echo 'Started'"],
+#            "POST_SCHEME_ACTIONS": ["echo 'Finished'"],
+#        },
+#    },
+#    # Since `ui_tests` require a different test runner in CLI, but can be launched as-is from Xcode, we will place them as `extra_tests` on the Xcode workspace - where they make the most semantic sense.
+#    extra_tests = ui_tests,
+#    action_config_names = {"profile": "Profile"},
+#)
+
 [alias]
   backit_ios_app = //Backit:Backit
