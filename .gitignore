@@ -5,5 +5,5 @@ xcuserdata
 Carthage/
 SDK/
 *.swp
-Backit.xc*
+*.xcuserstate
 buck-out
