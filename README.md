@@ -54,6 +54,13 @@ $ pod install
 $ open Backit.xcworkspace
 ```
 
+## Notes
+
+To update a single carthage library
+```
+$ carthage update Alamofire --platform iOS
+```
+
 ## Configuration
 
 `xcodegen` does not perform operations which must be done in order for the project to build. Therefore, it is necessary to perform these operations manually:

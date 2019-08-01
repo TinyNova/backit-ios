@@ -4,9 +4,13 @@ platform :ios, '11.0'
 
 use_frameworks!
 
+target 'Backit' do
+    pod 'NewRelicAgent'
+end
+
 target 'BackitTests' do
-    pod 'AutoEquatable'
-#    pod 'KIF/IdentifierTests'
+#   pod 'AutoEquatable'
+    pod 'KIF/IdentifierTests'
     pod 'Spry'
-#    pod 'Spry+Nimble'
+    pod 'Spry+Nimble'
 end
