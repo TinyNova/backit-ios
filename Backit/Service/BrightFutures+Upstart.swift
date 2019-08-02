@@ -10,12 +10,12 @@ import BrightFutures
 
 extension Promise {
     func reduce<V>(_ initial: T, _ collection: [V], reducer: @escaping (T, V) -> Future<T, E>) -> Future<T, E> {
-        Backit.reduce(self, initial, collection, reducer: reducer)
+        _reduce(self, initial, collection, reducer: reducer)
         return future
     }
 }
 
-private func reduce<T, E: Error, V>(_ promise: Promise<T, E>, _ initial: T, _ collection: [V], reducer: @escaping (T, V) -> Future<T, E>) {
+private func _reduce<T, E: Error, V>(_ promise: Promise<T, E>, _ initial: T, _ collection: [V], reducer: @escaping (T, V) -> Future<T, E>) {
     guard collection.count > 0 else {
         return promise.success(initial)
     }
@@ -24,7 +24,7 @@ private func reduce<T, E: Error, V>(_ promise: Promise<T, E>, _ initial: T, _ co
     let value = collection.removeFirst()
     reducer(initial, value)
         .onSuccess { (value) in
-            reduce(promise, value, collection, reducer: reducer)
+            _reduce(promise, value, collection, reducer: reducer)
         }
         .onFailure { (error) in
             promise.failure(error)

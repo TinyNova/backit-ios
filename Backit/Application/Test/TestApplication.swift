@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class TestApplication: UIApplication {
+public class TestApplication: UIApplication {
     
     private var appDelegate: UIApplicationDelegate?
     

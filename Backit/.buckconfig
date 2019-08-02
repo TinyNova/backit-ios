@@ -62,5 +62,5 @@
 #)
 
 [alias]
-  backit_ios_app = //:Backit
+  backit = //:BackitApp
   bkfoundation = //:BKFoundation
