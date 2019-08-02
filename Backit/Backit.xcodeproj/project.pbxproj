@@ -219,6 +219,7 @@
 		AA2695D422F4F2D200AA54B2 /* SecondaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3457F92E05BA1D369016632A /* SecondaryButton.xib */; };
 		AA2695D522F4F2D200AA54B2 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE421E0659B67724DE72808 /* UnderlineButton.swift */; };
 		AA2695D622F4F2D200AA54B2 /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823DE14CABCFC7E7359208FB /* UnderlineButton.xib */; };
+		AA2695D922F4F82700AA54B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2695D822F4F81900AA54B2 /* Assets.xcassets */; };
 		AA9E83D922F3BDAA00225B94 /* libBKFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9E83D822F3BDA900225B94 /* libBKFoundation.a */; };
 		AA9E83DA22F3BDC300225B94 /* libBKFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9E83D822F3BDA900225B94 /* libBKFoundation.a */; };
 		AC536E41CAB4A8B008E32DA9 /* SwinjectStoryboard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6258ED83EEB25CAE857A4E /* SwinjectStoryboard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -429,6 +430,7 @@
 		AA26952B22F4F20B00AA54B2 /* BackitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BackitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA26952D22F4F20B00AA54B2 /* BackitApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackitApp.h; sourceTree = "<group>"; };
 		AA26952E22F4F20B00AA54B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA2695D822F4F81900AA54B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA58CB41C43A4EB09B04A3E1 /* ExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSignInProvider.swift; sourceTree = "<group>"; };
 		AA9E83D822F3BDA900225B94 /* libBKFoundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBKFoundation.a; sourceTree = "<group>"; };
 		AB27C6DE32DBBC5F09062FE3 /* ProjectResponse+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectResponse+Backit.swift"; sourceTree = "<group>"; };
@@ -1065,6 +1067,7 @@
 		AA2695D722F4F2F800AA54B2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA2695D822F4F81900AA54B2 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1401,6 +1404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA2695D922F4F82700AA54B2 /* Assets.xcassets in Resources */,
 				79D299345275BF11827A685A /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1803,7 +1807,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.backer;
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Libraries";
-				SWIFT_OBJC_BRIDGING_HEADER = "Backit-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1898,7 +1902,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.backer;
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Libraries";
-				SWIFT_OBJC_BRIDGING_HEADER = "Backit-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;

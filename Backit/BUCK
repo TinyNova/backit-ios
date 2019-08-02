@@ -36,8 +36,26 @@ apple_asset_catalog(
 apple_resource(
     name = 'BackitResources',
     dirs = [
+        'Application/Resources/Strings',
         'Application/Resources/Fonts',
         'Application/Resources/robot-arm.atlasc'
+    ]
+)
+
+apple_resource(
+    name = 'BackitStrings',
+    visibility = ['//:'],
+    variants = [
+        'Application/Resources/Strings/*.lproj/Localizable.strings',
+    ]
+)
+
+apple_resource(
+    name = 'BackitStoryboard',
+    visibility = ['//:'],
+    variants = [
+        'Application/**/*.storyboards',
+        'Application/**/*.xib',
     ]
 )
 
@@ -69,6 +87,8 @@ apple_library(
     deps = [
         ':BackitAssetCatalogs',
         ':BackitResources',
+        ':BackitStrings',
+        ':BackitStoryboards',
 
         ':BKFoundation',
 
