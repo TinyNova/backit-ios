@@ -7,232 +7,233 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0245F07E3364321276547E39 /* Encodable+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE1BB26C9906BCB432296A2 /* Encodable+Backit.swift */; };
-		037C3089398F90C60F429590 /* RecoverPasswordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1199E88555DAF82138F5B /* RecoverPasswordEndpoint.swift */; };
-		04DC60F3ACC02D1F11104DF5 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F92E7FFCE58F1B7C1DDC21 /* Errors.swift */; };
-		06A2EF7B99D7455895B3D5ED /* AppBannerMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2929C40A7E600D5A205B658 /* AppBannerMessageProvider.swift */; };
-		071955791126C7478D40EE79 /* ProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4124F90626CBA254743E3F37 /* ProgressOverlayProvider.swift */; };
-		071B6AD019CB97C75975821F /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001D831EEEADB9AAD422A5CA /* UserAccountEndpoint.swift */; };
-		09C52CE5128D373A0DAC3957 /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823DE14CABCFC7E7359208FB /* UnderlineButton.xib */; };
-		0C18EE537DF26984006011A2 /* UserSessionStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D81D892E54105A270CC8A /* UserSessionStreamer.swift */; };
-		0CE5DDCCE93B87D3E4A3510E /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83B40D6EE32BF2FCB4C800 /* LoginEndpoint.swift */; };
-		0DD707E88D9E85BFCFEEE002 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9255E6B260AD9BBC9CA3C /* TestAppDelegate.swift */; };
-		0F2992FE56EEECB2EDFE33CA /* TextEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A41189B0711F67BDADE909 /* TextEntryField.swift */; };
 		12F1942075140A3E16D58156 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770F68AC23E193F8061CAF03 /* FacebookLogin.framework */; };
-		13778CE06A2AD1E2BE61FC70 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDCA5AA7C94D628274C56F /* UserProvider.swift */; };
-		14AB72409BFF7AB2DF332B7F /* SecondaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3457F92E05BA1D369016632A /* SecondaryButton.xib */; };
 		14B49FDFD4258FA111EEB0CE /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6258ED83EEB25CAE857A4E /* SwinjectStoryboard.framework */; };
-		14D4C5946BC80FD050EFC7C7 /* AppProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0D8A7DC6B740F1E783E53 /* AppProgressOverlayProvider.swift */; };
-		160F041AD08E6735FB813B2E /* ProjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDBB0CE7DDAF77F3603A7C8 /* ProjectProvider.swift */; };
 		17928AF8B135020B00DFF5BE /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A95F7582CC6F61DFC8BDC23 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1B8CDAAE834540B0DCF18C8D /* FlagID.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD421F6213CA920B016C2CD /* FlagID.swift */; };
 		1D5B0E972980CEFF66A19522 /* Collection+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002AF23454422A81C48747D /* Collection+Backit.swift */; };
 		1D65E2739D3105D46331D6F4 /* LocalizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BA1043D8B45659B16FC015 /* LocalizationType.swift */; };
-		1F55428F491660BC186709A5 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC849F0B69928AC98E81D0C1 /* ServicePluginKey.swift */; };
-		1F66EDB2D457F8EE728F5CF8 /* BannerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C01E74E94018450D5E12F05 /* BannerProvider.swift */; };
-		1F8F1554E1AE20125FE80513 /* AppExternalSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05867AFFC2987E6F3B6870C8 /* AppExternalSignInProvider.swift */; };
-		20A793DDE6F70BB6BCE01AFD /* AnyUITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0746A058F66DE7C0E29CF /* AnyUITheme.swift */; };
-		20F60FF1689660A455F35C74 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2CA831EE30448F337AC057 /* AmazonService.swift */; };
-		23B2B848BA943FF950D9F11F /* LoadingResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C5578A474048CB8C2223A98 /* LoadingResultsCell.xib */; };
-		2538B4E5AD497412B5EA51F3 /* AppSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C98EBE571CDD7F7C5FE3BC /* AppSignInProvider.swift */; };
 		29EAA8E65C38D61FF51CCDF5 /* BackitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E6B02FEBAD2A091139FB24 /* BackitTests.swift */; };
-		2A4132D110673C8A3C9754CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928722007DBE849E55F19205 /* Assets.xcassets */; };
-		2A7DFF340AAC74E02A6807B5 /* PresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0360A7AA87AD9FC68217D3 /* PresenterProvider.swift */; };
-		2BBEF18979DD508FBDC30DB3 /* ServiceRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF43AF100998315F09C246B /* ServiceRequester.swift */; };
-		2D97771AEBD21E912E057B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C781D841154ADE0BAAE74 /* AppDelegate.swift */; };
-		2E2A7D7CC891BAD2F0034C53 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A76DE597CBC51CD25DA465 /* ProjectDetailsViewController.swift */; };
-		2EA041D9A952FBF8E22E1684 /* ProjectCommentCountsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F9BFF9BADCA61C6753 /* ProjectCommentCountsEndpoint.swift */; };
 		2EDCF9BC2AB8946BB403D179 /* KIF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7111BB1A7120964402AC19 /* KIF.framework */; };
-		32023E505B4D82259F4D550D /* MetricAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CBEBACFE92683766EBAB24 /* MetricAnalyticsEvent.swift */; };
-		32BDE9A0A464C8867A3B833F /* ProjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77AAC55148A2B0E4629B590 /* ProjectService.swift */; };
 		331D7CEBA7123F656CB6D8C4 /* with.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A0968F0D94565A9ACA6AC /* with.swift */; };
-		34A7225D479A8212E935E880 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C7A0565A4C646ADD4184EE /* ProjectTableViewCell.xib */; };
-		34B2F7C7ED583AF4155E5951 /* ImagePagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40246D62FA37DB062B05F81F /* ImagePagerView.xib */; };
-		34C8B2EDCDA6A207F0762B3B /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38953A4152807215761C59FA /* KeyboardLayoutConstraint.swift */; };
-		3639FC1BD16973F62FA12DEA /* UIStackView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CD78BA492D81AD50F95BE0 /* UIStackView+Backit.swift */; };
 		376C5E63DAFEB244114048DA /* Pods_Backit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1005F08F701EB65327BEEC /* Pods_Backit.framework */; };
-		37CC021E18D798F8CE6F4D6A /* Acumin Pro - Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B4ABA3B72731076E55169A1 /* Acumin Pro - Regular.otf */; };
 		38CA911F0E262CC053FD5809 /* FacebookCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2876F1F58C6E17F1BDDCEB28 /* FacebookCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		39B4F6C8BB96DBC02395FBF9 /* UIThemeApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCECBA59ACA61BBA335DFA0F /* UIThemeApplier.swift */; };
-		3AB3F7B456AD4E1618B291C6 /* FeedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DBBD300C479ACF70E8A1B1 /* FeedProject.swift */; };
 		3ADF9A857F2189ED8B97D684 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C305854DD7457E1AD6FC3B6 /* Environment.swift */; };
-		3BF47663B0296B214EE1A865 /* BannerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A91CF22A7C1BB897FA32F /* BannerScene.swift */; };
 		40CDCD90CD13B670BD3927C2 /* Hero.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 606E166D1CC4EBF62C220E4C /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4194A025AC216A189C5F4AAE /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D330325A245D59D425B240 /* AnalyticsTransaction.swift */; };
 		42A7E7B67BE9E0F7EB5B7E41 /* Pods_BackitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4EE7406B748373243EA151 /* Pods_BackitTests.framework */; };
 		42A8DBEE8A723FF41FC4F945 /* FacebookLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 770F68AC23E193F8061CAF03 /* FacebookLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42D638F645EB8901A7D02E43 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697B5CEE9E704CCEA5906800 /* Nimble.framework */; };
-		44832A3B7F649B05DA4F4A7E /* UserAvatarStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B86651D2602E533EF8D6B46 /* UserAvatarStreamer.swift */; };
-		4FC2368AA6A4734C2E80B2F3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29595447ACCF7B33C97C954A /* Application.swift */; };
-		51741674E4FE89943C507057 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC72CFAEF07FE026F7AD1B65 /* Credentials.swift */; };
 		548BE2CD23BCFC48C00153CB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0E01CAC50128701AAF7E4E /* FBSDKLoginKit.framework */; };
-		54B46CFA2588C080BBC658C5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF43162524CCD05DBC1CF1 /* TabBarController.swift */; };
-		5562A04FBC9B5CFA3C904973 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39DC2D6AA05F35204C73C6 /* TextButton.swift */; };
-		562960F4A1B67B3FBFF11EA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AD4E84ADFAC0EC73DD50F2 /* Main.storyboard */; };
-		56783B34B848D166222320EE /* ProjectsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A54B7B6BF379A4AAA2AD6 /* ProjectsEndpoint.swift */; };
-		5679D7EAD90BF30FE205C54C /* LostPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0934DAD10C440B1565C4B9 /* LostPasswordViewController.storyboard */; };
-		56FF04562EC010D113057C72 /* ProjectVoteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97BEDA27BB8834DF68B3B01 /* ProjectVoteProvider.swift */; };
-		573E5A472E7753C5848B06F5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBE800A2F765852A02B82D /* SignInViewController.swift */; };
 		577C4565CD9B0BA58DF7F214 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2876125BB009560E930B8383 /* FBSDKCoreKit.framework */; };
-		583C7D7626971B01D5ECBF90 /* CreateExternalAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B1E0CC5DE0EC646419F38E /* CreateExternalAccountEndpoint.swift */; };
-		58886AC1BF16592688CAC129 /* IgnorableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60A564935321CB824B793E /* IgnorableValue.swift */; };
-		58E52239E9945D8AC33320D2 /* UIColor+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D4AC595CD64BD19E7969E5 /* UIColor+Backit.swift */; };
-		59D6CC1D763577FF87B5A001 /* CreateAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3375F24A71530597C023BB9D /* CreateAccountEndpoint.swift */; };
-		5A745CE129ACCD9D48EC669B /* UsernameAvailabilityEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC989CE4C72E73B558D2D1B1 /* UsernameAvailabilityEndpoint.swift */; };
-		5B10538485BEEF81854F0211 /* UserStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799F72F21478478DCB647BF /* UserStream.swift */; };
-		5B5F79A45698EB8007148408 /* UserAvatarStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EB17794ED375EAAB82D7B0 /* UserAvatarStream.swift */; };
-		5C8BA820D145C9CD642F7E2E /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F5F9E5CFD2BEFFADF7121C /* Account.storyboard */; };
-		5D578F94A089C46A9022A05A /* UITabBarItem+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D6E201802B5C3F643DC45 /* UITabBarItem+Backit.swift */; };
 		5D615D66795FD7130C65709A /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C29E7A0751A357E908773CBD /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5E6585BFFB9A645D3B8C284A /* AppShareProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CE45868F21280F4F7E109 /* AppShareProvider.swift */; };
-		5F0BB5F95E861BAA07ABCEBD /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7FC80241798432CFC374B /* Assembly.swift */; };
-		5FCF524DEF7BA08C21400055 /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F859EB137DB781B016498BA /* DatabaseProvider.swift */; };
 		5FE4D38353A2A7635ECF10A4 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B86598527FEFEBF29B4CF7 /* Quick.framework */; };
-		6034C4F3441B9832218014DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B529DE16C722F0B3611B9BB /* User.swift */; };
-		62CA911E8DABB3C087B09965 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49FF68DDE04EA181C8EB287 /* NewRelicAnalyticsListener.swift */; };
-		62DB42EA34485C9261F3DBE1 /* ServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D703761B0C58F54ECE64F /* ServicePlugin.swift */; };
-		636AE85A64313A88E686E5EF /* UploadAvatarEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807CB415057C2D3F193A1019 /* UploadAvatarEndpoint.swift */; };
-		641B21AFB28863CB4398C381 /* DetailedProject+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06007329CBA25D30B7D0E732 /* DetailedProject+Backit.swift */; };
-		65737B6BB3E3AA39701D2B53 /* ProjectFeedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7D79670A0CBCDC55A12FDA /* ProjectFeedProvider.swift */; };
-		67A0BC1E0F9A48378BB34504 /* DiscussionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC544B2F886B15847FBCEA /* DiscussionService.swift */; };
-		69EA8E01850591268254EB4B /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AE06467A825E56926E5FA /* AccountProvider.swift */; };
-		6BE11570445FDB6B7304E3AA /* AppGoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05360BCB884CB8C6F452383 /* AppGoogleProvider.swift */; };
-		6C175FDD88249C9436409064 /* PageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8948C7A515934EBB2A3D71 /* PageProvider.swift */; };
-		6C9A6725C8E014C6E1D41FFE /* TestApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2A6BBF47D187B8EA838DA4 /* TestApplication.swift */; };
-		6CBF34F8099FFC2DBFA2243D /* ServicePluginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F045106A850C0F17F0448 /* ServicePluginProvider.swift */; };
-		6CE52A2C30FDEA6F96F8DE24 /* BIAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0EDF4B21D34A1487696D5 /* BIAnalyticsEvent.swift */; };
-		6E143E89F191B92EAECBED2C /* FacebookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A3693298E0B2232778E6EA /* FacebookProvider.swift */; };
-		6E3AF6659E3460C3A3C4F862 /* ProjectFeedErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A518D4EE33969C744DF040 /* ProjectFeedErrorView.swift */; };
-		6F1E2CD254120DB794159769 /* AccountHealthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A016A3A3118B2B4FA45A6FC /* AccountHealthEndpoint.swift */; };
-		75420F0362A70699749C9E17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1276204B5B0E6BD06EDAA60 /* Localizable.strings */; };
-		764D0FD329EB67CA70837707 /* ProjectFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FB39E77270484C35C3670DD /* ProjectFeed.storyboard */; };
 		76AAFA29F012E6F5B90E2D5A /* BrightFutures.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F5B873324D7EA3EB3F3E8062 /* BrightFutures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		76B284789CBCDFC6B7082AD4 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF6D218D23E93D6A70DC520 /* ProjectImageAnimatedCell.xib */; };
 		776F0D192C1CE0C36F8ECD95 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B873324D7EA3EB3F3E8062 /* BrightFutures.framework */; };
-		797FBD0B5C2C4497AC968BB2 /* GoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692246DFEF87A761D7914C80 /* GoogleProvider.swift */; };
 		79D299345275BF11827A685A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4491567B638EB3B73689F7A8 /* LaunchScreen.storyboard */; };
 		79E0279E8669AD55B12AE62D /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0E01CAC50128701AAF7E4E /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7B8B64EE38544E48F13F865B /* TopLevelServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14FE21B8E8604C7234E8A2 /* TopLevelServiceResponse.swift */; };
 		7C300EDC4B6D41927EE1D829 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB7DADCC0AD655EB2AAB5F7 /* FMDB.framework */; };
-		7D2F09F0E63F51C7B44B8890 /* TextEntryField.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD02F8DAC9359DC37C9092F7 /* TextEntryField.xib */; };
-		7DA5A115901566C2316CBC42 /* UserStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865AF4996D1D50B60CD1C58 /* UserStreamer.swift */; };
 		7DD8E666ECB1C395348A4803 /* ViewIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83749D2A8DBFB4A7F67FD60D /* ViewIdentifiable.swift */; };
-		7E8CDE3C1DF85AE4974F9ACA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8398EFC56A3CDBF1EB00BD4 /* UserService.swift */; };
-		7F4552DF5A803564CD0ADE05 /* TextButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B55931CCAC5128995F981E /* TextButton.xib */; };
-		7FD7F4C63798FCACE8AF2B27 /* UserSessionStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18DFB820EBE33EB7089470 /* UserSessionStream.swift */; };
 		80C5FA73C9192F550309DAB4 /* GoogleSignIn.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C729B0BD6B9F4ED4271D32 /* GoogleSignIn.bundle */; };
-		81690C02C00F65257909D584 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E073DDA2263D2279E672 /* Project.swift */; };
 		857DBBD995EBE21BCF7C35AB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DB3E50EFA092278DFF92D /* Logger.swift */; };
-		85F5AC0C80DA8136E30DA390 /* ProjectFeedCompositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93228E81C04E916EC6A4978 /* ProjectFeedCompositionService.swift */; };
-		86E40A3B6E2D2C58E38AE7E2 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871461CD9EC3BA18B02759E5 /* SecondaryButton.swift */; };
 		87D1FBA673F76A4890C0CEF6 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D94C96AE9AE1F7D7D2E0C2C /* GoogleSignInDependencies.framework */; };
-		881229E3F6C19F9FFE7013E5 /* ProgressOverlayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F509EF1EEA293337E51DCDF4 /* ProgressOverlayViewController.storyboard */; };
-		8999663CEC9F3527BF981DF1 /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1A6C1B7691059648FB3E4F /* ImagePagerView.swift */; };
-		8CDE49F8492C53B993AE8122 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5E47C25BD38F83466F4CA6 /* AuthorizationServicePlugin.swift */; };
 		8D7D39013823391C78747B1D /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606E166D1CC4EBF62C220E4C /* Hero.framework */; };
-		8DA5451155AAE391A6D8162A /* ProgressOverlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C1C3E53101E8564ACC238 /* ProgressOverlayScene.swift */; };
-		8EFBC8258CA6CA8FC186BA48 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395BF2398D30ACD3C1DF5D9C /* ProjectImageCollectionView.swift */; };
-		8F0FE24518E2CC8A4E809CFC /* AlamofireServiceRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0867199FD8C41595C41FA6DC /* AlamofireServiceRequester.swift */; };
-		8F6B809263DBDF86F1FFA80C /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1F3631DBF93D26CA9B842 /* ProjectTableViewCell.swift */; };
-		90315BE76E3CA14C12FC0211 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725DD281AC3B54D1E76D5576 /* UserSession.swift */; };
-		905116A7EF658DD4840C5E80 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53675EB97AAC40D6806902F8 /* UITheme.swift */; };
-		91D10F3D9F149497F9B7D5DF /* ProjectFeedCompositionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6602A6B41173F9FBB99F8E2D /* ProjectFeedCompositionProvider.swift */; };
 		92DAC76480F46ACAF5C2B6B5 /* KIF+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DA4093643B31734F097A69 /* KIF+Backit.swift */; };
-		9497F4BFE0D45923F0B1C7CA /* DiscussionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C49D1F96B344AC0894CA3 /* DiscussionProvider.swift */; };
-		94AF5B030B23DE3FBB328405 /* SignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693AA946262E7E9A9E8A32E /* SignInProvider.swift */; };
-		94B0532A2AE2E2033FC5C524 /* PhotoAlbumProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0FF1F575295871B112B749 /* PhotoAlbumProvider.swift */; };
-		94BB36C49255A7FF39007E57 /* ShareProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4D0B58B3AF7F2558556784 /* ShareProvider.swift */; };
 		9536968FC1DC0655F97F5B78 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 697B5CEE9E704CCEA5906800 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		95B99A78BC8BCABECD4DF76F /* AppKeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB95D3056CA1EEC1D517A9C /* AppKeychainProvider.swift */; };
-		96492DCC29FD2B2B641A5A3A /* BrightFutures+Upstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482287BAFDF88F639DE3843B /* BrightFutures+Upstart.swift */; };
-		97438D794B7640E06DE6BAC5 /* ProjectImageCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76646ABF1E3488AACDD6ABD5 /* ProjectImageCollectionView.xib */; };
 		9A0851A2FC2E6D43D5917C1B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4FA6029479452068BAF033 /* Errors.swift */; };
 		9A60591FEC24E27575888165 /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 848D7F633FC02CBD3158D649 /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9C6FAA18A87D04859353832B /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA98C00CB63423EFE1887B6 /* AnalyticsEvent.swift */; };
-		9D180A03A640F28734E7BB2D /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2FE9BE19AD2547DC41F30 /* RefreshTokenEndpoint.swift */; };
 		9D75DE93771835EC5A2FD997 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7457C5B594A337ACF6FB2CE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9E3C11C750BD2124CEAEC7C2 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE421E0659B67724DE72808 /* UnderlineButton.swift */; };
-		9EC172BC74A33A1960A449DB /* ExternalLoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB933AAA7E8F8DFDD38545FF /* ExternalLoginEndpoint.swift */; };
 		9F31D67E58C52C7B3AD18D05 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2876F1F58C6E17F1BDDCEB28 /* FacebookCore.framework */; };
-		9FAEF9FF6265676E359F6DAB /* ProjectFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC6E44E6ACC011790C6128 /* ProjectFeedViewController.swift */; };
-		A042AFF6FAF3926E15183695 /* ServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F4BBFE771128AB7040A471 /* ServiceEndpoint.swift */; };
-		A1E57C6E0D8799C82FA12B9F /* ProjectCommentCountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0910784D0A88CBC5D00E4F /* ProjectCommentCountEndpoint.swift */; };
 		A1EFFAE6DFF9AD4832241491 /* FMDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB7DADCC0AD655EB2AAB5F7 /* FMDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A4681E9D461A860BE6753CCC /* RemoveVoteEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7035F41A41C5C2E40E83829A /* RemoveVoteEndpoint.swift */; };
-		A4766B5AAA8A286904A1F481 /* ProjectFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC15C835AA5AB406BBAF6971 /* ProjectFeedService.swift */; };
-		A479E4EB172D3A0AB2DBB276 /* Acumin Pro - Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E20358FCEBBE229D38F1ACCB /* Acumin Pro - Bold.otf */; };
-		A4C19FB8F9235963132B9387 /* DetailedProjectInfoEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB6711C28474B782BDFAC /* DetailedProjectInfoEndpoint.swift */; };
 		A6978533FA2F3F6849B794D3 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7B86598527FEFEBF29B4CF7 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A852A07E554FA1C63DBC1D82 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A63FB83498F4628954E04 /* Flags.swift */; };
-		A86BD9E14DCFCBAC4A69E1E4 /* AppBannerPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0972F8200DE1B6839FB1ABE /* AppBannerPresenterProvider.swift */; };
-		A880D238DFBCBF66E2E60408 /* URLRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5016FA1BCFEAEAEA0494B7B /* URLRequestFactory.swift */; };
 		AA26951B22F4F06B00AA54B2 /* libBackitApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA26951A22F4F06B00AA54B2 /* libBackitApp.a */; };
 		AA26951C22F4F07200AA54B2 /* libBackitApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA26951A22F4F06B00AA54B2 /* libBackitApp.a */; };
-		AA3F58E45E7A909CEAE8D03E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8491053C73F843A8BF7326 /* AnalyticsService.swift */; };
+		AA26951D22F4F17000AA54B2 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A88DB834186068B88EE496 /* Flag.swift */; };
+		AA26951E22F4F17000AA54B2 /* FlagID.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD421F6213CA920B016C2CD /* FlagID.swift */; };
+		AA26951F22F4F17000AA54B2 /* FlagValueMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C5D38AD09C34085FA99F4 /* FlagValueMaker.swift */; };
+		AA26952022F4F17000AA54B2 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A63FB83498F4628954E04 /* Flags.swift */; };
+		AA26952122F4F17400AA54B2 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA98C00CB63423EFE1887B6 /* AnalyticsEvent.swift */; };
+		AA26952222F4F17400AA54B2 /* AnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54750D02B31E2DC6CC9FC5 /* AnalyticsListener.swift */; };
+		AA26952322F4F17400AA54B2 /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C77B81465FE481CE3F071 /* AnalyticsPublisher.swift */; };
+		AA26952422F4F17400AA54B2 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8491053C73F843A8BF7326 /* AnalyticsService.swift */; };
+		AA26952522F4F17400AA54B2 /* AnalyticsTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D330325A245D59D425B240 /* AnalyticsTransaction.swift */; };
+		AA26952F22F4F20B00AA54B2 /* BackitApp.h in Headers */ = {isa = PBXBuildFile; fileRef = AA26952D22F4F20B00AA54B2 /* BackitApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA26953422F4F21900AA54B2 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F5F9E5CFD2BEFFADF7121C /* Account.storyboard */; };
+		AA26953522F4F21900AA54B2 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81155437589719327D92F717 /* AccountViewController.swift */; };
+		AA26953622F4F21900AA54B2 /* AvatarTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794853C988A6B1E70815440C /* AvatarTabBarItem.swift */; };
+		AA26953722F4F21900AA54B2 /* AvatarTabBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DED7BF3D664B6ED124CD77D /* AvatarTabBarItem.xib */; };
+		AA26953822F4F21900AA54B2 /* CreateAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93D34E62541D86262C3F14F /* CreateAccountViewController.storyboard */; };
+		AA26953922F4F21900AA54B2 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D588CB66E0BCB8C05E465CC /* CreateAccountViewController.swift */; };
+		AA26953A22F4F21900AA54B2 /* FinalizeAccountCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7083D524D92350384E6B3640 /* FinalizeAccountCreationViewController.storyboard */; };
+		AA26953B22F4F21900AA54B2 /* FinalizeAccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E02F41A8E94E8FA6CED5997 /* FinalizeAccountCreationViewController.swift */; };
+		AA26953C22F4F21900AA54B2 /* LostPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0934DAD10C440B1565C4B9 /* LostPasswordViewController.storyboard */; };
+		AA26953D22F4F21900AA54B2 /* LostPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6001EBA971475CA22F40EE9 /* LostPasswordViewController.swift */; };
+		AA26953E22F4F21900AA54B2 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE0B2B87B25380EA5AD9066A /* SignIn.storyboard */; };
+		AA26953F22F4F21900AA54B2 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBE800A2F765852A02B82D /* SignInViewController.swift */; };
+		AA26954022F4F21E00AA54B2 /* BIAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0EDF4B21D34A1487696D5 /* BIAnalyticsEvent.swift */; };
+		AA26954122F4F21E00AA54B2 /* MetricAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CBEBACFE92683766EBAB24 /* MetricAnalyticsEvent.swift */; };
+		AA26954222F4F21E00AA54B2 /* NewRelicAnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49FF68DDE04EA181C8EB287 /* NewRelicAnalyticsListener.swift */; };
+		AA26954322F4F22100AA54B2 /* BannerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A91CF22A7C1BB897FA32F /* BannerScene.swift */; };
+		AA26954422F4F22100AA54B2 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BAA22B22CFEC813E4F0D9 /* BannerView.swift */; };
+		AA26954522F4F22400AA54B2 /* AccountProviderError+BannerErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D107AAEAA2B0E5060748198 /* AccountProviderError+BannerErrorMessage.swift */; };
+		AA26954622F4F22600AA54B2 /* UIView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CB356676FAD70B4833A126 /* UIView+Backit.swift */; };
+		AA26954722F4F22900AA54B2 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5E47C25BD38F83466F4CA6 /* AuthorizationServicePlugin.swift */; };
+		AA26954822F4F22900AA54B2 /* HostReplacerServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E4F9466CB570176B5F208D /* HostReplacerServicePlugin.swift */; };
+		AA26954922F4F22C00AA54B2 /* ProgressOverlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C1C3E53101E8564ACC238 /* ProgressOverlayScene.swift */; };
+		AA26954A22F4F22C00AA54B2 /* ProgressOverlayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F509EF1EEA293337E51DCDF4 /* ProgressOverlayViewController.storyboard */; };
+		AA26954B22F4F22C00AA54B2 /* ProgressOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6758E9CFB9F946512580733D /* ProgressOverlayViewController.swift */; };
+		AA26954C22F4F23000AA54B2 /* ProjectDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50771C668FF147172EA7ABF6 /* ProjectDetailsViewController.storyboard */; };
+		AA26954D22F4F23000AA54B2 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A76DE597CBC51CD25DA465 /* ProjectDetailsViewController.swift */; };
+		AA26954E22F4F23300AA54B2 /* ProjectFeedErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A518D4EE33969C744DF040 /* ProjectFeedErrorView.swift */; };
+		AA26954F22F4F23300AA54B2 /* ProjectFeedErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66AEA9E8E2537AAED5BF5966 /* ProjectFeedErrorView.xib */; };
+		AA26955022F4F23700AA54B2 /* ProjectImageAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF6D218D23E93D6A70DC520 /* ProjectImageAnimatedCell.xib */; };
+		AA26955122F4F23700AA54B2 /* ProjectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373E94E52271BB5CE6F59501 /* ProjectImageCell.xib */; };
+		AA26955222F4F23700AA54B2 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395BF2398D30ACD3C1DF5D9C /* ProjectImageCollectionView.swift */; };
+		AA26955322F4F23700AA54B2 /* ProjectImageCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76646ABF1E3488AACDD6ABD5 /* ProjectImageCollectionView.xib */; };
+		AA26955422F4F23A00AA54B2 /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1A6C1B7691059648FB3E4F /* ImagePagerView.swift */; };
+		AA26955522F4F23A00AA54B2 /* ImagePagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40246D62FA37DB062B05F81F /* ImagePagerView.xib */; };
+		AA26955622F4F23D00AA54B2 /* LoadingResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF88BD3A0E404588F2ABC3CC /* LoadingResultsCell.swift */; };
+		AA26955722F4F23D00AA54B2 /* LoadingResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C5578A474048CB8C2223A98 /* LoadingResultsCell.xib */; };
+		AA26955822F4F24000AA54B2 /* FeedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DBBD300C479ACF70E8A1B1 /* FeedProject.swift */; };
+		AA26955922F4F24000AA54B2 /* ProjectFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FB39E77270484C35C3670DD /* ProjectFeed.storyboard */; };
+		AA26955A22F4F24000AA54B2 /* ProjectFeedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBD4EA8025E4B8EA02ABDBC /* ProjectFeedModule.swift */; };
+		AA26955B22F4F24000AA54B2 /* ProjectFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC6E44E6ACC011790C6128 /* ProjectFeedViewController.swift */; };
+		AA26955C22F4F24000AA54B2 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1F3631DBF93D26CA9B842 /* ProjectTableViewCell.swift */; };
+		AA26955D22F4F24000AA54B2 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C7A0565A4C646ADD4184EE /* ProjectTableViewCell.xib */; };
+		AA26955E22F4F24300AA54B2 /* AppDatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2E4EAE98547FA6C8C2C3B /* AppDatabaseProvider.swift */; };
+		AA26955F22F4F24300AA54B2 /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F859EB137DB781B016498BA /* DatabaseProvider.swift */; };
+		AA26956022F4F24700AA54B2 /* AppPageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFC04734829491775EDAF5B /* AppPageProvider.swift */; };
+		AA26956122F4F24700AA54B2 /* PageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8948C7A515934EBB2A3D71 /* PageProvider.swift */; };
+		AA26956222F4F24A00AA54B2 /* ProjectFeedCompositionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6602A6B41173F9FBB99F8E2D /* ProjectFeedCompositionProvider.swift */; };
+		AA26956322F4F24A00AA54B2 /* ProjectFeedCompositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93228E81C04E916EC6A4978 /* ProjectFeedCompositionService.swift */; };
+		AA26956422F4F24C00AA54B2 /* ProjectFeedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7D79670A0CBCDC55A12FDA /* ProjectFeedProvider.swift */; };
+		AA26956522F4F24C00AA54B2 /* ProjectFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC15C835AA5AB406BBAF6971 /* ProjectFeedService.swift */; };
+		AA26956622F4F24F00AA54B2 /* ProjectVoteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97BEDA27BB8834DF68B3B01 /* ProjectVoteProvider.swift */; };
+		AA26956722F4F24F00AA54B2 /* ProjectVoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC96ABCEE04521F32D6EAA6 /* ProjectVoteService.swift */; };
+		AA26956822F4F25300AA54B2 /* AppBannerMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2929C40A7E600D5A205B658 /* AppBannerMessageProvider.swift */; };
+		AA26956922F4F25300AA54B2 /* AppBannerPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0972F8200DE1B6839FB1ABE /* AppBannerPresenterProvider.swift */; };
+		AA26956A22F4F25300AA54B2 /* AppExternalSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05867AFFC2987E6F3B6870C8 /* AppExternalSignInProvider.swift */; };
+		AA26956B22F4F25300AA54B2 /* AppFacebookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30730C5B523F50E204F57500 /* AppFacebookProvider.swift */; };
+		AA26956C22F4F25300AA54B2 /* AppGoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05360BCB884CB8C6F452383 /* AppGoogleProvider.swift */; };
+		AA26956D22F4F25300AA54B2 /* AppKeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB95D3056CA1EEC1D517A9C /* AppKeychainProvider.swift */; };
+		AA26956E22F4F25300AA54B2 /* AppPhotoAlbumProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40814C7EF2F3FBBE96E82A2B /* AppPhotoAlbumProvider.swift */; };
+		AA26956F22F4F25300AA54B2 /* AppPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0555A2922D8330C6D776E78F /* AppPresenterProvider.swift */; };
+		AA26957022F4F25300AA54B2 /* AppProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0D8A7DC6B740F1E783E53 /* AppProgressOverlayProvider.swift */; };
+		AA26957122F4F25300AA54B2 /* AppShareProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CE45868F21280F4F7E109 /* AppShareProvider.swift */; };
+		AA26957222F4F25300AA54B2 /* AppSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C98EBE571CDD7F7C5FE3BC /* AppSignInProvider.swift */; };
+		AA26957322F4F25800AA54B2 /* Acumin Pro - Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E20358FCEBBE229D38F1ACCB /* Acumin Pro - Bold.otf */; };
+		AA26957422F4F25800AA54B2 /* Acumin Pro - Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B4ABA3B72731076E55169A1 /* Acumin Pro - Regular.otf */; };
+		AA26957522F4F25800AA54B2 /* Acumin Pro - Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C376E895143EAE8806201D2 /* Acumin Pro - Semibold.otf */; };
+		AA26957622F4F25B00AA54B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1276204B5B0E6BD06EDAA60 /* Localizable.strings */; };
+		AA26957722F4F25E00AA54B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928722007DBE849E55F19205 /* Assets.xcassets */; };
+		AA26957822F4F26000AA54B2 /* robot-arm.atlasc in Resources */ = {isa = PBXBuildFile; fileRef = BA935D19615B73817C41422B /* robot-arm.atlasc */; };
+		AA26957922F4F26400AA54B2 /* AlamofireServiceRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0867199FD8C41595C41FA6DC /* AlamofireServiceRequester.swift */; };
+		AA26957A22F4F26400AA54B2 /* AlamofireSessionManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D2E2634BF22E7D90A5728 /* AlamofireSessionManagerFactory.swift */; };
+		AA26957B22F4F26B00AA54B2 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9255E6B260AD9BBC9CA3C /* TestAppDelegate.swift */; };
+		AA26957C22F4F26B00AA54B2 /* TestApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2A6BBF47D187B8EA838DA4 /* TestApplication.swift */; };
+		AA26957D22F4F26E00AA54B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C781D841154ADE0BAAE74 /* AppDelegate.swift */; };
+		AA26957E22F4F26E00AA54B2 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADC89401C263F4645AF2B16 /* AppTheme.swift */; };
+		AA26957F22F4F26E00AA54B2 /* Appl10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D217CEEF0501269895B43 /* Appl10n.swift */; };
+		AA26958022F4F26E00AA54B2 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29595447ACCF7B33C97C954A /* Application.swift */; };
+		AA26958122F4F27100AA54B2 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7FC80241798432CFC374B /* Assembly.swift */; };
+		AA26958222F4F27700AA54B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AD4E84ADFAC0EC73DD50F2 /* Main.storyboard */; };
+		AA26958322F4F27A00AA54B2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF43162524CCD05DBC1CF1 /* TabBarController.swift */; };
+		AA26958422F4F27D00AA54B2 /* UITabBarItem+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D6E201802B5C3F643DC45 /* UITabBarItem+Backit.swift */; };
+		AA26958522F4F28500AA54B2 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC72CFAEF07FE026F7AD1B65 /* Credentials.swift */; };
+		AA26958622F4F28500AA54B2 /* GuestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59789498420044662DFA9F4 /* GuestUser.swift */; };
+		AA26958722F4F28500AA54B2 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E073DDA2263D2279E672 /* Project.swift */; };
+		AA26958822F4F28500AA54B2 /* ProjectSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2E55B40A1406D77D226F2 /* ProjectSource.swift */; };
+		AA26958922F4F28500AA54B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B529DE16C722F0B3611B9BB /* User.swift */; };
+		AA26958A22F4F28500AA54B2 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725DD281AC3B54D1E76D5576 /* UserSession.swift */; };
+		AA26958B22F4F28900AA54B2 /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AE06467A825E56926E5FA /* AccountProvider.swift */; };
+		AA26958C22F4F28900AA54B2 /* DiscussionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C49D1F96B344AC0894CA3 /* DiscussionProvider.swift */; };
+		AA26958D22F4F28900AA54B2 /* ExternalSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA58CB41C43A4EB09B04A3E1 /* ExternalSignInProvider.swift */; };
+		AA26958E22F4F28900AA54B2 /* FacebookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A3693298E0B2232778E6EA /* FacebookProvider.swift */; };
+		AA26958F22F4F28900AA54B2 /* GoogleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692246DFEF87A761D7914C80 /* GoogleProvider.swift */; };
+		AA26959022F4F28900AA54B2 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FBFA0AD1712E227B0C7B39 /* KeychainProvider.swift */; };
+		AA26959122F4F28900AA54B2 /* PhotoAlbumProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0FF1F575295871B112B749 /* PhotoAlbumProvider.swift */; };
+		AA26959222F4F28900AA54B2 /* ProjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDBB0CE7DDAF77F3603A7C8 /* ProjectProvider.swift */; };
+		AA26959322F4F28900AA54B2 /* ShareProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4D0B58B3AF7F2558556784 /* ShareProvider.swift */; };
+		AA26959422F4F28900AA54B2 /* SignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693AA946262E7E9A9E8A32E /* SignInProvider.swift */; };
+		AA26959522F4F28900AA54B2 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDCA5AA7C94D628274C56F /* UserProvider.swift */; };
+		AA26959622F4F28E00AA54B2 /* UserAvatarStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B86651D2602E533EF8D6B46 /* UserAvatarStreamer.swift */; };
+		AA26959722F4F28E00AA54B2 /* UserSessionStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D81D892E54105A270CC8A /* UserSessionStreamer.swift */; };
+		AA26959822F4F28E00AA54B2 /* UserStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865AF4996D1D50B60CD1C58 /* UserStreamer.swift */; };
+		AA26959922F4F2A900AA54B2 /* AccountHealthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A016A3A3118B2B4FA45A6FC /* AccountHealthEndpoint.swift */; };
+		AA26959A22F4F2A900AA54B2 /* CreateAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3375F24A71530597C023BB9D /* CreateAccountEndpoint.swift */; };
+		AA26959B22F4F2A900AA54B2 /* CreateExternalAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B1E0CC5DE0EC646419F38E /* CreateExternalAccountEndpoint.swift */; };
+		AA26959C22F4F2A900AA54B2 /* ExternalLoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB933AAA7E8F8DFDD38545FF /* ExternalLoginEndpoint.swift */; };
+		AA26959D22F4F2A900AA54B2 /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83B40D6EE32BF2FCB4C800 /* LoginEndpoint.swift */; };
+		AA26959E22F4F2A900AA54B2 /* RecoverPasswordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1199E88555DAF82138F5B /* RecoverPasswordEndpoint.swift */; };
+		AA26959F22F4F2A900AA54B2 /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2FE9BE19AD2547DC41F30 /* RefreshTokenEndpoint.swift */; };
+		AA2695A022F4F2A900AA54B2 /* UploadAvatarEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807CB415057C2D3F193A1019 /* UploadAvatarEndpoint.swift */; };
+		AA2695A122F4F2A900AA54B2 /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001D831EEEADB9AAD422A5CA /* UserAccountEndpoint.swift */; };
+		AA2695A222F4F2A900AA54B2 /* UsernameAvailabilityEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC989CE4C72E73B558D2D1B1 /* UsernameAvailabilityEndpoint.swift */; };
+		AA2695A322F4F2AC00AA54B2 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E646A32C3338780FAFD721A /* AccountService.swift */; };
+		AA2695A422F4F2AC00AA54B2 /* UserAvatarStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EB17794ED375EAAB82D7B0 /* UserAvatarStream.swift */; };
+		AA2695A522F4F2AC00AA54B2 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8398EFC56A3CDBF1EB00BD4 /* UserService.swift */; };
+		AA2695A622F4F2AC00AA54B2 /* UserSessionStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18DFB820EBE33EB7089470 /* UserSessionStream.swift */; };
+		AA2695A722F4F2AC00AA54B2 /* UserStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799F72F21478478DCB647BF /* UserStream.swift */; };
+		AA2695A822F4F2AF00AA54B2 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2CA831EE30448F337AC057 /* AmazonService.swift */; };
+		AA2695A922F4F2B200AA54B2 /* DiscussionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC544B2F886B15847FBCEA /* DiscussionService.swift */; };
+		AA2695AA22F4F2B200AA54B2 /* ProjectCommentCountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0910784D0A88CBC5D00E4F /* ProjectCommentCountEndpoint.swift */; };
+		AA2695AB22F4F2B200AA54B2 /* ProjectCommentCountsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F9BFF9BADCA61C6753 /* ProjectCommentCountsEndpoint.swift */; };
+		AA2695AC22F4F2B600AA54B2 /* DetailedProjectInfoEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB6711C28474B782BDFAC /* DetailedProjectInfoEndpoint.swift */; };
+		AA2695AD22F4F2B600AA54B2 /* ProjectsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A54B7B6BF379A4AAA2AD6 /* ProjectsEndpoint.swift */; };
+		AA2695AE22F4F2B600AA54B2 /* RemoveVoteEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7035F41A41C5C2E40E83829A /* RemoveVoteEndpoint.swift */; };
+		AA2695AF22F4F2B600AA54B2 /* UpVoteProjectEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BA5D9A0198D8835AB1A72 /* UpVoteProjectEndpoint.swift */; };
+		AA2695B022F4F2B800AA54B2 /* DetailedProject+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06007329CBA25D30B7D0E732 /* DetailedProject+Backit.swift */; };
+		AA2695B122F4F2B800AA54B2 /* ProjectResponse+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB27C6DE32DBBC5F09062FE3 /* ProjectResponse+Backit.swift */; };
+		AA2695B222F4F2B800AA54B2 /* ProjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77AAC55148A2B0E4629B590 /* ProjectService.swift */; };
+		AA2695B322F4F2BC00AA54B2 /* BrightFutures+Upstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482287BAFDF88F639DE3843B /* BrightFutures+Upstart.swift */; };
+		AA2695B422F4F2BC00AA54B2 /* Encodable+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE1BB26C9906BCB432296A2 /* Encodable+Backit.swift */; };
+		AA2695B522F4F2BC00AA54B2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F92E7FFCE58F1B7C1DDC21 /* Errors.swift */; };
+		AA2695B622F4F2BC00AA54B2 /* IgnorableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60A564935321CB824B793E /* IgnorableValue.swift */; };
+		AA2695B722F4F2BC00AA54B2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B49E00D1CA095FCD957268 /* Service.swift */; };
+		AA2695B822F4F2BC00AA54B2 /* ServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F4BBFE771128AB7040A471 /* ServiceEndpoint.swift */; };
+		AA2695B922F4F2BC00AA54B2 /* ServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D703761B0C58F54ECE64F /* ServicePlugin.swift */; };
+		AA2695BA22F4F2BC00AA54B2 /* ServicePluginKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC849F0B69928AC98E81D0C1 /* ServicePluginKey.swift */; };
+		AA2695BB22F4F2BC00AA54B2 /* ServicePluginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F045106A850C0F17F0448 /* ServicePluginProvider.swift */; };
+		AA2695BC22F4F2BC00AA54B2 /* ServiceRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF43AF100998315F09C246B /* ServiceRequester.swift */; };
+		AA2695BD22F4F2BC00AA54B2 /* TopLevelServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14FE21B8E8604C7234E8A2 /* TopLevelServiceResponse.swift */; };
+		AA2695BE22F4F2BC00AA54B2 /* URLRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5016FA1BCFEAEAEA0494B7B /* URLRequestFactory.swift */; };
+		AA2695BF22F4F2C000AA54B2 /* UIColor+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D4AC595CD64BD19E7969E5 /* UIColor+Backit.swift */; };
+		AA2695C022F4F2C000AA54B2 /* UIFont+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB24A06622A6B0B57D89F0 /* UIFont+Backit.swift */; };
+		AA2695C122F4F2C000AA54B2 /* UIImage+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55766A1BB770BCD59B5CC5 /* UIImage+Backit.swift */; };
+		AA2695C222F4F2C000AA54B2 /* UIStackView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CD78BA492D81AD50F95BE0 /* UIStackView+Backit.swift */; };
+		AA2695C322F4F2C400AA54B2 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA16C884A447B700272E3763 /* PrimaryButton.swift */; };
+		AA2695C422F4F2C400AA54B2 /* PrimaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A0B78BEDCFA8893161DD9B /* PrimaryButton.xib */; };
+		AA2695C522F4F2C700AA54B2 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F742A51A0682A2B9FC1B0 /* Action.swift */; };
+		AA2695C622F4F2C700AA54B2 /* ActionSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8263A448637D5085AE74907 /* ActionSequencer.swift */; };
+		AA2695C722F4F2C900AA54B2 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39DC2D6AA05F35204C73C6 /* TextButton.swift */; };
+		AA2695C822F4F2C900AA54B2 /* TextButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B55931CCAC5128995F981E /* TextButton.xib */; };
+		AA2695C922F4F2CC00AA54B2 /* TextEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A41189B0711F67BDADE909 /* TextEntryField.swift */; };
+		AA2695CA22F4F2CC00AA54B2 /* TextEntryField.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD02F8DAC9359DC37C9092F7 /* TextEntryField.xib */; };
+		AA2695CB22F4F2CF00AA54B2 /* AnyUITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0746A058F66DE7C0E29CF /* AnyUITheme.swift */; };
+		AA2695CC22F4F2CF00AA54B2 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53675EB97AAC40D6806902F8 /* UITheme.swift */; };
+		AA2695CD22F4F2CF00AA54B2 /* UIThemeApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCECBA59ACA61BBA335DFA0F /* UIThemeApplier.swift */; };
+		AA2695CE22F4F2D200AA54B2 /* BannerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C01E74E94018450D5E12F05 /* BannerProvider.swift */; };
+		AA2695CF22F4F2D200AA54B2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5106CAAB9119EDF2E62F77A2 /* CustomButton.swift */; };
+		AA2695D022F4F2D200AA54B2 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38953A4152807215761C59FA /* KeyboardLayoutConstraint.swift */; };
+		AA2695D122F4F2D200AA54B2 /* PresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0360A7AA87AD9FC68217D3 /* PresenterProvider.swift */; };
+		AA2695D222F4F2D200AA54B2 /* ProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4124F90626CBA254743E3F37 /* ProgressOverlayProvider.swift */; };
+		AA2695D322F4F2D200AA54B2 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871461CD9EC3BA18B02759E5 /* SecondaryButton.swift */; };
+		AA2695D422F4F2D200AA54B2 /* SecondaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3457F92E05BA1D369016632A /* SecondaryButton.xib */; };
+		AA2695D522F4F2D200AA54B2 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE421E0659B67724DE72808 /* UnderlineButton.swift */; };
+		AA2695D622F4F2D200AA54B2 /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823DE14CABCFC7E7359208FB /* UnderlineButton.xib */; };
 		AA9E83D922F3BDAA00225B94 /* libBKFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9E83D822F3BDA900225B94 /* libBKFoundation.a */; };
 		AA9E83DA22F3BDC300225B94 /* libBKFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9E83D822F3BDA900225B94 /* libBKFoundation.a */; };
-		AB2CC6DA0A2112A414A7B5DB /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81155437589719327D92F717 /* AccountViewController.swift */; };
-		AB367255B0D6334752BD1B52 /* LostPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6001EBA971475CA22F40EE9 /* LostPasswordViewController.swift */; };
-		AB88127531D8BC8550A25600 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FBFA0AD1712E227B0C7B39 /* KeychainProvider.swift */; };
-		AC1644F5887125CB873B4BE9 /* HostReplacerServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E4F9466CB570176B5F208D /* HostReplacerServicePlugin.swift */; };
 		AC536E41CAB4A8B008E32DA9 /* SwinjectStoryboard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6258ED83EEB25CAE857A4E /* SwinjectStoryboard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0A1CD730F158CE274207668 /* ProjectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373E94E52271BB5CE6F59501 /* ProjectImageCell.xib */; };
-		B1244B6800A1AD46CA1D6ECB /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E646A32C3338780FAFD721A /* AccountService.swift */; };
 		B128941426C91A474233A48A /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CBC7FC8453CD42CBCAC404 /* Localization.swift */; };
-		B4EE13102CF935FAEBFD9832 /* AppPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0555A2922D8330C6D776E78F /* AppPresenterProvider.swift */; };
 		B561B058800816A7A75BC58A /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C680F9E90EE882A546A0A26F /* UI.swift */; };
-		B7A9B7B7A82230004392C7D7 /* PrimaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A0B78BEDCFA8893161DD9B /* PrimaryButton.xib */; };
 		B995DDDAA2849C6B362C19C5 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29E7A0751A357E908773CBD /* SDWebImage.framework */; };
-		BAAFD617AF57CC9CB73EC036 /* FinalizeAccountCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7083D524D92350384E6B3640 /* FinalizeAccountCreationViewController.storyboard */; };
 		BD726B9E60348C8CE05C8724 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441BA5787D6A77647F72E860 /* main.swift */; };
-		C53FBDCB06BDF189A8AC4F77 /* ProjectFeedErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66AEA9E8E2537AAED5BF5966 /* ProjectFeedErrorView.xib */; };
-		C54E164F13DC3FE356DCF155 /* Appl10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D217CEEF0501269895B43 /* Appl10n.swift */; };
-		C683D633DDFA861E2925F79E /* ProjectVoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC96ABCEE04521F32D6EAA6 /* ProjectVoteService.swift */; };
-		CB8C42A2976A6AD370C28A4F /* AccountProviderError+BannerErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D107AAEAA2B0E5060748198 /* AccountProviderError+BannerErrorMessage.swift */; };
 		CCE03AFED4BBD1855B4D43E3 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63A20A114F167D796241847 /* GoogleSignIn.framework */; };
-		CED99AD3C44026257E14B20D /* CreateAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93D34E62541D86262C3F14F /* CreateAccountViewController.storyboard */; };
-		D09192C1E4791A4AEB0E4E78 /* UpVoteProjectEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BA5D9A0198D8835AB1A72 /* UpVoteProjectEndpoint.swift */; };
-		D1E6F5E3A6C0C8AFDE44BCCF /* Acumin Pro - Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C376E895143EAE8806201D2 /* Acumin Pro - Semibold.otf */; };
-		D35264308C91C360C1BD6CC8 /* ProjectSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2E55B40A1406D77D226F2 /* ProjectSource.swift */; };
-		D366E323EBA1FD885A8898E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5106CAAB9119EDF2E62F77A2 /* CustomButton.swift */; };
-		D3769BA58935FA34095D19DE /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F742A51A0682A2B9FC1B0 /* Action.swift */; };
 		D44069FB13D486EB7BDF1B86 /* KIF.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED7111BB1A7120964402AC19 /* KIF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D4662BF1E95890A22DBA7039 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BAA22B22CFEC813E4F0D9 /* BannerView.swift */; };
 		D488410AC891CA7340B8862F /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B873324D7EA3EB3F3E8062 /* BrightFutures.framework */; };
 		D54A4027971F3A588FBA32A2 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2876125BB009560E930B8383 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D64E6ABC191DBA1DB7CE5E5A /* AlamofireSessionManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D2E2634BF22E7D90A5728 /* AlamofireSessionManagerFactory.swift */; };
-		D87382A807F501152B759132 /* UIImage+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55766A1BB770BCD59B5CC5 /* UIImage+Backit.swift */; };
-		D87F3BEEAFE2BDDC02418B6A /* ActionSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8263A448637D5085AE74907 /* ActionSequencer.swift */; };
-		DA860C79D24706D6B8CBD3F1 /* GuestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59789498420044662DFA9F4 /* GuestUser.swift */; };
-		DB117274BBA7E8DEEC5C7AA0 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE0B2B87B25380EA5AD9066A /* SignIn.storyboard */; };
-		DB83D42E505A7CE03C0ACCB3 /* AvatarTabBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DED7BF3D664B6ED124CD77D /* AvatarTabBarItem.xib */; };
-		DDB1AE49EA0D9644FAD62BE7 /* FinalizeAccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E02F41A8E94E8FA6CED5997 /* FinalizeAccountCreationViewController.swift */; };
-		DDECB713A3EAC6A6869EA559 /* ProjectDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50771C668FF147172EA7ABF6 /* ProjectDetailsViewController.storyboard */; };
-		E03EE979AF351D8128969F31 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A88DB834186068B88EE496 /* Flag.swift */; };
-		E30EDCAE508130A307B577F1 /* LoadingResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF88BD3A0E404588F2ABC3CC /* LoadingResultsCell.swift */; };
-		E4B282FF217B63487F781869 /* ExternalSignInProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA58CB41C43A4EB09B04A3E1 /* ExternalSignInProvider.swift */; };
-		E5D5E37324E6C8F50B2907A0 /* AppFacebookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30730C5B523F50E204F57500 /* AppFacebookProvider.swift */; };
-		E71D9140522C9123D4C71BEB /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C77B81465FE481CE3F071 /* AnalyticsPublisher.swift */; };
-		E748DB1E7485652F5AEAFF47 /* UIFont+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB24A06622A6B0B57D89F0 /* UIFont+Backit.swift */; };
 		E91E506458484DAD73A10A1B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7457C5B594A337ACF6FB2CE /* Alamofire.framework */; };
-		E9D8595EC35E0314305460D9 /* UIView+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CB356676FAD70B4833A126 /* UIView+Backit.swift */; };
-		E9E665DD9988612D272421A1 /* AppPhotoAlbumProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40814C7EF2F3FBBE96E82A2B /* AppPhotoAlbumProvider.swift */; };
-		EA8536547190A69538BE681B /* AppDatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2E4EAE98547FA6C8C2C3B /* AppDatabaseProvider.swift */; };
-		EA8E8C1AD6758D824297BDBD /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADC89401C263F4645AF2B16 /* AppTheme.swift */; };
 		EC1F4AE8D9FDDA9310600ADF /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1292D77BC0E8F0D566F65C51 /* Methods.swift */; };
 		EEF2AC7433B2547385928C16 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848D7F633FC02CBD3158D649 /* Swinject.framework */; };
-		EF352A57097EF95E7A180EF7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D588CB66E0BCB8C05E465CC /* CreateAccountViewController.swift */; };
 		EF779FFFC464D15F84AE8342 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A95F7582CC6F61DFC8BDC23 /* KeychainAccess.framework */; };
-		EFFB4C29E24D33A174E84D34 /* robot-arm.atlasc in Resources */ = {isa = PBXBuildFile; fileRef = BA935D19615B73817C41422B /* robot-arm.atlasc */; };
-		F21B5338D75CB7B977EA4573 /* ProjectResponse+Backit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB27C6DE32DBBC5F09062FE3 /* ProjectResponse+Backit.swift */; };
-		F26127C235CD64153FE131E9 /* AppPageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFC04734829491775EDAF5B /* AppPageProvider.swift */; };
-		F4E9692FDFDAF4C5942CEEB7 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA16C884A447B700272E3763 /* PrimaryButton.swift */; };
-		F7F816D5312FBF5F8728B5B7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B49E00D1CA095FCD957268 /* Service.swift */; };
-		F91334FB23B36D9B8471D2E9 /* FlagValueMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C5D38AD09C34085FA99F4 /* FlagValueMaker.swift */; };
-		F96197810D95E201AAF58AB8 /* AvatarTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794853C988A6B1E70815440C /* AvatarTabBarItem.swift */; };
-		F994E1EB064F7DC0BD93A877 /* ProjectFeedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBD4EA8025E4B8EA02ABDBC /* ProjectFeedModule.swift */; };
-		FCE35F5CE039790FCFC79B29 /* ProgressOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6758E9CFB9F946512580733D /* ProgressOverlayViewController.swift */; };
-		FF366FDFE4BA277F1AF1AACD /* AnalyticsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54750D02B31E2DC6CC9FC5 /* AnalyticsListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -425,6 +426,9 @@
 		A7A0EDF4B21D34A1487696D5 /* BIAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIAnalyticsEvent.swift; sourceTree = "<group>"; };
 		AA16C884A447B700272E3763 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		AA26951A22F4F06B00AA54B2 /* libBackitApp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBackitApp.a; sourceTree = "<group>"; };
+		AA26952B22F4F20B00AA54B2 /* BackitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BackitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA26952D22F4F20B00AA54B2 /* BackitApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackitApp.h; sourceTree = "<group>"; };
+		AA26952E22F4F20B00AA54B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA58CB41C43A4EB09B04A3E1 /* ExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSignInProvider.swift; sourceTree = "<group>"; };
 		AA9E83D822F3BDA900225B94 /* libBKFoundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBKFoundation.a; sourceTree = "<group>"; };
 		AB27C6DE32DBBC5F09062FE3 /* ProjectResponse+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectResponse+Backit.swift"; sourceTree = "<group>"; };
@@ -544,6 +548,13 @@
 				376C5E63DAFEB244114048DA /* Pods_Backit.framework in Frameworks */,
 				AA26951C22F4F07200AA54B2 /* libBackitApp.a in Frameworks */,
 				AA9E83DA22F3BDC300225B94 /* libBKFoundation.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA26952822F4F20B00AA54B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,11 +805,13 @@
 		604158D98BC609735AB62E03 = {
 			isa = PBXGroup;
 			children = (
+				AA2695D722F4F2F800AA54B2 /* Resources */,
 				AA9E83D322F3B2EA00225B94 /* Libraries */,
 				A9A16981B97340414A900731 /* Application */,
 				AAF735C9F03BB7C1B504B0E2 /* BackitTests */,
 				89C56322F65D8031AD0288CA /* Domain */,
 				44507EA7F8C2A2CC58E689D2 /* Foundation */,
+				AA26952C22F4F20B00AA54B2 /* BackitApp */,
 				7DA3229774C48FA5DA692F49 /* Frameworks */,
 				F180D936FDA628E57D4DC008 /* Pods */,
 				6D823D8B3DB68E1A9D762901 /* Products */,
@@ -826,6 +839,7 @@
 				291C230F06E31AA11D5DDCAD /* Backit.app */,
 				1D09C4DEE2D2A7C1D9F40993 /* BackitTests.xctest */,
 				3AE77E3CF95E1057940B7683 /* BKFoundation.framework */,
+				AA26952B22F4F20B00AA54B2 /* BackitApp.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1039,6 +1053,22 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		AA26952C22F4F20B00AA54B2 /* BackitApp */ = {
+			isa = PBXGroup;
+			children = (
+				AA26952D22F4F20B00AA54B2 /* BackitApp.h */,
+				AA26952E22F4F20B00AA54B2 /* Info.plist */,
+			);
+			path = BackitApp;
+			sourceTree = "<group>";
+		};
+		AA2695D722F4F2F800AA54B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		AA9E83D322F3B2EA00225B94 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -1242,6 +1272,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		AA26952622F4F20B00AA54B2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA26952F22F4F20B00AA54B2 /* BackitApp.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		17691E1E2F31D973D203740A /* BackitTests */ = {
 			isa = PBXNativeTarget;
@@ -1279,6 +1320,24 @@
 			productReference = 3AE77E3CF95E1057940B7683 /* BKFoundation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		AA26952A22F4F20B00AA54B2 /* BackitApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA26953022F4F20B00AA54B2 /* Build configuration list for PBXNativeTarget "BackitApp" */;
+			buildPhases = (
+				AA26952622F4F20B00AA54B2 /* Headers */,
+				AA26952722F4F20B00AA54B2 /* Sources */,
+				AA26952822F4F20B00AA54B2 /* Frameworks */,
+				AA26952922F4F20B00AA54B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BackitApp;
+			productName = BackitApp;
+			productReference = AA26952B22F4F20B00AA54B2 /* BackitApp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D530E64439A9B80BE5662B2D /* Backit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB3E405E50A6323D0A68C288 /* Build configuration list for PBXNativeTarget "Backit" */;
@@ -1310,6 +1369,9 @@
 					17691E1E2F31D973D203740A = {
 						TestTargetID = D530E64439A9B80BE5662B2D;
 					};
+					AA26952A22F4F20B00AA54B2 = {
+						CreatedOnToolsVersion = 10.3;
+					};
 				};
 			};
 			buildConfigurationList = 9CDF964D864958E214D34E27 /* Build configuration list for PBXProject "Backit" */;
@@ -1329,6 +1391,7 @@
 				1976BEA51E9595EDC0CDC3E4 /* BKFoundation */,
 				D530E64439A9B80BE5662B2D /* Backit */,
 				17691E1E2F31D973D203740A /* BackitTests */,
+				AA26952A22F4F20B00AA54B2 /* BackitApp */,
 			);
 		};
 /* End PBXProject section */
@@ -1338,35 +1401,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C8BA820D145C9CD642F7E2E /* Account.storyboard in Resources */,
-				A479E4EB172D3A0AB2DBB276 /* Acumin Pro - Bold.otf in Resources */,
-				37CC021E18D798F8CE6F4D6A /* Acumin Pro - Regular.otf in Resources */,
-				D1E6F5E3A6C0C8AFDE44BCCF /* Acumin Pro - Semibold.otf in Resources */,
-				2A4132D110673C8A3C9754CE /* Assets.xcassets in Resources */,
-				DB83D42E505A7CE03C0ACCB3 /* AvatarTabBarItem.xib in Resources */,
-				CED99AD3C44026257E14B20D /* CreateAccountViewController.storyboard in Resources */,
-				BAAFD617AF57CC9CB73EC036 /* FinalizeAccountCreationViewController.storyboard in Resources */,
-				34B2F7C7ED583AF4155E5951 /* ImagePagerView.xib in Resources */,
 				79D299345275BF11827A685A /* LaunchScreen.storyboard in Resources */,
-				23B2B848BA943FF950D9F11F /* LoadingResultsCell.xib in Resources */,
-				75420F0362A70699749C9E17 /* Localizable.strings in Resources */,
-				5679D7EAD90BF30FE205C54C /* LostPasswordViewController.storyboard in Resources */,
-				562960F4A1B67B3FBFF11EA5 /* Main.storyboard in Resources */,
-				B7A9B7B7A82230004392C7D7 /* PrimaryButton.xib in Resources */,
-				881229E3F6C19F9FFE7013E5 /* ProgressOverlayViewController.storyboard in Resources */,
-				DDECB713A3EAC6A6869EA559 /* ProjectDetailsViewController.storyboard in Resources */,
-				764D0FD329EB67CA70837707 /* ProjectFeed.storyboard in Resources */,
-				C53FBDCB06BDF189A8AC4F77 /* ProjectFeedErrorView.xib in Resources */,
-				76B284789CBCDFC6B7082AD4 /* ProjectImageAnimatedCell.xib in Resources */,
-				B0A1CD730F158CE274207668 /* ProjectImageCell.xib in Resources */,
-				97438D794B7640E06DE6BAC5 /* ProjectImageCollectionView.xib in Resources */,
-				34A7225D479A8212E935E880 /* ProjectTableViewCell.xib in Resources */,
-				14AB72409BFF7AB2DF332B7F /* SecondaryButton.xib in Resources */,
-				DB117274BBA7E8DEEC5C7AA0 /* SignIn.storyboard in Resources */,
-				7F4552DF5A803564CD0ADE05 /* TextButton.xib in Resources */,
-				7D2F09F0E63F51C7B44B8890 /* TextEntryField.xib in Resources */,
-				09C52CE5128D373A0DAC3957 /* UnderlineButton.xib in Resources */,
-				EFFB4C29E24D33A174E84D34 /* robot-arm.atlasc in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA26952922F4F20B00AA54B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA26955022F4F23700AA54B2 /* ProjectImageAnimatedCell.xib in Resources */,
+				AA26953822F4F21900AA54B2 /* CreateAccountViewController.storyboard in Resources */,
+				AA2695C422F4F2C400AA54B2 /* PrimaryButton.xib in Resources */,
+				AA26957322F4F25800AA54B2 /* Acumin Pro - Bold.otf in Resources */,
+				AA2695CA22F4F2CC00AA54B2 /* TextEntryField.xib in Resources */,
+				AA2695C822F4F2C900AA54B2 /* TextButton.xib in Resources */,
+				AA2695D622F4F2D200AA54B2 /* UnderlineButton.xib in Resources */,
+				AA26955122F4F23700AA54B2 /* ProjectImageCell.xib in Resources */,
+				AA26957722F4F25E00AA54B2 /* Assets.xcassets in Resources */,
+				AA26955D22F4F24000AA54B2 /* ProjectTableViewCell.xib in Resources */,
+				AA26957622F4F25B00AA54B2 /* Localizable.strings in Resources */,
+				AA26953422F4F21900AA54B2 /* Account.storyboard in Resources */,
+				AA26954F22F4F23300AA54B2 /* ProjectFeedErrorView.xib in Resources */,
+				AA26954C22F4F23000AA54B2 /* ProjectDetailsViewController.storyboard in Resources */,
+				AA26955522F4F23A00AA54B2 /* ImagePagerView.xib in Resources */,
+				AA26955922F4F24000AA54B2 /* ProjectFeed.storyboard in Resources */,
+				AA26958222F4F27700AA54B2 /* Main.storyboard in Resources */,
+				AA26955722F4F23D00AA54B2 /* LoadingResultsCell.xib in Resources */,
+				AA26953A22F4F21900AA54B2 /* FinalizeAccountCreationViewController.storyboard in Resources */,
+				AA26953722F4F21900AA54B2 /* AvatarTabBarItem.xib in Resources */,
+				AA2695D422F4F2D200AA54B2 /* SecondaryButton.xib in Resources */,
+				AA26957522F4F25800AA54B2 /* Acumin Pro - Semibold.otf in Resources */,
+				AA26955322F4F23700AA54B2 /* ProjectImageCollectionView.xib in Resources */,
+				AA26957822F4F26000AA54B2 /* robot-arm.atlasc in Resources */,
+				AA26953E22F4F21900AA54B2 /* SignIn.storyboard in Resources */,
+				AA26954A22F4F22C00AA54B2 /* ProgressOverlayViewController.storyboard in Resources */,
+				AA26957422F4F25800AA54B2 /* Acumin Pro - Regular.otf in Resources */,
+				AA26953C22F4F21900AA54B2 /* LostPasswordViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1479,141 +1549,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F1E2CD254120DB794159769 /* AccountHealthEndpoint.swift in Sources */,
-				69EA8E01850591268254EB4B /* AccountProvider.swift in Sources */,
-				CB8C42A2976A6AD370C28A4F /* AccountProviderError+BannerErrorMessage.swift in Sources */,
-				B1244B6800A1AD46CA1D6ECB /* AccountService.swift in Sources */,
-				AB2CC6DA0A2112A414A7B5DB /* AccountViewController.swift in Sources */,
-				D3769BA58935FA34095D19DE /* Action.swift in Sources */,
-				D87F3BEEAFE2BDDC02418B6A /* ActionSequencer.swift in Sources */,
-				8F0FE24518E2CC8A4E809CFC /* AlamofireServiceRequester.swift in Sources */,
-				D64E6ABC191DBA1DB7CE5E5A /* AlamofireSessionManagerFactory.swift in Sources */,
-				20F60FF1689660A455F35C74 /* AmazonService.swift in Sources */,
-				20A793DDE6F70BB6BCE01AFD /* AnyUITheme.swift in Sources */,
-				06A2EF7B99D7455895B3D5ED /* AppBannerMessageProvider.swift in Sources */,
-				A86BD9E14DCFCBAC4A69E1E4 /* AppBannerPresenterProvider.swift in Sources */,
-				EA8536547190A69538BE681B /* AppDatabaseProvider.swift in Sources */,
-				2D97771AEBD21E912E057B62 /* AppDelegate.swift in Sources */,
-				1F8F1554E1AE20125FE80513 /* AppExternalSignInProvider.swift in Sources */,
-				E5D5E37324E6C8F50B2907A0 /* AppFacebookProvider.swift in Sources */,
-				6BE11570445FDB6B7304E3AA /* AppGoogleProvider.swift in Sources */,
-				95B99A78BC8BCABECD4DF76F /* AppKeychainProvider.swift in Sources */,
-				F26127C235CD64153FE131E9 /* AppPageProvider.swift in Sources */,
-				E9E665DD9988612D272421A1 /* AppPhotoAlbumProvider.swift in Sources */,
-				B4EE13102CF935FAEBFD9832 /* AppPresenterProvider.swift in Sources */,
-				14D4C5946BC80FD050EFC7C7 /* AppProgressOverlayProvider.swift in Sources */,
-				5E6585BFFB9A645D3B8C284A /* AppShareProvider.swift in Sources */,
-				2538B4E5AD497412B5EA51F3 /* AppSignInProvider.swift in Sources */,
-				EA8E8C1AD6758D824297BDBD /* AppTheme.swift in Sources */,
-				C54E164F13DC3FE356DCF155 /* Appl10n.swift in Sources */,
-				4FC2368AA6A4734C2E80B2F3 /* Application.swift in Sources */,
-				5F0BB5F95E861BAA07ABCEBD /* Assembly.swift in Sources */,
-				8CDE49F8492C53B993AE8122 /* AuthorizationServicePlugin.swift in Sources */,
-				F96197810D95E201AAF58AB8 /* AvatarTabBarItem.swift in Sources */,
-				6CE52A2C30FDEA6F96F8DE24 /* BIAnalyticsEvent.swift in Sources */,
-				1F66EDB2D457F8EE728F5CF8 /* BannerProvider.swift in Sources */,
-				3BF47663B0296B214EE1A865 /* BannerScene.swift in Sources */,
-				D4662BF1E95890A22DBA7039 /* BannerView.swift in Sources */,
-				96492DCC29FD2B2B641A5A3A /* BrightFutures+Upstart.swift in Sources */,
-				59D6CC1D763577FF87B5A001 /* CreateAccountEndpoint.swift in Sources */,
-				EF352A57097EF95E7A180EF7 /* CreateAccountViewController.swift in Sources */,
-				583C7D7626971B01D5ECBF90 /* CreateExternalAccountEndpoint.swift in Sources */,
-				51741674E4FE89943C507057 /* Credentials.swift in Sources */,
-				D366E323EBA1FD885A8898E3 /* CustomButton.swift in Sources */,
-				5FCF524DEF7BA08C21400055 /* DatabaseProvider.swift in Sources */,
-				641B21AFB28863CB4398C381 /* DetailedProject+Backit.swift in Sources */,
-				A4C19FB8F9235963132B9387 /* DetailedProjectInfoEndpoint.swift in Sources */,
-				9497F4BFE0D45923F0B1C7CA /* DiscussionProvider.swift in Sources */,
-				67A0BC1E0F9A48378BB34504 /* DiscussionService.swift in Sources */,
-				0245F07E3364321276547E39 /* Encodable+Backit.swift in Sources */,
-				04DC60F3ACC02D1F11104DF5 /* Errors.swift in Sources */,
-				9EC172BC74A33A1960A449DB /* ExternalLoginEndpoint.swift in Sources */,
-				E4B282FF217B63487F781869 /* ExternalSignInProvider.swift in Sources */,
-				6E143E89F191B92EAECBED2C /* FacebookProvider.swift in Sources */,
-				3AB3F7B456AD4E1618B291C6 /* FeedProject.swift in Sources */,
-				DDB1AE49EA0D9644FAD62BE7 /* FinalizeAccountCreationViewController.swift in Sources */,
-				797FBD0B5C2C4497AC968BB2 /* GoogleProvider.swift in Sources */,
-				DA860C79D24706D6B8CBD3F1 /* GuestUser.swift in Sources */,
-				AC1644F5887125CB873B4BE9 /* HostReplacerServicePlugin.swift in Sources */,
-				58886AC1BF16592688CAC129 /* IgnorableValue.swift in Sources */,
-				8999663CEC9F3527BF981DF1 /* ImagePagerView.swift in Sources */,
-				34C8B2EDCDA6A207F0762B3B /* KeyboardLayoutConstraint.swift in Sources */,
-				AB88127531D8BC8550A25600 /* KeychainProvider.swift in Sources */,
-				E30EDCAE508130A307B577F1 /* LoadingResultsCell.swift in Sources */,
-				0CE5DDCCE93B87D3E4A3510E /* LoginEndpoint.swift in Sources */,
-				AB367255B0D6334752BD1B52 /* LostPasswordViewController.swift in Sources */,
-				32023E505B4D82259F4D550D /* MetricAnalyticsEvent.swift in Sources */,
-				62CA911E8DABB3C087B09965 /* NewRelicAnalyticsListener.swift in Sources */,
-				6C175FDD88249C9436409064 /* PageProvider.swift in Sources */,
-				94B0532A2AE2E2033FC5C524 /* PhotoAlbumProvider.swift in Sources */,
-				2A7DFF340AAC74E02A6807B5 /* PresenterProvider.swift in Sources */,
-				F4E9692FDFDAF4C5942CEEB7 /* PrimaryButton.swift in Sources */,
-				071955791126C7478D40EE79 /* ProgressOverlayProvider.swift in Sources */,
-				8DA5451155AAE391A6D8162A /* ProgressOverlayScene.swift in Sources */,
-				FCE35F5CE039790FCFC79B29 /* ProgressOverlayViewController.swift in Sources */,
-				81690C02C00F65257909D584 /* Project.swift in Sources */,
-				A1E57C6E0D8799C82FA12B9F /* ProjectCommentCountEndpoint.swift in Sources */,
-				2EA041D9A952FBF8E22E1684 /* ProjectCommentCountsEndpoint.swift in Sources */,
-				2E2A7D7CC891BAD2F0034C53 /* ProjectDetailsViewController.swift in Sources */,
-				91D10F3D9F149497F9B7D5DF /* ProjectFeedCompositionProvider.swift in Sources */,
-				85F5AC0C80DA8136E30DA390 /* ProjectFeedCompositionService.swift in Sources */,
-				6E3AF6659E3460C3A3C4F862 /* ProjectFeedErrorView.swift in Sources */,
-				F994E1EB064F7DC0BD93A877 /* ProjectFeedModule.swift in Sources */,
-				65737B6BB3E3AA39701D2B53 /* ProjectFeedProvider.swift in Sources */,
-				A4766B5AAA8A286904A1F481 /* ProjectFeedService.swift in Sources */,
-				9FAEF9FF6265676E359F6DAB /* ProjectFeedViewController.swift in Sources */,
-				8EFBC8258CA6CA8FC186BA48 /* ProjectImageCollectionView.swift in Sources */,
-				160F041AD08E6735FB813B2E /* ProjectProvider.swift in Sources */,
-				F21B5338D75CB7B977EA4573 /* ProjectResponse+Backit.swift in Sources */,
-				32BDE9A0A464C8867A3B833F /* ProjectService.swift in Sources */,
-				D35264308C91C360C1BD6CC8 /* ProjectSource.swift in Sources */,
-				8F6B809263DBDF86F1FFA80C /* ProjectTableViewCell.swift in Sources */,
-				56FF04562EC010D113057C72 /* ProjectVoteProvider.swift in Sources */,
-				C683D633DDFA861E2925F79E /* ProjectVoteService.swift in Sources */,
-				56783B34B848D166222320EE /* ProjectsEndpoint.swift in Sources */,
-				037C3089398F90C60F429590 /* RecoverPasswordEndpoint.swift in Sources */,
-				9D180A03A640F28734E7BB2D /* RefreshTokenEndpoint.swift in Sources */,
-				A4681E9D461A860BE6753CCC /* RemoveVoteEndpoint.swift in Sources */,
-				86E40A3B6E2D2C58E38AE7E2 /* SecondaryButton.swift in Sources */,
-				F7F816D5312FBF5F8728B5B7 /* Service.swift in Sources */,
-				A042AFF6FAF3926E15183695 /* ServiceEndpoint.swift in Sources */,
-				62DB42EA34485C9261F3DBE1 /* ServicePlugin.swift in Sources */,
-				1F55428F491660BC186709A5 /* ServicePluginKey.swift in Sources */,
-				6CBF34F8099FFC2DBFA2243D /* ServicePluginProvider.swift in Sources */,
-				2BBEF18979DD508FBDC30DB3 /* ServiceRequester.swift in Sources */,
-				94BB36C49255A7FF39007E57 /* ShareProvider.swift in Sources */,
-				94AF5B030B23DE3FBB328405 /* SignInProvider.swift in Sources */,
-				573E5A472E7753C5848B06F5 /* SignInViewController.swift in Sources */,
-				54B46CFA2588C080BBC658C5 /* TabBarController.swift in Sources */,
-				0DD707E88D9E85BFCFEEE002 /* TestAppDelegate.swift in Sources */,
-				6C9A6725C8E014C6E1D41FFE /* TestApplication.swift in Sources */,
-				5562A04FBC9B5CFA3C904973 /* TextButton.swift in Sources */,
-				0F2992FE56EEECB2EDFE33CA /* TextEntryField.swift in Sources */,
-				7B8B64EE38544E48F13F865B /* TopLevelServiceResponse.swift in Sources */,
-				58E52239E9945D8AC33320D2 /* UIColor+Backit.swift in Sources */,
-				E748DB1E7485652F5AEAFF47 /* UIFont+Backit.swift in Sources */,
-				D87382A807F501152B759132 /* UIImage+Backit.swift in Sources */,
-				3639FC1BD16973F62FA12DEA /* UIStackView+Backit.swift in Sources */,
-				5D578F94A089C46A9022A05A /* UITabBarItem+Backit.swift in Sources */,
-				905116A7EF658DD4840C5E80 /* UITheme.swift in Sources */,
-				39B4F6C8BB96DBC02395FBF9 /* UIThemeApplier.swift in Sources */,
-				E9D8595EC35E0314305460D9 /* UIView+Backit.swift in Sources */,
-				A880D238DFBCBF66E2E60408 /* URLRequestFactory.swift in Sources */,
-				9E3C11C750BD2124CEAEC7C2 /* UnderlineButton.swift in Sources */,
-				D09192C1E4791A4AEB0E4E78 /* UpVoteProjectEndpoint.swift in Sources */,
-				636AE85A64313A88E686E5EF /* UploadAvatarEndpoint.swift in Sources */,
-				6034C4F3441B9832218014DE /* User.swift in Sources */,
-				071B6AD019CB97C75975821F /* UserAccountEndpoint.swift in Sources */,
-				5B5F79A45698EB8007148408 /* UserAvatarStream.swift in Sources */,
-				44832A3B7F649B05DA4F4A7E /* UserAvatarStreamer.swift in Sources */,
-				13778CE06A2AD1E2BE61FC70 /* UserProvider.swift in Sources */,
-				7E8CDE3C1DF85AE4974F9ACA /* UserService.swift in Sources */,
-				90315BE76E3CA14C12FC0211 /* UserSession.swift in Sources */,
-				7FD7F4C63798FCACE8AF2B27 /* UserSessionStream.swift in Sources */,
-				0C18EE537DF26984006011A2 /* UserSessionStreamer.swift in Sources */,
-				5B10538485BEEF81854F0211 /* UserStream.swift in Sources */,
-				7DA5A115901566C2316CBC42 /* UserStreamer.swift in Sources */,
-				5A745CE129ACCD9D48EC669B /* UsernameAvailabilityEndpoint.swift in Sources */,
 				BD726B9E60348C8CE05C8724 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1622,20 +1557,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C6FAA18A87D04859353832B /* AnalyticsEvent.swift in Sources */,
-				FF366FDFE4BA277F1AF1AACD /* AnalyticsListener.swift in Sources */,
-				E71D9140522C9123D4C71BEB /* AnalyticsPublisher.swift in Sources */,
-				AA3F58E45E7A909CEAE8D03E /* AnalyticsService.swift in Sources */,
-				4194A025AC216A189C5F4AAE /* AnalyticsTransaction.swift in Sources */,
 				1D5B0E972980CEFF66A19522 /* Collection+Backit.swift in Sources */,
 				3ADF9A857F2189ED8B97D684 /* Environment.swift in Sources */,
+				AA26951E22F4F17000AA54B2 /* FlagID.swift in Sources */,
+				AA26952022F4F17000AA54B2 /* Flags.swift in Sources */,
+				AA26952122F4F17400AA54B2 /* AnalyticsEvent.swift in Sources */,
 				9A0851A2FC2E6D43D5917C1B /* Errors.swift in Sources */,
-				E03EE979AF351D8128969F31 /* Flag.swift in Sources */,
-				1B8CDAAE834540B0DCF18C8D /* FlagID.swift in Sources */,
-				F91334FB23B36D9B8471D2E9 /* FlagValueMaker.swift in Sources */,
-				A852A07E554FA1C63DBC1D82 /* Flags.swift in Sources */,
 				B128941426C91A474233A48A /* Localization.swift in Sources */,
+				AA26951F22F4F17000AA54B2 /* FlagValueMaker.swift in Sources */,
+				AA26951D22F4F17000AA54B2 /* Flag.swift in Sources */,
 				1D65E2739D3105D46331D6F4 /* LocalizationType.swift in Sources */,
+				AA26952422F4F17400AA54B2 /* AnalyticsService.swift in Sources */,
+				AA26952222F4F17400AA54B2 /* AnalyticsListener.swift in Sources */,
+				AA26952522F4F17400AA54B2 /* AnalyticsTransaction.swift in Sources */,
+				AA26952322F4F17400AA54B2 /* AnalyticsPublisher.swift in Sources */,
 				857DBBD995EBE21BCF7C35AB /* Logger.swift in Sources */,
 				7DD8E666ECB1C395348A4803 /* ViewIdentifiable.swift in Sources */,
 				331D7CEBA7123F656CB6D8C4 /* with.swift in Sources */,
@@ -1650,6 +1585,148 @@
 				92DAC76480F46ACAF5C2B6B5 /* KIF+Backit.swift in Sources */,
 				EC1F4AE8D9FDDA9310600ADF /* Methods.swift in Sources */,
 				B561B058800816A7A75BC58A /* UI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA26952722F4F20B00AA54B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA26957022F4F25300AA54B2 /* AppProgressOverlayProvider.swift in Sources */,
+				AA26953922F4F21900AA54B2 /* CreateAccountViewController.swift in Sources */,
+				AA26956422F4F24C00AA54B2 /* ProjectFeedProvider.swift in Sources */,
+				AA26956E22F4F25300AA54B2 /* AppPhotoAlbumProvider.swift in Sources */,
+				AA26958522F4F28500AA54B2 /* Credentials.swift in Sources */,
+				AA26959C22F4F2A900AA54B2 /* ExternalLoginEndpoint.swift in Sources */,
+				AA26957C22F4F26B00AA54B2 /* TestApplication.swift in Sources */,
+				AA26958F22F4F28900AA54B2 /* GoogleProvider.swift in Sources */,
+				AA2695C722F4F2C900AA54B2 /* TextButton.swift in Sources */,
+				AA2695BC22F4F2BC00AA54B2 /* ServiceRequester.swift in Sources */,
+				AA2695B522F4F2BC00AA54B2 /* Errors.swift in Sources */,
+				AA26956B22F4F25300AA54B2 /* AppFacebookProvider.swift in Sources */,
+				AA26955B22F4F24000AA54B2 /* ProjectFeedViewController.swift in Sources */,
+				AA26956C22F4F25300AA54B2 /* AppGoogleProvider.swift in Sources */,
+				AA2695A422F4F2AC00AA54B2 /* UserAvatarStream.swift in Sources */,
+				AA2695AE22F4F2B600AA54B2 /* RemoveVoteEndpoint.swift in Sources */,
+				AA2695AC22F4F2B600AA54B2 /* DetailedProjectInfoEndpoint.swift in Sources */,
+				AA26958622F4F28500AA54B2 /* GuestUser.swift in Sources */,
+				AA26957D22F4F26E00AA54B2 /* AppDelegate.swift in Sources */,
+				AA26955422F4F23A00AA54B2 /* ImagePagerView.swift in Sources */,
+				AA26956122F4F24700AA54B2 /* PageProvider.swift in Sources */,
+				AA2695AA22F4F2B200AA54B2 /* ProjectCommentCountEndpoint.swift in Sources */,
+				AA26955C22F4F24000AA54B2 /* ProjectTableViewCell.swift in Sources */,
+				AA26956F22F4F25300AA54B2 /* AppPresenterProvider.swift in Sources */,
+				AA26954622F4F22600AA54B2 /* UIView+Backit.swift in Sources */,
+				AA2695A922F4F2B200AA54B2 /* DiscussionService.swift in Sources */,
+				AA2695C522F4F2C700AA54B2 /* Action.swift in Sources */,
+				AA26954722F4F22900AA54B2 /* AuthorizationServicePlugin.swift in Sources */,
+				AA2695BE22F4F2BC00AA54B2 /* URLRequestFactory.swift in Sources */,
+				AA26953B22F4F21900AA54B2 /* FinalizeAccountCreationViewController.swift in Sources */,
+				AA2695BF22F4F2C000AA54B2 /* UIColor+Backit.swift in Sources */,
+				AA26959522F4F28900AA54B2 /* UserProvider.swift in Sources */,
+				AA26958422F4F27D00AA54B2 /* UITabBarItem+Backit.swift in Sources */,
+				AA26953F22F4F21900AA54B2 /* SignInViewController.swift in Sources */,
+				AA26958C22F4F28900AA54B2 /* DiscussionProvider.swift in Sources */,
+				AA26958122F4F27100AA54B2 /* Assembly.swift in Sources */,
+				AA26954122F4F21E00AA54B2 /* MetricAnalyticsEvent.swift in Sources */,
+				AA26954E22F4F23300AA54B2 /* ProjectFeedErrorView.swift in Sources */,
+				AA26954322F4F22100AA54B2 /* BannerScene.swift in Sources */,
+				AA26959F22F4F2A900AA54B2 /* RefreshTokenEndpoint.swift in Sources */,
+				AA2695A222F4F2A900AA54B2 /* UsernameAvailabilityEndpoint.swift in Sources */,
+				AA26955222F4F23700AA54B2 /* ProjectImageCollectionView.swift in Sources */,
+				AA26956622F4F24F00AA54B2 /* ProjectVoteProvider.swift in Sources */,
+				AA26954822F4F22900AA54B2 /* HostReplacerServicePlugin.swift in Sources */,
+				AA26955A22F4F24000AA54B2 /* ProjectFeedModule.swift in Sources */,
+				AA26954022F4F21E00AA54B2 /* BIAnalyticsEvent.swift in Sources */,
+				AA2695C022F4F2C000AA54B2 /* UIFont+Backit.swift in Sources */,
+				AA26959922F4F2A900AA54B2 /* AccountHealthEndpoint.swift in Sources */,
+				AA2695A622F4F2AC00AA54B2 /* UserSessionStream.swift in Sources */,
+				AA26955822F4F24000AA54B2 /* FeedProject.swift in Sources */,
+				AA26954B22F4F22C00AA54B2 /* ProgressOverlayViewController.swift in Sources */,
+				AA2695BB22F4F2BC00AA54B2 /* ServicePluginProvider.swift in Sources */,
+				AA2695AD22F4F2B600AA54B2 /* ProjectsEndpoint.swift in Sources */,
+				AA26956522F4F24C00AA54B2 /* ProjectFeedService.swift in Sources */,
+				AA2695AB22F4F2B200AA54B2 /* ProjectCommentCountsEndpoint.swift in Sources */,
+				AA2695A822F4F2AF00AA54B2 /* AmazonService.swift in Sources */,
+				AA26959322F4F28900AA54B2 /* ShareProvider.swift in Sources */,
+				AA2695B022F4F2B800AA54B2 /* DetailedProject+Backit.swift in Sources */,
+				AA26957B22F4F26B00AA54B2 /* TestAppDelegate.swift in Sources */,
+				AA2695B322F4F2BC00AA54B2 /* BrightFutures+Upstart.swift in Sources */,
+				AA26957E22F4F26E00AA54B2 /* AppTheme.swift in Sources */,
+				AA26956822F4F25300AA54B2 /* AppBannerMessageProvider.swift in Sources */,
+				AA2695D522F4F2D200AA54B2 /* UnderlineButton.swift in Sources */,
+				AA26957922F4F26400AA54B2 /* AlamofireServiceRequester.swift in Sources */,
+				AA26959E22F4F2A900AA54B2 /* RecoverPasswordEndpoint.swift in Sources */,
+				AA2695D322F4F2D200AA54B2 /* SecondaryButton.swift in Sources */,
+				AA2695CC22F4F2CF00AA54B2 /* UITheme.swift in Sources */,
+				AA26956022F4F24700AA54B2 /* AppPageProvider.swift in Sources */,
+				AA26959822F4F28E00AA54B2 /* UserStreamer.swift in Sources */,
+				AA26957122F4F25300AA54B2 /* AppShareProvider.swift in Sources */,
+				AA26958822F4F28500AA54B2 /* ProjectSource.swift in Sources */,
+				AA26959B22F4F2A900AA54B2 /* CreateExternalAccountEndpoint.swift in Sources */,
+				AA2695C322F4F2C400AA54B2 /* PrimaryButton.swift in Sources */,
+				AA26955F22F4F24300AA54B2 /* DatabaseProvider.swift in Sources */,
+				AA26959622F4F28E00AA54B2 /* UserAvatarStreamer.swift in Sources */,
+				AA26959722F4F28E00AA54B2 /* UserSessionStreamer.swift in Sources */,
+				AA2695B222F4F2B800AA54B2 /* ProjectService.swift in Sources */,
+				AA26958022F4F26E00AA54B2 /* Application.swift in Sources */,
+				AA26958922F4F28500AA54B2 /* User.swift in Sources */,
+				AA2695CD22F4F2CF00AA54B2 /* UIThemeApplier.swift in Sources */,
+				AA26953D22F4F21900AA54B2 /* LostPasswordViewController.swift in Sources */,
+				AA2695B922F4F2BC00AA54B2 /* ServicePlugin.swift in Sources */,
+				AA2695BD22F4F2BC00AA54B2 /* TopLevelServiceResponse.swift in Sources */,
+				AA2695A122F4F2A900AA54B2 /* UserAccountEndpoint.swift in Sources */,
+				AA26956A22F4F25300AA54B2 /* AppExternalSignInProvider.swift in Sources */,
+				AA26954922F4F22C00AA54B2 /* ProgressOverlayScene.swift in Sources */,
+				AA26955622F4F23D00AA54B2 /* LoadingResultsCell.swift in Sources */,
+				AA26959022F4F28900AA54B2 /* KeychainProvider.swift in Sources */,
+				AA2695B722F4F2BC00AA54B2 /* Service.swift in Sources */,
+				AA26953522F4F21900AA54B2 /* AccountViewController.swift in Sources */,
+				AA2695A022F4F2A900AA54B2 /* UploadAvatarEndpoint.swift in Sources */,
+				AA26959A22F4F2A900AA54B2 /* CreateAccountEndpoint.swift in Sources */,
+				AA26959222F4F28900AA54B2 /* ProjectProvider.swift in Sources */,
+				AA26958A22F4F28500AA54B2 /* UserSession.swift in Sources */,
+				AA26954422F4F22100AA54B2 /* BannerView.swift in Sources */,
+				AA26958E22F4F28900AA54B2 /* FacebookProvider.swift in Sources */,
+				AA2695CB22F4F2CF00AA54B2 /* AnyUITheme.swift in Sources */,
+				AA2695D022F4F2D200AA54B2 /* KeyboardLayoutConstraint.swift in Sources */,
+				AA26956D22F4F25300AA54B2 /* AppKeychainProvider.swift in Sources */,
+				AA26959422F4F28900AA54B2 /* SignInProvider.swift in Sources */,
+				AA2695B622F4F2BC00AA54B2 /* IgnorableValue.swift in Sources */,
+				AA26953622F4F21900AA54B2 /* AvatarTabBarItem.swift in Sources */,
+				AA2695A722F4F2AC00AA54B2 /* UserStream.swift in Sources */,
+				AA26954D22F4F23000AA54B2 /* ProjectDetailsViewController.swift in Sources */,
+				AA26959D22F4F2A900AA54B2 /* LoginEndpoint.swift in Sources */,
+				AA2695BA22F4F2BC00AA54B2 /* ServicePluginKey.swift in Sources */,
+				AA2695C122F4F2C000AA54B2 /* UIImage+Backit.swift in Sources */,
+				AA2695CF22F4F2D200AA54B2 /* CustomButton.swift in Sources */,
+				AA26957A22F4F26400AA54B2 /* AlamofireSessionManagerFactory.swift in Sources */,
+				AA26958722F4F28500AA54B2 /* Project.swift in Sources */,
+				AA2695C622F4F2C700AA54B2 /* ActionSequencer.swift in Sources */,
+				AA26959122F4F28900AA54B2 /* PhotoAlbumProvider.swift in Sources */,
+				AA2695B822F4F2BC00AA54B2 /* ServiceEndpoint.swift in Sources */,
+				AA2695AF22F4F2B600AA54B2 /* UpVoteProjectEndpoint.swift in Sources */,
+				AA26955E22F4F24300AA54B2 /* AppDatabaseProvider.swift in Sources */,
+				AA2695CE22F4F2D200AA54B2 /* BannerProvider.swift in Sources */,
+				AA2695B122F4F2B800AA54B2 /* ProjectResponse+Backit.swift in Sources */,
+				AA2695C922F4F2CC00AA54B2 /* TextEntryField.swift in Sources */,
+				AA26958B22F4F28900AA54B2 /* AccountProvider.swift in Sources */,
+				AA26958322F4F27A00AA54B2 /* TabBarController.swift in Sources */,
+				AA2695C222F4F2C000AA54B2 /* UIStackView+Backit.swift in Sources */,
+				AA26957222F4F25300AA54B2 /* AppSignInProvider.swift in Sources */,
+				AA2695A322F4F2AC00AA54B2 /* AccountService.swift in Sources */,
+				AA2695D122F4F2D200AA54B2 /* PresenterProvider.swift in Sources */,
+				AA26954522F4F22400AA54B2 /* AccountProviderError+BannerErrorMessage.swift in Sources */,
+				AA26957F22F4F26E00AA54B2 /* Appl10n.swift in Sources */,
+				AA2695A522F4F2AC00AA54B2 /* UserService.swift in Sources */,
+				AA2695D222F4F2D200AA54B2 /* ProgressOverlayProvider.swift in Sources */,
+				AA26954222F4F21E00AA54B2 /* NewRelicAnalyticsListener.swift in Sources */,
+				AA26956922F4F25300AA54B2 /* AppBannerPresenterProvider.swift in Sources */,
+				AA26958D22F4F28900AA54B2 /* ExternalSignInProvider.swift in Sources */,
+				AA26956722F4F24F00AA54B2 /* ProjectVoteService.swift in Sources */,
+				AA26956322F4F24A00AA54B2 /* ProjectFeedCompositionService.swift in Sources */,
+				AA26956222F4F24A00AA54B2 /* ProjectFeedCompositionProvider.swift in Sources */,
+				AA2695B422F4F2BC00AA54B2 /* Encodable+Backit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1908,6 +1985,73 @@
 			};
 			name = Debug;
 		};
+		AA26953122F4F20B00AA54B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BackitApp/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.library.BackitApp;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AA26953222F4F20B00AA54B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BackitApp/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.library.BackitApp;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		AF586B526AC2E23656173943 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8240F329CE19C1FDF06F4A9A /* Pods-BackitTests.release.xcconfig */;
@@ -1998,6 +2142,15 @@
 			buildConfigurations = (
 				0FFFEC62578E9E2E59ED4218 /* Debug */,
 				C8B8560D1770BAF1C60779EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AA26953022F4F20B00AA54B2 /* Build configuration list for PBXNativeTarget "BackitApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA26953122F4F20B00AA54B2 /* Debug */,
+				AA26953222F4F20B00AA54B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
