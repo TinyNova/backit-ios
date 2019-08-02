@@ -167,6 +167,8 @@
 		A86BD9E14DCFCBAC4A69E1E4 /* AppBannerPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0972F8200DE1B6839FB1ABE /* AppBannerPresenterProvider.swift */; };
 		A880D238DFBCBF66E2E60408 /* URLRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5016FA1BCFEAEAEA0494B7B /* URLRequestFactory.swift */; };
 		AA3F58E45E7A909CEAE8D03E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8491053C73F843A8BF7326 /* AnalyticsService.swift */; };
+		AA9E83D922F3BDAA00225B94 /* libBKFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9E83D822F3BDA900225B94 /* libBKFoundation.a */; };
+		AA9E83DA22F3BDC300225B94 /* libBKFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9E83D822F3BDA900225B94 /* libBKFoundation.a */; };
 		AB2CC6DA0A2112A414A7B5DB /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81155437589719327D92F717 /* AccountViewController.swift */; };
 		AB367255B0D6334752BD1B52 /* LostPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6001EBA971475CA22F40EE9 /* LostPasswordViewController.swift */; };
 		AB88127531D8BC8550A25600 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FBFA0AD1712E227B0C7B39 /* KeychainProvider.swift */; };
@@ -185,7 +187,6 @@
 		C54E164F13DC3FE356DCF155 /* Appl10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D217CEEF0501269895B43 /* Appl10n.swift */; };
 		C683D633DDFA861E2925F79E /* ProjectVoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC96ABCEE04521F32D6EAA6 /* ProjectVoteService.swift */; };
 		CB8C42A2976A6AD370C28A4F /* AccountProviderError+BannerErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D107AAEAA2B0E5060748198 /* AccountProviderError+BannerErrorMessage.swift */; };
-		CCB66889897C714520DA8D88 /* BKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE77E3CF95E1057940B7683 /* BKFoundation.framework */; };
 		CCE03AFED4BBD1855B4D43E3 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63A20A114F167D796241847 /* GoogleSignIn.framework */; };
 		CED99AD3C44026257E14B20D /* CreateAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93D34E62541D86262C3F14F /* CreateAccountViewController.storyboard */; };
 		D09192C1E4791A4AEB0E4E78 /* UpVoteProjectEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BA5D9A0198D8835AB1A72 /* UpVoteProjectEndpoint.swift */; };
@@ -239,13 +240,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D530E64439A9B80BE5662B2D;
 			remoteInfo = Backit;
-		};
-		678604262C78834E5995D9E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A3DCE290A9EDED6D1C0D336 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1976BEA51E9595EDC0CDC3E4;
-			remoteInfo = BKFoundation;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -429,6 +423,7 @@
 		A7A0EDF4B21D34A1487696D5 /* BIAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIAnalyticsEvent.swift; sourceTree = "<group>"; };
 		AA16C884A447B700272E3763 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		AA58CB41C43A4EB09B04A3E1 /* ExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSignInProvider.swift; sourceTree = "<group>"; };
+		AA9E83D822F3BDA900225B94 /* libBKFoundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBKFoundation.a; sourceTree = "<group>"; };
 		AB27C6DE32DBBC5F09062FE3 /* ProjectResponse+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectResponse+Backit.swift"; sourceTree = "<group>"; };
 		AB7D79670A0CBCDC55A12FDA /* ProjectFeedProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedProvider.swift; sourceTree = "<group>"; };
 		AB933AAA7E8F8DFDD38545FF /* ExternalLoginEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLoginEndpoint.swift; sourceTree = "<group>"; };
@@ -519,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				776F0D192C1CE0C36F8ECD95 /* BrightFutures.framework in Frameworks */,
+				AA9E83D922F3BDAA00225B94 /* libBKFoundation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +527,7 @@
 				87D1FBA673F76A4890C0CEF6 /* GoogleSignInDependencies.framework in Frameworks */,
 				E91E506458484DAD73A10A1B /* Alamofire.framework in Frameworks */,
 				D488410AC891CA7340B8862F /* BrightFutures.framework in Frameworks */,
+				AA9E83DA22F3BDC300225B94 /* libBKFoundation.a in Frameworks */,
 				9F31D67E58C52C7B3AD18D05 /* FacebookCore.framework in Frameworks */,
 				12F1942075140A3E16D58156 /* FacebookLogin.framework in Frameworks */,
 				577C4565CD9B0BA58DF7F214 /* FBSDKCoreKit.framework in Frameworks */,
@@ -541,7 +538,6 @@
 				B995DDDAA2849C6B362C19C5 /* SDWebImage.framework in Frameworks */,
 				EEF2AC7433B2547385928C16 /* Swinject.framework in Frameworks */,
 				14B49FDFD4258FA111EEB0CE /* SwinjectStoryboard.framework in Frameworks */,
-				CCB66889897C714520DA8D88 /* BKFoundation.framework in Frameworks */,
 				376C5E63DAFEB244114048DA /* Pods_Backit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -793,6 +789,7 @@
 		604158D98BC609735AB62E03 = {
 			isa = PBXGroup;
 			children = (
+				AA9E83D322F3B2EA00225B94 /* Libraries */,
 				A9A16981B97340414A900731 /* Application */,
 				AAF735C9F03BB7C1B504B0E2 /* BackitTests */,
 				89C56322F65D8031AD0288CA /* Domain */,
@@ -1035,6 +1032,14 @@
 				999D6E201802B5C3F643DC45 /* UITabBarItem+Backit.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		AA9E83D322F3B2EA00225B94 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				AA9E83D822F3BDA900225B94 /* libBKFoundation.a */,
+			);
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		AAF735C9F03BB7C1B504B0E2 /* BackitTests */ = {
@@ -1282,7 +1287,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				776484BD0D11E2083DB1BD78 /* PBXTargetDependency */,
 			);
 			name = Backit;
 			productName = Backit;
@@ -1651,11 +1655,6 @@
 			target = D530E64439A9B80BE5662B2D /* Backit */;
 			targetProxy = 448C7690EF695543F9A79D34 /* PBXContainerItemProxy */;
 		};
-		776484BD0D11E2083DB1BD78 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1976BEA51E9595EDC0CDC3E4 /* BKFoundation */;
-			targetProxy = 678604262C78834E5995D9E2 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1704,9 +1703,14 @@
 					"\"SDK/google_signin_sdk_4_4_0\"",
 				);
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1714,6 +1718,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.backer;
 				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Libraries";
 				SWIFT_OBJC_BRIDGING_HEADER = "Backit-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1792,9 +1797,14 @@
 					"\"SDK/google_signin_sdk_4_4_0\"",
 				);
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1802,6 +1812,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.backer;
 				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Libraries";
 				SWIFT_OBJC_BRIDGING_HEADER = "Backit-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1824,6 +1835,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/buck-out/gen/BKFoundation#iphonesimulator-x86_64,static",
+					"$(PROJECT_DIR)/Libraries",
 				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1871,6 +1887,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/buck-out/gen/BKFoundation#iphonesimulator-x86_64,static",
+					"$(PROJECT_DIR)/Libraries",
 				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

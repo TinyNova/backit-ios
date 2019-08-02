@@ -1,9 +1,17 @@
-Pods
-*.lock
-xcuserdata
 .DS_Store
+*.lock
+*.swp
+
+# Xcode
+xcuserdata
+*.xcuserstate
+
+# Buck
+.buckd
+buck-out
+
+# Dependencies
+Pods/
 Carthage/
 SDK/
-*.swp
-*.xcuserstate
-buck-out
+Libraries/
