@@ -9,6 +9,7 @@ xcuserdata
 # Buck
 .buckd
 buck-out
+prebuild.log
 
 # Dependencies
 Pods/

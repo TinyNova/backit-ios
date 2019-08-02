@@ -23,6 +23,9 @@ public class Logger {
     
     public var level: LogLevel = .debug
     
+    public func t(_ message: String) {
+        print("TEST: \(message)")
+    }
     public func d(_ message: String) {
         guard log.level < .info else {
             return
