@@ -166,6 +166,8 @@
 		A852A07E554FA1C63DBC1D82 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A63FB83498F4628954E04 /* Flags.swift */; };
 		A86BD9E14DCFCBAC4A69E1E4 /* AppBannerPresenterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0972F8200DE1B6839FB1ABE /* AppBannerPresenterProvider.swift */; };
 		A880D238DFBCBF66E2E60408 /* URLRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5016FA1BCFEAEAEA0494B7B /* URLRequestFactory.swift */; };
+		AA26951B22F4F06B00AA54B2 /* libBackitApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA26951A22F4F06B00AA54B2 /* libBackitApp.a */; };
+		AA26951C22F4F07200AA54B2 /* libBackitApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA26951A22F4F06B00AA54B2 /* libBackitApp.a */; };
 		AA3F58E45E7A909CEAE8D03E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8491053C73F843A8BF7326 /* AnalyticsService.swift */; };
 		AA9E83D922F3BDAA00225B94 /* libBKFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9E83D822F3BDA900225B94 /* libBKFoundation.a */; };
 		AA9E83DA22F3BDC300225B94 /* libBKFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9E83D822F3BDA900225B94 /* libBKFoundation.a */; };
@@ -422,6 +424,7 @@
 		A4F5F9E5CFD2BEFFADF7121C /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		A7A0EDF4B21D34A1487696D5 /* BIAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIAnalyticsEvent.swift; sourceTree = "<group>"; };
 		AA16C884A447B700272E3763 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		AA26951A22F4F06B00AA54B2 /* libBackitApp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBackitApp.a; sourceTree = "<group>"; };
 		AA58CB41C43A4EB09B04A3E1 /* ExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSignInProvider.swift; sourceTree = "<group>"; };
 		AA9E83D822F3BDA900225B94 /* libBKFoundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBKFoundation.a; sourceTree = "<group>"; };
 		AB27C6DE32DBBC5F09062FE3 /* ProjectResponse+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectResponse+Backit.swift"; sourceTree = "<group>"; };
@@ -513,6 +516,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA26951B22F4F06B00AA54B2 /* libBackitApp.a in Frameworks */,
 				776F0D192C1CE0C36F8ECD95 /* BrightFutures.framework in Frameworks */,
 				AA9E83D922F3BDAA00225B94 /* libBKFoundation.a in Frameworks */,
 			);
@@ -527,7 +531,6 @@
 				87D1FBA673F76A4890C0CEF6 /* GoogleSignInDependencies.framework in Frameworks */,
 				E91E506458484DAD73A10A1B /* Alamofire.framework in Frameworks */,
 				D488410AC891CA7340B8862F /* BrightFutures.framework in Frameworks */,
-				AA9E83DA22F3BDC300225B94 /* libBKFoundation.a in Frameworks */,
 				9F31D67E58C52C7B3AD18D05 /* FacebookCore.framework in Frameworks */,
 				12F1942075140A3E16D58156 /* FacebookLogin.framework in Frameworks */,
 				577C4565CD9B0BA58DF7F214 /* FBSDKCoreKit.framework in Frameworks */,
@@ -539,6 +542,8 @@
 				EEF2AC7433B2547385928C16 /* Swinject.framework in Frameworks */,
 				14B49FDFD4258FA111EEB0CE /* SwinjectStoryboard.framework in Frameworks */,
 				376C5E63DAFEB244114048DA /* Pods_Backit.framework in Frameworks */,
+				AA26951C22F4F07200AA54B2 /* libBackitApp.a in Frameworks */,
+				AA9E83DA22F3BDC300225B94 /* libBKFoundation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,6 +1042,7 @@
 		AA9E83D322F3B2EA00225B94 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				AA26951A22F4F06B00AA54B2 /* libBackitApp.a */,
 				AA9E83D822F3BDA900225B94 /* libBKFoundation.a */,
 			);
 			path = Libraries;
