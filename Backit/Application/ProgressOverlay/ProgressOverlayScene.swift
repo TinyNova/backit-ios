@@ -6,8 +6,6 @@
 import Foundation
 import SpriteKit
 
-import BKFoundation
-
 class ProgressOverlayScene: SKScene {
     
     private var gerbil: SKNode?

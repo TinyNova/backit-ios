@@ -6,8 +6,6 @@
 
 import Foundation
 
-import BKFoundation
-
 enum BIAnalyticsEvent: AnalyticsEvent {
     case none
 }

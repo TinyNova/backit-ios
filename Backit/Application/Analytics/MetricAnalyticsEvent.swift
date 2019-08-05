@@ -8,8 +8,6 @@
 
 import Foundation
 
-import BKFoundation
-
 enum MetricAnalyticsEvent: AnalyticsEvent {
     case appColdLaunch
     case homepage(pageNumber: Int)

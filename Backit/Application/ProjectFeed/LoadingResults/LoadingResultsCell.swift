@@ -7,8 +7,6 @@
 import Foundation
 import UIKit
 
-import BKFoundation
-
 enum LoadingResultsCellState {
     case ready
     case noResults

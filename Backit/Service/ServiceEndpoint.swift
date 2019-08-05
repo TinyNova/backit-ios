@@ -8,8 +8,6 @@
 
 import Foundation
 
-import BKFoundation
-
 enum ServiceRequestType {
     case delete
     case get

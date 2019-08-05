@@ -14,8 +14,6 @@
 import Foundation
 import FMDB
 
-import BKFoundation
-
 class AppDatabaseProvider: DatabaseProvider {
     
     private var database: FMDatabase?

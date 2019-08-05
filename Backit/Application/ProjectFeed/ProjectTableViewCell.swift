@@ -6,8 +6,6 @@
 import Foundation
 import UIKit
 
-import BKFoundation
-
 enum VoteAction {
     case add
     case remove

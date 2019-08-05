@@ -6,8 +6,6 @@
 import BrightFutures
 import Foundation
 
-import BKFoundation
-
 class ProjectFeedService: ProjectFeedProvider {
     
     private let projectProvider: ProjectProvider

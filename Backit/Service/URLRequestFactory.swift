@@ -8,8 +8,6 @@
 
 import Foundation
 
-import BKFoundation
-
 class URLRequestFactory {
     
     func make<T: ServiceEndpoint>(from request: T, in environment: Environment) throws -> URLRequest {

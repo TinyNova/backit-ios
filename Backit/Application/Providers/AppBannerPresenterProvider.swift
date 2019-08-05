@@ -7,8 +7,6 @@ import Foundation
 import SpriteKit
 import UIKit
 
-import BKFoundation
-
 class AppBannerProvider: BannerProvider {
     
     let messageProvider: BannerMessageProvider

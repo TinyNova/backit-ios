@@ -7,8 +7,6 @@ import Foundation
 import UIKit
 import SpriteKit
 
-import BKFoundation
-
 class AppProgressOverlayProvider: ProgressOverlayProvider {
     
     private let presenterProvider: PresenterProvider

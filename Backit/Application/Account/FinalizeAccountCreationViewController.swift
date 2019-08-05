@@ -7,8 +7,6 @@ import Foundation
 import BrightFutures
 import UIKit
 
-import BKFoundation
-
 protocol FinalizeAccountCreationViewControllerDelegate: class {
     func didCreateAccount(userSession: UserSession)
 }

@@ -10,8 +10,6 @@ import BrightFutures
 import Foundation
 import UIKit
 
-import BKFoundation
-
 struct S3UploadFile {
     let bucket: String
     let acl: String

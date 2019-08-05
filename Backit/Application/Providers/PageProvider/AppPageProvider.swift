@@ -6,8 +6,6 @@
 import Foundation
 import UIKit
 
-import BKFoundation
-
 class AppPageProvider: PageProvider {
     
     func finalizeAccountCreation() -> FinalizeAccountCreationViewController? {

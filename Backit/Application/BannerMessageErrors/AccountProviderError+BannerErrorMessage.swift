@@ -6,8 +6,6 @@
 
 import Foundation
 
-import BKFoundation
-
 extension AccountProviderError: BannerMessageError {
     
     private static var i18n = Localization<Appl10n>()

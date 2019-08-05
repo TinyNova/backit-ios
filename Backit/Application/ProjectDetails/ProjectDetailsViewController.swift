@@ -9,8 +9,6 @@ import Hero
 import SDWebImage
 import UIKit
 
-import BKFoundation
-
 class ProjectDetailsViewController: UIViewController {
     
     @IBOutlet private weak var closeImageView: UIImageView! {

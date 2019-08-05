@@ -7,8 +7,6 @@ import BrightFutures
 import Foundation
 import KeychainAccess
 
-import BKFoundation
-
 private enum Constant {
     static let service = "com.backit.backit.service"
     static let credentials = "com.backit.backit.service.credentials"

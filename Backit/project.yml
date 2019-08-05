@@ -12,6 +12,7 @@ targets:
         excludes:
           - "Analytics/MixpanelAnalyticsListener.swift"
       - path: Domain
+      - path: Foundation
       - path: Service
       - path: UI
     dependencies:
@@ -38,7 +39,6 @@ targets:
       - carthage: SDWebImage
       - carthage: Swinject
       - carthage: SwinjectStoryboard
-      - target: BKFoundation
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.backit.ios.backer
@@ -65,10 +65,3 @@ targets:
       - carthage: Quick
     scheme:
       gatherCoverageData: true
-  BKFoundation:
-    platform: iOS
-    type: framework
-    sources:
-      - Foundation/
-    dependencies:
-      - carthage: BrightFutures
