@@ -6,4 +6,3 @@ Carthage/
 SDK/
 *.swp
 *.xcuserstate
-buck-out
