@@ -16,9 +16,6 @@ targets:
       - path: Service
       - path: UI
     dependencies:
-      - framework: SDK/google_signin_sdk_4_4_0/GoogleSignIn.bundle
-      - framework: SDK/google_signin_sdk_4_4_0/GoogleSignIn.framework
-      - framework: SDK/google_signin_sdk_4_4_0/GoogleSignInDependencies.framework
       - carthage: Alamofire
       - carthage: BrightFutures
       - carthage: FacebookCore
@@ -35,7 +32,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.backit.ios.backer
         SWIFT_OBJC_BRIDGING_HEADER: Backit-Bridging-Header.h
-        OTHER_LDFLAGS: "-ObjC"
+        OTHER_LDFLAGS: "$(inherited)"
     configs:
         Debug:
           CODE_SIGN_IDENTITY: "iPhone Developer"

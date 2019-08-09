@@ -5,6 +5,7 @@ platform :ios, '11.0'
 use_frameworks!
 
 target 'Backit' do
+    pod 'GoogleSignIn'
     pod 'NewRelicAgent'
 end
 

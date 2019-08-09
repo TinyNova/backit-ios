@@ -41,6 +41,8 @@ enum Appl10n {
     case lastName
     case refreshToken
     case unknownField
+    case byAuthor(String)
+    case readCampaignDescription
 }
 
 extension Appl10n: LocalizationType {
@@ -125,6 +127,10 @@ extension Appl10n: LocalizationType {
             return l(key: "refreshToken")
         case .unknownField:
             return l(key: "unknownField")
+        case .byAuthor(let name):
+            return l(key: "byAuthor(name)", arguments: name)
+        case .readCampaignDescription:
+            return l(key: "readCampaignDescription")
         }
     }
 }

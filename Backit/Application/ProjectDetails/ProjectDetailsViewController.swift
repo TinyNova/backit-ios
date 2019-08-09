@@ -34,12 +34,16 @@ class ProjectDetailsViewController: UIViewController {
     
     @IBOutlet private weak var titleLabel: UILabel! {
         didSet {
-            theme.apply(.feedProjectName, toLabel: titleLabel)
+            theme.apply(.smallProjectName, toLabel: titleLabel)
+            titleLabel.text = ""
         }
     }
+    
+    @IBOutlet weak var authorAvatarImageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel! {
         didSet {
-            theme.apply(.smallInfo, toLabel: authorLabel)
+            theme.apply(.author, toLabel: authorLabel)
+            authorLabel.text = ""
         }
     }
     @IBOutlet weak var progressView: UIProgressView! {
@@ -47,23 +51,46 @@ class ProjectDetailsViewController: UIViewController {
             theme.apply(.fundedPercent, toProgressView: progressView)
         }
     }
+    
     @IBOutlet weak var blurbLabel: UILabel! {
         didSet {
             // TODO: Add more padding on top and bottom. Make this 40pt. Add chevron. If text is > N chars, add 'more...' button. The more button will simply expand the text.
             theme.apply(.blurb, toLabel: blurbLabel)
+            blurbLabel.text = ""
+        }
+    }
+    @IBOutlet weak var projectDescriptionButton: UIButton! {
+        didSet {
+            theme.apply(.more, toButton: projectDescriptionButton)
+            projectDescriptionButton.setTitle(i18n.t(.readCampaignDescription), for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var locationImageView: CenteredImageView! {
+        didSet {
+            locationImageView.configure(image: UIImage(named: "location")?.sd_tintedImage(with: UIColor.fromHex(0x6b6c7e)), size: 15)
         }
     }
     @IBOutlet weak var locationLabel: UILabel! {
         didSet {
-            theme.apply(.smallInfo, toLabel: locationLabel)
+            theme.apply(.details, toLabel: locationLabel)
+            locationLabel.text = ""
+        }
+    }
+    
+    @IBOutlet weak var categoryImageView: CenteredImageView! {
+        didSet {
+            categoryImageView.configure(image: UIImage(named: "category")?.sd_tintedImage(with: UIColor.fromHex(0x6b6c7e)), size: 15)
         }
     }
     @IBOutlet weak var categoryLabel: UILabel! {
         didSet {
-            theme.apply(.smallInfo, toLabel: categoryLabel)
+            theme.apply(.details, toLabel: categoryLabel)
+            categoryLabel.text = ""
         }
     }
     
+    private let i18n = Localization<Appl10n>()
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
     private var project: FeedProject?
@@ -91,7 +118,8 @@ class ProjectDetailsViewController: UIViewController {
             guard let size = image?.proportionalScaledSize(using: UIScreen.main.bounds.size.width) else {
                 return log.w("Failed to get proportional image size")
             }
-            self?.imageView.image = image?.resizedImage(using: size)
+//            self?.imageView.image = image?.resizedImage(using: size)
+            self?.imageView.image = image?.fittedImage(to: size.width)
         }
         
         projectFuture?.onSuccess(callback: updateProject(with:))
@@ -106,6 +134,10 @@ class ProjectDetailsViewController: UIViewController {
         // The entire project's information (as a web view?)
         // Rewards
         // Community (Newest | Oldest | Popular)
+    }
+    
+    @IBAction func didTapProjectDescriptionButton(_ sender: Any) {
+        log.i("Did tap project description button")
     }
     
     @objc func didTapCloseButton(_ sender: Any) {
@@ -123,10 +155,16 @@ class ProjectDetailsViewController: UIViewController {
         // clamp to 100%
         fundedPercent = fundedPercent > 1 ? 1 : fundedPercent
         categoryLabel.text = project.category
-        authorLabel.text = project.author.name
+        if let avatarUrl = project.author.avatarUrl {
+            authorAvatarImageView.sd_setImage(with: avatarUrl, completed: nil)
+        }
+        else {
+            authorAvatarImageView.image = UIImage(named: "avatar")
+        }
+        authorLabel.text = i18n.t(.byAuthor(project.author.name))
         progressView.progress = fundedPercent
         locationLabel.text = project.country
-        blurbLabel.text = project.blurb
+        theme.apply(.blurbText(project.blurb), toLabel: blurbLabel)
         if project.videoUrl != nil {
             UIView.animate(withDuration: 0.3) { [weak self] in
                 self?.playVideoButton.isHidden = false

@@ -1,7 +1,7 @@
 github "Alamofire/Alamofire"
 github "Thomvis/BrightFutures"
-github "facebook/facebook-objc-sdk" "master"
-github "facebook/facebook-swift-sdk" "master"
+github "facebook/facebook-objc-sdk" == 5.3.0
+github "facebook/facebook-swift-sdk" == 0.8.0
 github "ccgus/fmdb"
 github "HeroTransitions/Hero"
 github "kishikawakatsumi/KeychainAccess"

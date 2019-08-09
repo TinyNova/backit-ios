@@ -38,7 +38,7 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var projectNameLabel: UILabel! {
         didSet {
-            theme.apply(.feedProjectName, toLabel: projectNameLabel)
+            theme.apply(.smallProjectName, toLabel: projectNameLabel)
         }
     }
     

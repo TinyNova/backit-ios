@@ -24,7 +24,7 @@ class AppTheme: UIStyle {
     }
     
     enum ButtonStyle {
-        case none
+        case more
     }
     
     enum ImageStyle {
@@ -36,17 +36,22 @@ class AppTheme: UIStyle {
     enum LabelStyle {
         case error
         case informationalHeader
-        case feedProjectName
-        case smallInfo
-        case info
-        case blurb
-        case title
+        case largeProjectName
+        case smallProjectName
         case primaryButton
         case secondaryButton
         case textButton
+        case details
+        case author
+        case blurb
+        case blurbText(String)
+        
         case underlineButton
         case underline
         case loginHeader
+        case smallInfo
+        case info
+        case title
     }
     
     enum TableViewStyle {
@@ -76,6 +81,15 @@ class AppTheme: UIStyle {
 private class FontCache {
     static let `default` = FontCache()
 
+    lazy var semibold12: UIFont = {
+        return UIFont(name: "AcuminPro-Semibold", size: 12.0)!
+    }()
+    lazy var semibold14: UIFont = {
+        return UIFont(name: "AcuminPro-Semibold", size: 14.0)!
+    }()
+    lazy var semibold18: UIFont = {
+        return UIFont(name: "AcuminPro-Semibold", size: 18.0)!
+    }()
     lazy var semibold22: UIFont = {
         return UIFont(name: "AcuminPro-Semibold", size: 22.0)!
     }()
@@ -83,7 +97,6 @@ private class FontCache {
     lazy var bold16: UIFont = {
         return UIFont(name: "AcuminPro-Bold", size: 16.0)!
     }()
-    
     lazy var bold22: UIFont = {
         return UIFont(name: "AcuminPro-Bold", size: 22.0)!
     }()
@@ -91,15 +104,15 @@ private class FontCache {
     lazy var regular12: UIFont = {
         return UIFont(name: "AcuminPro-Regular", size: 12.0)!
     }()
-
+    lazy var regular14: UIFont = {
+        return UIFont(name: "AcuminPro-Regular", size: 14.0)!
+    }()
     lazy var regular16: UIFont = {
         return UIFont(name: "AcuminPro-Regular", size: 16.0)!
     }()
-
     lazy var regular18: UIFont = {
         return UIFont(name: "AcuminPro-Regular", size: 18.0)!
     }()
-
     lazy var regular22: UIFont = {
         return UIFont(name: "AcuminPro-Regular", size: 22.0)!
     }()
@@ -110,11 +123,29 @@ extension AppTheme: UITheme {
     typealias Style = AppTheme
     
     func apply(_ styles: [ButtonStyle], toButton button: UIButton) {
+        for style in styles {
+            switch style {
+            case .more:
+                button.contentHorizontalAlignment = .left
+                button.setTitleColor(UIColor.fromHex(0x000000), for: .normal)
+                button.titleLabel?.font = FontCache.default.semibold14
+            }
+        }
     }
     
     func apply(_ styles: [LabelStyle], toLabel label: UILabel) {
         for style in styles {
             switch style {
+            case .blurb:
+                label.font = FontCache.default.regular14
+                label.textColor = UIColor.fromHex(0x6b6c7e)
+                label.numberOfLines = 0
+            case .blurbText(let blurb):
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 4
+                let string = NSMutableAttributedString(string: blurb)
+                string.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, string.length))
+                label.attributedText = string
             case .error:
                 label.font = FontCache.default.regular18
                 label.textColor = UIColor.fromHex(0xd45f47)
@@ -122,8 +153,11 @@ extension AppTheme: UITheme {
             case .informationalHeader:
                 label.font = FontCache.default.regular18
                 label.textColor = UIColor.fromHex(0x000000)
-            case .feedProjectName:
+            case .largeProjectName:
                 label.font = FontCache.default.semibold22
+                label.textColor = UIColor.fromHex(0x201c3b)
+            case .smallProjectName:
+                label.font = FontCache.default.semibold18
                 label.textColor = UIColor.fromHex(0x201c3b)
             case .smallInfo:
                 label.font = FontCache.default.regular12
@@ -132,9 +166,9 @@ extension AppTheme: UITheme {
                 label.font = FontCache.default.regular16
                 label.textColor = UIColor.fromHex(0xffffff)
                 label.numberOfLines = 0
-            case .blurb:
+            case .details:
                 label.font = FontCache.default.regular12
-                label.textColor = UIColor.fromHex(0x000000)
+                label.textColor = UIColor.fromHex(0x6b6c7e)
                 label.numberOfLines = 0
             case .title:
                 label.font = FontCache.default.regular18
@@ -162,6 +196,9 @@ extension AppTheme: UITheme {
             case .loginHeader:
                 label.font = FontCache.default.bold22
                 label.textColor = UIColor.fromHex(0xffffff)
+            case .author:
+                label.font = FontCache.default.semibold12
+                label.textColor = UIColor.fromHex(0x000000)
             }
         }
     }

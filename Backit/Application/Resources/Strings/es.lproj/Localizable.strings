@@ -38,3 +38,5 @@
 "lastName" = "Last Name";
 "refreshToken" = "Refresh Token";
 "unknownField" = "Unknown Field";
+"byAuthor(name)" = "by %@";
+"readCampaignDescription" = "Read more about this campaign ⟶";
