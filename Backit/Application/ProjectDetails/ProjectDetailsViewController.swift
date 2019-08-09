@@ -90,6 +90,25 @@ class ProjectDetailsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var backerInfoLabel: UILabel! {
+        didSet {
+            theme.apply(.details, toLabel: backerInfoLabel)
+            backerInfoLabel.text = ""
+        }
+    }
+    @IBOutlet weak var percentageInfoLabel: UILabel! {
+        didSet {
+            theme.apply(.details, toLabel: percentageInfoLabel)
+            percentageInfoLabel.text = ""
+        }
+    }
+    @IBOutlet weak var daysLeftLabel: UILabel! {
+        didSet {
+            theme.apply(.details, toLabel: daysLeftLabel)
+            daysLeftLabel.text = ""
+        }
+    }
+    
     private let i18n = Localization<Appl10n>()
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
@@ -165,6 +184,24 @@ class ProjectDetailsViewController: UIViewController {
         progressView.progress = fundedPercent
         locationLabel.text = project.country
         theme.apply(.blurbText(project.blurb), toLabel: blurbLabel)
+//        let identifiers = Locale.availableIdentifiers
+        let formatter = NumberFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.numberStyle = .currency
+        
+        let pledged = formatter.string(from: NSNumber(value: project.pledged))?.replacingOccurrences(of: ".00", with: "") ?? String(project.pledged)
+        let goal = formatter.string(from: NSNumber(value: project.goal))?.replacingOccurrences(of: ".00", with: "") ?? String(project.goal)
+        
+        formatter.numberStyle = .decimal
+        let numBackers = formatter.string(from: NSNumber(value: project.numBackers)) ?? String(project.numBackers)
+        let attributedString = NSMutableAttributedString(string: "\(pledged) raised by \(numBackers) backers")
+        attributedString.addAttribute(.font, value: FontCache.default.regular18, range: NSMakeRange(0, pledged.count))
+        attributedString.addAttribute(.foregroundColor, value: UIColor.fromHex(0x000000), range: NSMakeRange(0, pledged.count))
+        backerInfoLabel.attributedText = attributedString
+        
+        percentageInfoLabel.text = "\(Int(fundedPercent * 100))% of \(goal) goal"
+        
+        daysLeftLabel.text = "\(project.numDaysLeft ?? 0) days left"
         if project.videoUrl != nil {
             UIView.animate(withDuration: 0.3) { [weak self] in
                 self?.playVideoButton.isHidden = false

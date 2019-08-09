@@ -78,7 +78,7 @@ class AppTheme: UIStyle {
     }
 }
 
-private class FontCache {
+class FontCache {
     static let `default` = FontCache()
 
     lazy var semibold12: UIFont = {

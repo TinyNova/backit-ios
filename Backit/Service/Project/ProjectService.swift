@@ -8,6 +8,14 @@ import Foundation
 
 class ProjectService: ProjectProvider {
     
+    static private var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        // "2019-04-23T19:00:05.000Z"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateFormatter
+    }()
+    
     private let service: Service
     
     init(service: Service) {
@@ -87,5 +95,14 @@ class ProjectService: ProjectProvider {
             .mapError { (error) -> ProjectProviderError in
                 return .generic(error)
             }
+    }
+    
+    // MARK: - Internal Methods
+    
+    static func dateFrom(_ dateString: String?) -> Date? {
+        guard let dateString = dateString else {
+            return nil
+        }
+        return ProjectService.dateFormatter.date(from: dateString)
     }
 }

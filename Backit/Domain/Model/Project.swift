@@ -57,4 +57,5 @@ struct DetailedProject {
     let rewards: [Reward]
     let imageUrl: URL?
     let videoUrl: URL?
+    let numDaysLeft: Int?
 }

@@ -36,5 +36,17 @@ extension DetailedProject {
         } ?? []
         self.imageUrl = nil
         self.videoUrl = nil
+        
+        if let fundStart = ProjectService.dateFrom(response.fundStart),
+           let fundEnd = ProjectService.dateFrom(response.fundEnd) {
+            let calendar = Calendar.current
+            let dateStart = calendar.startOfDay(for: fundStart)
+            let dateEnd = calendar.startOfDay(for: fundEnd)
+            let components = calendar.dateComponents([.day], from: dateStart, to: dateEnd)
+            self.numDaysLeft = components.day
+        }
+        else {
+            self.numDaysLeft = nil
+        }
     }
 }
