@@ -22,12 +22,14 @@ class BannerScene: SKScene {
     
     private var playBannerAnimation: (() -> Void)?
     private var playArmAnimation: (() -> Void)?
+    private var resetAnimations: (() -> Void)?
     
     var paddingTop: CGFloat = 0.0
     
     public func configure(message: BannerMessage, callback: @escaping BannerSceneCallback) {
         self.message = message
         self.callback = callback
+        createSpritesIfNeeded()
     }
     
     override func didMove(to view: SKView) {
@@ -36,7 +38,6 @@ class BannerScene: SKScene {
 //        backgroundColor = .gray
         scaleMode = .aspectFill
         
-        createSpritesIfNeeded()
         animateBanner()
     }
     
@@ -107,9 +108,11 @@ class BannerScene: SKScene {
         arm.xScale = 0.25
         arm.yScale = 0.25
         let top = UIScreen.main.bounds.size.height
-        arm.position = CGPoint(x: 150.0, y: top - 10)
-        let moveDown = SKAction.move(to: CGPoint(x: 150.0, y: top - 40.0), duration: 0.1)
-        let moveUp = SKAction.move(to: CGPoint(x: 150.0, y: top), duration: 0.1)
+        let screenWidth = UIScreen.main.bounds.size.width
+        let armXPosition = screenWidth * 0.5
+        arm.position = CGPoint(x: armXPosition, y: top - 10)
+        let moveDown = SKAction.move(to: CGPoint(x: armXPosition, y: top - 40.0), duration: 0.1)
+        let moveUp = SKAction.move(to: CGPoint(x: armXPosition, y: top), duration: 0.1)
         let openFrames: [SKTexture] = [
             fingerFrames[5],
             fingerFrames[4],
@@ -122,6 +125,7 @@ class BannerScene: SKScene {
         ]
         let fingersAnim = SKAction.animate(with: openFrames, timePerFrame: 0.1)
         let thumbAnim = SKAction.animate(with: openFrames2, timePerFrame: 0.1)
+        let fadeOutAnim = SKAction.fadeOut(withDuration: 0.1)
         
         addChild(arm)
         
@@ -131,6 +135,7 @@ class BannerScene: SKScene {
             sequencer.groupAction(fingersAnim, to: fingers)
             sequencer.groupAction(thumbAnim, to: thumb)
             sequencer.addAction(moveUp, to: arm)
+            sequencer.addAction(fadeOutAnim, to: arm)
             sequencer.play()
         }
     }

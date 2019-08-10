@@ -9,6 +9,10 @@ class BannerView: SKView {
     
     var bannerDelegate: BannerViewDelegate?
     
+    deinit {
+        bannerDelegate?.didDismissBanner(self)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()

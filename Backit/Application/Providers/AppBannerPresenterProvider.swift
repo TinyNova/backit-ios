@@ -9,9 +9,7 @@ import UIKit
 
 class AppBannerProvider: BannerProvider {
     
-    let messageProvider: BannerMessageProvider
-    
-    private var isShowing: Bool = false
+    private let messageProvider: BannerMessageProvider
     
     init(messageProvider: BannerMessageProvider) {
         self.messageProvider = messageProvider
@@ -22,19 +20,21 @@ class AppBannerProvider: BannerProvider {
     }
     
     func present(message: BannerMessage, in viewController: UIViewController?) {
-        guard !isShowing else {
-            return log.d("Already showing the banner")
-        }
         guard let view = viewController?.view else {
             log.w("Attempting to display banner in a `UIViewController` that has no `view`")
             return
         }
         
-        isShowing = true
+        let size = UIScreen.main.bounds.size
+        let bannerView = BannerView(frame: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
+        bannerView.bannerDelegate = self
+
+        view.addSubview(bannerView)
+        view.bringSubviewToFront(bannerView)
+
+        constrain(bannerView, to: view)
         
         // TODO: Create one banner per UIViewController? It seems like this should be smarter.
-        let bannerView = makeBannerView(in: view)
-        bannerView.bannerDelegate = self
         bannerView.show(message: message, paddingTop: view.frame.origin.y)
         
         switch message.type {
@@ -48,26 +48,17 @@ class AppBannerProvider: BannerProvider {
     }
     
     /// The size of the banner is the size of the screen. This ensures that all taps can be captured.
-    private func makeBannerView(in view: UIView) -> BannerView {
-        let size = UIScreen.main.bounds.size
-        let bannerView = BannerView(frame: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
-        view.addSubview(bannerView)
-        view.bringSubviewToFront(bannerView)
-
+    private func constrain(_ bannerView: BannerView, to view: UIView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         bannerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         bannerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-
-        return bannerView
     }
 }
 
 extension AppBannerProvider: BannerViewDelegate {
     func didDismissBanner(_ bannerView: BannerView) {
-        // TODO: Animate out
         bannerView.removeFromSuperview()
-        isShowing = false
     }
 }

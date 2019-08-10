@@ -25,6 +25,6 @@ public class CenteredImageView: UIView {
     public func configure(image: UIImage?, size: CGFloat) {
         self.widthConstraint.constant = size
         self.heightConstraint.constant = size
-        self.imageView.image = image
+        self.imageView.image = image?.fittedImage(to: size)
     }
 }

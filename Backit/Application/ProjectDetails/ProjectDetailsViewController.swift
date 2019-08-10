@@ -14,6 +14,7 @@ class ProjectDetailsViewController: UIViewController {
     @IBOutlet private weak var closeImageView: UIImageView! {
         didSet {
             let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCloseButton))
+            closeImageView.image = UIImage(named: "close")?.fittedImage(to: 30)
             closeImageView.tintColor = UIColor.fromHex(0x000000)
             closeImageView.addGestureRecognizer(tap)
             closeImageView.isUserInteractionEnabled = true
@@ -39,7 +40,11 @@ class ProjectDetailsViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var authorAvatarImageView: UIImageView!
+    @IBOutlet weak var authorAvatarImageView: UIImageView! {
+        didSet {
+            authorAvatarImageView.alpha = 0.0
+        }
+    }
     @IBOutlet weak var authorLabel: UILabel! {
         didSet {
             theme.apply(.author, toLabel: authorLabel)
@@ -175,7 +180,12 @@ class ProjectDetailsViewController: UIViewController {
         fundedPercent = fundedPercent > 1 ? 1 : fundedPercent
         categoryLabel.text = project.category
         if let avatarUrl = project.author.avatarUrl {
-            authorAvatarImageView.sd_setImage(with: avatarUrl, completed: nil)
+            authorAvatarImageView.sd_setImage(with: avatarUrl) { [weak self] (image, error, cacheType, url) in
+                self?.authorAvatarImageView.image = image?.fittedImage(to: 20.0)
+                UIView.animate(withDuration: 0.3) {
+                    self?.authorAvatarImageView.alpha = 1.0
+                }
+            }
         }
         else {
             authorAvatarImageView.image = UIImage(named: "avatar")
