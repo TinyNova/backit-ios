@@ -40,79 +40,81 @@ class ProjectDetailsViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var authorAvatarImageView: UIImageView! {
+    @IBOutlet private weak var authorAvatarImageView: UIImageView! {
         didSet {
             authorAvatarImageView.alpha = 0.0
         }
     }
-    @IBOutlet weak var authorLabel: UILabel! {
+    @IBOutlet private weak var authorLabel: UILabel! {
         didSet {
             theme.apply(.author, toLabel: authorLabel)
             authorLabel.text = ""
         }
     }
-    @IBOutlet weak var progressView: UIProgressView! {
+    @IBOutlet private weak var progressView: UIProgressView! {
         didSet {
             theme.apply(.fundedPercent, toProgressView: progressView)
         }
     }
     
-    @IBOutlet weak var blurbLabel: UILabel! {
+    @IBOutlet private weak var blurbLabel: UILabel! {
         didSet {
             // TODO: Add more padding on top and bottom. Make this 40pt. Add chevron. If text is > N chars, add 'more...' button. The more button will simply expand the text.
             theme.apply(.blurb, toLabel: blurbLabel)
             blurbLabel.text = ""
         }
     }
-    @IBOutlet weak var projectDescriptionButton: UIButton! {
+    @IBOutlet private weak var projectDescriptionButton: UIButton! {
         didSet {
             theme.apply(.more, toButton: projectDescriptionButton)
             projectDescriptionButton.setTitle(i18n.t(.readCampaignDescription), for: .normal)
         }
     }
     
-    @IBOutlet weak var locationImageView: CenteredImageView! {
+    @IBOutlet private weak var locationImageView: CenteredImageView! {
         didSet {
             locationImageView.configure(image: UIImage(named: "location")?.sd_tintedImage(with: UIColor.fromHex(0x6b6c7e)), size: 15)
         }
     }
-    @IBOutlet weak var locationLabel: UILabel! {
+    @IBOutlet private weak var locationLabel: UILabel! {
         didSet {
             theme.apply(.details, toLabel: locationLabel)
             locationLabel.text = ""
         }
     }
     
-    @IBOutlet weak var categoryImageView: CenteredImageView! {
+    @IBOutlet private weak var categoryImageView: CenteredImageView! {
         didSet {
             categoryImageView.configure(image: UIImage(named: "category")?.sd_tintedImage(with: UIColor.fromHex(0x6b6c7e)), size: 15)
         }
     }
-    @IBOutlet weak var categoryLabel: UILabel! {
+    @IBOutlet private weak var categoryLabel: UILabel! {
         didSet {
             theme.apply(.details, toLabel: categoryLabel)
             categoryLabel.text = ""
         }
     }
     
-    @IBOutlet weak var backerInfoLabel: UILabel! {
+    @IBOutlet private weak var backerInfoLabel: UILabel! {
         didSet {
             theme.apply(.details, toLabel: backerInfoLabel)
             backerInfoLabel.text = ""
         }
     }
-    @IBOutlet weak var percentageInfoLabel: UILabel! {
+    @IBOutlet private weak var percentageInfoLabel: UILabel! {
         didSet {
             theme.apply(.details, toLabel: percentageInfoLabel)
             percentageInfoLabel.text = ""
         }
     }
-    @IBOutlet weak var daysLeftLabel: UILabel! {
+    @IBOutlet private weak var daysLeftLabel: UILabel! {
         didSet {
             theme.apply(.details, toLabel: daysLeftLabel)
             daysLeftLabel.text = ""
         }
     }
+    
+    @IBOutlet private weak var rewardsStackView: UIStackView!
     
     private let i18n = Localization<Appl10n>()
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
@@ -221,5 +223,11 @@ class ProjectDetailsViewController: UIViewController {
             playVideoButton.isHidden = true
         }
         // TODO: Change the color of the progress bar to the respective source's brand color.
+        
+        for reward in project.rewards {
+            let view = PledgeDetailsView()
+            view.configure(with: reward)
+            rewardsStackView.addArrangedSubview(view)
+        }
     }
 }

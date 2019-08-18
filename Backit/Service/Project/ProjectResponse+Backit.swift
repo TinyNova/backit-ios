@@ -13,7 +13,7 @@ private func url(for string: String?) -> URL? {
 }
 
 extension ProjectResponse {
-    init(from response: ProjectsEndpoint.ResponseType, cursor: Int) {
+    init(from response: ProjectsEndpoint.Response, cursor: Int) {
         self.cursor = cursor
         self.projects = response.projects.map { (project) -> Project in
             // FIXME: This should be an image local to the project

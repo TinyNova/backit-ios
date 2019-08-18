@@ -193,8 +193,8 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="infinite" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TW0-Ga-d6p">
-                                                <rect key="frame" x="10" y="535" width="394" height="361"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="341" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TW0-Ga-d6p">
+                                                <rect key="frame" x="10" y="535" width="394" height="341"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -211,7 +211,6 @@
                                             <constraint firstAttribute="trailing" secondItem="bIg-BN-h9h" secondAttribute="trailing" id="amn-vD-OuT"/>
                                             <constraint firstItem="PNP-aO-ZIp" firstAttribute="top" secondItem="drR-4z-3cj" secondAttribute="top" constant="20" id="paR-Q4-dYh"/>
                                             <constraint firstItem="TW0-Ga-d6p" firstAttribute="leading" secondItem="drR-4z-3cj" secondAttribute="leading" constant="10" id="tZQ-sy-wsZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="TW0-Ga-d6p" secondAttribute="bottom" id="wuI-R8-0xs"/>
                                             <constraint firstItem="3gU-rm-0uM" firstAttribute="centerY" secondItem="bIg-BN-h9h" secondAttribute="centerY" id="xBP-HZ-NjG"/>
                                         </constraints>
                                     </view>
@@ -251,12 +250,13 @@
                         <outlet property="playVideoButton" destination="3gU-rm-0uM" id="mnm-zd-HrU"/>
                         <outlet property="progressView" destination="HWn-Ii-TlX" id="z5q-QR-E67"/>
                         <outlet property="projectDescriptionButton" destination="eZg-Vb-EHm" id="V7G-dK-K3F"/>
+                        <outlet property="rewardsStackView" destination="TW0-Ga-d6p" id="YYW-VO-UWa"/>
                         <outlet property="titleLabel" destination="RQ2-dx-bU4" id="hza-vn-MuJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9lO-Lz-xan" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-371" y="40"/>
+            <point key="canvasLocation" x="-371.01449275362324" y="39.508928571428569"/>
         </scene>
     </scenes>
     <resources>

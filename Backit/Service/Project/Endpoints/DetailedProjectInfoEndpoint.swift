@@ -54,6 +54,24 @@ struct DetailedProjectInfoEndpoint: ServiceEndpoint {
         let languageId: Int?
         let name: String?
     }
+    struct Video: Decodable {
+        struct Platform: Decodable {
+            let desktop: URL?
+            let mobile: URL?
+        }
+        struct Transcription: Decodable {
+            let origina: URL?
+            let srt: URL?
+            let vtt: URL?
+        }
+        let url: URL? // If this value exists, do nothing.
+        let standard: Platform?
+        let original: URL?
+        let streaming: Platform?
+        let transcriptions: Transcription
+        let audio: URL?
+        let source: URL?
+    }
     struct Project: Decodable {
         let projectId: Int?
         let site: Site?
@@ -69,7 +87,7 @@ struct DetailedProjectInfoEndpoint: ServiceEndpoint {
         let language: Language?
         let funding: Bool?
         let funded: Bool?
-        let video: String?
+        let video: Video?
         let visible: Bool?
         let votes: Int?
         let voteCount: Int?

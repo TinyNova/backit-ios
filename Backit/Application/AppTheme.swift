@@ -52,6 +52,16 @@ class AppTheme: UIStyle {
         case smallInfo
         case info
         case title
+        
+        // color
+        case detail
+        case currency
+        
+        // font sizes
+        case small
+        case regular
+        case regularBold
+        case large
     }
     
     enum TableViewStyle {
@@ -199,6 +209,22 @@ extension AppTheme: UITheme {
             case .author:
                 label.font = FontCache.default.semibold12
                 label.textColor = UIColor.fromHex(0x000000)
+            case .small:
+                label.font = FontCache.default.regular12
+                label.textColor = UIColor.fromHex(0x000000)
+            case .regular:
+                label.font = FontCache.default.regular16
+                label.textColor = UIColor.fromHex(0x000000)
+            case .large:
+                label.font = FontCache.default.regular18
+                label.textColor = UIColor.fromHex(0x000000)
+            case .regularBold:
+                label.font = FontCache.default.bold16
+                label.textColor = UIColor.fromHex(0x000000)
+            case .detail:
+                label.textColor = UIColor.fromHex(0x6b6c7e)
+            case .currency:
+                label.textColor = UIColor.fromHex(0x201c3b)
             }
         }
     }

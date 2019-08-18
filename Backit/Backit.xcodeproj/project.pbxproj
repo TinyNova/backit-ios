@@ -12,6 +12,8 @@
 		06A2EF7B99D7455895B3D5ED /* AppBannerMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2929C40A7E600D5A205B658 /* AppBannerMessageProvider.swift */; };
 		071955791126C7478D40EE79 /* ProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4124F90626CBA254743E3F37 /* ProgressOverlayProvider.swift */; };
 		071B6AD019CB97C75975821F /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001D831EEEADB9AAD422A5CA /* UserAccountEndpoint.swift */; };
+		073E659123038FFA004CD138 /* PledgeDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073E659023038FFA004CD138 /* PledgeDetailsView.xib */; };
+		073E659323039007004CD138 /* PledgeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E659223039007004CD138 /* PledgeDetailsView.swift */; };
 		09C52CE5128D373A0DAC3957 /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823DE14CABCFC7E7359208FB /* UnderlineButton.xib */; };
 		0B5032D5FFECD027305FDA2F /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C77B81465FE481CE3F071 /* AnalyticsPublisher.swift */; };
 		0C18EE537DF26984006011A2 /* UserSessionStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D81D892E54105A270CC8A /* UserSessionStreamer.swift */; };
@@ -276,6 +278,8 @@
 		0555A2922D8330C6D776E78F /* AppPresenterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresenterProvider.swift; sourceTree = "<group>"; };
 		05867AFFC2987E6F3B6870C8 /* AppExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExternalSignInProvider.swift; sourceTree = "<group>"; };
 		06007329CBA25D30B7D0E732 /* DetailedProject+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailedProject+Backit.swift"; sourceTree = "<group>"; };
+		073E659023038FFA004CD138 /* PledgeDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PledgeDetailsView.xib; sourceTree = "<group>"; };
+		073E659223039007004CD138 /* PledgeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeDetailsView.swift; sourceTree = "<group>"; };
 		077A54B7B6BF379A4AAA2AD6 /* ProjectsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEndpoint.swift; sourceTree = "<group>"; };
 		0867199FD8C41595C41FA6DC /* AlamofireServiceRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServiceRequester.swift; sourceTree = "<group>"; };
 		08A9ADC26BF838EBAC2070FE /* CenteredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredImageView.swift; sourceTree = "<group>"; };
@@ -337,7 +341,7 @@
 		52FC6E44E6ACC011790C6128 /* ProjectFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedViewController.swift; sourceTree = "<group>"; };
 		53675EB97AAC40D6806902F8 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
 		5799F72F21478478DCB647BF /* UserStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStream.swift; sourceTree = "<group>"; };
-		5C376E895143EAE8806201D2 /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
+		5C376E895143EAE8806201D2 /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
 		5CA0D8A7DC6B740F1E783E53 /* AppProgressOverlayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressOverlayProvider.swift; sourceTree = "<group>"; };
 		5CDBB0CE7DDAF77F3603A7C8 /* ProjectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectProvider.swift; sourceTree = "<group>"; };
 		5D107AAEAA2B0E5060748198 /* AccountProviderError+BannerErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountProviderError+BannerErrorMessage.swift"; sourceTree = "<group>"; };
@@ -354,7 +358,7 @@
 		697B5CEE9E704CCEA5906800 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
 		6A016A3A3118B2B4FA45A6FC /* AccountHealthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHealthEndpoint.swift; sourceTree = "<group>"; };
 		6ADC89401C263F4645AF2B16 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		6B4ABA3B72731076E55169A1 /* Acumin Pro - Regular.otf */ = {isa = PBXFileReference; path = "Acumin Pro - Regular.otf"; sourceTree = "<group>"; };
+		6B4ABA3B72731076E55169A1 /* Acumin Pro - Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Regular.otf"; sourceTree = "<group>"; };
 		6BFC04734829491775EDAF5B /* AppPageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPageProvider.swift; sourceTree = "<group>"; };
 		6FB39E77270484C35C3670DD /* ProjectFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectFeed.storyboard; sourceTree = "<group>"; };
 		7002AF23454422A81C48747D /* Collection+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Backit.swift"; sourceTree = "<group>"; };
@@ -414,7 +418,7 @@
 		B8263A448637D5085AE74907 /* ActionSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSequencer.swift; sourceTree = "<group>"; };
 		B97BEDA27BB8834DF68B3B01 /* ProjectVoteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectVoteProvider.swift; sourceTree = "<group>"; };
 		B9C2814584B8B2DF0092FCCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BA935D19615B73817C41422B /* robot-arm.atlasc */ = {isa = PBXFileReference; path = "robot-arm.atlasc"; sourceTree = "<group>"; };
+		BA935D19615B73817C41422B /* robot-arm.atlasc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "robot-arm.atlasc"; sourceTree = "<group>"; };
 		BBE421E0659B67724DE72808 /* UnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButton.swift; sourceTree = "<group>"; };
 		BC849F0B69928AC98E81D0C1 /* ServicePluginKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginKey.swift; sourceTree = "<group>"; };
 		BCECBA59ACA61BBA335DFA0F /* UIThemeApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIThemeApplier.swift; sourceTree = "<group>"; };
@@ -447,7 +451,7 @@
 		DF4D0B58B3AF7F2558556784 /* ShareProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareProvider.swift; sourceTree = "<group>"; };
 		E1C7A0565A4C646ADD4184EE /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		E1D4AC595CD64BD19E7969E5 /* UIColor+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Backit.swift"; sourceTree = "<group>"; };
-		E20358FCEBBE229D38F1ACCB /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
+		E20358FCEBBE229D38F1ACCB /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
 		E49FF68DDE04EA181C8EB287 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		E5016FA1BCFEAEAEA0494B7B /* URLRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestFactory.swift; sourceTree = "<group>"; };
 		E6001EBA971475CA22F40EE9 /* LostPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostPasswordViewController.swift; sourceTree = "<group>"; };
@@ -820,6 +824,8 @@
 			children = (
 				50771C668FF147172EA7ABF6 /* ProjectDetailsViewController.storyboard */,
 				63A76DE597CBC51CD25DA465 /* ProjectDetailsViewController.swift */,
+				073E659223039007004CD138 /* PledgeDetailsView.swift */,
+				073E659023038FFA004CD138 /* PledgeDetailsView.xib */,
 			);
 			path = ProjectDetails;
 			sourceTree = "<group>";
@@ -927,7 +933,6 @@
 				D8AFA28E1862DEA996BBBB89 /* Pods-BackitTests.debug.xcconfig */,
 				BEB9852DFBAC104E94EA8649 /* Pods-BackitTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1289,6 +1294,7 @@
 				14AB72409BFF7AB2DF332B7F /* SecondaryButton.xib in Resources */,
 				DB117274BBA7E8DEEC5C7AA0 /* SignIn.storyboard in Resources */,
 				7F4552DF5A803564CD0ADE05 /* TextButton.xib in Resources */,
+				073E659123038FFA004CD138 /* PledgeDetailsView.xib in Resources */,
 				7D2F09F0E63F51C7B44B8890 /* TextEntryField.xib in Resources */,
 				09C52CE5128D373A0DAC3957 /* UnderlineButton.xib in Resources */,
 				EFFB4C29E24D33A174E84D34 /* robot-arm.atlasc in Resources */,
@@ -1559,6 +1565,7 @@
 				94BB36C49255A7FF39007E57 /* ShareProvider.swift in Sources */,
 				94AF5B030B23DE3FBB328405 /* SignInProvider.swift in Sources */,
 				573E5A472E7753C5848B06F5 /* SignInViewController.swift in Sources */,
+				073E659323039007004CD138 /* PledgeDetailsView.swift in Sources */,
 				54B46CFA2588C080BBC658C5 /* TabBarController.swift in Sources */,
 				0DD707E88D9E85BFCFEEE002 /* TestAppDelegate.swift in Sources */,
 				6C9A6725C8E014C6E1D41FFE /* TestApplication.swift in Sources */,
