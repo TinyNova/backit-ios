@@ -54,6 +54,7 @@ class ProjectDetailsViewController: UIViewController {
     @IBOutlet private weak var progressView: UIProgressView! {
         didSet {
             theme.apply(.fundedPercent, toProgressView: progressView)
+            progressView.progress = 0.0
         }
     }
     
@@ -193,7 +194,9 @@ class ProjectDetailsViewController: UIViewController {
             authorAvatarImageView.image = UIImage(named: "avatar")
         }
         authorLabel.text = i18n.t(.byAuthor(project.author.name))
-        progressView.progress = fundedPercent
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.progressView.progress = fundedPercent
+        }
         locationLabel.text = project.country
         theme.apply(.blurbText(project.blurb), toLabel: blurbLabel)
 //        let identifiers = Locale.availableIdentifiers
@@ -229,5 +232,8 @@ class ProjectDetailsViewController: UIViewController {
             view.configure(with: reward)
             rewardsStackView.addArrangedSubview(view)
         }
+        
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
     }
 }
