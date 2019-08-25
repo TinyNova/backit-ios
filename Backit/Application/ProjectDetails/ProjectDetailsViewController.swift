@@ -10,12 +10,11 @@ import SDWebImage
 import UIKit
 
 class ProjectDetailsViewController: UIViewController {
-    
-    @IBOutlet private weak var closeImageView: UIImageView! {
+        
+    @IBOutlet private weak var closeImageView: CenteredImageView! {
         didSet {
             let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCloseButton))
-            closeImageView.image = UIImage(named: "close")?.fittedImage(to: 30)
-            closeImageView.tintColor = UIColor.fromHex(0x000000)
+            closeImageView.configure(image: UIImage(named: "close")?.sd_tintedImage(with: UIColor.bk.black), size: 30.0)
             closeImageView.addGestureRecognizer(tap)
             closeImageView.isUserInteractionEnabled = true
             closeImageView.alpha = 0.7

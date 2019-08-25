@@ -35,14 +35,15 @@ extension ProjectResponse {
             }
             
             var daysLeft: Int = 0
-            if let fundingEndDate = ProjectService.dateFrom(project.fundEnd) {
-                let calendar = NSCalendar.current
-                let components = calendar.dateComponents([.day], from: Date(), to: fundingEndDate)
-                if let day = components.day, day > -1 {
-                    daysLeft = day
-                }
+            if let fundStart = ProjectService.dateFrom(project.fundStart),
+                let fundEnd = ProjectService.dateFrom(project.fundEnd) {
+                let calendar = Calendar.current
+                let dateStart = calendar.startOfDay(for: fundStart)
+                let dateEnd = calendar.startOfDay(for: fundEnd)
+                let components = calendar.dateComponents([.day], from: dateStart, to: dateEnd)
+                daysLeft = components.day ?? 0
             }
-            
+
             return Project(
                 id: project.projectId ?? 0,
                 source: source,

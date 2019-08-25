@@ -16,3 +16,26 @@ extension UIColor {
         return UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha:1.0)
     }
 }
+
+class Colors {
+    
+    var purple: UIColor {
+        return UIColor.fromHex(0x130a33)
+    }
+    
+    var white: UIColor {
+        return UIColor.fromHex(0xffffff)
+    }
+    
+    var black: UIColor {
+        return UIColor.fromHex(0x000000)
+    }
+}
+private let colors = Colors()
+
+extension UIColor {
+    
+    static var bk: Colors {
+        return colors
+    }
+}

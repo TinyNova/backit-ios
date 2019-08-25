@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().tintColor = UIColor.fromHex(0xffffff)
-        UINavigationBar.appearance().barTintColor = UIColor.fromHex(0x130a33)
+        UINavigationBar.appearance().barTintColor = UIColor.bk.purple
         UINavigationBar.appearance().shadowImage = UIImage()
 
 //        UIFont.displayAllAvailableFonts()

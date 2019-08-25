@@ -44,7 +44,7 @@ class PledgeDetailsView: UIView {
             return
         }
         view.layer.borderWidth = 1.0
-        view.layer.borderColor = UIColor.black.cgColor
+        view.layer.borderColor = UIColor.bk.purple.cgColor
     }
 
     func configure(with reward: Reward) {

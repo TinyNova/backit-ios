@@ -30,13 +30,6 @@
                                                     <constraint firstAttribute="height" constant="200" id="DUb-XF-BQ5"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="PNP-aO-ZIp">
-                                                <rect key="frame" x="374" y="20" width="30" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="8cN-JJ-gYH"/>
-                                                    <constraint firstAttribute="height" constant="30" id="GWT-ls-JcB"/>
-                                                </constraints>
-                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3gU-rm-0uM">
                                                 <rect key="frame" x="167" y="125" width="80" height="60"/>
                                                 <constraints>
@@ -201,17 +194,14 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="bIg-BN-h9h" firstAttribute="top" secondItem="drR-4z-3cj" secondAttribute="top" constant="55" id="J90-jp-7VH"/>
                                             <constraint firstAttribute="trailing" secondItem="ZHu-tn-2wF" secondAttribute="trailing" constant="10" id="LYi-gg-MFx"/>
                                             <constraint firstItem="bIg-BN-h9h" firstAttribute="leading" secondItem="drR-4z-3cj" secondAttribute="leading" id="MFg-8o-8hW"/>
                                             <constraint firstItem="ZHu-tn-2wF" firstAttribute="leading" secondItem="drR-4z-3cj" secondAttribute="leading" constant="10" id="MlB-Je-DIy"/>
                                             <constraint firstItem="3gU-rm-0uM" firstAttribute="centerX" secondItem="bIg-BN-h9h" secondAttribute="centerX" id="RIC-zU-aec"/>
-                                            <constraint firstAttribute="trailing" secondItem="PNP-aO-ZIp" secondAttribute="trailing" constant="10" id="Tlp-7y-XYu"/>
                                             <constraint firstItem="ZHu-tn-2wF" firstAttribute="top" secondItem="bIg-BN-h9h" secondAttribute="bottom" constant="10" id="Zck-i2-2tD"/>
                                             <constraint firstAttribute="trailing" secondItem="bIg-BN-h9h" secondAttribute="trailing" id="amn-vD-OuT"/>
-                                            <constraint firstItem="PNP-aO-ZIp" firstAttribute="top" secondItem="drR-4z-3cj" secondAttribute="top" constant="20" id="paR-Q4-dYh"/>
                                             <constraint firstAttribute="bottom" secondItem="ZHu-tn-2wF" secondAttribute="bottom" constant="10" id="tEB-BJ-dOU"/>
                                             <constraint firstItem="3gU-rm-0uM" firstAttribute="centerY" secondItem="bIg-BN-h9h" secondAttribute="centerY" id="xBP-HZ-NjG"/>
                                         </constraints>
@@ -224,14 +214,53 @@
                                     <constraint firstAttribute="trailing" secondItem="drR-4z-3cj" secondAttribute="trailing" id="tbR-Su-CId"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szm-Tt-gLW" userLabel="Navigation View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="55"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="JvP-vR-Dtf">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4n-Ya-Dth">
+                                                <rect key="frame" x="0.0" y="0.0" width="362" height="55"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSs-Gg-Sbj" customClass="CenteredImageView" customModule="Backit" customModuleProvider="target">
+                                                <rect key="frame" x="368" y="0.0" width="30" height="55"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="FTv-ZS-6HW"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCu-AP-yIB">
+                                                <rect key="frame" x="404" y="0.0" width="10" height="55"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="WjA-jV-qSF"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="JvP-vR-Dtf" secondAttribute="trailing" id="6C5-gU-GH3"/>
+                                    <constraint firstItem="JvP-vR-Dtf" firstAttribute="leading" secondItem="szm-Tt-gLW" secondAttribute="leading" id="Wzx-RE-htI"/>
+                                    <constraint firstItem="JvP-vR-Dtf" firstAttribute="top" secondItem="szm-Tt-gLW" secondAttribute="top" id="b7V-4a-U5U"/>
+                                    <constraint firstAttribute="height" constant="55" id="oCv-dI-i47"/>
+                                    <constraint firstAttribute="bottom" secondItem="JvP-vR-Dtf" secondAttribute="bottom" id="twG-f6-o3h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oim-on-lWv" firstAttribute="bottom" secondItem="ryi-ww-Owe" secondAttribute="bottom" id="G7T-pR-lj4"/>
                             <constraint firstItem="oim-on-lWv" firstAttribute="top" secondItem="ryi-ww-Owe" secondAttribute="top" id="Mcr-JQ-qeo"/>
                             <constraint firstItem="oim-on-lWv" firstAttribute="leading" secondItem="ryi-ww-Owe" secondAttribute="leading" id="QcD-SP-qIY"/>
+                            <constraint firstItem="szm-Tt-gLW" firstAttribute="leading" secondItem="oim-on-lWv" secondAttribute="leading" id="RTl-QS-3Fe"/>
+                            <constraint firstItem="szm-Tt-gLW" firstAttribute="top" secondItem="oim-on-lWv" secondAttribute="top" id="XiW-sb-w2Z"/>
                             <constraint firstAttribute="width" secondItem="drR-4z-3cj" secondAttribute="width" id="bQO-X9-wth"/>
                             <constraint firstItem="drR-4z-3cj" firstAttribute="height" secondItem="Ff8-2l-lKr" secondAttribute="height" priority="250" id="iUC-J3-qtI"/>
+                            <constraint firstItem="oim-on-lWv" firstAttribute="trailing" secondItem="szm-Tt-gLW" secondAttribute="trailing" id="lXL-TY-N0Z"/>
                             <constraint firstItem="ryi-ww-Owe" firstAttribute="trailing" secondItem="oim-on-lWv" secondAttribute="trailing" id="vQY-YW-1Wl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oim-on-lWv"/>
@@ -243,7 +272,7 @@
                         <outlet property="blurbLabel" destination="AxR-n8-F2y" id="zrw-OP-xyS"/>
                         <outlet property="categoryImageView" destination="pff-W0-pG6" id="Csv-sm-iYx"/>
                         <outlet property="categoryLabel" destination="K1m-bg-ooT" id="fuf-bf-QfM"/>
-                        <outlet property="closeImageView" destination="PNP-aO-ZIp" id="Fbp-er-8xS"/>
+                        <outlet property="closeImageView" destination="lSs-Gg-Sbj" id="Zyi-xN-D24"/>
                         <outlet property="daysLeftLabel" destination="Qrd-q6-75k" id="91Y-uW-LXP"/>
                         <outlet property="imageView" destination="bIg-BN-h9h" id="5ga-uK-FqY"/>
                         <outlet property="locationImageView" destination="eCl-my-zIr" id="BP0-Z3-HXt"/>
@@ -261,7 +290,4 @@
             <point key="canvasLocation" x="-371.01449275362324" y="39.508928571428569"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="close" width="21" height="21"/>
-    </resources>
 </document>
