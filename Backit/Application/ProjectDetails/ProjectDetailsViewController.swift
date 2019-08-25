@@ -119,12 +119,18 @@ class ProjectDetailsViewController: UIViewController {
     private let i18n = Localization<Appl10n>()
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
 
+    private var detailedProject: DetailedProject?
     private var project: FeedProject?
     private var projectFuture: Future<DetailedProject, ProjectProviderError>?
+    private var pageProvider: PageProvider?
     
     func configure(with project: FeedProject, projectFuture: Future<DetailedProject, ProjectProviderError>) {
         self.project = project
         self.projectFuture = projectFuture
+    }
+    
+    func inject(pageProvider: PageProvider) {
+        self.pageProvider = pageProvider
     }
     
     override func viewDidLoad() {
@@ -163,7 +169,17 @@ class ProjectDetailsViewController: UIViewController {
     }
     
     @IBAction func didTapProjectDescriptionButton(_ sender: Any) {
-        log.i("Did tap project description button")
+        guard let nav = pageProvider?.projectDescription() else {
+            return
+        }
+        guard let detailedProject = detailedProject else {
+            return
+        }
+        guard let vc = nav.viewControllers.first as? ProjectDescriptionViewController else {
+            return
+        }
+        vc.configureWith(htmlString: detailedProject.text)
+        present(nav, animated: true, completion: nil)
     }
     
     @objc func didTapCloseButton(_ sender: Any) {
@@ -175,6 +191,8 @@ class ProjectDetailsViewController: UIViewController {
     }
     
     private func updateProject(with project: DetailedProject) {
+        detailedProject = project
+        
         var fundedPercent = project.pledged > 0
             ? Float(project.pledged) / Float(project.goal)
             : 0

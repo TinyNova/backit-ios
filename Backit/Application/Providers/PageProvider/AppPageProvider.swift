@@ -67,4 +67,15 @@ class AppPageProvider: PageProvider {
         
         return vc
     }
+    
+    func projectDescription() -> UINavigationController? {
+        let storyboard = UIStoryboard(name: "ProjectDescriptionViewController", bundle: Bundle(for: ProjectDescriptionViewController.self))
+        guard let vc = storyboard.instantiateInitialViewController() as? UINavigationController else {
+            log.c("Failed to inflate `ProjectDetailsViewController`")
+            return nil
+        }
+        
+        return vc
+    }
+
 }

@@ -14,6 +14,8 @@
 		071B6AD019CB97C75975821F /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001D831EEEADB9AAD422A5CA /* UserAccountEndpoint.swift */; };
 		073E659123038FFA004CD138 /* PledgeDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073E659023038FFA004CD138 /* PledgeDetailsView.xib */; };
 		073E659323039007004CD138 /* PledgeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E659223039007004CD138 /* PledgeDetailsView.swift */; };
+		076D1AC723124AC5005EDF39 /* ProjectDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D1AC623124AC5005EDF39 /* ProjectDescriptionViewController.swift */; };
+		076D1AC923124AED005EDF39 /* ProjectDescriptionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 076D1AC823124AED005EDF39 /* ProjectDescriptionViewController.storyboard */; };
 		09C52CE5128D373A0DAC3957 /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823DE14CABCFC7E7359208FB /* UnderlineButton.xib */; };
 		0B5032D5FFECD027305FDA2F /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C77B81465FE481CE3F071 /* AnalyticsPublisher.swift */; };
 		0C18EE537DF26984006011A2 /* UserSessionStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D81D892E54105A270CC8A /* UserSessionStreamer.swift */; };
@@ -280,6 +282,8 @@
 		06007329CBA25D30B7D0E732 /* DetailedProject+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailedProject+Backit.swift"; sourceTree = "<group>"; };
 		073E659023038FFA004CD138 /* PledgeDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PledgeDetailsView.xib; sourceTree = "<group>"; };
 		073E659223039007004CD138 /* PledgeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeDetailsView.swift; sourceTree = "<group>"; };
+		076D1AC623124AC5005EDF39 /* ProjectDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescriptionViewController.swift; sourceTree = "<group>"; };
+		076D1AC823124AED005EDF39 /* ProjectDescriptionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectDescriptionViewController.storyboard; sourceTree = "<group>"; };
 		077A54B7B6BF379A4AAA2AD6 /* ProjectsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEndpoint.swift; sourceTree = "<group>"; };
 		0867199FD8C41595C41FA6DC /* AlamofireServiceRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServiceRequester.swift; sourceTree = "<group>"; };
 		08A9ADC26BF838EBAC2070FE /* CenteredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredImageView.swift; sourceTree = "<group>"; };
@@ -822,10 +826,12 @@
 		76FD1981A62E8052084670EE /* ProjectDetails */ = {
 			isa = PBXGroup;
 			children = (
-				50771C668FF147172EA7ABF6 /* ProjectDetailsViewController.storyboard */,
-				63A76DE597CBC51CD25DA465 /* ProjectDetailsViewController.swift */,
 				073E659223039007004CD138 /* PledgeDetailsView.swift */,
 				073E659023038FFA004CD138 /* PledgeDetailsView.xib */,
+				076D1AC823124AED005EDF39 /* ProjectDescriptionViewController.storyboard */,
+				076D1AC623124AC5005EDF39 /* ProjectDescriptionViewController.swift */,
+				50771C668FF147172EA7ABF6 /* ProjectDetailsViewController.storyboard */,
+				63A76DE597CBC51CD25DA465 /* ProjectDetailsViewController.swift */,
 			);
 			path = ProjectDetails;
 			sourceTree = "<group>";
@@ -1295,6 +1301,7 @@
 				DB117274BBA7E8DEEC5C7AA0 /* SignIn.storyboard in Resources */,
 				7F4552DF5A803564CD0ADE05 /* TextButton.xib in Resources */,
 				073E659123038FFA004CD138 /* PledgeDetailsView.xib in Resources */,
+				076D1AC923124AED005EDF39 /* ProjectDescriptionViewController.storyboard in Resources */,
 				7D2F09F0E63F51C7B44B8890 /* TextEntryField.xib in Resources */,
 				09C52CE5128D373A0DAC3957 /* UnderlineButton.xib in Resources */,
 				EFFB4C29E24D33A174E84D34 /* robot-arm.atlasc in Resources */,
@@ -1463,6 +1470,7 @@
 				06A2EF7B99D7455895B3D5ED /* AppBannerMessageProvider.swift in Sources */,
 				A86BD9E14DCFCBAC4A69E1E4 /* AppBannerPresenterProvider.swift in Sources */,
 				EA8536547190A69538BE681B /* AppDatabaseProvider.swift in Sources */,
+				076D1AC723124AC5005EDF39 /* ProjectDescriptionViewController.swift in Sources */,
 				2D97771AEBD21E912E057B62 /* AppDelegate.swift in Sources */,
 				1F8F1554E1AE20125FE80513 /* AppExternalSignInProvider.swift in Sources */,
 				E5D5E37324E6C8F50B2907A0 /* AppFacebookProvider.swift in Sources */,

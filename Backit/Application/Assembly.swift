@@ -306,6 +306,8 @@ class Assembly {
         }
         
         container.storyboardInitCompleted(ProjectDetailsViewController.self) { resolver, controller in
+            let pageProvider = resolver.resolve(PageProvider.self)!
+            controller.inject(pageProvider: pageProvider)
         }
 
         container.storyboardInitCompleted(SignInViewController.self) { resolver, controller in
@@ -335,6 +337,8 @@ class Assembly {
         
         container.storyboardInitCompleted(ProgressOverlayViewController.self) { resolver, controller in
         }
-
+        
+        container.storyboardInitCompleted(ProjectDescriptionViewController.self) { resolver, controller in
+        }
     }
 }
