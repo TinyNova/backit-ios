@@ -11,10 +11,15 @@ import UIKit
 
 class ProjectDetailsViewController: UIViewController {
         
+    @IBOutlet weak var navigationBarView: UIView! {
+        didSet {
+            navigationBarView.backgroundColor = UIColor.bk.purple
+        }
+    }
     @IBOutlet private weak var closeImageView: CenteredImageView! {
         didSet {
             let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCloseButton))
-            closeImageView.configure(image: UIImage(named: "close")?.sd_tintedImage(with: UIColor.bk.black), size: 30.0)
+            closeImageView.configure(image: UIImage(named: "close")?.sd_tintedImage(with: UIColor.bk.white), size: 30.0)
             closeImageView.addGestureRecognizer(tap)
             closeImageView.isUserInteractionEnabled = true
             closeImageView.alpha = 0.7
@@ -133,6 +138,10 @@ class ProjectDetailsViewController: UIViewController {
         self.pageProvider = pageProvider
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

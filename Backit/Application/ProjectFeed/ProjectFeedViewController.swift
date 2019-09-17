@@ -21,11 +21,21 @@ class ProjectFeedViewController: UIViewController {
     
     @IBOutlet weak var navigationBarView: UIView! {
         didSet {
-            
+            navigationBarView.backgroundColor = UIColor.bk.purple
         }
     }
-    @IBOutlet weak var backitLogoImageView: CenteredImageView!
-    @IBOutlet weak var searchImageView: CenteredImageView!
+    @IBOutlet weak var backitLogoImageView: CenteredImageView! {
+        didSet {
+            backitLogoImageView.configure(image: UIImage(named: "backit-logo")?.sd_tintedImage(with: UIColor.bk.white), size: 30)
+            // TODO: Tap
+        }
+    }
+    @IBOutlet weak var searchImageView: CenteredImageView! {
+        didSet {
+            searchImageView.configure(image: UIImage(named: "search")?.sd_tintedImage(with: UIColor.bk.white), size: 30)
+            // TODO: Tap
+        }
+    }
     
     @IBOutlet weak var errorView: ProjectFeedErrorView! {
         didSet {
@@ -79,14 +89,6 @@ class ProjectFeedViewController: UIViewController {
         tabBarItem = UITabBarItem.tabBarItem(using: "home")
         tabBarItem.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         
-        // Right navigation buttons
-        let searchButton = makeSearchButton()
-        navigationItem.rightBarButtonItems = [searchButton]
-        
-        // Left navigation buttons
-        let backitButton = makeBackitLogoButton()
-        navigationItem.leftBarButtonItems = [backitButton]
-        
         guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
             return
         }
@@ -94,6 +96,10 @@ class ProjectFeedViewController: UIViewController {
         statusBar.backgroundColor = UIColor.bk.purple
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        overlay?.show()
@@ -165,7 +171,7 @@ class ProjectFeedViewController: UIViewController {
         viewController.configure(with: project, projectFuture: future)
         viewController.hero.isEnabled = true
         DispatchQueue.main.async { [weak self] in
-            self?.navigationController?.present(viewController, animated: true, completion: nil)
+            self?.present(viewController, animated: true, completion: nil)
         }
     }
 }
