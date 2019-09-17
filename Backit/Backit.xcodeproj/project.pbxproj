@@ -16,6 +16,8 @@
 		073E659323039007004CD138 /* PledgeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E659223039007004CD138 /* PledgeDetailsView.swift */; };
 		076D1AC723124AC5005EDF39 /* ProjectDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D1AC623124AC5005EDF39 /* ProjectDescriptionViewController.swift */; };
 		076D1AC923124AED005EDF39 /* ProjectDescriptionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 076D1AC823124AED005EDF39 /* ProjectDescriptionViewController.storyboard */; };
+		07BCB20E232722E500A09E38 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BCB20D232722E500A09E38 /* SearchViewController.swift */; };
+		07BCB2102327234B00A09E38 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BCB20F2327234B00A09E38 /* SearchViewController.storyboard */; };
 		09C52CE5128D373A0DAC3957 /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823DE14CABCFC7E7359208FB /* UnderlineButton.xib */; };
 		0B5032D5FFECD027305FDA2F /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C77B81465FE481CE3F071 /* AnalyticsPublisher.swift */; };
 		0C18EE537DF26984006011A2 /* UserSessionStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D81D892E54105A270CC8A /* UserSessionStreamer.swift */; };
@@ -285,6 +287,8 @@
 		076D1AC623124AC5005EDF39 /* ProjectDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescriptionViewController.swift; sourceTree = "<group>"; };
 		076D1AC823124AED005EDF39 /* ProjectDescriptionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectDescriptionViewController.storyboard; sourceTree = "<group>"; };
 		077A54B7B6BF379A4AAA2AD6 /* ProjectsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEndpoint.swift; sourceTree = "<group>"; };
+		07BCB20D232722E500A09E38 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		07BCB20F2327234B00A09E38 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		0867199FD8C41595C41FA6DC /* AlamofireServiceRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServiceRequester.swift; sourceTree = "<group>"; };
 		08A9ADC26BF838EBAC2070FE /* CenteredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredImageView.swift; sourceTree = "<group>"; };
 		09E4F9466CB570176B5F208D /* HostReplacerServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostReplacerServicePlugin.swift; sourceTree = "<group>"; };
@@ -542,6 +546,15 @@
 				EC989CE4C72E73B558D2D1B1 /* UsernameAvailabilityEndpoint.swift */,
 			);
 			path = Endopints;
+			sourceTree = "<group>";
+		};
+		07BCB20C2327222100A09E38 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				07BCB20D232722E500A09E38 /* SearchViewController.swift */,
+				07BCB20F2327234B00A09E38 /* SearchViewController.storyboard */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		0851EA5DC1A37EE0FB478F90 /* BannerMessageErrors */ = {
@@ -996,6 +1009,7 @@
 				DA4680E8AA45EA96AC01BF44 /* Providers */,
 				F8F83EFFCDF3EC1EBFD95241 /* Resources */,
 				D4D76EB764333F6A805026A8 /* ServiceRequesters */,
+				07BCB20C2327222100A09E38 /* Search */,
 				E2A34CD1797CCDD615A0B170 /* Test */,
 				5F7C781D841154ADE0BAAE74 /* AppDelegate.swift */,
 				6ADC89401C263F4645AF2B16 /* AppTheme.swift */,
@@ -1292,6 +1306,7 @@
 				881229E3F6C19F9FFE7013E5 /* ProgressOverlayViewController.storyboard in Resources */,
 				DDECB713A3EAC6A6869EA559 /* ProjectDetailsViewController.storyboard in Resources */,
 				764D0FD329EB67CA70837707 /* ProjectFeed.storyboard in Resources */,
+				07BCB2102327234B00A09E38 /* SearchViewController.storyboard in Resources */,
 				C53FBDCB06BDF189A8AC4F77 /* ProjectFeedErrorView.xib in Resources */,
 				76B284789CBCDFC6B7082AD4 /* ProjectImageAnimatedCell.xib in Resources */,
 				B0A1CD730F158CE274207668 /* ProjectImageCell.xib in Resources */,
@@ -1487,6 +1502,7 @@
 				4FC2368AA6A4734C2E80B2F3 /* Application.swift in Sources */,
 				5F0BB5F95E861BAA07ABCEBD /* Assembly.swift in Sources */,
 				8CDE49F8492C53B993AE8122 /* AuthorizationServicePlugin.swift in Sources */,
+				07BCB20E232722E500A09E38 /* SearchViewController.swift in Sources */,
 				F96197810D95E201AAF58AB8 /* AvatarTabBarItem.swift in Sources */,
 				6CE52A2C30FDEA6F96F8DE24 /* BIAnalyticsEvent.swift in Sources */,
 				1F66EDB2D457F8EE728F5CF8 /* BannerProvider.swift in Sources */,

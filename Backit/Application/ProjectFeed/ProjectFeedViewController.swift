@@ -19,6 +19,14 @@ private let iPhone5sImageSize = CGSize(width: MainScreenSizeWidth, height: 180.0
 
 class ProjectFeedViewController: UIViewController {
     
+    @IBOutlet weak var navigationBarView: UIView! {
+        didSet {
+            
+        }
+    }
+    @IBOutlet weak var backitLogoImageView: CenteredImageView!
+    @IBOutlet weak var searchImageView: CenteredImageView!
+    
     @IBOutlet weak var errorView: ProjectFeedErrorView! {
         didSet {
             errorView.isHidden = true
@@ -78,6 +86,12 @@ class ProjectFeedViewController: UIViewController {
         // Left navigation buttons
         let backitButton = makeBackitLogoButton()
         navigationItem.leftBarButtonItems = [backitButton]
+        
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
+            return
+        }
+        
+        statusBar.backgroundColor = UIColor.bk.purple
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,7 +104,13 @@ class ProjectFeedViewController: UIViewController {
     // MARK: Actions
     
     @objc private func didTapSearch(_ sender: Any) {
-        log.i("did tap search")
+        guard let viewController = pageProvider?.search() else {
+            return
+        }
+        viewController.hero.isEnabled = true
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.present(viewController, animated: true, completion: nil)
+        }
     }
     
     @objc private func didTapLogo(_ sender: Any) {

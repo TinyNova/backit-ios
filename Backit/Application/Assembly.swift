@@ -340,5 +340,8 @@ class Assembly {
         
         container.storyboardInitCompleted(ProjectDescriptionViewController.self) { resolver, controller in
         }
+        
+        container.storyboardInitCompleted(SearchViewController.self) { resolver, controller in
+        }
     }
 }

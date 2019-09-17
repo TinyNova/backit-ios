@@ -14,4 +14,5 @@ protocol PageProvider {
     func progressOverlay() -> ProgressOverlayViewController?
     func projectDetails() -> ProjectDetailsViewController?
     func projectDescription() -> UINavigationController?
+    func search() -> SearchViewController?
 }

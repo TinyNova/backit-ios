@@ -78,4 +78,13 @@ class AppPageProvider: PageProvider {
         return vc
     }
 
+    func search() -> SearchViewController? {
+        let storyboard = UIStoryboard(name: "SearchViewController", bundle: Bundle(for: SearchViewController.self))
+        guard let vc = storyboard.instantiateInitialViewController() as? SearchViewController else {
+            log.c("Failed to inflate `SearchViewController`")
+            return nil
+        }
+        
+        return vc
+    }
 }

@@ -71,6 +71,7 @@ class AppTheme: UIStyle {
     enum TextFieldStyle {
         // Module: UI
         case normal
+        case search
     }
     
     enum TextViewStyle {
@@ -251,6 +252,12 @@ extension AppTheme: UITheme {
                 textField.font = FontCache.default.regular22
                 textField.backgroundColor = UIColor.fromHex(0x241a50)
                 textField.borderStyle = .none
+            case .search:
+                textField.textColor = UIColor.fromHex(0xffffff)
+                textField.font = FontCache.default.regular22
+                textField.backgroundColor = .clear
+                textField.borderStyle = .none
+                textField.tintColor = UIColor.bk.white
             }
         }
     }

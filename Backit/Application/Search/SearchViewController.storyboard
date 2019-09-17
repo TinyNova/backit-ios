@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Za3-y7-Vfj">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="0op-Bb-tKG">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UAc-ZA-9aM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Za3-y7-Vfj" customClass="SearchViewController" customModule="Backit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="256-Qf-PSM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQQ-Ys-8M1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="48"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hG1-xn-7zq">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOu-Fy-Hqg" customClass="CenteredImageView" customModule="Backit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="48" id="FxX-7f-YHu"/>
+                                                </constraints>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GfD-Hb-0Lw">
+                                                <rect key="frame" x="48" y="0.0" width="286" height="48"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otb-B5-gHR">
+                                                <rect key="frame" x="334" y="0.0" width="80" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="DXD-je-dt7"/>
+                                                </constraints>
+                                                <state key="normal" title="Cancel"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="hG1-xn-7zq" firstAttribute="leading" secondItem="hQQ-Ys-8M1" secondAttribute="leading" id="6Ii-hJ-4fC"/>
+                                    <constraint firstAttribute="trailing" secondItem="hG1-xn-7zq" secondAttribute="trailing" id="HPK-dA-p4X"/>
+                                    <constraint firstAttribute="bottom" secondItem="hG1-xn-7zq" secondAttribute="bottom" id="IfL-iT-2A3"/>
+                                    <constraint firstAttribute="height" constant="48" id="Mtu-G4-Lgq"/>
+                                    <constraint firstItem="hG1-xn-7zq" firstAttribute="top" secondItem="hQQ-Ys-8M1" secondAttribute="top" id="yhy-ik-GJz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hQQ-Ys-8M1" firstAttribute="top" secondItem="65l-e1-uPZ" secondAttribute="top" id="Bzs-Ca-9ah"/>
+                            <constraint firstItem="65l-e1-uPZ" firstAttribute="trailing" secondItem="hQQ-Ys-8M1" secondAttribute="trailing" id="mo0-T3-Ui4"/>
+                            <constraint firstItem="hQQ-Ys-8M1" firstAttribute="leading" secondItem="65l-e1-uPZ" secondAttribute="leading" id="sT4-fM-hjX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="65l-e1-uPZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="onP-ux-DLc"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="Otb-B5-gHR" id="18X-SS-N4M"/>
+                        <outlet property="searchFieldBackgroundView" destination="hQQ-Ys-8M1" id="fqU-B4-bhB"/>
+                        <outlet property="searchIconView" destination="aOu-Fy-Hqg" id="9Uh-lQ-ODW"/>
+                        <outlet property="searchTextField" destination="GfD-Hb-0Lw" id="PmB-gD-xK4"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-561" y="-224"/>
+        </scene>
+    </scenes>
+</document>

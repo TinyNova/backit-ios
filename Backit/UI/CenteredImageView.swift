@@ -6,7 +6,11 @@ public class CenteredImageView: UIView {
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            imageView.backgroundColor = .clear
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,7 +23,11 @@ public class CenteredImageView: UIView {
     }
 
     private func setup() {
-        fromNib()
+        guard let view = fromNib() else {
+            return
+        }
+        self.backgroundColor = .clear
+        view.backgroundColor = .clear
     }
     
     public func configure(image: UIImage?, size: CGFloat) {
