@@ -22,8 +22,7 @@ class ProjectDetailsViewController: UIViewController {
             closeImageView.configure(image: UIImage(named: "close")?.sd_tintedImage(with: UIColor.bk.white), size: 30.0)
             closeImageView.addGestureRecognizer(tap)
             closeImageView.isUserInteractionEnabled = true
-            closeImageView.alpha = 0.7
-            closeImageView.hero.modifiers = [.fade]
+            closeImageView.hero.id = "App.Search"
         }
     }
     

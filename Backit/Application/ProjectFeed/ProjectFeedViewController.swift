@@ -33,7 +33,10 @@ class ProjectFeedViewController: UIViewController {
     @IBOutlet weak var searchImageView: CenteredImageView! {
         didSet {
             searchImageView.configure(image: UIImage(named: "search")?.sd_tintedImage(with: UIColor.bk.white), size: 30)
-            // TODO: Tap
+            searchImageView.hero.id = "App.Search"
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapSearch(_:)))
+            searchImageView.gestureRecognizers = [tap]
+            searchImageView.isUserInteractionEnabled = true
         }
     }
     
@@ -115,7 +118,7 @@ class ProjectFeedViewController: UIViewController {
         }
         viewController.hero.isEnabled = true
         DispatchQueue.main.async { [weak self] in
-            self?.navigationController?.present(viewController, animated: true, completion: nil)
+            self?.present(viewController, animated: true, completion: nil)
         }
     }
     
@@ -138,23 +141,6 @@ class ProjectFeedViewController: UIViewController {
             self.tableView.reloadRows(at: [[0, self.totalRows-1]], with: .bottom)
             self.tableView.endUpdates()
         }
-    }
-    
-    private func makeSearchButton() -> UIBarButtonItem {
-        let searchImage = UIImage(named: "search")?
-            .fittedImage(to: 24.0)?
-            .sd_tintedImage(with: UIColor.fromHex(0x5f637b))
-        
-        let searchButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(didTapSearch))
-        searchButton.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
-        return searchButton
-    }
-    
-    private func makeBackitLogoButton() -> UIBarButtonItem {
-        let image = UIImage(named: "backit-logo")?
-            .fittedImage(to: 40.0)?
-            .sd_tintedImage(with: UIColor.white)
-        return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didTapLogo))
     }
     
     private func displayProjectDetails(from cell: ProjectTableViewCell?) {
