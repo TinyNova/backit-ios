@@ -26,9 +26,17 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQU-zS-ai9">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQU-zS-ai9">
                                 <rect key="frame" x="0.0" y="44" width="414" height="48"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEO-Hb-mMO" customClass="CenteredImageView" customModule="Backit" customModuleProvider="target">
+                                        <rect key="frame" x="366" y="48" width="48" height="48"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="Csk-H0-1zH"/>
+                                            <constraint firstAttribute="width" constant="48" id="mBU-HK-FPi"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btM-T9-JRA">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                         <subviews>
@@ -55,8 +63,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="btM-T9-JRA" secondAttribute="trailing" id="6nO-eK-mqZ"/>
+                                    <constraint firstItem="EEO-Hb-mMO" firstAttribute="top" secondItem="hQU-zS-ai9" secondAttribute="top" constant="48" id="BA6-wr-Nxf"/>
                                     <constraint firstItem="btM-T9-JRA" firstAttribute="top" secondItem="hQU-zS-ai9" secondAttribute="top" id="DIu-Ii-yhc"/>
                                     <constraint firstAttribute="height" constant="48" id="Jej-Xs-VQx"/>
+                                    <constraint firstAttribute="trailing" secondItem="EEO-Hb-mMO" secondAttribute="trailing" id="MhZ-jn-lig"/>
                                     <constraint firstAttribute="bottom" secondItem="btM-T9-JRA" secondAttribute="bottom" id="Oms-Hn-zOJ"/>
                                     <constraint firstItem="btM-T9-JRA" firstAttribute="leading" secondItem="hQU-zS-ai9" secondAttribute="leading" id="cEt-pZ-gJu"/>
                                 </constraints>
@@ -82,6 +92,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backitLogoImageView" destination="GcT-2w-STV" id="YU0-2D-yLt"/>
+                        <outlet property="closeImageView" destination="EEO-Hb-mMO" id="ljK-R7-RKe"/>
                         <outlet property="errorView" destination="5Gd-Wy-P5C" id="oe8-vt-L24"/>
                         <outlet property="navigationBarView" destination="hQU-zS-ai9" id="eRy-iQ-UHG"/>
                         <outlet property="searchImageView" destination="S6H-F4-UlX" id="X3U-xr-LCc"/>

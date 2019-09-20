@@ -14,6 +14,13 @@ class ProjectDetailsViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView! {
         didSet {
             navigationBarView.backgroundColor = UIColor.bk.purple
+            navigationBarView.hero.id = "App.NavigationBar"
+        }
+    }
+    @IBOutlet weak var searchImageView: CenteredImageView! {
+        didSet {
+            searchImageView.configure(image: UIImage(named: "search")?.sd_tintedImage(with: UIColor.bk.white), size: 30.0)
+            searchImageView.hero.id = "App.Search"
         }
     }
     @IBOutlet private weak var closeImageView: CenteredImageView! {
@@ -22,7 +29,7 @@ class ProjectDetailsViewController: UIViewController {
             closeImageView.configure(image: UIImage(named: "close")?.sd_tintedImage(with: UIColor.bk.white), size: 30.0)
             closeImageView.addGestureRecognizer(tap)
             closeImageView.isUserInteractionEnabled = true
-            closeImageView.hero.id = "App.Search"
+            closeImageView.hero.id = "App.Close"
         }
     }
     

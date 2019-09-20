@@ -39,6 +39,14 @@ class ProjectFeedViewController: UIViewController {
             searchImageView.isUserInteractionEnabled = true
         }
     }
+    @IBOutlet weak var closeImageView: CenteredImageView! {
+        didSet {
+            closeImageView.configure(image: UIImage(named: "close")?.sd_tintedImage(with: UIColor.bk.white), size: 30.0)
+            closeImageView.hero.id = "App.Close"
+            closeImageView.layer.opacity = 0
+            closeImageView.hero.modifiers = [.opacity(1)]
+        }
+    }
     
     @IBOutlet weak var errorView: ProjectFeedErrorView! {
         didSet {
