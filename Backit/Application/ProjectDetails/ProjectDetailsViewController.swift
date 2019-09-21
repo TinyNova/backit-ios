@@ -14,7 +14,6 @@ class ProjectDetailsViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView! {
         didSet {
             navigationBarView.backgroundColor = UIColor.bk.purple
-            navigationBarView.hero.id = "App.NavigationBar"
         }
     }
     @IBOutlet weak var searchImageView: CenteredImageView! {

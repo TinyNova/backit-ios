@@ -14,8 +14,12 @@
 		071B6AD019CB97C75975821F /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001D831EEEADB9AAD422A5CA /* UserAccountEndpoint.swift */; };
 		073E659123038FFA004CD138 /* PledgeDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073E659023038FFA004CD138 /* PledgeDetailsView.xib */; };
 		073E659323039007004CD138 /* PledgeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E659223039007004CD138 /* PledgeDetailsView.swift */; };
+		0763105923345724006A7429 /* ProjectSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763105823345724006A7429 /* ProjectSearchProvider.swift */; };
+		0763105B233457BA006A7429 /* ProjectSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763105A233457BA006A7429 /* ProjectSearchResult.swift */; };
 		076D1AC723124AC5005EDF39 /* ProjectDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D1AC623124AC5005EDF39 /* ProjectDescriptionViewController.swift */; };
 		076D1AC923124AED005EDF39 /* ProjectDescriptionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 076D1AC823124AED005EDF39 /* ProjectDescriptionViewController.storyboard */; };
+		07856478233458C2007001E2 /* ProjectSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07856477233458C2007001E2 /* ProjectSearchService.swift */; };
+		0785647A23345945007001E2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785647923345945007001E2 /* Category.swift */; };
 		07BCB20E232722E500A09E38 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BCB20D232722E500A09E38 /* SearchViewController.swift */; };
 		07BCB2102327234B00A09E38 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BCB20F2327234B00A09E38 /* SearchViewController.storyboard */; };
 		09C52CE5128D373A0DAC3957 /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823DE14CABCFC7E7359208FB /* UnderlineButton.xib */; };
@@ -284,9 +288,13 @@
 		06007329CBA25D30B7D0E732 /* DetailedProject+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailedProject+Backit.swift"; sourceTree = "<group>"; };
 		073E659023038FFA004CD138 /* PledgeDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PledgeDetailsView.xib; sourceTree = "<group>"; };
 		073E659223039007004CD138 /* PledgeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeDetailsView.swift; sourceTree = "<group>"; };
+		0763105823345724006A7429 /* ProjectSearchProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSearchProvider.swift; sourceTree = "<group>"; };
+		0763105A233457BA006A7429 /* ProjectSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSearchResult.swift; sourceTree = "<group>"; };
 		076D1AC623124AC5005EDF39 /* ProjectDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescriptionViewController.swift; sourceTree = "<group>"; };
 		076D1AC823124AED005EDF39 /* ProjectDescriptionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectDescriptionViewController.storyboard; sourceTree = "<group>"; };
 		077A54B7B6BF379A4AAA2AD6 /* ProjectsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEndpoint.swift; sourceTree = "<group>"; };
+		07856477233458C2007001E2 /* ProjectSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSearchService.swift; sourceTree = "<group>"; };
+		0785647923345945007001E2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		07BCB20D232722E500A09E38 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		07BCB20F2327234B00A09E38 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		0867199FD8C41595C41FA6DC /* AlamofireServiceRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServiceRequester.swift; sourceTree = "<group>"; };
@@ -546,6 +554,14 @@
 				EC989CE4C72E73B558D2D1B1 /* UsernameAvailabilityEndpoint.swift */,
 			);
 			path = Endopints;
+			sourceTree = "<group>";
+		};
+		07856476233458AD007001E2 /* ProjectSearch */ = {
+			isa = PBXGroup;
+			children = (
+				07856477233458C2007001E2 /* ProjectSearchService.swift */,
+			);
+			path = ProjectSearch;
 			sourceTree = "<group>";
 		};
 		07BCB20C2327222100A09E38 /* Search */ = {
@@ -898,6 +914,7 @@
 				E8FBFA0AD1712E227B0C7B39 /* KeychainProvider.swift */,
 				9A0FF1F575295871B112B749 /* PhotoAlbumProvider.swift */,
 				5CDBB0CE7DDAF77F3603A7C8 /* ProjectProvider.swift */,
+				0763105823345724006A7429 /* ProjectSearchProvider.swift */,
 				DF4D0B58B3AF7F2558556784 /* ShareProvider.swift */,
 				F693AA946262E7E9A9E8A32E /* SignInProvider.swift */,
 				E9BDCA5AA7C94D628274C56F /* UserProvider.swift */,
@@ -1122,9 +1139,11 @@
 				AC72CFAEF07FE026F7AD1B65 /* Credentials.swift */,
 				C59789498420044662DFA9F4 /* GuestUser.swift */,
 				3D22E073DDA2263D2279E672 /* Project.swift */,
+				0763105A233457BA006A7429 /* ProjectSearchResult.swift */,
 				02D2E55B40A1406D77D226F2 /* ProjectSource.swift */,
 				7B529DE16C722F0B3611B9BB /* User.swift */,
 				725DD281AC3B54D1E76D5576 /* UserSession.swift */,
+				0785647923345945007001E2 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1148,6 +1167,7 @@
 				125C27F61921BFDB9357E3F1 /* Amazon */,
 				7B5369E5ED78E34E858919BC /* Discussion */,
 				BB59164653F72DF8E21046B1 /* Project */,
+				07856476233458AD007001E2 /* ProjectSearch */,
 				482287BAFDF88F639DE3843B /* BrightFutures+Upstart.swift */,
 				8DE1BB26C9906BCB432296A2 /* Encodable+Backit.swift */,
 				8C311FC4105A683D02DCF899 /* Errors+Service.swift */,
@@ -1489,6 +1509,7 @@
 				2D97771AEBD21E912E057B62 /* AppDelegate.swift in Sources */,
 				1F8F1554E1AE20125FE80513 /* AppExternalSignInProvider.swift in Sources */,
 				E5D5E37324E6C8F50B2907A0 /* AppFacebookProvider.swift in Sources */,
+				0763105B233457BA006A7429 /* ProjectSearchResult.swift in Sources */,
 				6BE11570445FDB6B7304E3AA /* AppGoogleProvider.swift in Sources */,
 				95B99A78BC8BCABECD4DF76F /* AppKeychainProvider.swift in Sources */,
 				F26127C235CD64153FE131E9 /* AppPageProvider.swift in Sources */,
@@ -1524,6 +1545,7 @@
 				0245F07E3364321276547E39 /* Encodable+Backit.swift in Sources */,
 				773CF890B8E2FB2F181066BA /* Environment.swift in Sources */,
 				8C476AABF443FBC8FBB6479E /* Errors+Foundation.swift in Sources */,
+				0763105923345724006A7429 /* ProjectSearchProvider.swift in Sources */,
 				24396E80782D028CC82F8E0E /* Errors+Service.swift in Sources */,
 				9EC172BC74A33A1960A449DB /* ExternalLoginEndpoint.swift in Sources */,
 				E4B282FF217B63487F781869 /* ExternalSignInProvider.swift in Sources */,
@@ -1547,6 +1569,8 @@
 				6C7FE580BBB7A0539949AE34 /* Logger.swift in Sources */,
 				0CE5DDCCE93B87D3E4A3510E /* LoginEndpoint.swift in Sources */,
 				AB367255B0D6334752BD1B52 /* LostPasswordViewController.swift in Sources */,
+				0785647A23345945007001E2 /* Category.swift in Sources */,
+				07856478233458C2007001E2 /* ProjectSearchService.swift in Sources */,
 				32023E505B4D82259F4D550D /* MetricAnalyticsEvent.swift in Sources */,
 				62CA911E8DABB3C087B09965 /* NewRelicAnalyticsListener.swift in Sources */,
 				6C175FDD88249C9436409064 /* PageProvider.swift in Sources */,
