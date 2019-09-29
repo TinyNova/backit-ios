@@ -7,7 +7,7 @@ github "HeroTransitions/Hero"
 github "kishikawakatsumi/KeychainAccess"
 #github 'Mixpanel' - unknown
 github "SDWebImage/SDWebImage"
-github "Swinject/Swinject"
+github "Swinject/Swinject" == 2.6.2
 github "Swinject/SwinjectStoryboard"
 github "kif-framework/KIF"
 github "Quick/Nimble"
