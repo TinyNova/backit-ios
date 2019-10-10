@@ -252,6 +252,10 @@ class Assembly {
             return AppPhotoAlbumProvider(presenterProvider: presenterProvider)
         }
         
+        container.register(ProjectSearchProvider.self) { _ in
+            return ProjectSearchService()
+        }
+        
         // MARK: - Social Media Providers
         
         container.register(FacebookProvider.self) { resolver in
@@ -342,6 +346,8 @@ class Assembly {
         }
         
         container.storyboardInitCompleted(SearchViewController.self) { resolver, controller in
+            let searchProvider = resolver.resolve(ProjectSearchProvider.self)!
+            controller.inject(searchProvider: searchProvider)
         }
     }
 }

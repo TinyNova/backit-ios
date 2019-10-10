@@ -189,12 +189,12 @@ class FinalizeAccountCreationViewController: UIViewController {
     
     private func usernameTooShortMessage() {
         usernameState = .tooShort
-        validUsernameLabel.text = "💁‍♂️ A username must be at least 3 characters long"
+        validUsernameLabel.text = "💁‍♂️ A username must be between 3 and 20 characters long"
     }
     
     private let q0 = MessageQueue(messages: [
-        "❌ seat's taken",
-        "❌ taken"
+        "❌ Non-binary, non-comforming, username",
+        "❌ Not approved by the Council of Usernames"
     ])
     private func usernameTakenMessage() {
         usernameState = .unavailable
@@ -202,8 +202,9 @@ class FinalizeAccountCreationViewController: UIViewController {
     }
     
     private let q1 = MessageQueue(messages: [
-        "✅ You can sit with me",
-        "✅ I do declare, Mr. Vandergelder! That username suits you just fine!"
+        "✅ Username approved by the Council of Usernames",
+        "✅ Lrrr accepts your username as 'VALID'!",
+        "✅ Username acceptable to the hive mind"
     ])
     private func usernameAvailableMessage() {
         guard usernameState != .available else {
@@ -214,8 +215,8 @@ class FinalizeAccountCreationViewController: UIViewController {
     }
     
     private let q2 = MessageQueue(messages: [
-        "🚨 Why? Why?! The username is too long!",
-        "🚨 Dammit, Scotty! The username is just... too... damn... long"
+        "🚨 Your username needs a nip and a tuck",
+        "🚨 Is that your username or are you just happy to see me?"
     ])
     private func usernameTooLongMessage() {
         guard usernameState != .tooLong else {

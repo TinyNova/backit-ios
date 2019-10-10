@@ -3,7 +3,7 @@ import Foundation
 
 class ProjectSearchService: ProjectSearchProvider {
     
-    func resultsFor(token: String) -> Future<ProjectSearchResult, ProjectSearchProviderError> {
+    func resultsFor(token: String?) -> Future<ProjectSearchResult, ProjectSearchProviderError> {
         return Future(value: ProjectSearchResult(
             categories: [Category(id: 1, name: "Board Games")],
             subcategories: [Category(id: 1, name: "D&D")],

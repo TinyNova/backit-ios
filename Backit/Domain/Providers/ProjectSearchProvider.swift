@@ -6,5 +6,5 @@ enum ProjectSearchProviderError: Error {
 }
 
 protocol ProjectSearchProvider {
-    func resultsFor(token: String) -> Future<ProjectSearchResult, ProjectSearchProviderError>
+    func resultsFor(token: String?) -> Future<ProjectSearchResult, ProjectSearchProviderError>
 }
