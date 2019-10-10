@@ -10,6 +10,10 @@ import BrightFutures
 import GoogleSignIn
 import UIKit
 
+class GoogleViewController: UIViewController {
+    
+}
+
 @objc class AppGoogleProvider: NSObject, GoogleProvider {
     
     let presenterProvider: PresenterProvider
@@ -32,9 +36,7 @@ import UIKit
     
     func appDidOpen(url: URL, with options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
         return signIn?.handle(
-            url as URL?,
-            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+            url as URL?
         ) ?? true
     }
     
@@ -47,7 +49,10 @@ import UIKit
         self.promise = promise
         
         DispatchQueue.main.async { [weak self] in
-            self?.signIn?.uiDelegate = self
+            self?.signIn?.delegate = self
+            // TODO: Get the top-most view controller. The view controller who will be presenting this. And then I have to update the
+            let vc = GoogleViewController()
+            self?.signIn?.presentingViewController = vc
             self?.signIn?.signIn()
         }
         
@@ -84,19 +89,19 @@ extension AppGoogleProvider: GIDSignInDelegate {
     }
 }
 
-extension AppGoogleProvider: GIDSignInUIDelegate {
-    /// The user wants to sign in
-    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
-        
-    }
-    
-    /// Called when wanting to present a view to login
-    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-        presenterProvider.present(viewController, completion: nil)
-    }
-    
-    /// Called when user wants to dismiss the login
-    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-        presenterProvider.dismiss(viewController, completion: nil)
-    }
-}
+//extension AppGoogleProvider: GIDSignInUIDelegate {
+//    /// The user wants to sign in
+//    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+//
+//    }
+//
+//    /// Called when wanting to present a view to login
+//    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+//        presenterProvider.present(viewController, completion: nil)
+//    }
+//
+//    /// Called when user wants to dismiss the login
+//    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+//        presenterProvider.dismiss(viewController, completion: nil)
+//    }
+//}
