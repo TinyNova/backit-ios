@@ -76,11 +76,12 @@ class ProjectFeedViewController: UIViewController {
     private var overlay: ProgressOverlayProvider?
     private var banner: BannerProvider?
     private var shareProvider: ShareProvider?
+    private var navigationThemeApplier: NavigationThemeApplier?
     
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
     
-    func inject(theme: AnyUITheme<AppTheme>, pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider, shareProvider: ShareProvider) {
+    func inject(theme: AnyUITheme<AppTheme>, pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider, shareProvider: ShareProvider, navigationThemeApplier: NavigationThemeApplier) {
         self.provider = provider
         self.provider?.client = self
         self.pageProvider = pageProvider
@@ -89,6 +90,7 @@ class ProjectFeedViewController: UIViewController {
         self.overlay = overlay
         self.banner = banner
         self.shareProvider = shareProvider
+        self.navigationThemeApplier = navigationThemeApplier
     }
     
     private let i18n = Localization<Appl10n>()
@@ -100,11 +102,7 @@ class ProjectFeedViewController: UIViewController {
         tabBarItem = UITabBarItem.tabBarItem(using: "home")
         tabBarItem.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
-            return
-        }
-        
-        statusBar.backgroundColor = UIColor.bk.purple
+        navigationThemeApplier?.applyTo(navigationController?.navigationBar)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

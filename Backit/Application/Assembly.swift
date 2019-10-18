@@ -256,6 +256,10 @@ class Assembly {
             return ProjectSearchService()
         }
         
+        container.register(NavigationThemeApplier.self) { _ in
+            return AppNavigationThemeApplier()
+        }
+        
         // MARK: - Social Media Providers
         
         container.register(FacebookProvider.self) { resolver in
@@ -306,7 +310,9 @@ class Assembly {
             let overlay = resolver.resolve(ProgressOverlayProvider.self)!
             let banner = resolver.resolve(BannerProvider.self)!
             let shareProvider = resolver.resolve(ShareProvider.self)!
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), pageProvider: pageProvider, projectProvider: projectProvider, provider: provider, signInProvider: signInProvider, overlay: overlay, banner: banner, shareProvider: shareProvider)
+            let navThemeApplier = resolver.resolve(NavigationThemeApplier.self)!
+            
+            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), pageProvider: pageProvider, projectProvider: projectProvider, provider: provider, signInProvider: signInProvider, overlay: overlay, banner: banner, shareProvider: shareProvider, navigationThemeApplier: navThemeApplier)
         }
         
         container.storyboardInitCompleted(ProjectDetailsViewController.self) { resolver, controller in

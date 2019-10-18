@@ -13,6 +13,9 @@
 		06A2EF7B99D7455895B3D5ED /* AppBannerMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2929C40A7E600D5A205B658 /* AppBannerMessageProvider.swift */; };
 		071955791126C7478D40EE79 /* ProgressOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4124F90626CBA254743E3F37 /* ProgressOverlayProvider.swift */; };
 		071B6AD019CB97C75975821F /* UserAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001D831EEEADB9AAD422A5CA /* UserAccountEndpoint.swift */; };
+		077AD45623569B4900A61FFF /* NavigationThemeApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077AD45523569B4900A61FFF /* NavigationThemeApplier.swift */; };
+		077AD45823569BBB00A61FFF /* AppNavigationThemeApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077AD45723569BBB00A61FFF /* AppNavigationThemeApplier.swift */; };
+		077AD489235A1EBF00A61FFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077AD487235A193600A61FFF /* SceneDelegate.swift */; };
 		09C52CE5128D373A0DAC3957 /* UnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823DE14CABCFC7E7359208FB /* UnderlineButton.xib */; };
 		0B5032D5FFECD027305FDA2F /* AnalyticsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C77B81465FE481CE3F071 /* AnalyticsPublisher.swift */; };
 		0C18EE537DF26984006011A2 /* UserSessionStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D81D892E54105A270CC8A /* UserSessionStreamer.swift */; };
@@ -287,6 +290,9 @@
 		05867AFFC2987E6F3B6870C8 /* AppExternalSignInProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExternalSignInProvider.swift; sourceTree = "<group>"; };
 		06007329CBA25D30B7D0E732 /* DetailedProject+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailedProject+Backit.swift"; sourceTree = "<group>"; };
 		077A54B7B6BF379A4AAA2AD6 /* ProjectsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEndpoint.swift; sourceTree = "<group>"; };
+		077AD45523569B4900A61FFF /* NavigationThemeApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationThemeApplier.swift; sourceTree = "<group>"; };
+		077AD45723569BBB00A61FFF /* AppNavigationThemeApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationThemeApplier.swift; sourceTree = "<group>"; };
+		077AD487235A193600A61FFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0867199FD8C41595C41FA6DC /* AlamofireServiceRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServiceRequester.swift; sourceTree = "<group>"; };
 		08A9ADC26BF838EBAC2070FE /* CenteredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredImageView.swift; sourceTree = "<group>"; };
 		09E4F9466CB570176B5F208D /* HostReplacerServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostReplacerServicePlugin.swift; sourceTree = "<group>"; };
@@ -351,7 +357,7 @@
 		52FC6E44E6ACC011790C6128 /* ProjectFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedViewController.swift; sourceTree = "<group>"; };
 		53675EB97AAC40D6806902F8 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
 		5799F72F21478478DCB647BF /* UserStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStream.swift; sourceTree = "<group>"; };
-		5C376E895143EAE8806201D2 /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
+		5C376E895143EAE8806201D2 /* Acumin Pro - Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Semibold.otf"; sourceTree = "<group>"; };
 		5CA0D8A7DC6B740F1E783E53 /* AppProgressOverlayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressOverlayProvider.swift; sourceTree = "<group>"; };
 		5CDBB0CE7DDAF77F3603A7C8 /* ProjectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectProvider.swift; sourceTree = "<group>"; };
 		5D107AAEAA2B0E5060748198 /* AccountProviderError+BannerErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountProviderError+BannerErrorMessage.swift"; sourceTree = "<group>"; };
@@ -369,7 +375,7 @@
 		697B5CEE9E704CCEA5906800 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
 		6A016A3A3118B2B4FA45A6FC /* AccountHealthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHealthEndpoint.swift; sourceTree = "<group>"; };
 		6ADC89401C263F4645AF2B16 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		6B4ABA3B72731076E55169A1 /* Acumin Pro - Regular.otf */ = {isa = PBXFileReference; path = "Acumin Pro - Regular.otf"; sourceTree = "<group>"; };
+		6B4ABA3B72731076E55169A1 /* Acumin Pro - Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Regular.otf"; sourceTree = "<group>"; };
 		6BFC04734829491775EDAF5B /* AppPageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPageProvider.swift; sourceTree = "<group>"; };
 		6FB39E77270484C35C3670DD /* ProjectFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectFeed.storyboard; sourceTree = "<group>"; };
 		7002AF23454422A81C48747D /* Collection+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Backit.swift"; sourceTree = "<group>"; };
@@ -433,7 +439,7 @@
 		B8263A448637D5085AE74907 /* ActionSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSequencer.swift; sourceTree = "<group>"; };
 		B97BEDA27BB8834DF68B3B01 /* ProjectVoteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectVoteProvider.swift; sourceTree = "<group>"; };
 		B9C2814584B8B2DF0092FCCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BA935D19615B73817C41422B /* robot-arm.atlasc */ = {isa = PBXFileReference; path = "robot-arm.atlasc"; sourceTree = "<group>"; };
+		BA935D19615B73817C41422B /* robot-arm.atlasc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "robot-arm.atlasc"; sourceTree = "<group>"; };
 		BBE421E0659B67724DE72808 /* UnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButton.swift; sourceTree = "<group>"; };
 		BC849F0B69928AC98E81D0C1 /* ServicePluginKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginKey.swift; sourceTree = "<group>"; };
 		BCECBA59ACA61BBA335DFA0F /* UIThemeApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIThemeApplier.swift; sourceTree = "<group>"; };
@@ -466,7 +472,7 @@
 		DF4D0B58B3AF7F2558556784 /* ShareProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareProvider.swift; sourceTree = "<group>"; };
 		E1C7A0565A4C646ADD4184EE /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		E1D4AC595CD64BD19E7969E5 /* UIColor+Backit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Backit.swift"; sourceTree = "<group>"; };
-		E20358FCEBBE229D38F1ACCB /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
+		E20358FCEBBE229D38F1ACCB /* Acumin Pro - Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin Pro - Bold.otf"; sourceTree = "<group>"; };
 		E2DBB83788A7554C869C4E4C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E49FF68DDE04EA181C8EB287 /* NewRelicAnalyticsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRelicAnalyticsListener.swift; sourceTree = "<group>"; };
 		E5016FA1BCFEAEAEA0494B7B /* URLRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestFactory.swift; sourceTree = "<group>"; };
@@ -579,14 +585,15 @@
 			children = (
 				3C01E74E94018450D5E12F05 /* BannerProvider.swift */,
 				08A9ADC26BF838EBAC2070FE /* CenteredImageView.swift */,
-				F349F9128077BA52E225C2BC /* CenteredImageView.xib */,
 				5106CAAB9119EDF2E62F77A2 /* CustomButton.swift */,
 				38953A4152807215761C59FA /* KeyboardLayoutConstraint.swift */,
+				077AD45523569B4900A61FFF /* NavigationThemeApplier.swift */,
 				5F0360A7AA87AD9FC68217D3 /* PresenterProvider.swift */,
 				4124F90626CBA254743E3F37 /* ProgressOverlayProvider.swift */,
 				871461CD9EC3BA18B02759E5 /* SecondaryButton.swift */,
-				3457F92E05BA1D369016632A /* SecondaryButton.xib */,
 				BBE421E0659B67724DE72808 /* UnderlineButton.swift */,
+				F349F9128077BA52E225C2BC /* CenteredImageView.xib */,
+				3457F92E05BA1D369016632A /* SecondaryButton.xib */,
 				823DE14CABCFC7E7359208FB /* UnderlineButton.xib */,
 				B953276AEEC6C605395ED820 /* Extensions */,
 				2989F6BBBBBEE48AB068C3B9 /* PrimaryButton */,
@@ -999,8 +1006,7 @@
 				29595447ACCF7B33C97C954A /* Application.swift */,
 				6ADC89401C263F4645AF2B16 /* AppTheme.swift */,
 				2CF7FC80241798432CFC374B /* Assembly.swift */,
-				4491567B638EB3B73689F7A8 /* LaunchScreen.storyboard */,
-				45AD4E84ADFAC0EC73DD50F2 /* Main.storyboard */,
+				077AD487235A193600A61FFF /* SceneDelegate.swift */,
 				76DF43162524CCD05DBC1CF1 /* TabBarController.swift */,
 				999D6E201802B5C3F643DC45 /* UITabBarItem+Backit.swift */,
 				37E2536D4CAD4BDE6B3567DD /* Account */,
@@ -1008,6 +1014,8 @@
 				71F2DFA303777CD932D64DF2 /* Banner */,
 				0851EA5DC1A37EE0FB478F90 /* BannerMessageErrors */,
 				F6F124FCB624A1519AB804CD /* Extensions */,
+				4491567B638EB3B73689F7A8 /* LaunchScreen.storyboard */,
+				45AD4E84ADFAC0EC73DD50F2 /* Main.storyboard */,
 				961FEECEF540CC85B7C0BBB3 /* Plugins */,
 				A811CE0868F0C7B91FA7ACA9 /* ProgressOverlay */,
 				76FD1981A62E8052084670EE /* ProjectDetails */,
@@ -1048,7 +1056,6 @@
 				4EA4C23F705C78F2DC5EBBD4 /* Pods-BackitTests.debug.xcconfig */,
 				0BA96260D4596CB5D3730096 /* Pods-BackitTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1091,6 +1098,7 @@
 				30730C5B523F50E204F57500 /* AppFacebookProvider.swift */,
 				C05360BCB884CB8C6F452383 /* AppGoogleProvider.swift */,
 				EFB95D3056CA1EEC1D517A9C /* AppKeychainProvider.swift */,
+				077AD45723569BBB00A61FFF /* AppNavigationThemeApplier.swift */,
 				40814C7EF2F3FBBE96E82A2B /* AppPhotoAlbumProvider.swift */,
 				0555A2922D8330C6D776E78F /* AppPresenterProvider.swift */,
 				5CA0D8A7DC6B740F1E783E53 /* AppProgressOverlayProvider.swift */,
@@ -1595,6 +1603,8 @@
 				32023E505B4D82259F4D550D /* MetricAnalyticsEvent.swift in Sources */,
 				62CA911E8DABB3C087B09965 /* NewRelicAnalyticsListener.swift in Sources */,
 				6C175FDD88249C9436409064 /* PageProvider.swift in Sources */,
+				077AD45823569BBB00A61FFF /* AppNavigationThemeApplier.swift in Sources */,
+				077AD45623569B4900A61FFF /* NavigationThemeApplier.swift in Sources */,
 				94B0532A2AE2E2033FC5C524 /* PhotoAlbumProvider.swift in Sources */,
 				9E3D59553EFDF3046637F82A /* PledgeDetailsView.swift in Sources */,
 				2A7DFF340AAC74E02A6807B5 /* PresenterProvider.swift in Sources */,
@@ -1669,6 +1679,7 @@
 				0C18EE537DF26984006011A2 /* UserSessionStreamer.swift in Sources */,
 				5B10538485BEEF81854F0211 /* UserStream.swift in Sources */,
 				7DA5A115901566C2316CBC42 /* UserStreamer.swift in Sources */,
+				077AD489235A1EBF00A61FFF /* SceneDelegate.swift in Sources */,
 				5A745CE129ACCD9D48EC669B /* UsernameAvailabilityEndpoint.swift in Sources */,
 				A1B972475408708C6BE56E38 /* ViewIdentifiable.swift in Sources */,
 				BD726B9E60348C8CE05C8724 /* main.swift in Sources */,
@@ -1737,9 +1748,10 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					/usr/lib/swift,
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.backer;
@@ -1819,9 +1831,10 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					/usr/lib/swift,
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.backit.ios.backer;

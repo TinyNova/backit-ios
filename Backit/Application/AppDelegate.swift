@@ -16,10 +16,12 @@ enum AppStartupError: Error {
     case sessionDoesNotExist
 }
 
+let globalAssembly = Assembly()
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var assembly = Assembly()
+    var assembly = globalAssembly
 
     private var accountProvider: AccountProvider!
     
@@ -46,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
 
 //        UIFont.displayAllAvailableFonts()
-
+        
         return true
     }
     
@@ -170,5 +172,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userDefaults.set(deviceId, forKey: Constant.appIdKey)
         }
         NewRelic.setUserId(deviceId)
+    }
+    
+    // MARK: UISceneSession Lifecycle
+    @available(iOS 13.0, *)
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    @available(iOS 13.0, *)
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+      // TODO
     }
 }

@@ -8,6 +8,16 @@ import UIKit
 
 class AppPageProvider: PageProvider {
     
+    func main() -> UIViewController? {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: TabBarController.self))
+        guard let vc = storyboard.instantiateInitialViewController() as? TabBarController else {
+            log.c("Failed to inflate `TabBarController`")
+            return nil
+        }
+
+        return vc
+    }
+    
     func finalizeAccountCreation() -> FinalizeAccountCreationViewController? {
         let storyboard = UIStoryboard(name: "FinalizeAccountCreationViewController", bundle: Bundle(for: FinalizeAccountCreationViewController.self))
         guard let vc = storyboard.instantiateInitialViewController() as? FinalizeAccountCreationViewController else {

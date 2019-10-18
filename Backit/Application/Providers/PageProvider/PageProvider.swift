@@ -7,6 +7,7 @@ import Foundation
 import UIKit
 
 protocol PageProvider {
+    func main() -> UIViewController?
     func finalizeAccountCreation() -> FinalizeAccountCreationViewController?
     func lostPassword() -> LostPasswordViewController?
     func createAccount() -> CreateAccountViewController?
