@@ -56,9 +56,11 @@ class SearchViewController: UIViewController {
     private var projects: [Project] = []
     
     private var searchProvider: ProjectSearchProvider?
+    private var navigationThemeApplier: NavigationThemeApplier?
     
-    func inject(searchProvider: ProjectSearchProvider) {
+    func inject(searchProvider: ProjectSearchProvider, navigationThemeApplier: NavigationThemeApplier) {
         self.searchProvider = searchProvider
+        self.navigationThemeApplier = navigationThemeApplier
     }
     
     override func viewDidLoad() {
@@ -69,11 +71,7 @@ class SearchViewController: UIViewController {
         
         _ = searchTextField.becomeFirstResponder()
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
-            return
-        }
-        
-        statusBar.backgroundColor = UIColor.bk.purple
+        navigationThemeApplier?.applyTo(navigationController?.navigationBar)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -353,7 +353,8 @@ class Assembly {
         
         container.storyboardInitCompleted(SearchViewController.self) { resolver, controller in
             let searchProvider = resolver.resolve(ProjectSearchProvider.self)!
-            controller.inject(searchProvider: searchProvider)
+            let navigationThemeApplier = resolver.resolve(NavigationThemeApplier.self)!
+            controller.inject(searchProvider: searchProvider, navigationThemeApplier: navigationThemeApplier)
         }
     }
 }

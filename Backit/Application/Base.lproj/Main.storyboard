@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,11 +19,12 @@
                     <connections>
                         <segue destination="4dZ-AG-dUg" kind="relationship" relationship="viewControllers" id="6hW-u6-TtX"/>
                         <segue destination="WSE-NH-Ycl" kind="relationship" relationship="viewControllers" id="P9e-rv-bxm"/>
+                        <segue destination="TOc-9I-N0q" kind="relationship" relationship="viewControllers" id="jOj-x6-YOr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="2" y="14"/>
         </scene>
         <!--ProjectFeed-->
         <scene sceneID="VgE-wZ-itg">
@@ -39,6 +38,16 @@
             </objects>
             <point key="canvasLocation" x="738" y="-182"/>
         </scene>
+        <!--SearchViewController-->
+        <scene sceneID="fne-kg-qT9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchViewController" id="TOc-9I-N0q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="ndY-6d-CbS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ha9-pw-Eai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="802" y="-108"/>
+        </scene>
         <!--Account-->
         <scene sceneID="IrZ-p0-z2d">
             <objects>
@@ -47,7 +56,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mah-QN-lYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="785" y="-107"/>
+            <point key="canvasLocation" x="754" y="-56"/>
         </scene>
     </scenes>
 </document>

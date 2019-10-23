@@ -124,6 +124,7 @@ class ProjectFeedViewController: UIViewController {
         }
         viewController.hero.isEnabled = true
         DispatchQueue.main.async { [weak self] in
+            self?.modalPresentationStyle = .fullScreen
             self?.present(viewController, animated: true, completion: nil)
         }
     }
