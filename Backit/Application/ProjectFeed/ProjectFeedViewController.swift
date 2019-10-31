@@ -6,7 +6,6 @@
 
 import AVKit
 import Foundation
-import Hero
 import MediaPlayer
 import SDWebImage
 import UIKit
@@ -33,7 +32,6 @@ class ProjectFeedViewController: UIViewController {
     @IBOutlet weak var searchImageView: CenteredImageView! {
         didSet {
             searchImageView.configure(image: UIImage(named: "search")?.sd_tintedImage(with: UIColor.bk.white), size: 30)
-            searchImageView.hero.id = "App.Search"
             let tap = UITapGestureRecognizer(target: self, action: #selector(didTapSearch(_:)))
             searchImageView.gestureRecognizers = [tap]
             searchImageView.isUserInteractionEnabled = true
@@ -42,9 +40,7 @@ class ProjectFeedViewController: UIViewController {
     @IBOutlet weak var closeImageView: CenteredImageView! {
         didSet {
             closeImageView.configure(image: UIImage(named: "close")?.sd_tintedImage(with: UIColor.bk.white), size: 30.0)
-            closeImageView.hero.id = "App.Close"
             closeImageView.layer.opacity = 0
-            closeImageView.hero.modifiers = [.opacity(1)]
         }
     }
     
@@ -122,7 +118,6 @@ class ProjectFeedViewController: UIViewController {
         guard let viewController = pageProvider?.search() else {
             return
         }
-        viewController.hero.isEnabled = true
         DispatchQueue.main.async { [weak self] in
             self?.modalPresentationStyle = .fullScreen
             self?.present(viewController, animated: true, completion: nil)
@@ -162,7 +157,6 @@ class ProjectFeedViewController: UIViewController {
             return log.c("Failed to configure ProjectFeedViewController")
         }
         viewController.configure(with: project, projectFuture: future)
-        viewController.hero.isEnabled = true
         DispatchQueue.main.async { [weak self] in
             self?.present(viewController, animated: true, completion: nil)
         }

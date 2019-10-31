@@ -61,7 +61,6 @@
 		3AB3F7B456AD4E1618B291C6 /* FeedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DBBD300C479ACF70E8A1B1 /* FeedProject.swift */; };
 		3BF47663B0296B214EE1A865 /* BannerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A91CF22A7C1BB897FA32F /* BannerScene.swift */; };
 		3D4FDB7F590E585E7B09CF37 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CBC7FC8453CD42CBCAC404 /* Localization.swift */; };
-		40CDCD90CD13B670BD3927C2 /* Hero.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 606E166D1CC4EBF62C220E4C /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42A8DBEE8A723FF41FC4F945 /* FacebookLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 770F68AC23E193F8061CAF03 /* FacebookLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42D638F645EB8901A7D02E43 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697B5CEE9E704CCEA5906800 /* Nimble.framework */; };
 		447A0748C89DCAAEC34B51B8 /* FlagID.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD421F6213CA920B016C2CD /* FlagID.swift */; };
@@ -134,7 +133,6 @@
 		8B9F4432275FDAF4820011A5 /* with.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A0968F0D94565A9ACA6AC /* with.swift */; };
 		8C476AABF443FBC8FBB6479E /* Errors+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7284115DBB4683DF633E912 /* Errors+Foundation.swift */; };
 		8CDE49F8492C53B993AE8122 /* AuthorizationServicePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5E47C25BD38F83466F4CA6 /* AuthorizationServicePlugin.swift */; };
-		8D7D39013823391C78747B1D /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606E166D1CC4EBF62C220E4C /* Hero.framework */; };
 		8DA5451155AAE391A6D8162A /* ProgressOverlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C1C3E53101E8564ACC238 /* ProgressOverlayScene.swift */; };
 		8EFBC8258CA6CA8FC186BA48 /* ProjectImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395BF2398D30ACD3C1DF5D9C /* ProjectImageCollectionView.swift */; };
 		8F0FE24518E2CC8A4E809CFC /* AlamofireServiceRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0867199FD8C41595C41FA6DC /* AlamofireServiceRequester.swift */; };
@@ -266,7 +264,6 @@
 				A1EFFAE6DFF9AD4832241491 /* FMDB.framework in Embed Frameworks */,
 				38CA911F0E262CC053FD5809 /* FacebookCore.framework in Embed Frameworks */,
 				42A8DBEE8A723FF41FC4F945 /* FacebookLogin.framework in Embed Frameworks */,
-				40CDCD90CD13B670BD3927C2 /* Hero.framework in Embed Frameworks */,
 				D44069FB13D486EB7BDF1B86 /* KIF.framework in Embed Frameworks */,
 				17928AF8B135020B00DFF5BE /* KeychainAccess.framework in Embed Frameworks */,
 				9536968FC1DC0655F97F5B78 /* Nimble.framework in Embed Frameworks */,
@@ -363,7 +360,6 @@
 		5D107AAEAA2B0E5060748198 /* AccountProviderError+BannerErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountProviderError+BannerErrorMessage.swift"; sourceTree = "<group>"; };
 		5F0360A7AA87AD9FC68217D3 /* PresenterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProvider.swift; sourceTree = "<group>"; };
 		5F7C781D841154ADE0BAAE74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		606E166D1CC4EBF62C220E4C /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Hero.framework; sourceTree = "<group>"; };
 		62D330325A245D59D425B240 /* AnalyticsTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTransaction.swift; sourceTree = "<group>"; };
 		63A76DE597CBC51CD25DA465 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		650DB3E50EFA092278DFF92D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -522,7 +518,6 @@
 				577C4565CD9B0BA58DF7F214 /* FBSDKCoreKit.framework in Frameworks */,
 				548BE2CD23BCFC48C00153CB /* FBSDKLoginKit.framework in Frameworks */,
 				7C300EDC4B6D41927EE1D829 /* FMDB.framework in Frameworks */,
-				8D7D39013823391C78747B1D /* Hero.framework in Frameworks */,
 				EF779FFFC464D15F84AE8342 /* KeychainAccess.framework in Frameworks */,
 				B995DDDAA2849C6B362C19C5 /* SDWebImage.framework in Frameworks */,
 				EEF2AC7433B2547385928C16 /* Swinject.framework in Frameworks */,
@@ -1203,7 +1198,6 @@
 				2876125BB009560E930B8383 /* FBSDKCoreKit.framework */,
 				1A0E01CAC50128701AAF7E4E /* FBSDKLoginKit.framework */,
 				9CB7DADCC0AD655EB2AAB5F7 /* FMDB.framework */,
-				606E166D1CC4EBF62C220E4C /* Hero.framework */,
 				4A95F7582CC6F61DFC8BDC23 /* KeychainAccess.framework */,
 				ED7111BB1A7120964402AC19 /* KIF.framework */,
 				697B5CEE9E704CCEA5906800 /* Nimble.framework */,
@@ -1368,7 +1362,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/FMDB.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FacebookCore.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FacebookLogin.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",

@@ -142,9 +142,6 @@ class ProjectTableViewCell: UITableViewCell {
                 return
             }
             
-            projectImageCollectionView.hero.id = ProjectFeedModule.HeroId.projectImage(project.id)
-            projectNameLabel.hero.id = ProjectFeedModule.HeroId.projectName(project.id)
-
             projectImageCollectionView.assets = project.assets
             imagePagerView.configure(assets: project.assets, selectedIndex: 0)
             
