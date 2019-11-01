@@ -37,7 +37,7 @@ class SearchViewController: UIViewController {
             cancelButton.isUserInteractionEnabled = true
         }
     }
-    @IBOutlet private weak var searchIconView: CenteredImageView! {
+    @IBOutlet private(set) weak var searchIconView: CenteredImageView! {
         didSet {
             searchIconView.configure(image: UIImage(named: "search")?.sd_tintedImage(with: UIColor.bk.white), size: 30.0)
         }

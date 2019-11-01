@@ -16,6 +16,123 @@ var ProjectImageSize: CGSize = .zero
 private let MainScreenSizeWidth = UIScreen.main.bounds.size.width
 private let iPhone5sImageSize = CGSize(width: MainScreenSizeWidth, height: 180.0)
 
+extension UIView {
+    func screenshot() -> UIImage {
+        return UIGraphicsImageRenderer(size: bounds.size).image { _ in
+            drawHierarchy(in: CGRect(origin: .zero, size: bounds.size), afterScreenUpdates: true)
+        }
+    }
+}
+
+class SearchAnimator: NSObject,
+UIViewControllerAnimatedTransitioning {
+    
+    var originFrame: CGRect = .zero
+    var dismissCompletion: (() -> Void)?
+    
+    private let duration: TimeInterval = 0.33
+    private var finalFrame: CGRect = .zero
+
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return duration
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let toController = transitionContext.viewController(forKey: .to) else {
+            return
+        }
+        if toController.isBeingPresented {
+            animatePresent(transitionContext)
+        }
+        else {
+            animateDismiss(transitionContext)
+        }
+    }
+    
+    private func animatePresent(_ transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
+        guard let feedController = transitionContext.viewController(forKey: .from) as? ProjectFeedViewController,
+              let searchView = transitionContext.view(forKey: .to),
+              let searchController = transitionContext.viewController(forKey: .to) as? SearchViewController else {
+            return print("Failed to get `SearchViewController` from `transitionContext`")
+        }
+        
+        let searchIconView = UIImageView(image: feedController.searchImageView.screenshot())
+        searchIconView.frame = originFrame
+        
+        searchController.cancelButton.alpha = 0.0
+        searchController.searchIconView.alpha = 0.0
+        
+        containerView.addSubview(searchView)
+        containerView.addSubview(searchIconView)
+        containerView.bringSubviewToFront(searchView)
+        containerView.bringSubviewToFront(searchIconView)
+        
+        guard let toSearchIconView = searchController.searchIconView,
+              let finalFrame = toSearchIconView.superview?.convert(toSearchIconView.frame, to: nil) else {
+            return print("failed to get to searchIconView or endFrame")
+        }
+
+        self.finalFrame = finalFrame
+        
+        UIView.animate(
+            withDuration: duration,
+            delay: 0.0,
+            usingSpringWithDamping: 0.8,
+            initialSpringVelocity: 0.0,
+            animations: {
+                searchController.cancelButton.alpha = 1.0
+                searchIconView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
+            },
+            completion: { _ in
+                searchController.searchIconView.alpha = 1.0
+                searchIconView.removeFromSuperview()
+                transitionContext.completeTransition(true)
+            }
+        )
+    }
+    
+    private func animateDismiss(_ transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
+        guard let feedController = transitionContext.viewController(forKey: .to) as? ProjectFeedViewController,
+              let searchController = transitionContext.viewController(forKey: .from) as? SearchViewController else {
+            return print("Failed to get `ProjectFeedViewController` from `transitionContext`")
+        }
+        
+        let searchIconView = UIImageView(image: feedController.searchImageView.screenshot())
+        searchIconView.frame = finalFrame
+                
+        if let toView = transitionContext.view(forKey: .to) {
+            containerView.addSubview(toView)
+        }
+
+        containerView.addSubview(searchIconView)
+        containerView.bringSubviewToFront(searchIconView)
+        
+        searchController.searchIconView.alpha = 0.0
+        searchController.cancelButton.alpha = 0.0
+        feedController.searchImageView.alpha = 0.0
+
+        let finalFrame = originFrame
+        
+        UIView.animate(
+            withDuration: duration,
+            delay: 0.0,
+            usingSpringWithDamping: 0.8,
+            initialSpringVelocity: 0.0,
+            animations: {
+                searchController.cancelButton.alpha = 0.0
+                searchIconView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
+            },
+            completion: { _ in
+                feedController.searchImageView.alpha = 1.0
+                searchIconView.removeFromSuperview()
+                transitionContext.completeTransition(true)
+            }
+        )
+    }
+}
+
 class ProjectFeedViewController: UIViewController {
     
     @IBOutlet weak var navigationBarView: UIView! {
@@ -77,6 +194,8 @@ class ProjectFeedViewController: UIViewController {
     private var projects: [FeedProject] = []
     private var loadingState: LoadingResultsCellState = .ready
     
+    private let searchAnimator = SearchAnimator()
+    
     func inject(theme: AnyUITheme<AppTheme>, pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider, shareProvider: ShareProvider, navigationThemeApplier: NavigationThemeApplier) {
         self.provider = provider
         self.provider?.client = self
@@ -119,7 +238,9 @@ class ProjectFeedViewController: UIViewController {
             return
         }
         DispatchQueue.main.async { [weak self] in
-            self?.modalPresentationStyle = .fullScreen
+            self?.definesPresentationContext = true
+            viewController.modalPresentationStyle = .overCurrentContext
+            viewController.transitioningDelegate = self
             self?.present(viewController, animated: true, completion: nil)
         }
     }
@@ -337,4 +458,26 @@ extension ProjectFeedViewController: ProjectFeedErrorViewDelegate {
     func didRequestToReloadData() {
         provider?.loadProjects()
     }
+}
+
+extension ProjectFeedViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let searchImageView = searchImageView,
+              let superview = searchImageView.superview else {
+            fatalError("failed to get searchImageView")
+        }
+        
+        searchAnimator.originFrame = superview.convert(searchImageView.frame, to: nil)
+//        searchImageView.isHidden = true
+        searchAnimator.dismissCompletion = { [weak searchImageView] in
+//            searchImageView?.isHidden = false
+        }
+        
+        return searchAnimator
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return searchAnimator
+    }
+
 }
