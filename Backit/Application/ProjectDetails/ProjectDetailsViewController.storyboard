@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nyR-m5-rLU">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nyR-m5-rLU">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -232,22 +230,12 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-sW-Z9O" customClass="CenteredImageView" customModule="Backit" customModuleProvider="target">
-                                        <rect key="frame" x="366" y="-48" width="48" height="48"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="48" id="ZQh-y1-EaM"/>
-                                            <constraint firstAttribute="height" constant="48" id="dEz-tq-BWv"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="JvP-vR-Dtf" secondAttribute="trailing" id="6C5-gU-GH3"/>
                                     <constraint firstItem="JvP-vR-Dtf" firstAttribute="leading" secondItem="szm-Tt-gLW" secondAttribute="leading" id="Wzx-RE-htI"/>
                                     <constraint firstItem="JvP-vR-Dtf" firstAttribute="top" secondItem="szm-Tt-gLW" secondAttribute="top" id="b7V-4a-U5U"/>
-                                    <constraint firstItem="TUd-sW-Z9O" firstAttribute="top" secondItem="szm-Tt-gLW" secondAttribute="top" constant="-48" id="fZG-db-4gq"/>
-                                    <constraint firstAttribute="trailing" secondItem="TUd-sW-Z9O" secondAttribute="trailing" id="hTK-UJ-K6z"/>
                                     <constraint firstAttribute="height" constant="48" id="oCv-dI-i47"/>
                                     <constraint firstAttribute="bottom" secondItem="JvP-vR-Dtf" secondAttribute="bottom" id="twG-f6-o3h"/>
                                 </constraints>
@@ -285,7 +273,6 @@
                         <outlet property="progressView" destination="HWn-Ii-TlX" id="z5q-QR-E67"/>
                         <outlet property="projectDescriptionButton" destination="eZg-Vb-EHm" id="V7G-dK-K3F"/>
                         <outlet property="rewardsStackView" destination="ZHu-tn-2wF" id="Lem-TU-3h3"/>
-                        <outlet property="searchImageView" destination="TUd-sW-Z9O" id="N2f-Zo-NSr"/>
                         <outlet property="titleLabel" destination="RQ2-dx-bU4" id="hza-vn-MuJ"/>
                     </connections>
                 </viewController>

@@ -16,19 +16,19 @@ class SearchViewController: UIViewController {
         static let GutterCell = "GutterCell"
     }
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
         }
     }
     
-    @IBOutlet weak var searchFieldBackgroundView: UIView! {
+    @IBOutlet private weak var searchFieldBackgroundView: UIView! {
         didSet {
             searchFieldBackgroundView.backgroundColor = UIColor.bk.purple
         }
     }
-    @IBOutlet weak var cancelButton: UIButton! {
+    @IBOutlet private(set) weak var cancelButton: UIButton! {
         didSet {
             cancelButton.setTitle("Cancel", for: .normal)
             let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCancel(_:)))

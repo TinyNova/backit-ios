@@ -10,27 +10,22 @@ import UIKit
 
 class ProjectDetailsViewController: UIViewController {
         
-    @IBOutlet weak var navigationBarView: UIView! {
+    @IBOutlet private(set) weak var navigationBarView: UIView! {
         didSet {
             navigationBarView.backgroundColor = UIColor.bk.purple
         }
     }
-    @IBOutlet weak var searchImageView: CenteredImageView! {
+    @IBOutlet private(set) weak var closeImageView: CenteredImageView! {
         didSet {
-            searchImageView.configure(image: UIImage(named: "search")?.sd_tintedImage(with: UIColor.bk.white), size: 30.0)
-        }
-    }
-    @IBOutlet private weak var closeImageView: CenteredImageView! {
-        didSet {
-            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCloseButton))
             closeImageView.configure(image: UIImage(named: "close")?.sd_tintedImage(with: UIColor.bk.white), size: 30.0)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCloseButton))
             closeImageView.addGestureRecognizer(tap)
             closeImageView.isUserInteractionEnabled = true
         }
     }
     
     @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet weak var playVideoButton: UIImageView! {
+    @IBOutlet private weak var playVideoButton: UIImageView! {
         didSet {
             playVideoButton.isHidden = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(didTapPlayVideoButton))
