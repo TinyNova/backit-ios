@@ -24,7 +24,7 @@ class ProjectDetailsViewController: UIViewController {
         }
     }
     
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private(set) weak var imageView: UIImageView!
     @IBOutlet private weak var playVideoButton: UIImageView! {
         didSet {
             playVideoButton.isHidden = true

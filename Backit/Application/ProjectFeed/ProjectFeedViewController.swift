@@ -158,6 +158,8 @@ class ProjectFeedViewController: UIViewController {
         }
     }
     
+    fileprivate var selectedProjectImageView: UIImageView?
+    
     private func displayProjectDetails(from cell: ProjectTableViewCell?) {
         guard let project = cell?.project else {
             // NOTE: It could also be that the "Loading cell" was tapped
@@ -169,6 +171,7 @@ class ProjectFeedViewController: UIViewController {
         guard let future = projectProvider?.project(id: project.id) else {
             return log.c("Failed to configure ProjectFeedViewController")
         }
+        selectedProjectImageView = cell?.visibleProjectImageView
         viewController.configure(with: project, projectFuture: future)
         DispatchQueue.main.async { [weak self] in
             self?.definesPresentationContext = true
@@ -370,6 +373,7 @@ extension ProjectFeedViewController: UIViewControllerTransitioningDelegate {
         }
         else if presented is ProjectDetailsViewController {
             projectAnimator.moveImageNameUp = "search"
+            projectAnimator.projectImageView = selectedProjectImageView
             
             return projectAnimator
         }

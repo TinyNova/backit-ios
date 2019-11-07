@@ -32,6 +32,7 @@ class ProjectImageCollectionView: UICollectionView {
 
     public weak var projectDelegate: ProjectImageCollectionViewDelegate?
     
+    private var currentCell: ProjectCardCell?
     private var currentCellIndex = 0
     private var indexOfCellBeforeDragging = 0
     private lazy var layout: UICollectionViewFlowLayout = {
@@ -42,6 +43,10 @@ class ProjectImageCollectionView: UICollectionView {
         layout.scrollDirection = .horizontal
         return layout
     }()
+    
+    var visibleImageView: UIImageView? {
+        return currentCell?.imageView
+    }
     
     var assets: [ProjectAsset] = [] {
         didSet {
@@ -96,6 +101,7 @@ extension ProjectImageCollectionView: UICollectionViewDataSource {
         
         if let cell = cell as? ProjectCardCell {
             cell.configure(url: url)
+            currentCell = cell
         }
         
         return cell
@@ -154,13 +160,15 @@ extension ProjectImageCollectionView: UIScrollViewDelegate {
 // MARK: - ProjectCardCell
 
 private protocol ProjectCardCell {
+    var imageView: UIImageView! { get }
+    
     func configure(url: URL)
 }
 
 class ProjectImageCell: UICollectionViewCell, ProjectCardCell {
     
-    @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet private(set) weak var imageView: UIImageView!
+        
     func configure(url: URL) {
         imageView.image = nil
         
@@ -186,7 +194,7 @@ class ProjectImageAnimatedCell: UICollectionViewCell, ProjectCardCell {
         }
     }
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private(set) weak var imageView: UIImageView!
     
     private var theme: UIThemeApplier<AppTheme> = AppTheme.default
 

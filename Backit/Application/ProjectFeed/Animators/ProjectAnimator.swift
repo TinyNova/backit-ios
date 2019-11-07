@@ -6,6 +6,7 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     // TODO: Project Image
     // TODO: Project name
     var moveImageNameUp: String = ""
+    var projectImageView: UIImageView?
     var dismissCompletion: (() -> Void)?
     
     private let duration: TimeInterval = 0.33
@@ -37,22 +38,26 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         // TODO: Animate the search icon out of view. Then back into view.
         guard let toCloseView = toController.closeImageView,
-              let finalFrame = toCloseView.superview?.superview?.convert(toCloseView.frame, to: nil) else {
-            return print("failed to get to searchIconView or endFrame")
+              let toProjectImageView = toController.imageView else {
+            return print("Failed to get `ProjectDetailsViewController` views")
         }
+        
+        let closeViewXPos: CGFloat = toCloseView.frame.origin.x - 30
+        // view: 48 - image: 30 = 9.0
+        let closeViewYPos: CGFloat = 9.0
         
         // MARK: Move existing image out of view
         
         let muImage = UIImage(named: moveImageNameUp)?.sd_tintedImage(with: UIColor.bk.white)
         let currentImageView = UIImageView(image: muImage)
         currentImageView.frame = CGRect(
-            x: toCloseView.frame.origin.x - 30,
-            y: 9.0,
+            x: closeViewXPos,
+            y: closeViewYPos,
             width: 30.0,
             height: 30.0
         )
         let endCurrentImageFrame = CGRect(
-            x: toCloseView.frame.origin.x - 30,
+            x: closeViewXPos,
             y: -40.0,
             width: 30.0,
             height: 30.0
@@ -64,16 +69,34 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let closeIconView = UIImageView(image: imageView)
         let navigationBarFrame = toController.navigationBarView.frame
         closeIconView.frame = CGRect(
-            x: toCloseView.frame.origin.x - 30,
+            x: closeViewXPos,
             y: navigationBarFrame.origin.y + navigationBarFrame.size.height,
             width: 30.0,
             height: 30.0
         )
-        // view: 48 - image: 30 = 9.0
         var endCloseImageFrame = toCloseView.frame
-        endCloseImageFrame.origin = CGPoint(x: finalFrame.origin.x - 30, y: 9.0)
+        endCloseImageFrame.origin = CGPoint(x: closeViewXPos, y: closeViewYPos)
         endCloseImageFrame.size = closeIconView.frame.size
          
+        // MARK: Project image
+        
+        var projectImageView: UIImageView?
+        var endProjectImageViewFrame: CGRect = .zero
+        if let view = self.projectImageView,
+           let projectImage = view.image,
+           let frame = view.superview?.convert(view.frame, to: nil),
+           let cgImage = projectImage.cgImage,
+           let copyCgImage = cgImage.copy() {
+            let copyImage = UIImage(cgImage: copyCgImage)
+            let imageView = UIImageView(image: copyImage)
+            imageView.frame = frame
+            
+            let endFrame = toProjectImageView.superview?.convert(toProjectImageView.frame, to: nil) ?? .zero
+            endProjectImageViewFrame = CGRect(x: endFrame.origin.x, y: endFrame.origin.y + UIApplication.shared.statusBarFrame.size.height, width: view.frame.size.width, height: toProjectImageView.frame.size.height)
+            
+            projectImageView = imageView
+        }
+        
         // MARK: Initialize to view state
         
         // Hide close image
@@ -84,10 +107,16 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         toController.navigationBarView.bringSubviewToFront(currentImageView)
         toController.navigationBarView.addSubview(closeIconView)
         toController.navigationBarView.bringSubviewToFront(closeIconView)
-        
+                
         containerView.addSubview(toView)
         containerView.bringSubviewToFront(toView)
         
+        if let view = projectImageView {
+            toController.imageView.alpha = 0.0
+            containerView.addSubview(view)
+            containerView.bringSubviewToFront(view)
+        }
+
         self.finalFrame = toCloseView.frame
         
         UIView.animate(
@@ -98,11 +127,14 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             animations: {
                 currentImageView.frame = endCurrentImageFrame
                 closeIconView.frame = endCloseImageFrame
+                projectImageView?.frame = endProjectImageViewFrame
             },
             completion: { _ in
                 toController.closeImageView.alpha = 1.0
+                toController.imageView.alpha = 1.0
                 closeIconView.removeFromSuperview()
                 currentImageView.removeFromSuperview()
+                projectImageView?.removeFromSuperview()
                 transitionContext.completeTransition(true)
             }
         )

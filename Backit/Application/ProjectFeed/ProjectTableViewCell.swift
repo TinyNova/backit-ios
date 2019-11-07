@@ -131,6 +131,10 @@ class ProjectTableViewCell: UITableViewCell {
     
     weak var delegate: ProjectTableViewCellDelegate?
     
+    var visibleProjectImageView: UIImageView? {
+        return projectImageCollectionView.visibleImageView
+    }
+    
     private let theme: UIThemeApplier<AppTheme> = AppTheme.default
     private let i18n = Localization<Appl10n>()
     private var didVote: Bool = false
