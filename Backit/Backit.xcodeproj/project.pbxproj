@@ -238,7 +238,6 @@
 		F7F816D5312FBF5F8728B5B7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B49E00D1CA095FCD957268 /* Service.swift */; };
 		F8287C2A7F7F216ECCB459AF /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105FEBD8859FC02420312CAF /* SearchViewController.storyboard */; };
 		F96197810D95E201AAF58AB8 /* AvatarTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794853C988A6B1E70815440C /* AvatarTabBarItem.swift */; };
-		F994E1EB064F7DC0BD93A877 /* ProjectFeedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBD4EA8025E4B8EA02ABDBC /* ProjectFeedModule.swift */; };
 		FCE35F5CE039790FCFC79B29 /* ProgressOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6758E9CFB9F946512580733D /* ProgressOverlayViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -348,7 +347,6 @@
 		4A95F7582CC6F61DFC8BDC23 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = "<group>"; };
 		4B1A6C1B7691059648FB3E4F /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
 		4B5E47C25BD38F83466F4CA6 /* AuthorizationServicePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServicePlugin.swift; sourceTree = "<group>"; };
-		4DBD4EA8025E4B8EA02ABDBC /* ProjectFeedModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedModule.swift; sourceTree = "<group>"; };
 		4DED7BF3D664B6ED124CD77D /* AvatarTabBarItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarTabBarItem.xib; sourceTree = "<group>"; };
 		4E6C1C3E53101E8564ACC238 /* ProgressOverlayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlayScene.swift; sourceTree = "<group>"; };
 		4EA4C23F705C78F2DC5EBBD4 /* Pods-BackitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackitTests.debug.xcconfig"; path = "Target Support Files/Pods-BackitTests/Pods-BackitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -682,7 +680,6 @@
 				077AD48C237102CD00A61FFF /* Animators */,
 				46DBBD300C479ACF70E8A1B1 /* FeedProject.swift */,
 				6FB39E77270484C35C3670DD /* ProjectFeed.storyboard */,
-				4DBD4EA8025E4B8EA02ABDBC /* ProjectFeedModule.swift */,
 				52FC6E44E6ACC011790C6128 /* ProjectFeedViewController.swift */,
 				B5F1F3631DBF93D26CA9B842 /* ProjectTableViewCell.swift */,
 				E1C7A0565A4C646ADD4184EE /* ProjectTableViewCell.xib */,
@@ -1628,7 +1625,6 @@
 				91D10F3D9F149497F9B7D5DF /* ProjectFeedCompositionProvider.swift in Sources */,
 				85F5AC0C80DA8136E30DA390 /* ProjectFeedCompositionService.swift in Sources */,
 				6E3AF6659E3460C3A3C4F862 /* ProjectFeedErrorView.swift in Sources */,
-				F994E1EB064F7DC0BD93A877 /* ProjectFeedModule.swift in Sources */,
 				65737B6BB3E3AA39701D2B53 /* ProjectFeedProvider.swift in Sources */,
 				A4766B5AAA8A286904A1F481 /* ProjectFeedService.swift in Sources */,
 				9FAEF9FF6265676E359F6DAB /* ProjectFeedViewController.swift in Sources */,

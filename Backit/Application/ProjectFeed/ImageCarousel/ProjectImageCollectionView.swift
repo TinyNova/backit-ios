@@ -21,13 +21,6 @@ protocol ProjectImageCollectionViewDelegate: class {
     func didScrollToProjectAsset(_ asset: ProjectAsset, at index: Int)
 }
 
-private struct CellSizeCache {
-    var size: CGSize
-    var cached: Bool
-}
-
-private var cache = CellSizeCache(size: CGSize(width: 100.0, height: 100.0), cached: false)
-
 class ProjectImageCollectionView: UICollectionView {
 
     public weak var projectDelegate: ProjectImageCollectionViewDelegate?

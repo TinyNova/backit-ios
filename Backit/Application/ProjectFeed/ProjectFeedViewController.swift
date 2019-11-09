@@ -63,7 +63,7 @@ class ProjectFeedViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
-            tableView.estimatedRowHeight = 582
+            tableView.estimatedRowHeight = 420
             tableView.estimatedSectionHeaderHeight = 0
             tableView.estimatedSectionFooterHeight = 0
             tableView.separatorStyle = .none
@@ -216,7 +216,8 @@ extension ProjectFeedViewController: ProjectFeedClient {
                     return
                 }
 
-                ProjectImageSize = image.proportionalScaledSize(using: MainScreenSizeWidth)
+//                ProjectImageSize = image.proportionalScaledSize(using: MainScreenSizeWidth)
+                ProjectImageSize = CGSize(width: MainScreenSizeWidth, height: 200.0)
                 self?.addProjects(projects)
             }
         }
@@ -388,7 +389,7 @@ extension ProjectFeedViewController: UIViewControllerTransitioningDelegate {
             return searchAnimator
         }
         else if dismissed is ProjectDetailsViewController {
-            return nil
+            return projectAnimator
         }
         else {
             log.e("Unknown view controller being dismissed \(type(of: dismissed))")

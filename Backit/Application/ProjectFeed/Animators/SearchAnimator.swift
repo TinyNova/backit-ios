@@ -97,6 +97,7 @@ class SearchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             usingSpringWithDamping: 0.8,
             initialSpringVelocity: 0.0,
             animations: {
+                searchController.view.alpha = 0.0
                 searchController.cancelButton.alpha = 0.0
                 searchIconView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
             },

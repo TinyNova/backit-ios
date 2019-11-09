@@ -16,8 +16,12 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     // Used when dismissing
     private var currentImageViewBeginFrame: CGRect = .zero
+    private var endCurrentImageFrame: CGRect = .zero
     private var closeImageViewBeginFrame: CGRect = .zero
+    private var endCloseImageFrame: CGRect = .zero
+    private var _projectImageView: UIImageView?
     private var projectImageBeginFrame: CGRect = .zero
+    private var endProjectImageViewFrame: CGRect = .zero
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
@@ -61,7 +65,7 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             width: 30.0,
             height: 30.0
         )
-        let endCurrentImageFrame = CGRect(
+        endCurrentImageFrame = CGRect(
             x: closeViewXPos,
             y: -40.0,
             width: 30.0,
@@ -79,7 +83,7 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             width: 30.0,
             height: 30.0
         )
-        var endCloseImageFrame = toCloseView.frame
+        endCloseImageFrame = toCloseView.frame
         endCloseImageFrame.origin = CGPoint(x: closeViewXPos, y: closeViewYPos)
         endCloseImageFrame.size = closeImageView.frame.size
          
@@ -87,9 +91,7 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         // FIXME: We may have to set the project image as the imge displayed in the details page to be consistent.
         
-        var projectImageView: UIImageView?
-        var endProjectImageViewFrame: CGRect = .zero
-        if let view = self.projectImageView,
+        if let view = projectImageView,
            let projectImage = view.image,
            let frame = view.superview?.convert(view.frame, to: nil),
            let cgImage = projectImage.cgImage,
@@ -101,7 +103,8 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let endFrame = toProjectImageView.superview?.convert(toProjectImageView.frame, to: nil) ?? .zero
             endProjectImageViewFrame = CGRect(x: endFrame.origin.x, y: endFrame.origin.y + UIApplication.shared.statusBarFrame.size.height, width: view.frame.size.width, height: toProjectImageView.frame.size.height)
             
-            projectImageView = imageView
+            projectImageBeginFrame = frame
+            _projectImageView = imageView
         }
         
         // MARK: Initialize to view state
@@ -118,7 +121,7 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(toView)
         containerView.bringSubviewToFront(toView)
         
-        if let view = projectImageView {
+        if let view = _projectImageView {
             toController.imageView.alpha = 0.0
             containerView.addSubview(view)
             containerView.bringSubviewToFront(view)
@@ -126,24 +129,26 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
         currentImageViewBeginFrame = currentImageView.frame
         closeImageViewBeginFrame = closeImageView.frame
-        projectImageBeginFrame = projectImageView?.frame ?? .zero
         
         UIView.animate(
             withDuration: duration,
             delay: 0.0,
             usingSpringWithDamping: 0.8,
             initialSpringVelocity: 0.0,
-            animations: {
-                currentImageView.frame = endCurrentImageFrame
-                closeImageView.frame = endCloseImageFrame
-                projectImageView?.frame = endProjectImageViewFrame
+            animations: { [weak self] in
+                guard let sself = self else {
+                    return
+                }
+                currentImageView.frame = sself.endCurrentImageFrame
+                closeImageView.frame = sself.endCloseImageFrame
+                sself._projectImageView?.frame = sself.endProjectImageViewFrame
             },
-            completion: { _ in
+            completion: { [weak self] _ in
                 toController.closeImageView.alpha = 1.0
                 toController.imageView.alpha = 1.0
                 closeImageView.removeFromSuperview()
                 currentImageView.removeFromSuperview()
-                projectImageView?.removeFromSuperview()
+                self?._projectImageView?.removeFromSuperview()
                 transitionContext.completeTransition(true)
             }
         )
@@ -151,41 +156,59 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     private func animateDismiss(_ transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        guard let feedController = transitionContext.viewController(forKey: .to) as? ProjectFeedViewController,
-              let searchController = transitionContext.viewController(forKey: .from) as? SearchViewController else {
-            return print("Failed to get `ProjectFeedViewController` from `transitionContext`")
+        guard let fromController = transitionContext.viewController(forKey: .from) as? ProjectDetailsViewController else {
+            return log.w("Failed to get controllers to transition to/from")
         }
         
-        let searchIconView = UIImageView(image: feedController.searchImageView.screenshot())
-//        searchIconView.frame = finalFrame
-                
-        if let toView = transitionContext.view(forKey: .to) {
-            containerView.addSubview(toView)
+        let muImage = UIImage(named: moveImageNameUp)?.sd_tintedImage(with: UIColor.bk.white)
+        let currentImageView = UIImageView(image: muImage)
+        currentImageView.frame = endCurrentImageFrame
+        
+        let imageView = UIImage(named: "close")?.sd_tintedImage(with: UIColor.bk.white)
+        let closeImageView = UIImageView(image: imageView)
+        closeImageView.frame = endCloseImageFrame
+        
+        if let view = projectImageView,
+           let projectImage = view.image,
+           let cgImage = projectImage.cgImage,
+           let copyCgImage = cgImage.copy() {
+            let copyImage = UIImage(cgImage: copyCgImage)
+            let imageView = UIImageView(image: copyImage)
+            imageView.frame = endProjectImageViewFrame
+            _projectImageView = imageView
+            containerView.addSubview(imageView)
+            containerView.bringSubviewToFront(imageView)
         }
 
-        containerView.addSubview(searchIconView)
-        containerView.bringSubviewToFront(searchIconView)
+        fromController.imageView.alpha = 0.0
+        fromController.closeImageView.alpha = 0.0
         
-        searchController.searchIconView.alpha = 0.0
-        searchController.cancelButton.alpha = 0.0
-        feedController.searchImageView.alpha = 0.0
+        // Add views to animate into respective subviews
+        fromController.navigationBarView.addSubview(currentImageView)
+        fromController.navigationBarView.bringSubviewToFront(currentImageView)
+        fromController.navigationBarView.addSubview(closeImageView)
+        fromController.navigationBarView.bringSubviewToFront(closeImageView)
 
-//        let finalFrame = originFrame
-//        
-//        UIView.animate(
-//            withDuration: duration,
-//            delay: 0.0,
-//            usingSpringWithDamping: 0.8,
-//            initialSpringVelocity: 0.0,
-//            animations: {
-//                searchController.cancelButton.alpha = 0.0
-//                searchIconView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
-//            },
-//            completion: { _ in
-//                feedController.searchImageView.alpha = 1.0
-//                searchIconView.removeFromSuperview()
-//                transitionContext.completeTransition(true)
-//            }
-//        )
+        UIView.animate(
+            withDuration: duration,
+            delay: 0.0,
+            usingSpringWithDamping: 0.8,
+            initialSpringVelocity: 0.0,
+            animations: { [weak self] in
+                guard let sself = self else {
+                    return
+                }
+                fromController.view.alpha = 0.0
+                currentImageView.frame = sself.currentImageViewBeginFrame
+                closeImageView.frame = sself.closeImageViewBeginFrame
+                sself._projectImageView?.frame = sself.projectImageBeginFrame
+            },
+            completion: { [weak self] _ in
+                closeImageView.removeFromSuperview()
+                currentImageView.removeFromSuperview()
+                self?._projectImageView?.removeFromSuperview()
+                transitionContext.completeTransition(true)
+            }
+        )
     }
 }
