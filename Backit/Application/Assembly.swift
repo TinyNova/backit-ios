@@ -302,7 +302,6 @@ class Assembly {
         }
 
         container.storyboardInitCompleted(ProjectFeedViewController.self) { resolver, controller in
-            let theme = resolver.resolve(AppTheme.self)!
             let pageProvider = resolver.resolve(PageProvider.self)!
             let projectProvider = resolver.resolve(ProjectProvider.self)!
             let provider = resolver.resolve(ProjectFeedProvider.self)!
@@ -312,7 +311,7 @@ class Assembly {
             let shareProvider = resolver.resolve(ShareProvider.self)!
             let navThemeApplier = resolver.resolve(NavigationThemeApplier.self)!
             
-            controller.inject(theme: AnyUITheme<AppTheme>(theme: theme), pageProvider: pageProvider, projectProvider: projectProvider, provider: provider, signInProvider: signInProvider, overlay: overlay, banner: banner, shareProvider: shareProvider, navigationThemeApplier: navThemeApplier)
+            controller.inject(pageProvider: pageProvider, projectProvider: projectProvider, provider: provider, signInProvider: signInProvider, overlay: overlay, banner: banner, shareProvider: shareProvider, navigationThemeApplier: navThemeApplier)
         }
         
         container.storyboardInitCompleted(ProjectDetailsViewController.self) { resolver, controller in

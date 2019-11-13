@@ -8,22 +8,6 @@ private enum RowType {
     case gutter
 }
 
-// this doesn't work. test it on real device.
-
-class SingleTouchDownGestureRecognizer: UIGestureRecognizer {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
-        if self.state == .possible {
-            self.state = .recognized
-        }
-    }
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
-        self.state = .failed
-    }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
-        self.state = .failed
-    }
-}
-
 class SearchViewController: UIViewController {
     
     private enum Identifier {
@@ -47,8 +31,10 @@ class SearchViewController: UIViewController {
     @IBOutlet private(set) weak var cancelButton: UIButton! {
         didSet {
             cancelButton.setTitle("Cancel", for: .normal)
-            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCancel(_:)))
             cancelButton.setTitleColor(UIColor.bk.white, for: .normal)
+            
+            let tap = UILongPressGestureRecognizer(target:self, action: #selector(didTapCancel))
+            tap.minimumPressDuration = 0
             cancelButton.gestureRecognizers = [tap]
             cancelButton.isUserInteractionEnabled = true
         }
@@ -93,8 +79,10 @@ class SearchViewController: UIViewController {
         return .lightContent
     }
     
-    @objc private func didTapCancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @objc private func didTapCancel(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     private func updateResult(result: ProjectSearchResult) {
@@ -250,10 +238,26 @@ class GutterTableViewCell: UITableViewCell {
 class TinyProjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var progressBarView: UIProgressView!
-    @IBOutlet weak var daysLeftLabel: UILabel!
-    @IBOutlet weak var earlyBirdRewardsLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel! {
+        didSet {
+            theme.apply(.smallProjectName, toLabel: nameLabel)
+        }
+    }
+    @IBOutlet weak var progressBarView: UIProgressView! {
+        didSet {
+            theme.apply(.fundedPercent, toProgressView: progressBarView)
+        }
+    }
+    @IBOutlet weak var daysLeftLabel: UILabel! {
+        didSet {
+            theme.apply(.details, toLabel: daysLeftLabel)
+        }
+    }
+    @IBOutlet weak var earlyBirdRewardsLabel: UILabel! {
+        didSet {
+            theme.apply(.details, toLabel: earlyBirdRewardsLabel)
+        }
+    }
     @IBOutlet weak var separatorView: UIView! {
         didSet {
             theme.apply(.lineSeparator, toView: separatorView)
@@ -276,7 +280,17 @@ class TinyProjectTableViewCell: UITableViewCell {
             : 0
         fundedPercent = fundedPercent > 1 ? 1 : fundedPercent
         progressBarView.progress = fundedPercent
-        daysLeftLabel.text = String(project.numDaysLeft)
-        earlyBirdRewardsLabel.text = String(project.numEarlyBirdRewards)
+        if project.numDaysLeft == 1 {
+            daysLeftLabel.text = "1 day left"
+        }
+        else {
+            daysLeftLabel.text = "\(project.numDaysLeft) days left"
+        }
+        if project.numEarlyBirdRewards == 1 {
+            earlyBirdRewardsLabel.text = "1 early bird"
+        }
+        else {
+            earlyBirdRewardsLabel.text = "\(project.numEarlyBirdRewards) early birds"
+        }
     }
 }

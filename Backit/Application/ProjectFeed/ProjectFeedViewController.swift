@@ -88,7 +88,7 @@ class ProjectFeedViewController: UIViewController {
     private let searchAnimator = SearchAnimator()
     private let projectAnimator = ProjectAnimator()
     
-    func inject(theme: AnyUITheme<AppTheme>, pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider, shareProvider: ShareProvider, navigationThemeApplier: NavigationThemeApplier) {
+    func inject(pageProvider: PageProvider, projectProvider: ProjectProvider, provider: ProjectFeedProvider, signInProvider: SignInProvider, overlay: ProgressOverlayProvider, banner: BannerProvider, shareProvider: ShareProvider, navigationThemeApplier: NavigationThemeApplier) {
         self.provider = provider
         self.provider?.client = self
         self.pageProvider = pageProvider
@@ -208,15 +208,14 @@ extension ProjectFeedViewController: ProjectFeedClient {
             
             let manager = SDWebImageManager.shared
             manager.loadImage(with: imageUrl, options: [], progress: nil) { [weak self] (image, data, error, cacheType, finished, imageURL) in
-                guard let image = image else {
+                guard image != nil else {
                     // FIXME: Retry this operation
-                    log.e("Failed to download the first image!")
+                    log.e("Failed to download the project's first image!")
                     ProjectImageSize = iPhone5sImageSize
                     self?.addProjects(projects)
                     return
                 }
 
-//                ProjectImageSize = image.proportionalScaledSize(using: MainScreenSizeWidth)
                 ProjectImageSize = CGSize(width: MainScreenSizeWidth, height: 200.0)
                 self?.addProjects(projects)
             }
