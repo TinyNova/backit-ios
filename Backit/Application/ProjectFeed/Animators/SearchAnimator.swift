@@ -44,11 +44,8 @@ class SearchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.bringSubviewToFront(searchView)
         containerView.bringSubviewToFront(searchIconView)
         
-        guard let toSearchIconView = searchController.searchIconView,
-              let finalFrame = toSearchIconView.superview?.convert(toSearchIconView.frame, to: nil) else {
-            return print("failed to get to searchIconView or endFrame")
-        }
-
+        var finalFrame = searchController.searchIconView.frame
+        finalFrame.origin.y = UIApplication.shared.statusBarFrame.size.height
         self.finalFrame = finalFrame
         
         UIView.animate(
@@ -58,7 +55,7 @@ class SearchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             initialSpringVelocity: 0.0,
             animations: {
                 searchController.cancelButton.alpha = 1.0
-                searchIconView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
+                searchIconView.frame = finalFrame
             },
             completion: { _ in
                 searchController.searchIconView.alpha = 1.0

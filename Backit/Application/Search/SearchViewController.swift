@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-private enum RowType {
+private enum SearchRowType {
     case category(Category)
     case subcategory(Category)
     case keyword(String)
@@ -53,7 +53,7 @@ class SearchViewController: UIViewController {
     }
     
     private var theme: UIThemeApplier<AppTheme> = AppTheme.default
-    private var rows: [RowType] = []
+    private var rows: [SearchRowType] = []
     private var projects: [Project] = []
     
     private var searchProvider: ProjectSearchProvider?
@@ -66,9 +66,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO: Animate the search icon to the left
-        // TODO: Animate the cancel button from the button
-        // TODO: Allow the content to be shown through the VC
         
         _ = searchTextField.becomeFirstResponder()
         
@@ -86,7 +83,7 @@ class SearchViewController: UIViewController {
     }
     
     private func updateResult(result: ProjectSearchResult) {
-        var rows = [RowType]()
+        var rows = [SearchRowType]()
         for row in result.categories {
             rows.append(.category(row))
         }
