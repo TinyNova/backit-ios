@@ -2,9 +2,9 @@ import BrightFutures
 import Foundation
 
 enum ProjectSearchProviderError: Error {
-    case generic
+    case generic(Error)
 }
 
 protocol ProjectSearchProvider {
-    func resultsFor(token: String?) -> Future<ProjectSearchResult, ProjectSearchProviderError>
+    func resultsFor(token: String?, hasEarlyBirdRewards: Bool) -> Future<ProjectSearchResult, ProjectSearchProviderError>
 }

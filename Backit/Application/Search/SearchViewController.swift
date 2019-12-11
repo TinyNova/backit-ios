@@ -97,17 +97,17 @@ class SearchViewController: UIViewController {
         self.rows = rows
         tableView.reloadData()
 
-        result.projects.onSuccess { [weak self] (projects) in
+        result.projects.onSuccess { [weak self] (result) in
             guard let sself = self else {
                 return
             }
-            sself.projects = projects
+            sself.projects = result?.projects ?? [Project]()
             sself.tableView.reloadSections([1], with: .automatic)
         }
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
-        searchProvider?.resultsFor(token: textField.text).onSuccess { [weak self] result in
+        searchProvider?.resultsFor(token: textField.text, hasEarlyBirdRewards: true).onSuccess { [weak self] result in
             self?.updateResult(result: result)
         }
     }
@@ -265,9 +265,8 @@ class TinyProjectTableViewCell: UITableViewCell {
 
     func configure(project: Project) {
         let imageWidth = thumbnailImageView.frame.size.width
-        let url = URL(string: "https://s3.amazonaws.com/backit.com/img/test/eric-250.jpg")!
-        // project.imageURLs.first
-        thumbnailImageView.sd_setImage(with: url) { [weak self] (image, error, cacheType, url) in
+//        let url = URL(string: "https://s3.amazonaws.com/backit.com/img/test/eric-250.jpg")!
+        thumbnailImageView.sd_setImage(with: project.imageURLs.first) { [weak self] (image, error, cacheType, url) in
             let projectImage = image?.fittedImage(to: imageWidth)
             self?.thumbnailImageView.image = projectImage
         }

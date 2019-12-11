@@ -252,8 +252,15 @@ class Assembly {
             return AppPhotoAlbumProvider(presenterProvider: presenterProvider)
         }
         
-        container.register(ProjectSearchProvider.self) { _ in
-            return ProjectSearchService()
+        container.register(CategoryProvider.self) { resolver in
+            let service = resolver.resolve(Service.self)!
+            return CategoryService(service: service)
+        }
+        
+        container.register(ProjectSearchProvider.self) { resolver in
+            let service = resolver.resolve(Service.self)!
+            let categoryProvider = resolver.resolve(CategoryProvider.self)!
+            return ProjectSearchService(service: service, categoryProvider: categoryProvider)
         }
         
         container.register(NavigationThemeApplier.self) { _ in
