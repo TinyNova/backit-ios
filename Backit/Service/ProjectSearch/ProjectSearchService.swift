@@ -7,6 +7,8 @@ class ProjectSearchService: ProjectSearchProvider {
     private let categoryProvider: CategoryProvider
     private let transformer: ProjectTransformer
 
+    private var categories: [Category]?
+    
     init(service: Service, categoryProvider: CategoryProvider, transformer: ProjectTransformer = .init()) {
         self.service = service
         self.categoryProvider = categoryProvider
@@ -21,10 +23,21 @@ class ProjectSearchService: ProjectSearchProvider {
         else {
             projectsFuture = Future(value: nil)
         }
+        // Use cached categories
+        if let categories = categories {
+            return Future(value: ProjectSearchResult(
+                categories: filterCategories(categories, using: token),
+                subcategories: [],
+                keywords: [],
+                projects: projectsFuture
+            ))
+        }
+        // Query for categories
         return categoryProvider.categories()
-            .map { (categories) -> ProjectSearchResult in
+            .map { [weak self] (categories) -> ProjectSearchResult in
+                self?.categories = categories
                 return ProjectSearchResult(
-                    categories: [],
+                    categories: filterCategories(categories, using: token),
                     subcategories: [],
                     keywords: [],
                     projects: projectsFuture
@@ -33,13 +46,6 @@ class ProjectSearchService: ProjectSearchProvider {
             .mapError { error -> ProjectSearchProviderError in
                 return .generic(error)
             }
-
-//        return Future(value: ProjectSearchResult(
-//            categories: [Category(id: 1, name: "Board Games")],
-//            subcategories: [],
-//            keywords: [],
-//            projects: Future(value: [Project(id: 1, source: .kickstarter, externalUrl: nil, internalUrl: nil, name: "Starlight", goal: 100, pledged: 50, numBackers: 4, imageURLs: [], videoPreviewURL: nil, videoURL: nil, numEarlyBirdRewards: 5, funded: false, numDaysLeft: 2, numVotes: 4)])
-//        ))
     }
     
     func projectsFor(token: String, hasEarlyBirdRewards: Bool) -> Future<ProjectResult?, Never> {
@@ -56,12 +62,24 @@ class ProjectSearchService: ProjectSearchProvider {
                 return nil
             }
     }
-    
+        
     // TODO: Projects by category and filters
     // TODO: Projects by subcategory and filters
     // TODO: Projects by keyword and filters
     
-    // Keyword is a grouping of the most common types which all projects in the current result set belong to.
+    // Keyword is a grouping of the most common labels returned for a result set. Such that, if they search for "futuristic table top games", and most of those results are tagged with "dystopian", then one of the keywords would be "dystopian".
+}
+
+/// Filter categories for a given search term
+private func filterCategories(_ categories: [Category], using term: String?) -> [Category] {
+    // This should never happen. If it does, it should return the top 3 most searched categories.
+    guard let term = term else {
+        return Array(categories.prefix(3))
+    }
+    let topHitCategories = categories.filter { (category) -> Bool in
+        return category.name.lowercased().contains(term.lowercased())
+    }
+    return Array(topHitCategories.prefix(3))
 }
 
 class ProjectTransformer {

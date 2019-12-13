@@ -10,6 +10,19 @@ class CategoryService: CategoryProvider {
     }
 
     func categories() -> Future<[Category], CategoryProviderError> {
-        return Future(value: [Category(id: 1, name: "Board Games")])
+        let endpoint = CategoriesEndpoint()
+        return service.request(endpoint)
+            .map { (result) -> [Category] in
+                return result.categories.compactMap { (cat) -> Category? in
+                    guard let id = cat.categoryId, let name = cat.name else {
+                        log.w("category has issues: \(cat)")
+                        return nil
+                    }
+                    return Category(id: id, name: name)
+                }
+            }
+            .mapError { (error) -> CategoryProviderError in
+                return .generic(error)
+            }
     }
 }
