@@ -73,6 +73,7 @@ class ProjectSearchService: ProjectSearchProvider {
 /// Filter categories for a given search term
 private func filterCategories(_ categories: [Category], using term: String?) -> [Category] {
     // This should never happen. If it does, it should return the top 3 most searched categories.
+    // TODO: Potentially only filter queries if the term is >= 3 characters.
     guard let term = term else {
         return Array(categories.prefix(3))
     }

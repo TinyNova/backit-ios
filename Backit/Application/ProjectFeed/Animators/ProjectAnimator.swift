@@ -106,6 +106,7 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             projectImageBeginFrame = frame
             _projectImageView = imageView
         }
+        projectImageView = nil // Release image from memory
         
         // MARK: Initialize to view state
         
@@ -168,18 +169,11 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let closeImageView = UIImageView(image: imageView)
         closeImageView.frame = endCloseImageFrame
         
-        if let view = projectImageView,
-           let projectImage = view.image,
-           let cgImage = projectImage.cgImage,
-           let copyCgImage = cgImage.copy() {
-            let copyImage = UIImage(cgImage: copyCgImage)
-            let imageView = UIImageView(image: copyImage)
-            imageView.frame = endProjectImageViewFrame
-            _projectImageView = imageView
+        if let imageView = _projectImageView {
             containerView.addSubview(imageView)
             containerView.bringSubviewToFront(imageView)
         }
-
+        
         fromController.imageView.alpha = 0.0
         fromController.closeImageView.alpha = 0.0
         
@@ -207,6 +201,7 @@ class ProjectAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 closeImageView.removeFromSuperview()
                 currentImageView.removeFromSuperview()
                 self?._projectImageView?.removeFromSuperview()
+                self?._projectImageView = nil
                 transitionContext.completeTransition(true)
             }
         )

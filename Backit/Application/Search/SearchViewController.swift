@@ -290,3 +290,10 @@ class TinyProjectTableViewCell: UITableViewCell {
         }
     }
 }
+
+class SearchOptionCell: UITableViewCell {
+    
+    func configure(title: String, on: Bool) {
+        
+    }
+}
